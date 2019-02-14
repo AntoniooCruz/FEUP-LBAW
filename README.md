@@ -1,6 +1,6 @@
 # LBAW1812
 
-## 4.Event Management
+## 4. Event Management
 
 * António Cruz   - up201603526@fe.up.pt
 * Beatriz Mendes - up201604253@fe.up.pt
