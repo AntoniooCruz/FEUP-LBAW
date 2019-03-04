@@ -242,6 +242,7 @@ h1{
 .ticket{
     border-radius: 10px;
     height: 250px;
+    border: none;
 }
 
 .ticket .card-img-overlay{
@@ -294,4 +295,8 @@ font-size: 14px;
 
 .ticket .header .token{
     margin-left: auto;
+}
+
+.tickets{
+    margin:auto;
 }
