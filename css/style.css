@@ -158,28 +158,28 @@ h1{
 /*--------------------------*/
 /*-------- Sort Nav Bar ---------*/
 /*--------------------------*/
-#sortNav .navbar-text {
+.sortNav .navbar-text {
     color: var(--darkBlue);
 }
 
-#sortNav {
+.sortNav {
     background-color: white !important;
     margin-top: 30px;
     margin-bottom: 5px;
     box-shadow: 0px 1px 0px #888888 !important;
 }
 
-#sortNav .navbar-nav > .nav-item > .nav-link:hover{
+.sortNav .navbar-nav > .nav-item > .nav-link:hover{
     color: var(--darkBlue);
     background-color: white;
     border-radius: 4px;
 
 }
 
-#sortNav .navbar-nav .active>.nav-link, .navbar-brand{
+.sortNav .navbar-nav .active>.nav-link, .navbar-brand{
     color:var(--darkBlue) !important;
 }
-#sortNav .navbar-nav li{
+.sortNav .navbar-nav li{
     display: inline !important;
 }
 
