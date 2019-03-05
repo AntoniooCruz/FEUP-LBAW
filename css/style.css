@@ -243,6 +243,7 @@ h1{
     border-radius: 10px;
     height: 250px;
     border: none;
+    width:18rem;
 }
 
 .ticket .card-img-overlay{
