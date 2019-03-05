@@ -1,11 +1,6 @@
-@import "./style.css";
-
 .event{
+    width: 687px;
     padding: 0
-}
-
-.event img{
-    width:100%;
 }
 
 .eventPhoto{
@@ -16,7 +11,7 @@
 
 .eventRow{
     margin: 5px 0 0 0;
-    padding: 0 2em;
+    padding: 0.8em 1em;
     background-color: white;
     border-radius: 2px;
     box-shadow: 0px 0px 8px #d4d2d2;
@@ -29,206 +24,36 @@
 }
 
 
-.event #floatingLabels{
+.event #privateIndicator{
     position: absolute;
-    top: 10px;
-    right:10px;
-    font-size: 14px;
-}
-
-.event .label{
     right: 20px;
-        color: #f1f1f1;
-    border-radius: 30px;
-    padding: 6px 8px;
-    box-shadow: 0px 0px 2px #4242425e;
+    top: 10px;
     text-transform: uppercase;
     font-size: 12px;
-    font-weight: 100;
+    border: 2px solid #f1f1f1;
+    color: #f1f1f1;
+    border-radius: 30px;
+    padding: 2px 5px;
 }
-
-.event #privateIndicator{
-    background-color: #1c2530b0;
-}
-
-.event #categoryIndicator{
-    background-color: #a1b8cbcf;
-}
-
 
 .event #eventPagedate{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 8px;
+    margin-right: 5px;
     margin-left: 14px;
-    position: relative;
 }
 
 .event #eventPageMonth{
-    font-size: 20px;
-    color: #A1B6C8;
+    font-size: 16px;
+    color:#A1B6C8;
     margin-bottom: -8px;
-    position: absolute;
-    top: 9px;
-    display: flex;
-    font-size: 14px;
 }
 
 .event #eventPageDay{
-    font-size: 30px;
-    padding-top: 27px;
+    font-size: 26px;
 }
 
-.event .eventDate{ 
+.event #created{
     font-size: 13px;
-}
-
-.event .ownerUsername{
-    text-decoration: underline;
-}
-
-.event #titleHeader{
-    padding: 0.8em;
-}
-
-.event .eventYear{
-    color: #bbbbbb;
-    margin-left: 1px;
-}
-
-.event .eventMonth{
-    text-transform: uppercase;
-}
-
-.event .nav-link{
-    padding: 5px 5px 3px 5px;
-    color: #a9a8a8;
-    border-bottom: 3px solid transparent;
-    margin: 0.8em 0 0.8em 0;
-}
-
-.event .nav-pills .nav-link.active{
-    color: #88a845;
-    border-bottom: 3px solid #88a844;
-    border-radius: 0;
-    background: none;
-}
-
-
-.event .justify-content-md-center {
-    justify-content: center!important;
-}
-
- 
-.event .getTicket {
-    padding: 4px 15px !important;
-    margin: 0;
-}
-
-.event .userPic{
-    /* width: 10.6%; */
-    border-radius: 50px;
-}
-
-.event #goingRow, .eventRowPhotos{
-    padding: 1em;
-}
-
-.event .userPhotos{
-    padding: 10px 20px;
-}
-
-@media (min-width: 720px){
-.event .align-self-start {
-    align-self: flex-end!important;
-}
-}
-
-@media (max-width: 720px){
-    .event .col-4 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-}
-
-.event .details{
-    padding:0 2em 2em 2em;
-}
-
-.event .details p, .event .details span{
-    font-size: 14px;
-}
-.event .details p{margin-left: 1.4em;}
-.event .details span{margin-left: 1.1em;}
-.event .details #location{
-    margin-top:2em;
-    display: flex;
-    flex-direction: column;
-} 
-
-.event .details #dateNhours{
-    display: flex;
-    flex-direction: column;
-    padding-right: 1em;
-} 
-
-.fa-slash{
-    transform: rotate(100deg);
-    font-size: 20px;
-}
-
-.event .getTicket{
-    padding-top: 1em;
-    margin-bottom: 1em;
-}
-
-.event #commentPic{
-    padding-right: 0;
-    position: absolute;
-    width: 43px;
-    z-index: 2;
-    left: 20px;
-    top: -22px;
-}
-
-.comment{
-    padding: 0 1em;
-}
-
-.event textarea{
-    border-radius: 5px;
-    border: 2px solid #dedede;
-    padding: 2em;
-}
-
-.event .commentArea{
-    position: relative;
-}
-
-.commentButton{
-    padding: 0px 14px 0px 18px !important;
-    margin: 0;
-    font-size: 29px;
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
-}
-
-.event .commentArea .form-group{
-    padding:0;
-    margin-bottom: 0px;
-}
-
-.event hr{
-    margin: 2em 0;
-}
-
-.event .commentArea .options i{
-    color: var(--lightBlue);
-}
-
-.event .commentArea .options button{
-    border: none;
-    background: none;
 }
