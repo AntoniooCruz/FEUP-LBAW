@@ -6,13 +6,13 @@ img {
   }
 
 .container {
-    background-color: #EBECEC;;
+    background-color: white;
     margin-left: auto;
     margin-right: auto;
 }
 
 .parContainer {
-    background-color: #f7f4f4;
+    background-color: #f1f1f1;
 }
 
 h2, h3, h4, p{
