@@ -15,6 +15,10 @@ img {
     background-color: #f7f4f4;
 }
 
-h2 , p{
+h2, h3, h4, p{
     font-family: 'Roboto Condensed', sans-serif;
+}
+
+h4 {
+    font-size: 100%;
 }
