@@ -14,3 +14,7 @@ img {
 .parContainer {
     background-color: #bfbfbf;
 }
+
+h2 , p{
+    font-family: 'Roboto Condensed', sans-serif;
+}
