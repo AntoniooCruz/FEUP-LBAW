@@ -1,0 +1,98 @@
+#info_row img{
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 5%;
+  }
+
+.container {
+    position: relative;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+}
+
+#follow_button {
+    position: absolute;
+    right: 0;
+    margin-right: 15% !important;
+}
+
+#report_button {
+    position: absolute;
+    right: 0;
+    margin-right: 9% !important;
+    margin-top: 5.5% !important;
+    background: none;
+    border: none;
+    color:red;
+}
+
+#events_container{
+    margin-top: 2%;
+}
+
+#info_row {
+    padding-top: 8em;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.parContainer {
+    background-color: #f1f1f1;
+}
+
+h2, h3, h4, p{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h3 {
+    font-size: 120%;
+}
+
+h4 {
+    font-size: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    #info_row img {
+        max-width: 150px;
+        max-height: auto;
+    }
+
+    #profile_container{
+        width: 100%;
+    }
+
+    #events_container{
+        width: 100%;
+    }
+  }
+
+  @media (max-width: 576px){
+    #followers, #following, #events {
+        margin-top: 0 !important;
+        font-size: 80%;
+    }
+
+   #info_row img{
+       max-width: 100%;
+   }
+}
+
+@media (min-width: 576px){
+
+    #profile_container {
+        max-width: 100%;
+      }
+   
+      #events_container {
+       max-width: 100%;
+     }
+}
+
+.fa-check-circle {
+    color: #79AF41;
+    font-size: 25px !important;
+}
