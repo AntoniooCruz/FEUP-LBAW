@@ -176,7 +176,12 @@ h1{
 
 }
 
-.sortNav .navbar-nav .active>.nav-link, .navbar-brand{
+.sortNav .nav .nav-item a.active{
+    color:var(--darkBlue) !important;
+    background-color: white !important;
+}
+
+.navbar-brand {
     color:var(--darkBlue) !important;
 }
 .sortNav .navbar-nav li{
