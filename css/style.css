@@ -256,3 +256,7 @@ h1{
     justify-content: center;
     margin-bottom:1em;
 }
+
+.roundPic{
+    border-radius: 50px;
+}
