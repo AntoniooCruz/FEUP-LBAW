@@ -31,6 +31,13 @@
     background-color: white;
 }
 
+.progress-bar {
+    border-radius: 12px;
+}
+.progress span {
+    margin-left: 5px;
+}
+
 @media only screen and (max-width: 1000px) {
 .actionCard {
     width: 100%;
