@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed');
+
+
+
+.myinvites .card-event-desc p {
+    margin-bottom: 0;
+}
+
+
+
+.myinvites {
+    width: 90%;
+}
+
+.invitation {
+    justify-content: center;
+}
+

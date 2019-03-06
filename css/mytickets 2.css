@@ -1,0 +1,7 @@
+#ticketNavContainer {
+    width: 85%;
+}
+
+#tickets .row {
+    justify-content: center;
+}
