@@ -10,13 +10,23 @@
     background-color: white;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 55%;
 }
 
-#edit_profile {
+#follow_button {
     position: absolute;
     right: 0;
-    margin-right: 10% !important;
+    margin-right: 15% !important;
+}
+
+#report_button {
+    position: absolute;
+    right: 0;
+    margin-right: 9% !important;
+    margin-top: 5.5% !important;
+    background: none;
+    border: none;
+    color:red;
 }
 
 #events_container{
