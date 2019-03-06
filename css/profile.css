@@ -81,3 +81,8 @@ h4 {
        max-width: 100%;
      }
 }
+
+.fa-check-circle {
+    color: #79AF41;
+    font-size: 25px !important;
+}
