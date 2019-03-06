@@ -74,8 +74,8 @@
   <section class="event container">
     <div class="eventPhoto justify-content-md-center">
       <div id="floatingLabels">
-      <span id="privateIndicator" class="label"> Private</span>
-      <span id="categoryIndicator" class="label"> Category</span>
+        <span id="privateIndicator" class="label"> Private</span>
+        <span id="categoryIndicator" class="label"> Category</span>
       </div>
       <img src="../img/eventbanner.jpg">
     </div>
@@ -95,38 +95,40 @@
           </div>
         </div>
 
-      </div> 
+      </div>
     </div>
     <div class="eventRow details">
       <div class="row getTicket justify-content-end">
         <button class="btn btn-primary" type="button" aria-expanded="false">
-            <i class="fas fa-ticket-alt"></i> 10,50€</i>
-          </button>
-        </div>
-        <div class="row">
-      <div class="col-4">
-        <div id="dateNhours">
-          <h6><i class="far fa-calendar-alt"></i> Date & Hours</h6>
-          <span>03 de Marcço 2019</span>
-          <span>14h30 - 16h30</span>
-        </div>  
+          <i class="fas fa-ticket-alt"></i> 10,50€</i>
+        </button>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div id="dateNhours">
+            <h6><i class="far fa-calendar-alt"></i> Date & Hours</h6>
+            <span>03 de Marcço 2019</span>
+            <span>14h30 - 16h30</span>
+          </div>
 
-        <div id="location">
-          <h6><i class="fas fa-map-marker-alt"></i> Location</h6>
-          <span>Estrada da Circunvalação 7642, 4200-162</span>
-          <span>Porto</span>
-        </div>  
+          <div id="location">
+            <h6><i class="fas fa-map-marker-alt"></i> Location</h6>
+            <span>Estrada da Circunvalação 7642, 4200-162</span>
+            <span>Porto</span>
+          </div>
+        </div>
+        <div class="col">
+          <h6><i class="fas fa-info-circle"></i> Description</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at orci mattis tellus consectetur molestie
+            vel
+            at velit. Praesent tristique arcu eu scelerisque pretium. Nam metus metus, tristique quis consequat non,
+            cursus eget tortor.
+            Aliquam nibh tortor, efficitur quis volutpat eget, pharetra id purus. Aenean vestibulum
+            leo nisi, sit amet fringilla nulla egestas et. In hac habitasse platea dictumst. Ut viverra libero nec
+            mauris
+            finibus lobortis. </p>
+        </div>
       </div>
-      <div class="col">
-        <h6><i class="fas fa-info-circle"></i> Description</h6>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at orci mattis tellus consectetur molestie vel
-          at velit. Praesent tristique arcu eu scelerisque pretium. Nam metus metus, tristique quis consequat non,
-          cursus eget tortor.
-          Aliquam nibh tortor, efficitur quis volutpat eget, pharetra id purus. Aenean vestibulum
-          leo nisi, sit amet fringilla nulla egestas et. In hac habitasse platea dictumst. Ut viverra libero nec mauris
-          finibus lobortis. </p>
-      </div>
-    </div>
     </div>
 
     <div class="col text-right align-self-start ">
@@ -134,31 +136,31 @@
     <div id="#goingRow" class="eventRow eventRowPhotos">
       <div class="row userPhotos justify-content-end">
         <div class="lotation col align-self-center">
-            <span id="lotationGoing">86</span>
-            <i class="fas fa-slash"></i>
-            <span id="lotationMax">200</span>
+          <span id="lotationGoing">86</span>
+          <i class="fas fa-slash"></i>
+          <span id="lotationMax">200</span>
         </div>
         <div class="col-7">
-            <h7> Going (<span id="#peopleGoing">82</span>) • Friends (<span id="#friendsGoing">82</span>)</h7>
+          <h7> Going (<span id="#peopleGoing">82</span>) • Friends (<span id="#friendsGoing">82</span>)</h7>
 
           <div class="row">
             <div class="col-2">
-                <img class="userPic" src="../img/user.jpg">
+              <img class="userPic" src="../img/user.jpg">
             </div>
             <div class="col-2">
-                <img class="userPic" src="../img/user.jpg">
+              <img class="userPic" src="../img/user.jpg">
             </div>
             <div class="col-2">
-                <img class="userPic" src="../img/user.jpg">
+              <img class="userPic" src="../img/user.jpg">
             </div>
             <div class="col-2">
-                <img class="userPic" src="../img/user.jpg">
+              <img class="userPic" src="../img/user.jpg">
             </div>
             <div class="col-2">
-                <img class="userPic" src="../img/user.jpg">
+              <img class="userPic" src="../img/user.jpg">
             </div>
             <div class="col-2">
-                <img class="userPic" src="../img/user.jpg">
+              <img class="userPic" src="../img/user.jpg">
             </div>
           </div>
         </div>
@@ -168,8 +170,31 @@
       </div>
     </div>
 
+    <hr>
 
+    <div class="commentArea">
+      <img id="commentPic" class="roundPic" src="../img/user.jpg">
+      <div class="comment row">
+        <div class="col-12 form-group">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Say something..."></textarea>
+        </div>
+        <div class="options">
+            <button class="" type="button" aria-expanded="false">
+                <i class="fas fa-poll-h"></i>
+            </button>
+            <button class="" type="button" aria-expanded="false">
+                <i class="fas fa-cloud-upload-alt"></i>
+            </button>
+        </div>
+      </div>
 
+      <button class="commentButton btn btn-primary" type="button" aria-expanded="false">
+        <i class="fas fa-caret-right"></i>
+      </button>
+
+    </div>
+
+    <hr>
   </section>
 </body>
 
@@ -185,4 +210,4 @@
               </div>
           </div>
       </div>-->
-    </div>
+</div>
