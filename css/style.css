@@ -187,6 +187,9 @@ h1{
 .sortNav .navbar-nav li{
     display: inline !important;
 }
+.sortNav a {
+    color: var(--lightBlue);
+}
 
 /*buttons*/
 .btn{
