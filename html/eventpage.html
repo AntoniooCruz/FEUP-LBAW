@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/circle.css">
   <link rel="stylesheet" href="../css/eventpage.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
     crossorigin="anonymous">
@@ -50,9 +51,20 @@
         <li class="nav-item"></li>
         <i class="nav-link fas fa-plus-square"></i>
         </li>
-        <li id="dropdown" class="nav-item">
-          <img src="../img/user.jpg" width="30" height="30">
-          <i class="fas fa-caret-down"></i>
+        <li id="dropdown" class="dropdown nav-item">
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+
+          <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <img src="../img/user.jpg" width="30" height="30">
+          </button>
+        </li>
+        <li>
+
         </li>
       </ul>
     </div>
@@ -60,21 +72,117 @@
 
 
   <section class="event container">
-    <div class="row eventPhoto justify-content-md-center">
-      <span id="privateIndicator"> Private</span>
-      <img src="../img/eventbanner.jpg" width="687" height="326">
+    <div class="eventPhoto justify-content-md-center">
+      <div id="floatingLabels">
+      <span id="privateIndicator" class="label"> Private</span>
+      <span id="categoryIndicator" class="label"> Category</span>
+      </div>
+      <img src="../img/eventbanner.jpg">
     </div>
-    <div class="row eventRow header align-items-center">
-      <div id="eventPagedate" class="col-xs">
-        <span id="eventPageMonth">Mar</span>
-        <span id="eventPageDay">03</span>
+
+    <div class="eventRow">
+      <div class="row header">
+        <div id="eventPagedate" class="col-xs align-self-center">
+          <div id="eventPageMonth">
+            <span class="eventMonth">Mar</span>
+          </div>
+          <span id="eventPageDay">03</span>
+        </div>
+        <div id="titleHeader" class="col">
+          <h2 id="eventTitle">Lorem Ipsum Lorem Ipsum Lorem Ipsum</h2>
+          <div>
+            <span id="#created" class="eventDate">Created by <span class="ownerUsername">usernam123</span></span>
+          </div>
+        </div>
+
+      </div> 
+    </div>
+    <div class="eventRow details">
+      <div class="row getTicket justify-content-end">
+        <button class="btn btn-primary" type="button" aria-expanded="false">
+            <i class="fas fa-ticket-alt"></i> 10,50€</i>
+          </button>
+        </div>
+        <div class="row">
+      <div class="col-4">
+        <div id="dateNhours">
+          <h6><i class="far fa-calendar-alt"></i> Date & Hours</h6>
+          <span>03 de Marcço 2019</span>
+          <span>14h30 - 16h30</span>
+        </div>  
+
+        <div id="location">
+          <h6><i class="fas fa-map-marker-alt"></i> Location</h6>
+          <span>Estrada da Circunvalação 7642, 4200-162</span>
+          <span>Porto</span>
+        </div>  
       </div>
       <div class="col">
-        <h2 id="eventTitle">Lorem Ipsum</h2>
-        <span id="created">Created by usernam123</span>
+        <h6><i class="fas fa-info-circle"></i> Description</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at orci mattis tellus consectetur molestie vel
+          at velit. Praesent tristique arcu eu scelerisque pretium. Nam metus metus, tristique quis consequat non,
+          cursus eget tortor.
+          Aliquam nibh tortor, efficitur quis volutpat eget, pharetra id purus. Aenean vestibulum
+          leo nisi, sit amet fringilla nulla egestas et. In hac habitasse platea dictumst. Ut viverra libero nec mauris
+          finibus lobortis. </p>
       </div>
     </div>
+    </div>
+
+    <div class="col text-right align-self-start ">
+    </div>
+    <div id="#goingRow" class="eventRow eventRowPhotos">
+      <div class="row userPhotos justify-content-end">
+        <div class="lotation col align-self-center">
+            <span id="lotationGoing">86</span>
+            <i class="fas fa-slash"></i>
+            <span id="lotationMax">200</span>
+        </div>
+        <div class="col-7">
+            <h7> Going (<span id="#peopleGoing">82</span>) • Friends (<span id="#friendsGoing">82</span>)</h7>
+
+          <div class="row">
+            <div class="col-2">
+                <img class="userPic" src="../img/user.jpg">
+            </div>
+            <div class="col-2">
+                <img class="userPic" src="../img/user.jpg">
+            </div>
+            <div class="col-2">
+                <img class="userPic" src="../img/user.jpg">
+            </div>
+            <div class="col-2">
+                <img class="userPic" src="../img/user.jpg">
+            </div>
+            <div class="col-2">
+                <img class="userPic" src="../img/user.jpg">
+            </div>
+            <div class="col-2">
+                <img class="userPic" src="../img/user.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="col-3 align-self-end">
+          <div>+<span>10</span></div> friends going
+        </div>
+      </div>
+    </div>
+
+
+
   </section>
 </body>
 
 </html>
+
+
+<!--<div class="clearfix">
+          <div class="c100 p30 small">
+              <span>30%</span>
+              <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+              </div>
+          </div>
+      </div>-->
+    </div>
