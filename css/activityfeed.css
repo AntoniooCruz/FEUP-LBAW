@@ -4,10 +4,11 @@
     object-fit: cover;
     height: 100px;
     width: auto;
+    border-radius: 0;
 }
 
 .actionCard {
-    margin-top: 10px;
+    margin-bottom: 30px;
     width: 45%;
     max-width: 600px;
 }
@@ -36,14 +37,16 @@
 
 .form-check {
     background-color: white;
+    padding-top: 7px;
 }
 
 .progress-bar {
-    border-radius: 12px;
+    border-radius: 50px;
 }
 
 .progress span {
     margin-left: 5px;
+    padding-top: 7px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -55,7 +58,8 @@
 
 
 .card .header {
-    padding: 2px 1.25rem;
+    padding: 0.5em 1.25rem;
+    font-size: 14px;
 }
 
 .bg-info {
@@ -64,8 +68,32 @@
 
 .progress {
     background: white;
+    height: 1.8rem;
 }
 
 .card .poll {
     padding: 1em 2em;
+}
+
+.actionCard .card-body{
+    padding:2em 1em;
+}
+
+.actionCard .card-body p{
+    margin:0;
+}
+
+.actionCard .card-body h5{
+    margin:0;
+    font-size: 16px;
+    padding: 0 2em;
+}
+
+.actionCard .card-body .pollOption{
+    font-size: 12px;
+}
+
+#feed{
+    margin-top:2em;
+    
 }
