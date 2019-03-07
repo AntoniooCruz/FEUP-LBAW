@@ -127,3 +127,7 @@ h4 {
 .stats .col-sm-3{
     margin-top: 1rem!important;
 }
+
+#events_container .invite{
+    margin:auto;
+}
