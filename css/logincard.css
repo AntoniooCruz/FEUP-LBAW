@@ -44,7 +44,7 @@ body{
 .login .nav-pills .nav-link.active{ background: none;}
 
 .login .nav-pills .nav-link.active,.login .nav-pills .nav-link:hover{
-    color:var(--lightBlue);
+    color:var(--darkBlue);
 }
 
 .login .nav-pills .nav-link{
