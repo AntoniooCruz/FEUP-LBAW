@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed');
 
 #event-card-body {
-    padding:0;
+    padding: 10px 20px;
 }
 
 #attending-event{
@@ -14,6 +14,10 @@
     font-size: 12px;
     color: var(--lightGrey);
     padding: 2px 20px 0px 0px;
+}
+
+.invite{
+    max-width: 500px;
 }
 
 .card-title#card-event-name{
@@ -46,20 +50,13 @@
     margin-left: 14px;
 }
 
-.eventRow{
-    margin: 5px 0 0 0;
-    padding: 0.8em 1em;
-    background-color: white;
-    border-radius: 2px;
-    box-shadow: 0px 0px 8px #d4d2d2;
-}
 
 #event-card-title{
     padding: 0;
     font-family: 'Roboto Condensed', sans-serif;
     
     margin-left: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 #event-card-month{
@@ -81,6 +78,8 @@
 .event-card-footer {
     display: flex;
     margin:auto;
+    font-size: 12px;
+
 }
 
 .invite-card {
@@ -104,6 +103,7 @@
 
 .dot-separator{
     padding: 0px 6px;
+    margin: 0;
 }
 
 .myinvites {
@@ -116,24 +116,107 @@
 
 .event-card-user-photo{
     border-radius: 20px;
-    padding: 2px;
-
+    margin-right: -10px !important;
+    margin: 0;
+    border: 2px solid white;
 }
 
 #event-card-invite{
-    position: inherit;
-    border-radius: 20px;
-    font-size: 8px;
-    padding: 8px 10px;
+    font-size:20px;
+    color: #79af43;
 }
 
 #event-card-number-attending{
-    position: inherit;
     border-radius: 50px;    
     font-size: 8px;
     padding: 8px 8px;
+    background: black;
 }
 
 #event-card-people-attending{
     float:right;
+}
+
+.event{
+    padding: 0
+}
+
+.event img{
+    width:100%;
+}
+
+.eventPhoto{
+    margin: 0;
+    border-radius: 2px;
+    position: relative;
+}
+
+.eventTitle{
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: auto;
+}
+
+
+
+.eventPagedate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 8px;
+    margin-left: 14px;
+    position: relative;
+}
+
+.eventPageMonth{
+    font-size: 20px;
+    color: #A1B6C8;
+    margin-bottom: -8px;
+    position: absolute;
+    top: -6px;
+    display: flex;
+    font-size: 14px;
+}
+
+.eventPageDay{
+    font-size: 20px;
+    padding-top: 8px;
+}
+
+.event .eventDate{ 
+    font-size: 13px;
+}
+
+.event .ownerUsername{
+    text-decoration: underline;
+}
+
+.event #titleHeader{
+    padding: 0.8em;
+}
+
+.event .eventYear{
+    color: #bbbbbb;
+    margin-left: 1px;
+}
+
+.event .eventMonth{
+    text-transform: uppercase;
+}
+
+
+
+.event .justify-content-md-center {
+    justify-content: center!important;
+}
+
+.cardTitle{
+    padding-left: 8px;
+    padding-right: 0;
+}
+
+@media (max-width: 768px){
+.text-right {
+    text-align: left!important;
+}
 }
