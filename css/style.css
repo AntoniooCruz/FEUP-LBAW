@@ -8,6 +8,8 @@ body{
     --offWhite:#EBECEC;
 
     font-family: 'Roboto', sans-serif;
+
+    background-color: #f1f1f1;
  }
 
 html,body{
@@ -329,4 +331,8 @@ font-size: 14px;
 
 .tickets{
     margin:auto;
+}
+
+.card{
+    box-shadow: 0px 0px 5px #cecacaad;
 }
