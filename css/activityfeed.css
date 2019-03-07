@@ -72,11 +72,11 @@
 }
 
 .card .poll {
-    padding: 1em 2em;
+    padding: 1em 1em 0 1em;
 }
 
 .actionCard .card-body{
-    padding:2em 1em;
+    padding:2em;
 }
 
 .actionCard .card-body p{
@@ -86,7 +86,7 @@
 .actionCard .card-body h5{
     margin:0;
     font-size: 16px;
-    padding: 0 2em;
+    padding: 0 1em;
 }
 
 .actionCard .card-body .pollOption{
@@ -97,3 +97,4 @@
     margin-top:2em;
     
 }
+
