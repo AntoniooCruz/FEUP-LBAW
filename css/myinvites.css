@@ -18,6 +18,8 @@
 
 .invite{
     max-width: 500px;
+    min-width: 300px;
+    
 }
 
 .card-title#card-event-name{
