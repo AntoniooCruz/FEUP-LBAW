@@ -18,6 +18,7 @@
     <title>RainCheck</title>
 </head>
 <body>
+    <div id="background"></div>
     <section id="login"> 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#"> <img src="../img/icon.png" width="31,83" height="24,92"></a>
@@ -34,7 +35,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./mainpage.html">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="./about.html">About</a>
                     </li>
                     <li class="nav-item">
@@ -50,7 +51,7 @@
         
         <div class="login container">
             <div class="row">
-                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div id="main_container" class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                     <div class="card card-signin my-5">
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
@@ -76,7 +77,7 @@
                                 </div>
 
                                 <span id="register-link">Don't have an account?<a id="registerbtn" href="./register.html">Register</a></span>
-                                <button id="loginbtn" class="btn btn-lg btn-secondary btn-block" type="submit">Login</button>
+                                <button id="loginbtn" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
                                 <button id="googlebtn" class="btn btn-lg btn-outline-secondary btn-block" type="submit"> Continue with <i class="fab fa-google"></i></button>
 
                             </form>

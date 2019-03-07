@@ -8,6 +8,19 @@ body{
     font-family: 'Roboto', sans-serif;
  }
 
+ body {
+     background-color: var(--lightBlue);
+ }
+
+ #background {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 50%;
+    background-color: var(--darkBlue);
+}
+
 .card-header{
     background: none;
 }
@@ -21,6 +34,13 @@ body{
     max-width: 380px;
 }
 
+#login .navbar {
+    box-shadow: none !important;
+}
+
+#login {
+    z-index: 2;
+}
 .login .nav-pills .nav-link.active{ background: none;}
 
 .login .nav-pills .nav-link.active,.login .nav-pills .nav-link:hover{
