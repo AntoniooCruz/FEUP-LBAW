@@ -1,3 +1,5 @@
+@import "./style.css";
+
 .actionCard img {
     object-fit: cover;
     height: 100px;
@@ -7,10 +9,11 @@
 .actionCard {
     margin-top: 10px;
     width: 45%;
+    max-width: 600px;
 }
 
 .description .userAction {
-    height: 50px;
+    height: 25px;
     width: auto;
     border-radius: 50%;
     margin-right: 10px;
@@ -18,15 +21,19 @@
 
 .description {
     display: inline-flex;
+    align-items: center;
 }
 
 .card-title {
-    padding: 10px;
+    padding: 5px 0;
+    margin: 0;
 }
+
 .form-check input[type=radio] {
     margin-top: 0.1rem;
     margin-left: -1rem;
 }
+
 .form-check {
     background-color: white;
 }
@@ -34,13 +41,31 @@
 .progress-bar {
     border-radius: 12px;
 }
+
 .progress span {
     margin-left: 5px;
 }
 
 @media only screen and (max-width: 1000px) {
-.actionCard {
-    width: 100%;
+    .actionCard {
+        width: 100%;
+    }
+
 }
-  
+
+
+.card .header {
+    padding: 2px 1.25rem;
+}
+
+.bg-info {
+    background-color: #96b1c5 !important;
+}
+
+.progress {
+    background: white;
+}
+
+.card .poll {
+    padding: 1em 2em;
 }
