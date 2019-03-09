@@ -31,8 +31,9 @@
 }
 
 .form-check {
-    background-color: white;
-    padding-bottom: 7px;
+    background-color: #96b1c5;
+    padding: 7px 0 5px 30px;
+    border-radius: 50px 0 0 50px;
 }
 
 .progress-bar {
@@ -94,8 +95,7 @@
     
 }
 
-.form-radio
-{
+.form-radio{
      -webkit-appearance: none;
      -moz-appearance: none;
      appearance: none;
@@ -113,21 +113,21 @@
      outline: none;
      margin-top: 0 !important;
 }
-.form-radio:checked::before
-{
-     position: absolute;
-     font: 13px/1 'Open Sans', sans-serif;
-     left: 9px;
-     top: 6px;
-     content: '\02143';
-     transform: rotate(40deg);
+.form-radio:checked::before{
+    position: absolute;
+    font: 11px/1 'Open Sans', sans-serif;
+    left: 15px;
+    top: 7px;
+    content: '\02143';
+    transform: rotate(40deg);
 }
-.form-radio:hover
-{
-     background-color: #f7f7f7;
-}
-.form-radio:checked
-{
+.form-radio:hover,.form-radio:checked{
      background-color: #f1f1f1;
 }
 
+.card input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+    height: 15px;
+    width: 15px;
+}
