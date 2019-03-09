@@ -131,3 +131,8 @@
     height: 15px;
     width: 15px;
 }
+
+.card-body i {
+    font-size: 3rem;
+    margin: 10px;
+}
