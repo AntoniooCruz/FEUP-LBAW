@@ -1,5 +1,8 @@
 @import "./style.css";
-h2, h3, h4{
+
+h2,
+h3,
+h4 {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -17,163 +20,173 @@ h4 {
 #follow_button {
     margin: 0 !important;
     font-size: 12px;
-    padding:5px 10px !important;
+    padding: 5px 10px !important;
 }
 
-strong{
+strong {
     font-size: 14px;
 }
 
-small{
+small {
     font-size: 10px;
 }
 
-.parContainer{
+.parContainer {
     margin: 0;
     width: 100%;
 }
 
-#profile_content{
-box-shadow: var(--box-shadow);
+#profile_content {
+    box-shadow: var(--box-shadow);
 }
 
-#events_container{
-padding: 0 1em;
+#events_container {
+    padding: 0 1em;
 }
 
 
-@media (max-width: 992px){
-    #profile_container{
+@media (max-width: 992px) {
+    #profile_container {
         margin: 2em 0em !important;
-        }
-   
+    }
 
-    #events_container{
+
+    #events_container {
         margin-left: 0em !important;
         padding: 0;
 
-        }
+    }
 }
 
-@media (min-width: 992px){
-    #profile_container{
-        margin: 2em 1em 0 auto !important;  
+@media (min-width: 992px) {
+    #profile_container {
+        margin: 2em 1em 0 auto !important;
         padding: 0;
-  
+
     }
 
-    #events_container{
+    #events_container {
         margin: 5.4em auto 0 1em !important;
-        
+
     }
 }
 
 
 
-#profile_container img{
+#profile_container img {
     width: 60%;
     border-radius: 100px;
     max-width: 140px;
-    margin-bottom: -30%;
-    border:2px solid var(--lightBlue);
-    position:relative;
-    z-index:3;
+    margin-bottom: -5em;
+    border: 2px solid var(--lightBlue);
+    position: relative;
+    z-index: 3;
 }
 
-#profile_content{
+#profile_content {
     position: relative;
     background-color: white;
-    padding-top: 45%; 
-    padding-bottom: 1rem; 
+    padding-top: 8rem;
+    padding-bottom: 1rem;
     border-radius: 4px;
+    max-width: 400px;
+    margin: auto;
 
 }
 
 
 
-#profile_content #name{
+#profile_content #name {
     margin: 0 1.5rem;
 
 }
 
-#profile_content #name .col{
+#profile_content #name .col {
     padding: 0;
 
 }
 
-#profile_content #username{
-    margin: 0 1.5rem;
+#profile_content #username {
     font-size: 14px;
 
 }
 
-.row{
-    margin:0;
+.row {
+    margin: 0;
 }
 
-#profile_content #description{
+#profile_content #description {
     font-size: 12px;
     margin: 1rem 1.5rem;
-    color:#444444;
+    color: #444444;
 }
 
-@media (min-width: 992px){
-.parContainer .col-lg-3 {
-    flex: 0 0 20% !important;
-    max-width: 20%!important;
-}
+@media (min-width: 992px) {
+    .parContainer .col-lg-3 {
+        flex: 0 0 20% !important;
+        max-width: 20% !important;
+    }
 }
 
-#followers,#following,#events{
+#followers,
+#following,
+#events {
     display: flex;
     flex-direction: column;
-    padding:0;
+    padding: 0;
 }
 
 
 
-#follow{
-    padding:0;
-}
-#following{
-padding-left: 5px;
+#follow {
+    padding: 0;
 }
 
-.stats{
-    margin:1rem ;
+#following {
+    padding-left: 5px;
 }
 
-#profile_content #header{
-    padding: 18%;
+.stats {
+    margin: 1rem;
+}
+
+#profile_content #header {
+    padding: 3em;
     background-color: var(--lightBlue);
     position: absolute;
     width: 100%;
-    left:0;
-    top:0;
-    border-radius: 4px  4px 0 0;
+    left: 0;
+    top: 0;
+    border-radius: 4px 4px 0 0;
 }
 
-#profile_content hr{
+#profile_content hr {
     margin: 1.5rem;
 }
 
-#events_container h3{
+#events_container h3 {
     margin: 0 15px;
     border-bottom: 1px solid var(--darkBlue);
     padding-bottom: 8px;
-    color:var(--darkBlue);
+    color: var(--darkBlue);
 }
 
-#tickets-button{
-width: 100%;
-border-radius: 4px;
-font-size: 14px;
-padding: 0.5rem 0 !important;
-margin-top: 0.25rem !important;
-box-shadow: var(--box-shadow);
+#events_container .invite{
+    margin:auto;
 }
 
-.fa-flag{
+#tickets-button {
+    width: 100%;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 0.5rem 0 !important;
+    margin-top: 0.25rem !important;
+    box-shadow: var(--box-shadow);
+    max-width: 400px;
+    margin: auto;
+}
+
+.fa-flag {
     position: absolute;
     top: 0.8rem;
     right: 1rem;
