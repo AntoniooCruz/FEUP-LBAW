@@ -1,10 +1,14 @@
 @import "./style.css";
 
-.actionCard img {
+#headerPic {
     object-fit: cover;
     height: 100px;
     width: auto;
     border-radius: 0;
+}
+
+.actionCard .invite {
+    max-width: 650px;
 }
 
 .actionCard {
@@ -14,24 +18,25 @@
 }
 
 .description .userAction {
-    height: 25px;
+    height: 35px;
     width: auto;
     border-radius: 50%;
     margin-right: 10px;
 }
 
 .description {
-    display: inline-flex;
-    align-items: center;
+    display: flex;
+    align-items: start;
+        padding: 0.5em 0.8rem 0.5em 1.25rem;
+        font-size: 14px;
 }
 
 .card-title {
-    padding: 5px 0;
     margin: 0;
 }
 
 .form-check {
-    background-color: #96b1c5;
+    background-color: #c6d3dc;
     padding: 7px 0 5px 30px;
     border-radius: 50px 0 0 50px;
 }
@@ -42,8 +47,17 @@
 }
 
 .progress span {
-    margin-left: 5px;
-    padding-top: 7px;
+    position: absolute;
+    padding-top: 5px;
+}
+
+.actionCard .card-body .pollOption {
+    font-size: 13px;
+    margin-left: 3em;
+}
+
+.actionCard .card-body .pollPerc {
+    right:1em;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -53,67 +67,62 @@
 
 }
 
-
-.card .header {
-    padding: 0.5em 1.25rem;
-    font-size: 14px;
-}
-
 .bg-info {
-    background-color: #96b1c5 !important;
+    background-color: #c6d3dc !important;
 }
 
 .progress {
-    background: white ;
+    background: #f1f1f1;
+    border-radius: 50px;
     height: 1.8rem;
+    margin-bottom: 1em;
+    position: relative;
+    max-width: 400px;
 }
 
-.card .poll {
-    padding: 1em 1em 0 1em;
+.card .poll {margin:1.5em 0;}
+
+.actionCard .card-body {
+    padding: 1em 2em;
+    font-size: 14px;
 }
 
-.actionCard .card-body{
-    padding:2em;
+.actionCard .card-body p {
+    margin: 0;
 }
 
-.actionCard .card-body p{
-    margin:0;
-}
-
-.actionCard .card-body h5{
-    margin:0;
+.actionCard .card-body h5 {
+    margin: 0;
     font-size: 16px;
-    padding: 0 1em;
 }
 
-.actionCard .card-body .pollOption{
-    font-size: 12px;
+
+
+#feed {
+    margin-top: 2em;
+
 }
 
-#feed{
-    margin-top:2em;
-    
+.form-radio {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    background-color: #f1f1f1;
+    color: #666;
+    top: 10px;
+    height: 25px;
+    width: 25px;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 7px;
+    outline: none;
+    margin-top: 0 !important;
 }
 
-.form-radio{
-     -webkit-appearance: none;
-     -moz-appearance: none;
-     appearance: none;
-     display: inline-block;
-     position: relative;
-     background-color: #f1f1f1;
-     color: #666;
-     top: 10px;
-     height: 25px;
-     width: 25px;
-     border: 0;
-     border-radius: 50px;
-     cursor: pointer;     
-     margin-right: 7px;
-     outline: none;
-     margin-top: 0 !important;
-}
-.form-radio:checked::before{
+.form-radio:checked::before {
     position: absolute;
     font: 11px/1 'Open Sans', sans-serif;
     left: 15px;
@@ -121,8 +130,10 @@
     content: '\02143';
     transform: rotate(40deg);
 }
-.form-radio:hover,.form-radio:checked{
-     background-color: #f1f1f1;
+
+.form-radio:hover,
+.form-radio:checked {
+    background-color: #f1f1f1;
 }
 
 .card input[type=radio] {
@@ -132,105 +143,171 @@
     width: 15px;
 }
 
-.card-body i {
-    font-size: 3rem;
-    margin: 10px;
-}
 
-.carousel{
+.carousel {
     box-shadow: 0px 0px 5px #cecacaad;
 
 }
 
-.carousel img{
-    height:200px;
+.carousel img {
+    height: 200px;
     object-fit: cover;
 }
 
 .carousel .col-3 {
     display: inline-block;
-  float: none;
+    float: none;
 }
 
 
-#carousel-container .row{
+#carousel-container .row {
     overflow-x: auto;
-  white-space: nowrap;
+    white-space: nowrap;
 }
 
-#carousel-container{
+#carousel-container {
     padding: 10px 0 1em 0;
-    margin-bottom: 4em;
     max-width: 90%;
 
 }
-#carousel-container h4{
+
+#carousel-container h4 {
     margin: 0 1.5em;
     text-transform: uppercase;
     font-size: 14px;
-    display:flex;
-      flex-direction: column;
-      padding-bottom: 8px;
-      align-items: center;
-      color: var(--lightBlue);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px;
+    align-items: center;
+    color: var(--lightBlue);
 }
 
-#carousel-container hr{
+#carousel-container hr {
     margin: 2em 0;
 }
 
-.card--content img{
-    height:300px;
+.card--content img {
+    height: 300px;
     object-fit: cover;
     min-width: 30vw;
-    border-radius: 4px;
+    border-radius: 2px;
 
 }
 
-.card--content{
-    margin-right:5px;
+.card--content {
+    margin-right: 5px;
+    background-color: var(--darkBlue);
+    position: relative;
 }
 
-#carousel-container .card {
+#carousel-container .c {
     max-width: 100%;
     min-height: 200px;
     background: transparent;
     border: none;
     border-radius: 0;
-    box-shadow:none;
-    margin:0 auto;
-  }
-
-  #highlights{
-      margin:1em 5px;
-      
-  }
-
-  #highlights hr{
-    margin-top:0;
-    
+    box-shadow: none;
+    margin: 0 auto;
 }
 
-  #carousel-container .card {display: flex;
+#highlights {
+    margin: 1em 5px;
+
+}
+
+#highlights hr {
+    margin-top: 0;
+
+}
+
+#carousel-container .c {
+    display: flex;
     flex-direction: row;
-    overflow-x: auto;}
+    overflow-x: auto;
+}
 
 
-    .card--content img:hover{
-        visibility: visible;
-    }
-    
-    .card--content img:hover{
-        opacity: 0.3;
-        filter: alpha(opacity=50); /* For IE8 and earlier */
-        -webkit-transition: opacity .5s ease-in-out;
-        -moz-transition: opacity .5s ease-in-out;
-        -ms-transition: opacity .5s ease-in-out;
-        -o-transition: opacity .5s ease-in-out;
-        transition: opacity .5s ease-in-out;
-    }    
+.card--content:hover img {
+    visibility: visible;
+}
+
+.card--content:hover img {
+    opacity: 0.3;
+    filter: alpha(opacity=50);
+    /* For IE8 and earlier */
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+}
 
 
-    hr{
-        border-top: 1px solid rgba(157, 184, 205, 0.3);
-    }
+
+.card--content:hover .card-img-overlay {
+    visibility: visible;
+}
+
+.card--content .card-img-overlay {
+    visibility: hidden;
+}
+
+
+hr {
+    border-top: 1px solid rgba(157, 184, 205, 0.3);
+}
+
+.card-img-overlay h5 {
+    color: white;
+}
+
+.headerText {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-date {
+    font-size: 12px;
+}
+
+
+.link-event {
+    text-decoration: underline;
+}
+
+.link-username {
+    color: var(--lightBlue);
+}
+
+.fa-flag {
+    margin-left:auto;
+    padding-top:0.3em;
+}
+
+.fa-flag:hover {
+    color:#d41111;
+}
+
+.card-going-event{
+    border-bottom: 0;
+    border-radius: .25rem.25rem 0 0;
+}
+
+.card-file-uploaded{
+margin-top:1.5em;
+}
+
+.card-file-uploaded a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lightBlue);
+    border: 1.4px solid var(--lightBlue);
+    border-radius: 4px;
+    padding:0.5rem;
+}
+
+.fa-file{
+    margin-right: 10px;
+    font-size: 2em;
+}
