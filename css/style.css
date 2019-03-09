@@ -166,24 +166,32 @@ h1{
 }
 
 .sortNav {
-    background-color: white !important;
+    background-color: transparent !important;
     margin-top: 30px;
     margin-bottom: 5px;
     box-shadow: 0px 1px 0px #888888 !important;
 }
 
-.sortNav .navbar-nav > .nav-item > .nav-link:hover{
-    color: var(--darkBlue);
-    background-color: white;
-    border-radius: 4px;
 
+.sortNav .nav .nav-item a.active{
+    color:var(--darkBlue) !important;
+    background-color: transparent !important;
 }
 
-.sortNav .navbar-nav .active>.nav-link, .navbar-brand{
+.navbar-brand {
     color:var(--darkBlue) !important;
 }
 .sortNav .navbar-nav li{
     display: inline !important;
+}
+.sortNav a {
+    color: var(--lightBlue);
+}
+
+.sortNav a:hover {
+    color: var(--darkBlue);
+    background-color: transparent;
+    border-radius: 4px;
 }
 
 /*buttons*/
@@ -269,34 +277,44 @@ h1{
 .card-deck{
     margin: 2em auto 0 auto !important;
 }
+
+.ticket {
+    width: 250px;
+    height: 250px;
+    border: 0px ;
+}
+
+.ticket img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.card-img-overlay{
+    visibility: hidden;
+}
+
 .ticket{
-    border-radius: 10px;
-    margin: 10px;
-    height: 250px;
-    border: none;
-    width:18rem;
-    align-items: center;
-    justify-content: center
+    background: var(--darkBlue);
 }
 
-.ticket .card-img-overlay{
-    background-color: #00000080;
-    border-radius: 10px;
-    height: 250px;
+.ticket:hover .card-img-overlay{
+    visibility: visible;
 }
 
-.past-ticket .card-img-overlay{
-    background-color: #dcd9d9bf !important;
+.ticket:hover img{
+    opacity: 0.3;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
 }
 
 .ticket .card-title{
     font-family: 'Roboto Condensed', sans-serif;
     text-transform: uppercase;
-}
-
-.ticket .card-img {
-    border-radius: 10px;
-    height: 250px;
 }
 
 .ticket  .eventDesc{
@@ -333,4 +351,17 @@ font-size: 14px;
 
 .tickets{
     margin:auto;
+}
+.past-ticket {
+    opacity: 0.4;
+}
+
+.past-ticket:hover {
+    opacity: 1;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
 }

@@ -1,0 +1,100 @@
+@import "./style.css";
+
+.actionCard img {
+    object-fit: cover;
+    height: 100px;
+    width: auto;
+    border-radius: 0;
+}
+
+.actionCard {
+    margin-bottom: 30px;
+    width: 45%;
+    max-width: 600px;
+}
+
+.description .userAction {
+    height: 25px;
+    width: auto;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.description {
+    display: inline-flex;
+    align-items: center;
+}
+
+.card-title {
+    padding: 5px 0;
+    margin: 0;
+}
+
+.form-check input[type=radio] {
+    margin-top: 0.1rem;
+    margin-left: -1rem;
+}
+
+.form-check {
+    background-color: white;
+    padding-top: 7px;
+}
+
+.progress-bar {
+    border-radius: 50px;
+}
+
+.progress span {
+    margin-left: 5px;
+    padding-top: 7px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .actionCard {
+        width: 100%;
+    }
+
+}
+
+
+.card .header {
+    padding: 0.5em 1.25rem;
+    font-size: 14px;
+}
+
+.bg-info {
+    background-color: #96b1c5 !important;
+}
+
+.progress {
+    background: white;
+    height: 1.8rem;
+}
+
+.card .poll {
+    padding: 1em 1em 0 1em;
+}
+
+.actionCard .card-body{
+    padding:2em;
+}
+
+.actionCard .card-body p{
+    margin:0;
+}
+
+.actionCard .card-body h5{
+    margin:0;
+    font-size: 16px;
+    padding: 0 1em;
+}
+
+.actionCard .card-body .pollOption{
+    font-size: 12px;
+}
+
+#feed{
+    margin-top:2em;
+    
+}
+
