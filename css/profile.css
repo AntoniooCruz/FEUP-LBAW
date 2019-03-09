@@ -193,3 +193,7 @@ small {
     z-index: 2;
     color: white;
 }
+
+.fa-flag:hover {
+    color: red;
+}
