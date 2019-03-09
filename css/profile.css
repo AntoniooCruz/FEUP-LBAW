@@ -197,3 +197,17 @@ small {
 .fa-flag:hover {
     color: red;
 }
+
+.form-label-group {
+    margin-bottom: 5%;
+}
+
+textarea{
+    border-style: solid;
+    border-radius: 2px;
+    border-color: var(--lightGray);
+}
+
+#profile_container .btn-primary{
+    margin-left: 5%;
+}
