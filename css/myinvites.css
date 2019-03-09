@@ -218,7 +218,7 @@
 }
 
 @media (max-width: 768px){
-.text-right {
+.eventRow .text-right {
     text-align: left!important;
 }
 }
