@@ -12,6 +12,18 @@
     .row {
         justify-content: center !important;
     }
+
+    .tickets .col-auto {
+        padding: 0;
+    }
+
+    #ticketNavContainer {
+        width: 100%;
+    }
+
+    .tickets {
+        padding: 0;
+    }
 }
 
 @media (min-width:768px){
