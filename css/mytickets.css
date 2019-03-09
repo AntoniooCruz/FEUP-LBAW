@@ -27,19 +27,19 @@
 }
 
 @media (min-width:768px){
-    .row {
+    .row, .sortNav {
     width: 536px;
     }
 }
 
 @media (min-width:992px){
-    .row {
+    .row, .sortNav {
     width: 804px;
     }
 }
 
 @media (min-width:1297px){
-    .row {
+    .row , .sortNav{
     width: 1072px;
     }
 }
