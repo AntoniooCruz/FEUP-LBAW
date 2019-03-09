@@ -161,22 +161,22 @@
 #carousel-container{
     padding: 10px 0 1em 0;
     margin-bottom: 4em;
-    max-width: 100%;
+    max-width: 90%;
 
 }
 #carousel-container h4{
     margin: 0 1.5em;
-    padding-bottom:15px;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 14px;
     display:flex;
       flex-direction: column;
+      padding-bottom: 8px;
       align-items: center;
-
+      color: var(--lightBlue);
 }
 
 #carousel-container hr{
-    margin: 0 2em 1em 2em;
+    margin: 2em 0;
 }
 
 .card--content img{
@@ -192,20 +192,45 @@
 }
 
 #carousel-container .card {
-    min-width: 99%;
+    max-width: 100%;
     min-height: 200px;
     background: transparent;
     border: none;
     border-radius: 0;
     box-shadow:none;
-    margin:0 5px;
+    margin:0 auto;
   }
 
   #highlights{
-      margin:10px 5px;
+      margin:1em 5px;
       
   }
+
+  #highlights hr{
+    margin-top:0;
+    
+}
 
   #carousel-container .card {display: flex;
     flex-direction: row;
     overflow-x: auto;}
+
+
+    .card--content img:hover{
+        visibility: visible;
+    }
+    
+    .card--content img:hover{
+        opacity: 0.3;
+        filter: alpha(opacity=50); /* For IE8 and earlier */
+        -webkit-transition: opacity .5s ease-in-out;
+        -moz-transition: opacity .5s ease-in-out;
+        -ms-transition: opacity .5s ease-in-out;
+        -o-transition: opacity .5s ease-in-out;
+        transition: opacity .5s ease-in-out;
+    }    
+
+
+    hr{
+        border-top: 1px solid rgba(157, 184, 205, 0.3);
+    }
