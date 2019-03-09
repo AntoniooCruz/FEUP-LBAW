@@ -8,7 +8,7 @@
 }
 
 
-@media (max-width:768px){
+@media (max-width:565px){
     .row {
         justify-content: center !important;
     }
@@ -24,12 +24,20 @@
     .tickets {
         padding: 0;
     }
+
+    .sortNav{
+        width: 250px;
+    }
 }
 
-@media (min-width:768px){
-    .row, .sortNav {
+@media (min-width:535px){
+    .row{
     width: 536px;
     }
+
+    .sortNav {
+        width: 520px;
+        }
 }
 
 @media (min-width:992px){
