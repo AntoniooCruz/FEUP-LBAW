@@ -8,7 +8,7 @@
 }
 
 
-@media (max-width:565px){
+@media (max-width:535px){
     .row {
         justify-content: center !important;
     }
@@ -26,7 +26,7 @@
     }
 
     .sortNav{
-        width: 250px;
+        width: 250px !important;
     }
 }
 
