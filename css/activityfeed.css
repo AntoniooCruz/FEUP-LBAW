@@ -30,18 +30,14 @@
     margin: 0;
 }
 
-.form-check input[type=radio] {
-    margin-top: 0.1rem;
-    margin-left: -1rem;
-}
-
 .form-check {
     background-color: white;
-    padding-top: 7px;
+    padding-bottom: 7px;
 }
 
 .progress-bar {
-    border-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
 
 .progress span {
@@ -67,7 +63,7 @@
 }
 
 .progress {
-    background: white;
+    background: white ;
     height: 1.8rem;
 }
 
@@ -96,5 +92,42 @@
 #feed{
     margin-top:2em;
     
+}
+
+.form-radio
+{
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     display: inline-block;
+     position: relative;
+     background-color: #f1f1f1;
+     color: #666;
+     top: 10px;
+     height: 25px;
+     width: 25px;
+     border: 0;
+     border-radius: 50px;
+     cursor: pointer;     
+     margin-right: 7px;
+     outline: none;
+     margin-top: 0 !important;
+}
+.form-radio:checked::before
+{
+     position: absolute;
+     font: 13px/1 'Open Sans', sans-serif;
+     left: 9px;
+     top: 6px;
+     content: '\02143';
+     transform: rotate(40deg);
+}
+.form-radio:hover
+{
+     background-color: #f7f7f7;
+}
+.form-radio:checked
+{
+     background-color: #f1f1f1;
 }
 
