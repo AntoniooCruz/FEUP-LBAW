@@ -1,45 +1,4 @@
 @import "./style.css";
-
-#info_row img{
-    margin: 0;
-    border-radius: 50%;
-    max-width: 150px;
-    min-width: 100px;
-    height: auto;
-    margin-top: 0;
-  }
-
-  #info_row .userDetails{
-    max-height: 150px;
-    margin-left: 20px;
-}
-
-/*container {
-    position: relative;
-    background-color: white;
-    margin-left: auto;
-    margin-right: auto;
-    width: 55%;
-}
-*/
-
-
-#report_button {
-    position: absolute;
-    right: 110px;
-    background: none;
-    border: none;
-    color: red;
-    top: -35px;
-    
-}
-
-#info_row {
-    padding-top: 2em;
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
 h2, h3, h4{
     font-family: 'Roboto Condensed', sans-serif;
 }
@@ -52,69 +11,6 @@ h4 {
     font-size: 100%;
 }
 
-@media screen and (max-width: 1000px) {
-    #info_row img {
-        max-width: 150px;
-        max-height: auto;
-    }
-
-    /*#profile_container, #statsContainer, #events_container{
-        width: 100%;
-    }*/
-  }
-
-  @media (max-width: 576px){
-    #followers, #following, #events {
-        margin-top: 0 !important;
-        font-size: 80%;
-    }
-
-
-   #info_row img{
-       max-width: 100%;
-   }
-}
-
-@media (min-width: 576px){
-
-   /* #profile_container, #events_container, #statsContainer{
-        width: 100%;
-    }*/
-}
-
-.fa-check-circle {
-    color: #79AF41;
-    font-size: 25px !important;
-}
-
-.userDetails #profileName{
-    font-size: 22px;
-    margin:0;
-    text-transform: uppercase;
-}
-
-.userDetails #profileUsername{
-    font-size: 14px;
-}
-
-.stats{
-    background-color: white;
-    margin: 1em 0;
-}
-
-.stats h2{
-    font-size: 30px;
-    margin-top: 16px;
-    margin-bottom: 0;
-}
-
-.stats .col-sm-3{
-    margin-top: 1rem!important;
-}
-
-#events_container .invite{
-    margin:auto;
-}
 
 /*///////////////////////////*/
 
@@ -137,6 +33,9 @@ small{
     width: 100%;
 }
 
+#profile_content{
+box-shadow: var(--box-shadow);
+}
 
 #events_container{
 padding: 0 1em;
@@ -270,4 +169,13 @@ border-radius: 4px;
 font-size: 14px;
 padding: 0.5rem 0 !important;
 margin-top: 0.25rem !important;
+box-shadow: var(--box-shadow);
+}
+
+.fa-flag{
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    z-index: 2;
+    color: white;
 }
