@@ -1,0 +1,15 @@
+#nav-admin {
+    justify-content: center;
+}
+
+.nav-link {
+    color: var(--lightGrey);
+}
+
+.nav-link:hover {
+    color: #495057;
+}
+
+#nav-admin a {
+    padding: 20px;     
+}
