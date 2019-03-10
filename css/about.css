@@ -25,10 +25,15 @@ body{
 }
 
 .container .row {
-    margin-top: 10%;
+    margin-top: 5%;
     box-shadow: var(--lightGray);
 }
 
-h1 {
+h2,h3 {
     color:white;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h3 {
+    font-size: 140%;
 }
