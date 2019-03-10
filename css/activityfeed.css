@@ -84,7 +84,7 @@
 
 .actionCard .card-body {
     padding: 1em 2em;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .actionCard .card-body p {
@@ -253,9 +253,6 @@
 }
 
 
-hr {
-    border-top: 1px solid rgba(157, 184, 205, 0.3);
-}
 
 .card-img-overlay h5 {
     color: white;
@@ -282,10 +279,12 @@ hr {
 .fa-flag {
     margin-left:auto;
     padding-top:0.3em;
+    color: #a1b6c8;
 }
 
 .fa-flag:hover {
     color:#d41111;
+    
 }
 
 .card-going-event{
@@ -295,6 +294,7 @@ hr {
 
 .card-file-uploaded{
 margin-top:1.5em;
+margin-bottom: 1em !important;
 }
 
 .card-file-uploaded a{
@@ -310,4 +310,23 @@ margin-top:1.5em;
 .fa-file{
     margin-right: 10px;
     font-size: 2em;
+}
+
+
+.footer hr{
+    margin: 0 0 0.5rem 0;
+}
+
+.footerText{
+    display:flex;
+    padding: 0 1.5rem 0.5rem 1.5rem;
+}
+
+.fa-comments{
+    font-size: 30px;
+}
+
+.footerText span{
+margin: auto;
+color: var(--lightBlue);
 }
