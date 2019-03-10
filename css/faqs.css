@@ -73,3 +73,7 @@ button:focus{outline:none;}
     background: none;
     box-shadow: none;
 }
+
+.collapsed{
+    width: 70%;
+}
