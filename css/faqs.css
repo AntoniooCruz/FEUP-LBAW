@@ -1,0 +1,39 @@
+@import "./style.css";
+
+body{
+    background-color: var(--darkBlue);
+}
+
+#faqs {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.card {
+    background-color: var(--darkBlue);
+    box-shadow: none;
+}
+
+.card-body , .btn-link{
+    color:white;
+    box-shadow: none;
+}
+
+#faqs .navbar-text {
+    color: white;
+}
+
+.navbar, #about .navbar{
+    box-shadow: none;
+}
+
+#accordion .fa-sort-down {
+    margin-right: 3%;
+}
+
+.btn-link{
+    padding: 0 !important;
+}
+
+.btn-link:hover {
+    color: var(--green);
+}
