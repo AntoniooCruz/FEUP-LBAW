@@ -4,18 +4,29 @@ body{
     background-color: var(--darkBlue);
 }
 
-#faqs {
+.navbar{
     font-family: 'Roboto Condensed', sans-serif;
+    padding: 0;
 }
-
 .card {
     background-color: var(--darkBlue);
+    border: 0;
+    background: none;
     box-shadow: none;
+
+    color:white;
 }
 
 .card-body , .btn-link{
     color:white;
     box-shadow: none;
+
+}
+
+.card-body{
+    padding-left: 3.7em;
+    padding-top: 10px;
+    font-weight: 100;
 }
 
 #faqs .navbar-text {
@@ -30,10 +41,35 @@ body{
     margin-right: 3%;
 }
 
-.btn-link{
-    padding: 0 !important;
+.card-header{
+    padding: 1rem 1.25rem;
 }
 
-.btn-link:hover {
-    color: var(--green);
+.card-header:hover i{
+    color: white;
+} 
+
+.card-header i{
+    color: #424e5f;
+} 
+
+.card-header:hover a{
+    color: white;
+}
+
+button{
+    border:0;
+    background: none;
+    color: white;
+}
+
+button:focus{outline:none;}
+
+.card-header:first-child {
+    font-family: 'Roboto Condensed', sans-serif;
+
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
 }
