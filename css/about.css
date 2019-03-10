@@ -20,20 +20,30 @@ body{
 }
 
 #logo img{
-    width:18%;
+    width:25%;
     height:50%;
 }
 
-.container .row {
+hr {
+    margin-top: 5%;
+    border-top:1px solid;
+    color: #888888;
+}
+
+#titles {
     margin-top: 5%;
     box-shadow: var(--lightGray);
 }
 
+#text {
+    margin-top:2%;
+}
+
 h2,h3 {
     color:white;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 h3 {
-    font-size: 140%;
+    font-size: 110%;
 }

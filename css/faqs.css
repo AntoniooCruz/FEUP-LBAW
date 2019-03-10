@@ -6,14 +6,13 @@ body{
 
 .navbar{
     font-family: 'Roboto Condensed', sans-serif;
-    padding: 0;
 }
+
 .card {
     background-color: var(--darkBlue);
     border: 0;
     background: none;
     box-shadow: none;
-
     color:white;
 }
 
@@ -61,14 +60,17 @@ button{
     border:0;
     background: none;
     color: white;
-    width: 70%;
+    width: 55%;
+}
+
+.container{
+    margin-top: 10%;
 }
 
 button:focus{outline:none;}
 
 .card-header:first-child {
     font-family: 'Roboto Condensed', sans-serif;
-
     border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
     border: 0;
     background: none;
