@@ -2,6 +2,9 @@
     justify-content: center;
 }
 
+#nav-events {
+    justify-content: center;
+}
 .nav-link {
     color: var(--lightGrey);
 }
@@ -12,4 +15,12 @@
 
 #nav-admin a {
     padding: 20px;     
+}
+.report-invite .description {
+    max-width: 650px;
+    background: white;
+}
+
+.report .footer {
+    background: white;
 }
