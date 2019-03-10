@@ -127,8 +127,10 @@
 }
 
 .event .userPic{
-    /* width: 10.6%; */
+    width: 50px !important; 
     border-radius: 50px;
+    height:50px;
+    margin:0 0.5em;
 }
 
 .event #goingRow, .eventRowPhotos{
@@ -231,4 +233,97 @@
 .event .commentArea .options button{
     border: none;
     background: none;
+}
+
+#carousel-container .row {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.carousel {
+    box-shadow: 0px 0px 5px #cecacaad;
+
+}
+
+.carousel img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.carousel .col-3 {
+    display: inline-block;
+    float: none;
+}
+
+
+#carousel-container .row {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#carousel-container {
+    padding: 10px 0 1em 0;
+    max-width: 90%;
+
+}
+
+#carousel-container h4 {
+    margin: 0 1.5em;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px;
+    align-items: center;
+    color: var(--lightBlue);
+}
+
+#carousel-container hr {
+    margin: 2em 0;
+}
+
+.card--content img {
+    height: 300px;
+    object-fit: cover;
+    min-width: 30vw;
+    border-radius: 2px;
+
+}
+
+.card--content {
+    margin-right: 5px;
+    background-color: var(--darkBlue);
+    position: relative;
+}
+
+#carousel-container .c {
+    max-width: 100%;
+    min-height: 200px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0 auto;
+}
+
+#highlights {
+    margin: 1em 5px;
+
+}
+
+#highlights hr {
+    margin-top: 0;
+
+}
+
+#carousel-container .c {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+
+
+.userPics{
+    overflow: auto;
+    white-space: nowrap;
 }
