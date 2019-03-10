@@ -200,6 +200,7 @@ small {
 
 .form-label-group {
     margin-bottom: 5%;
+    border-bottom: 1px solid #ced4da !important;
 }
 
 textarea{
