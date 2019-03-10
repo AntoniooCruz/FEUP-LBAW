@@ -330,11 +330,11 @@ margin-bottom: 1em !important;
 
 .footerText button{
 margin: auto;
-color: var(--lightBlue);
+color: #c5c5c5;
 background: none;
 border:none;
 }
 
 .footerText button:hover{
-    color: #7d94a9;
+    color: #a1b6c8;
     }
