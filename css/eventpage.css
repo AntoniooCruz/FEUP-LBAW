@@ -1,7 +1,8 @@
 @import "./style.css";
 
 .event{
-    padding: 0
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .event img{
@@ -16,7 +17,7 @@
 
 .eventRow{
     margin: 5px 0 0 0;
-    padding: 0 2em;
+    padding: 0 0 0 1em;
     background-color: white;
     border-radius: 2px;
     box-shadow: 0px 0px 8px #d4d2d2;
@@ -26,6 +27,7 @@
     padding: 0;
     font-family: 'Roboto Condensed', sans-serif;
     margin: auto;
+    font-size: 25px;
 }
 
 
@@ -70,14 +72,14 @@
     color: #A1B6C8;
     margin-bottom: -8px;
     position: absolute;
-    top: 9px;
+    top: 15px;
     display: flex;
     font-size: 14px;
 }
 
 .event #eventPageDay{
     font-size: 30px;
-    padding-top: 27px;
+    padding-top: 28px;
 }
 
 .event .eventDate{ 
@@ -120,18 +122,21 @@
     justify-content: center!important;
 }
 
- 
-.event .getTicket {
-    padding: 4px 15px !important;
-    margin: 0;
-}
-
 .event .userPic{
     width: 50px !important; 
     border-radius: 50px;
     height:50px;
-    margin:0 0.5em;
+    margin: 4px;
 }
+
+.event .userPic-more{
+    width: 50px !important; 
+    border-radius: 50px;
+    height:50px;
+    position: absolute;
+    margin: 0
+}
+
 
 .event #goingRow, .eventRowPhotos{
     padding: 1em;
@@ -141,22 +146,16 @@
     padding: 10px 20px;
 }
 
-@media (min-width: 720px){
-.event .align-self-start {
-    align-self: flex-end!important;
-}
+
+
+.event .detailsHeader{
+    padding:0.8em;
 }
 
-@media (max-width: 720px){
-    .event .col-4 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
+.event .details #collapseContentDets{
+    padding:1em;
 }
 
-.event .details{
-    padding:0 2em 2em 2em;
-}
 
 .event .details p, .event .details span{
     font-size: 14px;
@@ -180,18 +179,13 @@
     font-size: 20px;
 }
 
-.event .getTicket{
-    padding-top: 1em;
-    margin-bottom: 1em;
-}
-
 .event #commentPic{
     padding-right: 0;
     position: absolute;
     width: 43px;
     z-index: 2;
     left: 20px;
-    top: -22px;
+    top: 10px;
 }
 
 .comment{
@@ -199,9 +193,32 @@
 }
 
 .event textarea{
-    border-radius: 5px;
-    border: 2px solid #dedede;
-    padding: 2em;
+    border: 0;
+    padding:0 4.5em;
+    border-radius: 0;
+    font-size: 14px;
+    position: relative;
+    margin:5px 0;
+    resize: none;
+}
+
+.commentArea{
+    background-color: white;
+    padding: 0;
+    border-radius: 2px;
+    box-shadow: 0px 0px 8px #d4d2d2;
+}
+
+
+.commentArea hr{
+    margin:15px 67px 5px 15px !important;
+}
+
+.commentArea h6{
+    background-color: var(--lightBlue);
+    border-radius: 0;
+    padding:1em 5em;
+    border-radius: 2px 2px 0 0;
 }
 
 .event .commentArea{
@@ -215,6 +232,7 @@
     position: absolute;
     bottom: 10px;
     right: 15px;
+    border-radius: 100px;
 }
 
 .event .commentArea .form-group{
@@ -224,6 +242,11 @@
 
 .event hr{
     margin: 2em 0;
+}
+
+
+.event .commentArea .options{
+    padding-left: 1em;
 }
 
 .event .commentArea .options i{
@@ -276,6 +299,7 @@
     padding-bottom: 8px;
     align-items: center;
     color: var(--lightBlue);
+    overflow-x: hidden;
 }
 
 #carousel-container hr {
@@ -323,7 +347,178 @@
 }
 
 
+
+.actionCard .card-body {
+    padding: 1em 2em 2em 2em !important;
+    font-size: 15px !important;
+}
+
+.description {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+.commentArea {
+    max-width: 650px;
+}
+
+.rightCol {
+    margin-right:0;
+    margin-left:auto;
+    max-width: 600px;
+}
+
+.discussion{
+    margin: 5px 0 0 0;
+}
+
+@media only screen and (max-width: 1000px) {
+    .commentArea {
+        width: 100%;
+    }
+
+}
+
+.discussion .row{
+    margin: 0;
+}
+
+
+@media (max-width: 991px){
+    .rightCol {
+        margin-right: auto;
+        width: 100%;
+    }
+
+    .leftCol {
+        max-width: 600px;
+        margin: auto;
+        margin-bottom: 2em;
+        padding: 0 1em !important;
+    }
+
+    #attendance h6{
+        display:none;
+    }
+}
+
+
+
+@media (min-width: 992px){
+    .rightCol {
+        margin-right:0;
+        max-width: 620px ;
+    }
+
+    .leftCol {
+        max-width: 400px;
+    }
+
+    .attendanceButton{
+        display:none;
+    }
+
+    #collapseContent{
+        display: initial;
+    }
+
+    
+}
+
+@media (min-width: 1200px){
+.rightCol {
+    max-width: 600px;
+}
+}
+
+
+.actionCard{
+    width: 100% !important; 
+    padding:0;
+}
+
+.leftCol{
+    padding:0;
+}
+#attendance{
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0px 0px 8px #d4d2d2;
+    border-radius: 2px;
+    padding:0;
+}
+
+#attendance section{
+    padding:1em;
+}
+
+
+#attendance hr{
+    margin:1em 0.5em!important;
+}
+
+#attendance h6{
+    padding: 7px;
+    
+    margin:0;
+    border-radius: 2px;
+}
+
+#attendance > .row{
+    background-color: var(--darkBlue);
+    color:white;
+}
+
+.graph{
+    height: 30%;
+    width: 30%;
+    max-width: 100px;
+    max-height: 100px;
+}
+
 .userPics{
-    overflow: auto;
-    white-space: nowrap;
+    padding: 0 9px;
+    margin-top:2em;
+}
+
+.fa-circle{
+    color: #1a2431c2;
+    position: absolute;
+}
+
+.fa-ellipsis-h{
+position: absolute;
+top: 15px;
+left: 15px;
+font-size: 18px;
+color: white;
+}
+
+.tab-content{
+    margin-top:1rem;
+}
+
+.userPics .nav-item{
+    margin-bottom: 0;
+}
+
+.userPics .row > a {
+    font-size: 50px;
+    height: 50px;
+    width: 50px;
+    margin: 4px;
+    position: relative;
+
+}
+
+.lotation{
+    padding: 0 1em;
+}
+
+.getTicket{
+    padding: 1em 1em 1em 0;
+}
+
+.getTicket .btn{
+    font-size: 14px;
 }

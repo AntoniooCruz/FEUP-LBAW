@@ -10,8 +10,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/circle.css">
   <link rel="stylesheet" href="../css/eventpage.css">
+  <link rel="stylesheet" href="../css/event-cards.css">
+  <link rel="stylesheet" href="../css/activity-cards.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
     crossorigin="anonymous">
 
@@ -60,7 +61,7 @@
 
           <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            <img src="../img/user.jpg" width="30" height="30">
+            <img src="../img/user.jpg" class="roundRadius" width="30" height="30">
           </button>
         </li>
         <li>
@@ -80,30 +81,41 @@
       <img src="../img/eventbanner.jpg">
     </div>
 
-    <div class="eventRow">
-      <div class="row header">
-        <div id="eventPagedate" class="col-xs align-self-center">
-          <div id="eventPageMonth">
-            <span class="eventMonth">Mar</span>
+    <div class="eventRow row">
+      <div class="col-md-10 col-sm-12">
+        <div class="row header align-items-start">
+          <div id="eventPagedate" class="col-xs align-items-start">
+            <div id="eventPageMonth">
+              <span class="eventMonth">Mar</span>
+            </div>
+            <span id="eventPageDay">03</span>
           </div>
-          <span id="eventPageDay">03</span>
-        </div>
-        <div id="titleHeader" class="col">
-          <h2 id="eventTitle">Lorem Ipsum Lorem Ipsum Lorem Ipsum</h2>
-          <div>
-            <span id="#created" class="eventDate">Created by <span class="ownerUsername">usernam123</span></span>
+          <div id="titleHeader" class="col">
+            <h2 id="eventTitle">Lorem Ipsum Lorem Ipsum Lorem Ipsum</h2>
+            <div>
+              <span id="#created" class="eventDate">Created by <span class="ownerUsername">usernam123</span></span>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="col-md-2 col-sm-12 getTicket text-right">
+        <button class="btn btn-primary" type="button" aria-expanded="false">
+          <i class="fab fa-paypal"></i> 10,50€</i>
+        </button>
 
       </div>
     </div>
+
+
+
     <div class="eventRow details">
-      <div class="row getTicket justify-content-end">
-        <button class="btn btn-primary" type="button" aria-expanded="false">
-          <i class="fas fa-ticket-alt"></i> 10,50€</i>
+      <div class="row detailsHeader justify-content-center">
+        <button class="detailsButton" type="button" data-toggle="collapse" data-target="#collapseContentDets"
+          aria-expanded="true" aria-controls="collapseOne">
+          Details <i class="fas fa-caret-down"></i>
         </button>
       </div>
-      <div class="row">
+      <div id="collapseContentDets" class="row collapse">
         <div class="col-4">
           <div id="dateNhours">
             <h6><i class="far fa-calendar-alt"></i> Date & Hours</h6>
@@ -131,69 +143,206 @@
       </div>
     </div>
 
-    <div class="col text-right align-self-start ">
-    </div>
-    <div id="#goingRow" class="eventRow eventRowPhotos">
-      <div class="row userPhotos justify-content-end">
-        <div class="lotation col align-self-center">
-            <img class="graph" src="../img/graphTemplate.png">
+    <hr>
+    <section class="discussion row">
+      <div class="leftCol col-lg-4 col-md-12">
+        <div id="attendance" class="container sticky-top">
+          <div class="row justify-content-center">
+            <h6>Attendance</h6>
+            <button class="attendanceButton" type="button" data-toggle="collapse" data-target="#collapseContent"
+              aria-expanded="true" aria-controls="collapseOne">
+              Collapsible Group Item #1
+            </button>
+          </div>
+          <section id="collapseContent" class="collapse">
+            <div class="lotation row align-self-center justify-content-center">
+              <img class="graph" src="../img/graphTemplate.png">
+              <div class="col-auto align-self-center">
+                <span class="row">Capacity: 500</span>
+                <span class="row">Taken: 125</span>
+                <span class="row">Left: 475</span>
+              </div>
+            </div>
+            <div class="userPics">
+              <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#friendsGoing" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">All(86)</a>
+                  <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#allGoing" role="tab"
+                    aria-controls="nav-home" aria-selected="true">Friends(36)</a>
+              </nav>
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade" id="allGoing" role="tabpanel" aria-labelledby="nav-home-tab">
+                  <div class="row justify-content-center">
+                    <img class="userPic" src="../img/user.jpg">
+                    <img class="userPic" src="../img/user.jpg">
+                    <img class="userPic" src="../img/user.jpg">
+                    <img class="userPic" src="../img/user.jpg">
+                    <img class="userPic" src="../img/user.jpg">
+                    <img class="userPic" src="../img/user.jpg">
+                    <img class="userPic" src="../img/user.jpg">
+                    <a a href="#">
+                      <img class="userPic-more" src="../img/user.jpg">
+                      <i class="fas fa-circle"></i>
+                      <i class="fas fa-ellipsis-h"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="tab-pane fade show active" id="friendsGoing" role="tabpanel" aria-labelledby="nav-home-tab">
+                  <div class="row justify-content-center">
+                    <img class="userPic" src="../img/user.jpg">
+                    <img class="userPic" src="../img/user.jpg">
+                    <img class="userPic" src="../img/user.jpg">
+                    <img class="userPic" src="../img/user.jpg">
+                    <img class="userPic" src="../img/user.jpg">
+                    <img class="userPic" src="../img/user.jpg">
+                    <img class="userPic" src="../img/user.jpg">
+                    <a a href="#">
+                      <img class="userPic-more" src="../img/user.jpg">
+                      <i class="fas fa-circle"></i>
+                      <i class="fas fa-ellipsis-h"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+          </section>
         </div>
-        <div class="col-7">
-          <h7> Going (<span id="#peopleGoing">82</span>) • Friends (<span id="#friendsGoing">82</span>)</h7>
-
-          <div class="userPics">
-              <img class="userPic" src="../img/user.jpg">
-              <img class="userPic" src="../img/user.jpg">
-              <img class="userPic" src="../img/user.jpg">
-              <img class="userPic" src="../img/user.jpg">
-              <img class="userPic" src="../img/user.jpg">
-              <img class="userPic" src="../img/user.jpg">
+      </div>
+      </div>
+      <div class="rightCol col-auto col-md-12">
+        <div class="commentArea">
+          <h6></h6>
+          <img id="commentPic" class="roundRadius" src="../img/user.jpg">
+          <div class="comment row">
+            <div class="col-12 form-group">
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Say something..."></textarea>
+              <hr>
+            </div>
+            <div class="options">
+              <button class="" type="button" aria-expanded="false">
+                <i class="fas fa-poll-h"></i>
+              </button>
+              <button class="" type="button" aria-expanded="false">
+                <i class="fas fa-cloud-upload-alt"></i>
+              </button>
+            </div>
+          </div>
+          <button class="commentButton  btn-primary" type="button" aria-expanded="false">
+            <i class="fas fa-caret-right"></i>
+          </button>
+        </div>
+        <hr>
+        <div id="#posts">
+          <div class="container-fluid actionCard">
+            <div class="card card-comment">
+              <div class="description header">
+                <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                <div class="headerText">
+                  <span class="card-title"><span class="link-username">username123</span> posted on <span class="link-event">Tea
+                      Party</span></span>
+                  <span class="card-date">13 Mar 2019 • 16h33</span>
+                </div>
+                <i class="far fa-flag"></i>
+              </div>
+              <div class="card-body">
+                <p class="card-text">"What time should we be there?"</p>
+              </div>
+              <div class="footer">
+                <hr>
+                <div class="footerText">
+                  <button><i class="far fa-comments"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid actionCard">
+            <div class="card card-upload">
+              <div class="description header">
+                <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                <div class="headerText">
+                  <span class="card-title"><span class="link-username">username123</span> uploaded a file on
+                    <span class="link-event">Tea Party</span></span>
+                  <span class="card-date">13 Mar 2019 • 16h33</span>
+                </div>
+                <i class="far fa-flag"></i>
+              </div>
+              <div class="card-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mi sem, condimentum vel metus
+                  eget, maximus dignissim orci. Cras et arcu pharetra, eleifend lacus eu, semper sapien. Donec
+                  tristique metus leo, ac lacinia arcu interdum eget. </a>
+                </p>
+                <div class="card-text card-file-uploaded"><a href="../files/Document.txt" target="_blank"><i class="far fa-file"></i>Document.txt</a>
+                </div>
+              </div>
+              <div class="footer">
+                <hr>
+                <div class="footerText">
+                  <button><i class="far fa-comments"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid actionCard">
+            <div class="card card-poll">
+              <div class="description header">
+                <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                <div class="headerText">
+                  <span class="card-title"><span class="link-username">username123</span> posted on <span class="link-event">Tea
+                      Party</span></span>
+                  <span class="card-date">13 Mar 2019 • 16h33</span>
+                </div>
+                <i class="far fa-flag"></i>
+              </div>
+              <div class="card-body">
+                <div class="span6">
+                  <h5>How are you going to travel there?</h5>
+                  <hr>
+                  <div class="poll">
+                    <div>
+                      <div class="progress roundRadius">
+                        <div class="form-check roundRadius">
+                          <input class="form-check-input position-static form-radio" type="radio" name="poll-option" id="poll-option1"
+                            value="option1" aria-label="Bus">
+                        </div>
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 100%;" aria-valuenow="25"
+                          aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">100%</span>
+                        <span class="pollOption">Bus</span>
+                      </div>
+                    </div>
+                    <div class="progress roundRadius">
+                      <div class="form-check roundRadius">
+                        <input class="form-check-input position-static form-radio" type="radio" name="poll-option" id="poll-option2"
+                          value="option2" aria-label="...">
+                      </div>
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 40%;" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">40%</span>
+                      <span class="pollOption">Car</span>
+                    </div>
+                    <div class="progress roundRadius">
+                      <div class="form-check roundRadius">
+                        <input class="form-check-input position-static form-radio" type="radio" name="poll-option" id="poll-option3"
+                          value="option3" aria-label="...">
+                      </div>
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 10%;" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">10%</span>
+                      <span class="pollOption">Subway</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="footer">
+                <hr>
+                <div class="footerText">
+                  <button><i class="far fa-comments"></i></button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-3 align-self-end">
-          <div>+<span>10</span></div> friends going
-        </div>
       </div>
-    </div>
-
-    <hr>
-
-    <div class="commentArea">
-      <img id="commentPic" class="roundPic" src="../img/user.jpg">
-      <div class="comment row">
-        <div class="col-12 form-group">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Say something..."></textarea>
-        </div>
-        <div class="options">
-            <button class="" type="button" aria-expanded="false">
-                <i class="fas fa-poll-h"></i>
-            </button>
-            <button class="" type="button" aria-expanded="false">
-                <i class="fas fa-cloud-upload-alt"></i>
-            </button>
-        </div>
-      </div>
-
-      <button class="commentButton btn btn-primary" type="button" aria-expanded="false">
-        <i class="fas fa-caret-right"></i>
-      </button>
-
-    </div>
-
-    <hr>
+    </section>
   </section>
 </body>
 
 </html>
-
-
-<!--<div class="clearfix">
-          <div class="c100 p30 small">
-              <span>30%</span>
-              <div class="slice">
-                  <div class="bar"></div>
-                  <div class="fill"></div>
-              </div>
-          </div>
-      </div>-->
 </div>
