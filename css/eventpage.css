@@ -1,11 +1,6 @@
 @import "./style.css";
 
-.event {
-    padding: 0 0.2em !important;
-    overflow-x: hidden;
-}
-
-.event img {
+.eventPhoto img {
     width: 100%;
 }
 
@@ -201,17 +196,8 @@
     top: 10px;
 }
 
-.comment {
-    padding: 0 1em;
-}
 
 .event textarea {
-    border: 0;
-    padding: 0 4.5em;
-    border-radius: 0;
-    font-size: 14px;
-    position: relative;
-    margin: 5px 0;
     resize: none;
 }
 
@@ -238,15 +224,13 @@
     position: relative;
 }
 
-.commentButton {
-    padding: 0px 14px 0px 18px !important;
+.commentArea .commentButton {
     margin: 0;
-    font-size: 29px;
     position: absolute;
     bottom: 10px;
     right: 15px;
-    border-radius: 100px;
 }
+
 
 .event .commentArea .form-group {
     padding: 0;
@@ -447,7 +431,7 @@
 @media (min-width: 992px) {
     .rightCol {
         margin-right: 0;
-        max-width: 620px;
+        max-width: 600px;
     }
 
     .leftCol {
@@ -474,7 +458,7 @@
 @media (min-width: 1200px) {
 
     .rightCol {
-        max-width: 590px;
+        max-width: 580px;
         padding-left: 1em;
     }
 }
@@ -524,7 +508,7 @@
 }
 
 .userPics {
-    padding: 0 9px;
+    padding: 0 20px;
     margin-top: 2em;
 }
 
@@ -568,6 +552,5 @@
 
 .getTicket .btn {
     font-size: 14px;
-    padding: 11px !important;
 }
 
