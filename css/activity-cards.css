@@ -1,0 +1,234 @@
+@import "./style.css";
+
+#headerPic {
+    object-fit: cover;
+    height: 100px;
+    width: auto;
+    border-radius: 0;
+}
+
+.actionCard .invite {
+    max-width: 650px;
+}
+
+.actionCard {
+    margin-bottom: 30px;
+    width: 70%;
+    max-width: 650px;
+}
+
+.description .userAction {
+    height: 35px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.description {
+    display: flex;
+    align-items: start;
+        padding: 0.8em 0.8rem 0.8em 1.25rem;
+        font-size: 14px;
+}
+
+.card-title {
+    margin: 0;
+}
+
+.form-check {
+    background-color: #c6d3dc;
+    padding: 7px 0 5px 30px;
+    border-radius: 50px 0 0 50px;
+}
+
+.progress-bar {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.progress span {
+    position: absolute;
+    padding-top: 5px;
+}
+
+.actionCard .card-body .pollOption {
+    font-size: 13px;
+    margin-left: 3em;
+}
+
+.actionCard .card-body .pollPerc {
+    right:1em;
+}
+
+@media only screen and (max-width: 1000px) {
+    .actionCard {
+        width: 100%;
+    }
+
+}
+
+.progress {
+    background: #f1f1f1;
+    height: 1.8rem;
+    margin-bottom: 1em;
+    position: relative;
+    max-width: 400px;
+}
+
+.card .poll {margin:1.5em 0;}
+
+.actionCard .card-body {
+    padding: 2em;
+    font-size: 15px;
+}
+
+.actionCard .card-body p {
+    margin: 0;
+}
+
+.actionCard .card-body h5 {
+    margin: 0;
+    font-size: 16px;
+}
+
+
+
+.form-radio {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    background-color: #f1f1f1;
+    color: #666;
+    top: 10px;
+    height: 25px;
+    width: 25px;
+    border: 0;
+    cursor: pointer;
+    margin-right: 7px;
+    outline: none;
+    margin-top: 0 !important;
+}
+
+.form-radio:checked::before {
+    position: absolute;
+    font: 11px/1 'Open Sans', sans-serif;
+    left: 15px;
+    top: 7px;
+    content: '\02143';
+    transform: rotate(40deg);
+}
+
+.form-radio:hover,
+.form-radio:checked {
+    background-color: #f1f1f1;
+}
+
+.card input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+    height: 15px;
+    width: 15px;
+}
+
+
+.headerText {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-date {
+    font-size: 12px;
+}
+
+
+.link-event {
+    text-decoration: underline;
+}
+
+.link-username {
+    color: var(--lightBlue);
+}
+
+.fa-flag {
+    margin-left:auto;
+    padding-top:0.3em;
+    color: #a1b6c8;
+    font-size: 15px;
+
+}
+
+.fa-flag:hover {
+    color:#d41111;
+    
+}
+
+.card-going-event{
+    border-bottom: 0;
+    border-radius: .25rem.25rem 0 0;
+}
+
+.card-file-uploaded{
+margin-top:1.5em;
+margin-bottom: 1em !important;
+}
+
+.card-file-uploaded a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--darkBlue);
+    border: 1.4px solid var(--darkBlue);
+    border-radius: 4px;
+    padding:0.5rem;
+}
+
+.fa-file{
+    margin-right: 10px;
+    font-size: 2em;
+}
+
+
+.footer hr{
+    margin: 0 0 0.5rem 0;
+}
+
+.footerText{
+    display:flex;
+    padding: 0 1.5rem 0.5rem 1.5rem;
+}
+
+.fa-comments{
+    font-size: 30px;
+}
+
+.footerText button{
+margin: auto;
+color: #c5c5c5;
+background: none;
+border:none;
+}
+
+.footerText button:hover{
+    color: #a1b6c8;
+    }
+
+    .bg-info {
+        background-color: #c6d3dc !important;
+    }
+
+
+ .card-pic-uploaded img{
+    margin-bottom: 1em;
+     width:100%;
+ }   
+
+ .card-pic-uploaded a{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.card-upload-pic .description {
+    border-bottom: 1px solid rgba(0,0,0,.125) !important;
+}
