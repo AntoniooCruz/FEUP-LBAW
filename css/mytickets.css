@@ -78,6 +78,23 @@
     visibility: hidden;
 }
 
+.opacity_div{
+    background:var(--darkBlue);
+    height:100px;
+    width:250px;
+    position:absolute;
+    top:200px;
+    left:0px;
+    opacity:0.5 /* manipulate to desired opacity */
+ }
+
+#tickets .ticket {
+    position: relative;
+}
+.eventDesc {
+    visibility: visible;
+}
+
 .ticket{
     background: var(--darkBlue);
 }
@@ -149,4 +166,16 @@ font-size: 14px;
     -ms-transition: opacity .5s ease-in-out;
     -o-transition: opacity .5s ease-in-out;
     transition: opacity .5s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+    .ticket .card-img-overlay{
+        visibility: visible;
+    }
+
+    .ticket img{
+        opacity: 0.3;
+        filter: alpha(opacity=50); /* For IE8 and earlier */
+    }
+
 }
