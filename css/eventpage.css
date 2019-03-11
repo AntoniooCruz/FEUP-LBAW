@@ -1,0 +1,556 @@
+@import "./style.css";
+
+.eventPhoto img {
+    width: 100%;
+}
+
+.eventPhoto {
+    margin: 0;
+    border-radius: 2px;
+    position: relative;
+}
+
+.eventRow {
+    margin: 5px 0 0 0;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0px 0px 8px #d4d2d2;
+}
+
+.eventRow #eventTitle {
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: auto;
+    font-size: 25px;
+}
+
+
+.event #floatingLabels {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 14px;
+}
+
+.event .label {
+    right: 20px;
+    color: #f1f1f1;
+    border-radius: 30px;
+    padding: 6px 8px;
+    box-shadow: 0px 0px 2px #4242425e;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.event #privateIndicator {
+    background-color: #1c2530b0;
+}
+
+.event #categoryIndicator {
+    background-color: #a1b8cbcf;
+}
+
+
+.event #eventPagedate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 8px;
+    margin-left: 14px;
+    position: relative;
+}
+
+.event #eventPageMonth {
+    font-size: 20px;
+    color: #A1B6C8;
+    margin-bottom: -8px;
+    position: absolute;
+    top: 15px;
+    display: flex;
+    font-size: 14px;
+}
+
+.event #eventPageDay {
+    font-size: 30px;
+    padding-top: 28px;
+}
+
+.event .eventDate {
+    font-size: 13px;
+}
+
+.event .ownerUsername {
+    text-decoration: underline;
+}
+
+.event #titleHeader {
+    padding: 0.8em;
+}
+
+.eventRow .header {
+    padding: 0 1em;
+}
+
+.event .eventYear {
+    color: #bbbbbb;
+    margin-left: 1px;
+}
+
+.event .eventMonth {
+    text-transform: uppercase;
+}
+
+.event .nav-link {
+    padding: 5px 5px 3px 5px;
+    color: #a9a8a8;
+    border-bottom: 3px solid transparent;
+    margin: 0.8em 0 0.8em 0;
+}
+
+.event .nav-pills .nav-link.active {
+    color: #88a845;
+    border-bottom: 3px solid #88a844;
+    border-radius: 0;
+    background: none;
+}
+
+
+.event .justify-content-md-center {
+    justify-content: center !important;
+}
+
+.event .userPic {
+    width: 50px !important;
+    border-radius: 50px;
+    height: 50px;
+    margin: 4px;
+}
+
+.event .userPic-more {
+    width: 50px !important;
+    border-radius: 50px;
+    height: 50px;
+    position: absolute;
+    margin: 0
+}
+
+
+.event #goingRow,
+.eventRowPhotos {
+    padding: 1em;
+}
+
+.event .userPhotos {
+    padding: 10px 20px;
+}
+
+
+
+.event .detailsHeader {
+    padding: 8px;
+}
+
+.event .details #collapseContentDets {
+    padding: 1em;
+    margin:0;
+}
+
+
+.event .details p,
+.event .details span {
+    font-size: 14px;
+}
+
+.event .details p {
+    margin-left: 1.4em;
+}
+
+.event .details span {
+    margin-left: 1.1em;
+}
+
+.event .details #location {
+    margin: 2em 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.event .details #dateNhours {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1em;
+}
+
+.fa-slash {
+    transform: rotate(100deg);
+    font-size: 20px;
+}
+
+.event #commentPic {
+    padding-right: 0;
+    position: absolute;
+    width: 43px;
+    z-index: 2;
+    left: 20px;
+    top: 10px;
+}
+
+
+.event textarea {
+    resize: none;
+}
+
+.commentArea {
+    background-color: white;
+    padding: 0;
+    border-radius: 2px;
+    box-shadow: 0px 0px 8px #d4d2d2;
+}
+
+
+.commentArea hr {
+    margin: 15px 67px 5px 15px !important;
+}
+
+.commentArea h6 {
+    background-color: var(--lightBlue);
+    border-radius: 0;
+    padding: 1em 5em;
+    border-radius: 2px 2px 0 0;
+}
+
+.event .commentArea {
+    position: relative;
+}
+
+.commentArea .commentButton {
+    margin: 0;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+}
+
+
+.event .commentArea .form-group {
+    padding: 0;
+    margin-bottom: 0px;
+}
+
+.event>hr {
+    margin: 2em 0;
+}
+
+
+.event .commentArea .options {
+    padding-left: 1em;
+}
+
+.event .commentArea .options i {
+    color: var(--lightBlue);
+}
+
+.event .commentArea .options button {
+    border: none;
+    background: none;
+}
+
+#carousel-container .row {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.carousel {
+    box-shadow: 0px 0px 5px #cecacaad;
+
+}
+
+.carousel img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.carousel .col-3 {
+    display: inline-block;
+    float: none;
+}
+
+
+#carousel-container .row {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#carousel-container {
+    padding: 10px 0 1em 0;
+    max-width: 90%;
+
+}
+
+#carousel-container h4 {
+    margin: 0 1.5em;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px;
+    align-items: center;
+    color: var(--lightBlue);
+    overflow-x: hidden;
+}
+
+#carousel-container hr {
+    margin: 2em 0;
+}
+
+.card--content img {
+    height: 300px;
+    object-fit: cover;
+    min-width: 30vw;
+    border-radius: 2px;
+
+}
+
+.card--content {
+    margin-right: 5px;
+    background-color: var(--darkBlue);
+    position: relative;
+}
+
+#carousel-container .c {
+    max-width: 100%;
+    min-height: 200px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0 auto;
+}
+
+#highlights {
+    margin: 1em 5px;
+
+}
+
+#highlights hr {
+    margin-top: 0;
+
+}
+
+#carousel-container .c {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+
+
+
+.actionCard .card-body {
+    padding: 1em 2em 2em 2em !important;
+    font-size: 15px !important;
+}
+
+.description {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.rightCol {
+    margin-right: 0;
+    margin-left: auto;
+    padding: 0;
+}
+
+.discussion {
+    margin: 5px 0 0 0;
+}
+
+@media only screen and (max-width: 1000px) {
+    .commentArea {
+        width: 100%;
+    }
+
+}
+
+.discussion .row {
+    margin: 0;
+}
+
+
+@media (max-width: 991px) {
+    .rightCol {
+        margin-right: auto;
+        width: 100%;
+    }
+
+    .leftCol {
+        margin: auto;
+        margin-bottom: 2em;
+    }
+
+    #attendance h6 {
+        display: none;
+    }
+
+    .event>hr {
+        display: none;
+    }
+
+    #attendance>.row {
+        background-color: white;
+        padding: 8px;
+    }
+
+}
+
+@media(max-width: 767px) {
+    .getTicket {
+        padding: 0 !important;
+        margin-top: 5px;
+    }
+
+    .getTicket .btn{
+        width: 100%;
+        border-radius: 2px;
+    }
+
+    .event > .eventRow:first-child{
+        background: none;
+    }
+
+    .eventRow .header {
+        background: white;
+    box-shadow: 0px 0px 8px #d4d2d2;
+    border-radius: 2px;
+    }
+}
+
+.actionCard {
+    max-width: 750px !important;
+}
+
+@media (min-width: 992px) {
+    .rightCol {
+        margin-right: 0;
+        max-width: 600px;
+    }
+
+    .leftCol {
+        max-width: 400px;
+    }
+
+    .attendanceButton {
+        display: none;
+    }
+
+    #collapseContent {
+        display: initial;
+    }
+
+    #attendance>.row {
+        background-color: var(--darkBlue);
+    }
+
+    .commentArea {
+        max-width: 650px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .rightCol {
+        max-width: 580px;
+        padding-left: 1em;
+    }
+}
+
+
+.actionCard {
+    width: 100% !important;
+    padding: 0;
+}
+
+.leftCol {
+    padding: 0;
+}
+
+#attendance {
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0px 0px 8px #d4d2d2;
+    border-radius: 2px;
+    padding: 0;
+}
+
+#attendance section {
+    padding: 1em;
+}
+
+
+#attendance hr {
+    margin: 1em 0.5em !important;
+}
+
+#attendance h6 {
+    padding: 7px;
+    margin: 0;
+    border-radius: 2px;
+}
+
+#attendance>.row {
+    color: white;
+}
+
+.graph {
+    height: 30%;
+    width: 30%;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.userPics {
+    padding: 0 20px;
+    margin-top: 2em;
+}
+
+.fa-circle {
+    color: #1a2431c2;
+    position: absolute;
+}
+
+.fa-ellipsis-h {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 18px;
+    color: white;
+}
+
+.tab-content {
+    margin-top: 1rem;
+}
+
+.userPics .nav-item {
+    margin-bottom: 0;
+}
+
+.userPics .row>a {
+    font-size: 50px;
+    height: 50px;
+    width: 50px;
+    margin: 4px;
+    position: relative;
+
+}
+
+.lotation {
+    padding: 0 1em;
+}
+
+.getTicket {
+    padding: 1em 1em 1em 0;
+}
+
+.getTicket .btn {
+    font-size: 14px;
+}
+
