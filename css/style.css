@@ -21,6 +21,11 @@ html,body{
 /*--------------------------*/
 /*-------- NAV BAR ---------*/
 /*--------------------------*/
+@media (min-width: 1200px){
+.container {
+    max-width: 900px;
+}
+}
 
 h1{
     font-family: 'Roboto Condensed', sans-serif;
@@ -52,10 +57,6 @@ h1{
 
 .fa-plus-square{
     color: white !important;
-}
-
-#dropdown img{
-    border-radius: 50px;
 }
 
 #dropdown{
@@ -152,16 +153,16 @@ h1{
 
 }
 
-
-
 .searchBar button:hover{
     color:white;
 }
 
-
-.sortNav .navbar-text {
-    color: var(--darkBlue);
+.dropdown-toggle{
+    color:white;
+    background: none;
+    border:none;
 }
+
 
 .sortNav {
     background-color: transparent !important;
@@ -173,40 +174,38 @@ h1{
     margin-left: auto;
 }
 
-
-.sortNav .nav .nav-item a.active{
-    color:var(--darkBlue) !important;
-    background-color: transparent !important;
+.dropdown-item{
+    padding: 0.25em 0;
 }
 
-.navbar-brand {
-    color:var(--darkBlue) !important;
+.dropdown-menu{
+    right: 5em;
+    left: -95px;
+    width: 180px;
+    padding: 1em;
 }
 .sortNav .navbar-nav li{
     display: inline !important;
 }
 .sortNav a {
     color: var(--lightBlue);
-    padding: 0 5px;
-    text-transform: uppercase;
-    font-size: 12px;
-    
-}
-
-.sortNav a:hover {
-    color: var(--darkBlue);
-    background-color: transparent;
-    border-radius: 4px;
 }
 
 /*buttons*/
 .btn{
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    padding: 2px 30px !important;
+    padding: 8px 20px !important;
     border-radius: 50px;
     box-shadow: 0px 0px 1px #d8d8d8;
 
+}
+
+.btn-no{
+    border:0;
+    box-shadow: none;
+    font-family: 'Roboto', sans-serif;
+    background: none;
 }
 
 
@@ -278,7 +277,7 @@ h1{
     margin-bottom:1em;
 }
 
-
-.card-deck{
-    margin: 2em auto 0 auto !important;
+.roundRadius{
+    border-radius: 100px !important;
 }
+
