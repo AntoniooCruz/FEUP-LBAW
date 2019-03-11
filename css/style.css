@@ -59,10 +59,6 @@ h1{
     color: white !important;
 }
 
-#dropdown img{
-    border-radius: 50px;
-}
-
 #dropdown{
     margin-left: 2px;
     padding-left:  10px ;
@@ -183,7 +179,7 @@ h1{
 .btn{
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    padding: 2px 30px !important;
+    padding: 8px 20px !important;
     border-radius: 50px;
     box-shadow: 0px 0px 1px #d8d8d8;
 
@@ -258,6 +254,7 @@ h1{
     margin-bottom:1em;
 }
 
-.roundPic{
-    border-radius: 50px;
+.roundRadius{
+    border-radius: 100px;
 }
+
