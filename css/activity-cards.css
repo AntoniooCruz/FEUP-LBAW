@@ -77,7 +77,7 @@
 .card .poll {margin:1.5em 0;}
 
 .actionCard .card-body {
-    padding: 1em 2em;
+    padding: 2em;
     font-size: 15px;
 }
 
@@ -216,3 +216,19 @@ border:none;
     .bg-info {
         background-color: #c6d3dc !important;
     }
+
+
+ .card-pic-uploaded img{
+    margin-bottom: 1em;
+     width:100%;
+ }   
+
+ .card-pic-uploaded a{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.card-upload-pic .description {
+    border-bottom: 1px solid rgba(0,0,0,.125) !important;
+}
