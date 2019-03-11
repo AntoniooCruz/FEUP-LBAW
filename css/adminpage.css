@@ -24,3 +24,8 @@
 .report .footer {
     background: white;
 }
+
+#nav-admintab .actionCard {
+    max-width: 800px;
+}
+
