@@ -121,9 +121,6 @@
 }
 
 
-.event img{
-    width:100%;
-}
 
 .eventPhoto{
     margin: 0;
@@ -211,3 +208,6 @@
     font-size: 12px;
 }
 
+.card-comment-section{
+    padding-right: 3.5rem;
+}

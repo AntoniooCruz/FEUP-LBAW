@@ -17,7 +17,7 @@
     max-width: 650px;
 }
 
-.description .userAction {
+.userAction {
     height: 35px;
     width: auto;
     margin-right: 10px;
@@ -75,11 +75,6 @@
 }
 
 .card .poll {margin:1.5em 0;}
-
-.actionCard .card-body {
-    padding: 2em;
-    font-size: 15px;
-}
 
 .actionCard .card-body p {
     margin: 0;
@@ -195,6 +190,7 @@ margin-bottom: 1em !important;
 
 .footerText{
     display:flex;
+    flex-direction: column;
     padding: 0 1.5rem 0.5rem 1.5rem;
 }
 
@@ -231,4 +227,50 @@ border:none;
 
 .card-upload-pic .description {
     border-bottom: 1px solid rgba(0,0,0,.125) !important;
+}
+.comments {
+    background: white;
+}
+
+.commentInput {
+    padding: 0 1em;
+}
+
+.commentArea textarea {
+    border: 0;
+    padding: 0 4.5em;
+    border-radius: 0;
+    font-size: 14px;
+    position: relative;
+    margin: 5px 0;
+}
+
+.comments .comment{
+    display:flex;
+}
+
+.commentInput img{
+    position: absolute;
+    left: 8px;
+    top: 4px;
+}
+
+.commentText{
+    background-color: #f1f1f1;
+    padding-top: 0.35em;
+    padding-bottom: 0.35em;
+}
+
+.comments textarea, .comments .comment{
+    font-size:14px;
+}
+
+.comments img{
+    height: 32px;
+    width: auto;
+}
+
+.event .commentButton {
+    padding: 0px 14px 0px 17px !important;
+    font-size: 27px;
 }

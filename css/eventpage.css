@@ -1,6 +1,6 @@
 @import "./style.css";
 
-.event img {
+.eventPhoto img {
     width: 100%;
 }
 
@@ -196,17 +196,8 @@
     top: 10px;
 }
 
-.comment {
-    padding: 0 1em;
-}
 
 .event textarea {
-    border: 0;
-    padding: 0 4.5em;
-    border-radius: 0;
-    font-size: 14px;
-    position: relative;
-    margin: 5px 0;
     resize: none;
 }
 
@@ -233,15 +224,13 @@
     position: relative;
 }
 
-.commentButton {
-    padding: 0px 14px 0px 18px !important;
+.commentArea .commentButton {
     margin: 0;
-    font-size: 29px;
     position: absolute;
     bottom: 10px;
     right: 15px;
-    border-radius: 100px;
 }
+
 
 .event .commentArea .form-group {
     padding: 0;
