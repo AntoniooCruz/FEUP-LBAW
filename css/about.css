@@ -1,0 +1,46 @@
+@import "./style.css";
+
+body{
+    background-color: var(--darkBlue);
+}
+
+#about {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.navbar, #about .navbar{
+    box-shadow: none;
+}
+
+#mainpage .container > #logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 3em;
+}
+
+#logo img{
+    width:25%;
+    height:50%;
+}
+
+hr {
+    margin-top: 5%;
+    border-top:2px solid;
+    color: #888888;
+}
+
+#titles {
+    margin-top: 5%;
+    box-shadow: var(--lightGray);
+}
+
+h2,h3 {
+    color:white;
+    font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+    font-size: 110%;
+    margin-top: 6%;
+}

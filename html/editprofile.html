@@ -7,20 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/profile.css">
   <link rel="stylesheet" href="../css/event-cards.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous" defer></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"
+    defer></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"
+    defer></script>
 
   <title>RainCheck</title>
 </head>
@@ -62,16 +65,26 @@
   <div class="parContainer row justify-content-center">
     <div id="profile_container" class="col-lg-3 col-12 container text-center">
       <img src="../img/user.jpg">
+      <button type="button" class="btn btn-primary">Update</button>
       <div id="profile_content">
         <i class="far fa-flag"></i>
         <div id="header"></div>
         <div id="name" class="row justify-content-left">
           <div class="col text-left">
-              <span >Francisco Loureiro <i class="fa fa-check-circle"></i></span>
-              <span id="username" >@userame</span>
-          </div>
-          <div class="col-3 col text-right">
-            <button id="follow_button" type="button" class="btn btn-primary">Follow</button>
+            <form class="form-signin">
+              <div class="form-label-group">
+                <input type="text" id="inputName" class="form-control" placeholder="Jane Doe" required autofocus style="border:none;">
+              </div>
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" placeholder="janedoe@gmail.com" required autofocus style="border:none;">
+              </div>
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Old Password" required style="border:none;">
+              </div>
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="New Password" required style="border:none;">
+              </div>
+            </form>
           </div>
         </div>
         <hr>
@@ -92,9 +105,7 @@
 
         </div>
         <hr>
-        <p id="description" class="row text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et
-          dolore magna aliqua.</p>
+        <textarea id="description" class="col-10 text-left" style="overflow:hidden; resize:vertical"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
       </div>
 
       <div class="row"><button id="tickets-button" type="button" class=" btn btn-secondary">My tickets</button></div>
@@ -117,7 +128,7 @@
                   </div>
                   <span id="eventPageDay" class="eventPageDay">03</span>
                 </div>
-                <div class="col-md-7 col-sm-11 col-11 cardTitle">
+                <div class="col-md-7 col-sm-10 col-10 cardTitle">
                   <span id="event-card-title">Lorem Ipsum</span>
                   <span class="dot-separator" id="event-card-title-going-separator"> • </span>
                   <span id="going-tag"> going </span>
@@ -154,7 +165,7 @@
                   </div>
                   <span id="eventPageDay" class="eventPageDay">03</span>
                 </div>
-                <div class="col-md-7 col-sm-11 col-11 cardTitle">
+                <div class="col-md-7 col-sm-10 col-10 cardTitle">
                   <span id="event-card-title">Lorem Ipsum</span>
                   <span class="dot-separator" id="event-card-title-going-separator"> • </span>
                   <span id="going-tag"> going </span>
@@ -191,7 +202,7 @@
                   </div>
                   <span id="eventPageDay" class="eventPageDay">03</span>
                 </div>
-                <div class="col-md-7 col-sm-11 col-11 cardTitle">
+                <div class="col-md-7 col-sm-10 col-10 cardTitle">
                   <span id="event-card-title">Lorem Ipsum</span>
                   <span class="dot-separator" id="event-card-title-going-separator"> • </span>
                   <span id="going-tag"> going </span>
@@ -219,9 +230,6 @@
       </div>
     </div>
   </div>
-
-
-
 </body>
 
 </html>

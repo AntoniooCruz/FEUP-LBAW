@@ -1,0 +1,78 @@
+@import "./style.css";
+
+body{
+    background-color: var(--darkBlue);
+}
+
+.navbar{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.card {
+    background-color: var(--darkBlue);
+    border: 0;
+    background: none;
+    box-shadow: none;
+    color:white;
+}
+
+.card-body , .btn-link{
+    color:white;
+    box-shadow: none;
+
+}
+
+.card-body{
+    padding-left: 3.7em;
+    padding-top: 10px;
+    font-weight: 100;
+}
+
+#faqs .navbar-text {
+    color: white;
+}
+
+.navbar, #about .navbar{
+    box-shadow: none;
+}
+
+#accordion .fa-sort-down {
+    margin-right: 3%;
+}
+
+.card-header{
+    padding: 1rem 1.25rem;
+}
+
+.card-header:hover i{
+    color: white;
+} 
+
+.card-header i{
+    color: #424e5f;
+} 
+
+.card-header:hover a{
+    color: white;
+}
+
+.text-left{
+    border:0;
+    background: none;
+    color: white;
+    width: 55%;
+}
+
+.container{
+    margin-top: 10%;
+}
+
+button:focus{outline:none;}
+
+.card-header:first-child {
+    font-family: 'Roboto Condensed', sans-serif;
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+}
