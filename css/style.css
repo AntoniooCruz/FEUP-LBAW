@@ -185,6 +185,13 @@ h1{
 
 }
 
+.btn-no{
+    border:0;
+    box-shadow: none;
+    font-family: 'Roboto', sans-serif;
+    background: none;
+}
+
 
 .btn-primary{
     background-color:#87b557!important;

@@ -1,29 +1,28 @@
 @import "./style.css";
 
-.event{
+.event {
     padding: 0;
     overflow-x: hidden;
 }
 
-.event img{
-    width:100%;
+.event img {
+    width: 100%;
 }
 
-.eventPhoto{
+.eventPhoto {
     margin: 0;
     border-radius: 2px;
     position: relative;
 }
 
-.eventRow{
+.eventRow {
     margin: 5px 0 0 0;
-    padding: 0 0 0 1em;
     background-color: white;
     border-radius: 2px;
     box-shadow: 0px 0px 8px #d4d2d2;
 }
 
-.eventRow #eventTitle{
+.eventRow #eventTitle {
     padding: 0;
     font-family: 'Roboto Condensed', sans-serif;
     margin: auto;
@@ -31,16 +30,16 @@
 }
 
 
-.event #floatingLabels{
+.event #floatingLabels {
     position: absolute;
     top: 10px;
-    right:10px;
+    right: 10px;
     font-size: 14px;
 }
 
-.event .label{
+.event .label {
     right: 20px;
-        color: #f1f1f1;
+    color: #f1f1f1;
     border-radius: 30px;
     padding: 6px 8px;
     box-shadow: 0px 0px 2px #4242425e;
@@ -49,16 +48,16 @@
     font-weight: 100;
 }
 
-.event #privateIndicator{
+.event #privateIndicator {
     background-color: #1c2530b0;
 }
 
-.event #categoryIndicator{
+.event #categoryIndicator {
     background-color: #a1b8cbcf;
 }
 
 
-.event #eventPagedate{
+.event #eventPagedate {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,7 +66,7 @@
     position: relative;
 }
 
-.event #eventPageMonth{
+.event #eventPageMonth {
     font-size: 20px;
     color: #A1B6C8;
     margin-bottom: -8px;
@@ -77,40 +76,44 @@
     font-size: 14px;
 }
 
-.event #eventPageDay{
+.event #eventPageDay {
     font-size: 30px;
     padding-top: 28px;
 }
 
-.event .eventDate{ 
+.event .eventDate {
     font-size: 13px;
 }
 
-.event .ownerUsername{
+.event .ownerUsername {
     text-decoration: underline;
 }
 
-.event #titleHeader{
+.event #titleHeader {
     padding: 0.8em;
 }
 
-.event .eventYear{
+.eventRow .header {
+    padding: 0 1em;
+}
+
+.event .eventYear {
     color: #bbbbbb;
     margin-left: 1px;
 }
 
-.event .eventMonth{
+.event .eventMonth {
     text-transform: uppercase;
 }
 
-.event .nav-link{
+.event .nav-link {
     padding: 5px 5px 3px 5px;
     color: #a9a8a8;
     border-bottom: 3px solid transparent;
     margin: 0.8em 0 0.8em 0;
 }
 
-.event .nav-pills .nav-link.active{
+.event .nav-pills .nav-link.active {
     color: #88a845;
     border-bottom: 3px solid #88a844;
     border-radius: 0;
@@ -119,67 +122,76 @@
 
 
 .event .justify-content-md-center {
-    justify-content: center!important;
+    justify-content: center !important;
 }
 
-.event .userPic{
-    width: 50px !important; 
+.event .userPic {
+    width: 50px !important;
     border-radius: 50px;
-    height:50px;
+    height: 50px;
     margin: 4px;
 }
 
-.event .userPic-more{
-    width: 50px !important; 
+.event .userPic-more {
+    width: 50px !important;
     border-radius: 50px;
-    height:50px;
+    height: 50px;
     position: absolute;
     margin: 0
 }
 
 
-.event #goingRow, .eventRowPhotos{
+.event #goingRow,
+.eventRowPhotos {
     padding: 1em;
 }
 
-.event .userPhotos{
+.event .userPhotos {
     padding: 10px 20px;
 }
 
 
 
-.event .detailsHeader{
-    padding:0.8em;
+.event .detailsHeader {
+    padding: 8px;
 }
 
-.event .details #collapseContentDets{
-    padding:1em;
+.event .details #collapseContentDets {
+    padding: 1em;
 }
 
 
-.event .details p, .event .details span{
+.event .details p,
+.event .details span {
     font-size: 14px;
 }
-.event .details p{margin-left: 1.4em;}
-.event .details span{margin-left: 1.1em;}
-.event .details #location{
-    margin-top:2em;
+
+.event .details p {
+    margin-left: 1.4em;
+}
+
+.event .details span {
+    margin-left: 1.1em;
+}
+
+.event .details #location {
+    margin-top: 2em;
     display: flex;
     flex-direction: column;
-} 
+}
 
-.event .details #dateNhours{
+.event .details #dateNhours {
     display: flex;
     flex-direction: column;
     padding-right: 1em;
-} 
+}
 
-.fa-slash{
+.fa-slash {
     transform: rotate(100deg);
     font-size: 20px;
 }
 
-.event #commentPic{
+.event #commentPic {
     padding-right: 0;
     position: absolute;
     width: 43px;
@@ -188,21 +200,21 @@
     top: 10px;
 }
 
-.comment{
+.comment {
     padding: 0 1em;
 }
 
-.event textarea{
+.event textarea {
     border: 0;
-    padding:0 4.5em;
+    padding: 0 4.5em;
     border-radius: 0;
     font-size: 14px;
     position: relative;
-    margin:5px 0;
+    margin: 5px 0;
     resize: none;
 }
 
-.commentArea{
+.commentArea {
     background-color: white;
     padding: 0;
     border-radius: 2px;
@@ -210,22 +222,22 @@
 }
 
 
-.commentArea hr{
-    margin:15px 67px 5px 15px !important;
+.commentArea hr {
+    margin: 15px 67px 5px 15px !important;
 }
 
-.commentArea h6{
+.commentArea h6 {
     background-color: var(--lightBlue);
     border-radius: 0;
-    padding:1em 5em;
+    padding: 1em 5em;
     border-radius: 2px 2px 0 0;
 }
 
-.event .commentArea{
+.event .commentArea {
     position: relative;
 }
 
-.commentButton{
+.commentButton {
     padding: 0px 14px 0px 18px !important;
     margin: 0;
     font-size: 29px;
@@ -235,25 +247,25 @@
     border-radius: 100px;
 }
 
-.event .commentArea .form-group{
-    padding:0;
+.event .commentArea .form-group {
+    padding: 0;
     margin-bottom: 0px;
 }
 
-.event hr{
+.event>hr {
     margin: 2em 0;
 }
 
 
-.event .commentArea .options{
+.event .commentArea .options {
     padding-left: 1em;
 }
 
-.event .commentArea .options i{
+.event .commentArea .options i {
     color: var(--lightBlue);
 }
 
-.event .commentArea .options button{
+.event .commentArea .options button {
     border: none;
     background: none;
 }
@@ -363,12 +375,13 @@
 }
 
 .rightCol {
-    margin-right:0;
-    margin-left:auto;
+    margin-right: 0;
+    margin-left: auto;
     max-width: 600px;
+    padding: 0;
 }
 
-.discussion{
+.discussion {
     margin: 5px 0 0 0;
 }
 
@@ -379,130 +392,160 @@
 
 }
 
-.discussion .row{
+.discussion .row {
     margin: 0;
 }
 
 
-@media (max-width: 991px){
+@media (max-width: 991px) {
     .rightCol {
         margin-right: auto;
         width: 100%;
     }
 
     .leftCol {
-        max-width: 600px;
         margin: auto;
         margin-bottom: 2em;
-        padding: 0 1em !important;
     }
 
-    #attendance h6{
-        display:none;
+    #attendance h6 {
+        display: none;
+    }
+
+    .event>hr {
+        display: none;
+    }
+
+    #attendance>.row {
+        background-color: white;
+        padding: 8px;
+    }
+
+}
+
+@media(max-width: 767px) {
+    .getTicket {
+        padding: 0 !important;
+        margin-top: 5px;
+    }
+
+    .getTicket .btn{
+        width: 100%;
+        border-radius: 2px;
+    }
+
+    .event > .eventRow:first-child{
+        background: none;
+    }
+
+    .eventRow .header {
+        background: white;
+    box-shadow: 0px 0px 8px #d4d2d2;
+    border-radius: 2px;
     }
 }
 
-
-
-@media (min-width: 992px){
+@media (min-width: 992px) {
     .rightCol {
-        margin-right:0;
-        max-width: 620px ;
+        margin-right: 0;
+        max-width: 620px;
     }
 
     .leftCol {
         max-width: 400px;
     }
 
-    .attendanceButton{
-        display:none;
+    .attendanceButton {
+        display: none;
     }
 
-    #collapseContent{
+    #collapseContent {
         display: initial;
     }
 
-    
+    #attendance>.row {
+        background-color: var(--darkBlue);
+    }
 }
 
-@media (min-width: 1200px){
-.rightCol {
-    max-width: 600px;
-}
-}
-
-
-.actionCard{
-    width: 100% !important; 
-    padding:0;
+@media (min-width: 1200px) {
+    .rightCol {
+        max-width: 600px;
+        padding-left: 1em;
+    }
 }
 
-.leftCol{
-    padding:0;
+
+.actionCard {
+    width: 100% !important;
+    padding: 0;
 }
-#attendance{
+
+.leftCol {
+    padding: 0;
+}
+
+#attendance {
     background-color: white;
     border-radius: 2px;
     box-shadow: 0px 0px 8px #d4d2d2;
     border-radius: 2px;
-    padding:0;
+    padding: 0;
 }
 
-#attendance section{
-    padding:1em;
+#attendance section {
+    padding: 1em;
 }
 
 
-#attendance hr{
-    margin:1em 0.5em!important;
+#attendance hr {
+    margin: 1em 0.5em !important;
 }
 
-#attendance h6{
+#attendance h6 {
     padding: 7px;
-    
-    margin:0;
+    margin: 0;
     border-radius: 2px;
 }
 
-#attendance > .row{
-    background-color: var(--darkBlue);
-    color:white;
+#attendance>.row {
+    color: white;
 }
 
-.graph{
+.graph {
     height: 30%;
     width: 30%;
     max-width: 100px;
     max-height: 100px;
 }
 
-.userPics{
+.userPics {
     padding: 0 9px;
-    margin-top:2em;
+    margin-top: 2em;
 }
 
-.fa-circle{
+.fa-circle {
     color: #1a2431c2;
     position: absolute;
 }
 
-.fa-ellipsis-h{
-position: absolute;
-top: 15px;
-left: 15px;
-font-size: 18px;
-color: white;
+.fa-ellipsis-h {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 18px;
+    color: white;
 }
 
-.tab-content{
-    margin-top:1rem;
+.tab-content {
+    margin-top: 1rem;
 }
 
-.userPics .nav-item{
+.userPics .nav-item {
     margin-bottom: 0;
 }
 
-.userPics .row > a {
+.userPics .row>a {
     font-size: 50px;
     height: 50px;
     width: 50px;
@@ -511,14 +554,15 @@ color: white;
 
 }
 
-.lotation{
+.lotation {
     padding: 0 1em;
 }
 
-.getTicket{
+.getTicket {
     padding: 1em 1em 1em 0;
 }
 
-.getTicket .btn{
+.getTicket .btn {
     font-size: 14px;
+    padding: 11px !important;
 }
