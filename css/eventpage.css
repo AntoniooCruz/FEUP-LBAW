@@ -1,7 +1,7 @@
 @import "./style.css";
 
 .event {
-    padding: 0;
+    padding: 0 0.2em !important;
     overflow-x: hidden;
 }
 
@@ -370,15 +370,9 @@
     border-bottom: 1px solid #e5e5e5;
 }
 
-
-.commentArea {
-    max-width: 650px;
-}
-
 .rightCol {
     margin-right: 0;
     margin-left: auto;
-    max-width: 600px;
     padding: 0;
 }
 
@@ -446,6 +440,10 @@
     }
 }
 
+.actionCard {
+    max-width: 750px !important;
+}
+
 @media (min-width: 992px) {
     .rightCol {
         margin-right: 0;
@@ -467,11 +465,16 @@
     #attendance>.row {
         background-color: var(--darkBlue);
     }
+
+    .commentArea {
+        max-width: 650px;
+    }
 }
 
 @media (min-width: 1200px) {
+
     .rightCol {
-        max-width: 600px;
+        max-width: 590px;
         padding-left: 1em;
     }
 }
