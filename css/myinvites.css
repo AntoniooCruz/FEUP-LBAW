@@ -20,14 +20,88 @@
     background: white;
 }
 
-@media (max-width: 768px){
-.container {
-    width: 100%;
+
+.actionCard {
+    width: 500px;
 }
+
+
+#ticketNavContainer {
+    width: 85%;
 }
-@media (min-width: 576px){
-.container {
-    width: 100%;
+
+.row {
+    justify-content: left;
+    margin: auto;
 }
+
+
+@media (max-width:535px){
+    .row {
+        justify-content: center !important;
+    }
+
+    .tickets .col-auto {
+        padding: 0;
+    }
+
+    #ticketNavContainer {
+        width: 100%;
+    }
+
+    .tickets {
+        padding: 0;
+    }
+
+    .sortNav{
+        width: 350px !important;
+    }
+
+    .actionCard {
+        width: 370px;
+    }
+}
+
+@media (min-width:535px){
+    .row{
+    width: 536px;
+    }
+
+    .sortNav {
+        width: 500px;
+        }
+
+        .actionCard {
+            width: 490px;
+        }
+}
+
+@media (min-width:992px){
+    .row{
+    width: 804px;
+    }
+
+    .sortNav {
+        width: 788px;
+    }
+    .actionCard {
+        width: 370px;
+    }
+
+}
+
+@media (min-width:1297px){
+    .row {
+    width: 1072px;
+    }
+
+    .sortNav{
+        width: 1056px;
+    }
+
+    .actionCard {
+        width: 500px;
+    }
+
 }
 
