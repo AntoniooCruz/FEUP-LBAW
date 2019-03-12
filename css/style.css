@@ -77,6 +77,11 @@ body > .navbar:nth-child(1){
     padding-right: 12px;
 }
 
+.navbar-nav > .nav-item > button{
+    padding-left: 12px;
+}
+
+
 
 .navbar-nav > .nav-item > .nav-link:hover, #dropdown:hover, .fa-plus-square:hover{
     color:white;
@@ -279,6 +284,7 @@ body > .navbar:nth-child(1) .dropdown-toggle{
     background: transparent;
     border:0;
     color:white;
+    padding-left: 0;
 }
 
 #newEventBtn{
@@ -288,7 +294,6 @@ body > .navbar:nth-child(1) .dropdown-toggle{
 
 .uploadCover{
     position: absolute;
-    top: 45%;
 }
 
 .eventPhoto img {
@@ -307,20 +312,104 @@ body > .navbar:nth-child(1) .dropdown-toggle{
     height: 30px;
 }
 
-.friendList > div{
-    background-color: #f1f1f1;
-}
-
 .friendList{
     height:150px;
     overflow-y: scroll;
 }
 
-.modal .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+#createEventModal  .nav-pills .nav-link.active{
     background-color: var(--lightBlue);
+    color:white;
 }
 
-
-.modal a {
+#createEventModal .nav-pills .show>.nav-link {
     color: var(--lightBlue);
+    background-color: #e9ecef;
 }
+
+#createEventModal a {
+    color: var(--lightBlue);
+    background-color: #e9ecef;
+}
+
+#createEventModal .nav-pills .nav-item:nth-child(1) .nav-link{
+    border-radius: 50px 0 0 50px;
+}
+
+#createEventModal .nav-pills .nav-item:nth-child(2) .nav-link{
+    border-radius: 0 50px 50px 0;
+}
+
+.friendList .row .input-group-prepend div{
+    border-radius: 50px 0 0 50px;
+    width: 400px;
+    border-right: 0;
+    background: transparent;
+}
+
+.friendList .row .input-group-append div{
+    border-radius: 0 50px 50px 0 ;
+    border-left: 0;
+    background: transparent;
+}
+
+#createEventModal .form-control {
+    border:0;
+    border-radius: 0;
+    border-bottom: 1px solid #ced4da;
+}
+
+#createEventModal .tab-content .input-group-prepend div{
+    border-radius: 0;
+    border:0;
+    border-bottom: 1px solid #ced4da;
+    background: transparent;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+
+@media (min-width: 576px){
+#createEventModal .modal-dialog {
+    max-width: 700px;
+    margin: 1.75rem auto;
+    }
+
+}
+
+@media (max-width: 578px){
+    .friendList .row .input-group-prepend div{
+            width: 200px !important;
+    }
+
+    .btn-file {
+        left: 38% !important;
+    }
+    
+}
+
+
+.btn-file {
+    font-size: 14px;
+    position: absolute;
+    overflow: hidden;
+    bottom: 5%;
+    left: 42%;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;   
+    cursor: inherit;
+    display: block;
+}
+
