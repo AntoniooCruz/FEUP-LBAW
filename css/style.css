@@ -280,3 +280,14 @@ body > .navbar{
     border:0;
     color:white;
 }
+
+#newEventBtn{
+    background: none;
+    border: 0;
+}
+
+.uploadCover{
+    position: absolute;
+    top: 45%;
+}
+
