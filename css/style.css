@@ -21,12 +21,6 @@ html,body{
 /*--------------------------*/
 /*-------- NAV BAR ---------*/
 /*--------------------------*/
-@media (min-width: 1200px){
-.container {
-    max-width: 900px;
-}
-}
-
 h1{
     font-family: 'Roboto Condensed', sans-serif;
 }
@@ -106,11 +100,11 @@ h1{
     color:white !important;
 }
 
-.navbar-collapse > .searchBar{
+.navbar-collapse > .searchBar-blue{
     padding-left: 8px;
 }
 
-.navbar-collapse > .searchBar input{
+.navbar-collapse > .searchBar-blue input{
     margin-right: 0!important;
     width: 99px !important;
     padding-right: 0;
@@ -118,29 +112,32 @@ h1{
     padding-left: 12px !important;
 }
 
-.searchBar input{
+.searchBar-blue input{
     font-size: 14px;
     border-radius: 50px 0 0 50px;
-    border:none;
-    background-color:#262F3C;
     height: 50px;
     padding-left: 20px !important;
 }
 
-.searchBar input:focus{
+.searchBar-blue input{
+    background-color:#262F3C;
+    border:none;
+}
+
+.searchBar-blue input:focus{
     background-color:#262F3C;
     box-shadow:none;
     color:white;
 }
 
-.navbar-collapse > .searchBar button{
+.navbar-collapse > .searchBar-blue button{
     height: 30px;
     padding-top: 3px!important;
     padding-right: 12px !important;
 
 }
 
- .searchBar button{
+ .searchBar-blue button{
     border-radius: 0 50px 50px 0;
     border:none;
     background-color:#262F3C;
@@ -153,15 +150,10 @@ h1{
 
 }
 
-.searchBar button:hover{
+.searchBar-blue button:hover{
     color:white;
 }
 
-.dropdown-toggle{
-    color:white;
-    background: none;
-    border:none;
-}
 
 
 .sortNav {
@@ -201,6 +193,10 @@ h1{
     background: none;
 }
 
+.btn-third{
+    color:var(--darkBlue)!important;
+    border-color:var(--darkBlue)!important;
+}
 
 .btn-primary{
     background-color:#87b557!important;
@@ -259,7 +255,7 @@ h1{
     margin-top: 6em
 }
 
-#mainpage .container > .searchBar input{
+#mainpage .container > .searchBar-blue input{
     width: 50% !important;
 }
 
