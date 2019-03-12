@@ -187,7 +187,7 @@ body > .navbar:nth-child(1){
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     padding: 8px 20px !important;
-    border-radius: 50px;
+    border-radius: 50px !important;
     box-shadow: 0px 0px 1px #d8d8d8;
 }
 
@@ -228,8 +228,7 @@ body > .navbar:nth-child(1){
 }
 
 .btn-outline-primary:hover{
-    background: var(--green)!important;
-    color:white!important;
+    background: none;
 }
 
 .btn-outline-secondary{
@@ -240,8 +239,7 @@ body > .navbar:nth-child(1){
 }
 
 .btn-outline-secondary:hover{
-    background:var(--lightBlue);
-    color:white!important;
+    background: none;
 }
 
 .btn-google {
@@ -317,26 +315,28 @@ body > .navbar:nth-child(1) .dropdown-toggle{
     overflow-y: scroll;
 }
 
-#createEventModal  .nav-pills .nav-link.active{
+#createEventModal  .nav-pills .nav-link.active, #editEventModal .nav-pills .nav-link.active{
     background-color: var(--lightBlue);
     color:white;
 }
 
-#createEventModal .nav-pills .show>.nav-link {
+#createEventModal .nav-pills .show>.nav-link, #editEventModal .nav-pills .show>.nav-link {
     color: var(--lightBlue);
     background-color: #e9ecef;
 }
 
-#createEventModal a {
+#createEventModal a, #editEventModal a {
     color: var(--lightBlue);
     background-color: #e9ecef;
 }
 
-#createEventModal .nav-pills .nav-item:nth-child(1) .nav-link{
+#createEventModal .nav-pills .nav-item:nth-child(1) .nav-link,
+#editEventModal .nav-pills .nav-item:nth-child(1) .nav-link{
     border-radius: 50px 0 0 50px;
 }
 
-#createEventModal .nav-pills .nav-item:nth-child(2) .nav-link{
+#createEventModal .nav-pills .nav-item:nth-child(2) .nav-link,
+#editEventModal .nav-pills .nav-item:nth-child(2) .nav-link{
     border-radius: 0 50px 50px 0;
 }
 
@@ -353,13 +353,15 @@ body > .navbar:nth-child(1) .dropdown-toggle{
     background: transparent;
 }
 
-#createEventModal .form-control {
+#createEventModal .form-control,
+#editEventModal .form-control {
     border:0;
     border-radius: 0;
     border-bottom: 1px solid #ced4da;
 }
 
-#createEventModal .tab-content .input-group-prepend div{
+#createEventModal .tab-content .input-group-prepend div,
+#editEventModal .tab-content .input-group-prepend div{
     border-radius: 0;
     border:0;
     border-bottom: 1px solid #ced4da;
@@ -372,7 +374,8 @@ body > .navbar:nth-child(1) .dropdown-toggle{
 
 
 @media (min-width: 576px){
-#createEventModal .modal-dialog {
+#createEventModal .modal-dialog, 
+#editEventModal .modal-dialog {
     max-width: 700px;
     margin: 1.75rem auto;
     }
@@ -413,3 +416,7 @@ body > .navbar:nth-child(1) .dropdown-toggle{
     display: block;
 }
 
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: transparent !important;
+}

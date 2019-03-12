@@ -51,9 +51,20 @@
         <li class="nav-item"></li>
         <i class="nav-link fas fa-plus-square"></i>
         </li>
-        <li id="dropdown" class="nav-item">
-          <img src="../img/user.jpg" class="roundRadius" width="30" height="30">
-          <i class="fas fa-caret-down"></i>
+        <li id="dropdown" class="dropdown nav-item">
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="#">My tickets</a>
+            <a class="dropdown-item" href="#">My invites</a>
+            <hr>
+            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" href="#">Delete account</a>
+          </div>
+
+          <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img src="../img/user.jpg" class="roundRadius" width="30" height="30">
+          </button>
         </li>
       </ul>
     </div>

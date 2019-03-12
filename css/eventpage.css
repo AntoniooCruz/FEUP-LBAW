@@ -515,7 +515,7 @@
     position: absolute;
 }
 
-.fa-ellipsis-h {
+#attendance .fa-ellipsis-h {
     position: absolute;
     top: 15px;
     left: 15px;
@@ -552,3 +552,9 @@
     font-size: 14px;
 }
 
+
+
+#deleteEvent{
+    background-color: #dc3545;
+    color: white;
+}
