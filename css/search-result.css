@@ -91,3 +91,8 @@
 .search .navbar{
     background-color: transparent !important;
 }
+
+#filterby{
+    font-size: 15px;
+    color:black;
+}
