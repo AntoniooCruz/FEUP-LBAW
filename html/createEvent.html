@@ -7,512 +7,429 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/eventpage.css">
+  <link rel="stylesheet" href="../css/activityfeed.css">
   <link rel="stylesheet" href="../css/event-cards.css">
+  <link rel="stylesheet" href="../css/eventpage.css">
   <link rel="stylesheet" href="../css/activity-cards.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"
-    defer></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"
-    defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous" defer></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous" defer></script>
 
   <title>RainCheck</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"> <img src="../img/icon.png" width="31,83" height="24,92"> </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"> <img src="../img/icon.png" width="31,83" height="24,92"> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <form class="searchBar-blue form-inline mr-auto my-2 my-lg-0">
+        <input class="form-control" type="search" placeholder="Search...">
+        <button class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
+      </form>
+      <ul class="navbar-nav mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">FAQ</a>
+        </li>
+        <li class="nav-item"></li>
+        <button id="newEventBtn" type="button" class="" data-toggle="modal" data-target="#createEventModal">
+          <i class="nav-link fas fa-plus-square"></i>
         </button>
-    
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <form class="searchBar-blue form-inline mr-auto my-2 my-lg-0">
-            <input class="form-control" type="search" placeholder="Search...">
-            <button class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
-          </form>
-          <ul class="navbar-nav mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">FAQ</a>
-            </li>
-            <li class="nav-item"></li>
-            <i class="nav-link fas fa-plus-square"></i>
-            </li>
-            <li id="dropdown" class="dropdown nav-item">
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-    
-              <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <img src="../img/user.jpg" class="roundRadius" width="30" height="30">
-              </button>
-            </li>
-            <li>
-    
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-
-  <section class="event container">
-    <div class="eventPhoto justify-content-md-center">
-      <div id="floatingLabels">
-        <span id="privateIndicator" class="label"> <i class="fas fa-lock"></i></span>
-        <span id="categoryIndicator" class="label"> Category</span>
-      </div>
-      <img src="../img/eventbanner.jpg">
-    </div>
-
-    <div class="eventRow row">
-      <div class="col-lg-10 col-md-9 col-sm-12">
-        <div class="row header align-items-start">
-          <div id="eventPagedate" class="col-xs align-items-start">
-            <div id="eventPageMonth">
-              <span class="eventMonth">Mar</span>
-            </div>
-            <span id="eventPageDay">03</span>
-          </div>
-          <div id="titleHeader" class="col">
-            <h2 id="eventTitle">Lorem Ipsum Lorem Ipsum Lorem Ipsum</h2>
-            <div>
-              <span id="#created" class="eventDate">Created by <span class="ownerUsername">usernam123</span></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-2  col-md-3 col-sm-12 getTicket text-right">
-        <button class="btn btn-primary" type="button" aria-expanded="false">
-          <i class="fas fa-ticket-alt"></i> 10,50€
-        </button>
-
-      </div>
-    </div>
-
-
-
-    <div class="eventRow details">
-      <div class="row detailsHeader justify-content-center">
-        <button class="detailsButton btn-no" type="button" data-toggle="collapse" data-target="#collapseContentDets"
-          aria-expanded="true" aria-controls="collapseOne">
-          Details <i class="fas fa-caret-down"></i>
-        </button>
-      </div>
-      <div id="collapseContentDets" class="row collapse">
-        <div class="col-lg-4 col-sm-12 ">
-          <div id="dateNhours">
-            <h6><i class="far fa-calendar-alt"></i> Date & Hours</h6>
-            <span>03 de Marcço 2019</span>
-            <span>14h30 - 16h30</span>
+        </li>
+        <li id="dropdown" class="dropdown nav-item">
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
           </div>
 
-          <div id="location">
-            <h6><i class="fas fa-map-marker-alt"></i> Location</h6>
-            <span>Estrada da Circunvalação 7642, 4200-162</span>
-            <span>Porto</span>
-          </div>
-        </div>
-        <div class="col">
-          <h6><i class="fas fa-info-circle"></i> Description</h6>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at orci mattis tellus consectetur molestie
-            vel
-            at velit. Praesent tristique arcu eu scelerisque pretium. Nam metus metus, tristique quis consequat non,
-            cursus eget tortor.
-            Aliquam nibh tortor, efficitur quis volutpat eget, pharetra id purus. Aenean vestibulum
-            leo nisi, sit amet fringilla nulla egestas et. In hac habitasse platea dictumst. Ut viverra libero nec
-            mauris
-            finibus lobortis. </p>
-        </div>
-      </div>
-    </div>
-
-    <hr>
-    <section class="discussion row">
-      <div class="leftCol col-lg-4 col-md-12">
-        <div id="attendance" class="container sticky-top">
-          <div class="row justify-content-center">
-            <h6>Attendance</h6>
-            <button class="btn-no attendanceButton" type="button" data-toggle="collapse" data-target="#collapseContent"
-              aria-expanded="true" aria-controls="collapseOne">
-              Attendance <i class="fas fa-caret-down"></i>
-            </button>
-          </div>
-          <section id="collapseContent" class="collapse">
-            <div class="lotation row align-self-center justify-content-center">
-              <img class="graph" src="../img/graphTemplate.png">
-              <div class="col-auto align-self-center">
-                <span class="row">Capacity: 500</span>
-                <span class="row">Taken: 125</span>
-                <span class="row">Left: 475</span>
-              </div>
-            </div>
-            <div class="userPics">
-              <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                  <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#friendsGoing"
-                    role="tab" aria-controls="nav-profile" aria-selected="false">All(86)</a>
-                  <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#allGoing" role="tab"
-                    aria-controls="nav-home" aria-selected="true">Friends(36)</a>
-              </nav>
-              <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade" id="allGoing" role="tabpanel" aria-labelledby="nav-home-tab">
-                  <div class="row justify-content-center">
-                    <img class="userPic" src="../img/user.jpg">
-                    <img class="userPic" src="../img/user.jpg">
-                    <img class="userPic" src="../img/user.jpg">
-                    <img class="userPic" src="../img/user.jpg">
-                    <img class="userPic" src="../img/user.jpg">
-                    <img class="userPic" src="../img/user.jpg">
-                    <img class="userPic" src="../img/user.jpg">
-                    <a a href="#">
-                      <img class="userPic-more" src="../img/user.jpg">
-                      <i class="fas fa-circle"></i>
-                      <i class="fas fa-ellipsis-h"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="tab-pane fade show active" id="friendsGoing" role="tabpanel" aria-labelledby="nav-home-tab">
-                  <div class="row justify-content-center">
-                    <img class="userPic" src="../img/user.jpg">
-                    <img class="userPic" src="../img/user.jpg">
-                    <img class="userPic" src="../img/user.jpg">
-                    <img class="userPic" src="../img/user.jpg">
-                    <img class="userPic" src="../img/user.jpg">
-                    <img class="userPic" src="../img/user.jpg">
-                    <img class="userPic" src="../img/user.jpg">
-                    <a a href="#">
-                      <img class="userPic-more" src="../img/user.jpg">
-                      <i class="fas fa-circle"></i>
-                      <i class="fas fa-ellipsis-h"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-          </section>
-        </div>
-      </div>
-      </div>
-      <div class="rightCol col-auto col-md-12">
-        <div class="commentArea">
-          <h6></h6>
-          <img id="commentPic" class="roundRadius" src="../img/user.jpg">
-          <div class="comment row">
-            <div class="col-12 form-group">
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                placeholder="Say something..."></textarea>
-              <hr>
-            </div>
-            <div class="options">
-              <button class="" type="button" aria-expanded="false">
-                <i class="fas fa-poll-h"></i>
-              </button>
-              <button class="" type="button" aria-expanded="false">
-                <i class="fas fa-cloud-upload-alt"></i>
-              </button>
-            </div>
-          </div>
-          <button class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
-            <i class="fas fa-caret-right"></i>
+          <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <img src="../img/user.jpg" class="roundRadius" width="30" height="30">
           </button>
-        </div>
-        <hr>
-        <div id="#posts">
-          <div class="container-fluid actionCard">
-            <div class="card card-comment">
-              <div class="description header">
-                <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
-                <div class="headerText">
-                  <span class="card-title"><span class="link-username">username123</span> posted on <span
-                      class="link-event">Tea
-                      Party</span></span>
-                  <span class="card-date">13 Mar 2019 • 16h33</span>
-                </div>
-                <i class="far fa-flag"></i>
-              </div>
-              <div class="card-body">
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-              <div class="footer px-2">
-                <hr>
-                <div id="comments1" class="comments collapse mb-2 mt-3">
-                  <div class="commentInput row">
-                    <div class="col px-1">
-                      <img class=" userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
-                      <textarea class="form-control roundRadius pl-5" id="exampleFormControlTextarea1" rows="1"
-                        placeholder="Say something..."></textarea></div>
-                    <div class="col-auto p-0">
-                      <button class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
-                        <i class="fas fa-caret-right"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="card-comment-section pl-4 ">
-                    <div class="comment my-2">
-                      <img class="roundRadius" src="../img/user.jpg" alt="Card image cap">
-                      <div class="align-self-center commentText roundRadius px-4 ml-1">
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                      </div>
-                    </div>
-                    <div class="comment my-2">
-                      <img class="roundRadius" src="../img/user.jpg" alt="Card image cap">
-                      <div class="align-self-center commentText roundRadius px-4 ml-1">
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
-                          consectetur adipiscing elit.</div>
-                      </div>
-                    </div>
-                  </div>
-                  <hr class="mt-4 mx-6">
-                </div>
-                <div class="footerText" data-toggle="collapse" href="#comments1" role="button" aria-expanded="false"
-                  aria-controls="collapseExample">
-                  <button>
-                    <i class="far fa-comments"></i>
-                    <span>67</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container-fluid actionCard">
-            <div class="card card-upload">
-              <div class="description header">
-                <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
-                <div class="headerText">
-                  <span class="card-title"><span class="link-username">username123</span> uploaded a file on
-                    <span class="link-event">Tea Party</span></span>
-                  <span class="card-date">13 Mar 2019 • 16h33</span>
-                </div>
-                <i class="far fa-flag"></i>
-              </div>
-              <div class="card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mi sem, condimentum vel metus
-                  eget, maximus dignissim orci. Cras et arcu pharetra, eleifend lacus eu, semper sapien. Donec
-                  tristique metus leo, ac lacinia arcu interdum eget. </a>
-                </p>
-                <div class="card-text card-file-uploaded"><a href="../files/Document.txt" target="_blank"><i
-                      class="far fa-file"></i>Document.txt</a>
-                </div>
-              </div>
-              <div class="footer px-2">
-                <hr>
-                <div id="comments2" class="comments collapse mb-2 mt-3">
-                  <div class="commentInput row">
-                    <div class="col px-1">
-                      <img class=" userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
-                      <textarea class="form-control roundRadius pl-5" id="exampleFormControlTextarea1" rows="1"
-                        placeholder="Say something..."></textarea></div>
-                    <div class="col-auto p-0">
-                      <button class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
-                        <i class="fas fa-caret-right"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="card-comment-section pl-4 ">
-                    <div class="comment my-2">
-                      <img class="roundRadius" src="../img/user.jpg" alt="Card image cap">
-                      <div class="align-self-center commentText roundRadius px-4 ml-1">
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                      </div>
-                    </div>
-                    <div class="comment my-2">
-                      <img class="roundRadius" src="../img/user.jpg" alt="Card image cap">
-                      <div class="align-self-center commentText roundRadius px-4 ml-1">
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
-                          consectetur adipiscing elit.</div>
-                      </div>
-                    </div>
-                  </div>
-                  <hr class="mt-4 mx-6">
-                </div>
-                <div class="footerText" data-toggle="collapse" href="#comments2" role="button" aria-expanded="false"
-                  aria-controls="collapseExample">
-                  <button>
-                    <i class="far fa-comments"></i>
-                    <span>67</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container-fluid actionCard">
-          <div class="card card-upload-pic">
-            <div class="description header">
-              <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
-              <div class="headerText">
-                <span class="card-title"><span class="link-username">username123</span> uploaded a file on
-                  <span class="link-event">Tea Party</span></span>
-                <span class="card-date">13 Mar 2019 • 16h33</span>
-              </div>
-              <i class="far fa-flag"></i>
-            </div>
-            <div class="card-body">
-              <div class="card-text card-pic-uploaded"><a href="../img/preview.jpg"><img src="../img/preview.jpg"></a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mi sem, condimentum vel metus
-                  eget, maximus dignissim orci. Cras et arcu pharetra, eleifend lacus eu, semper sapien. Donec
-                  tristique metus leo, ac lacinia arcu interdum eget. </a>
-                </p>
-              </div>
-            </div>
-            <div class="footer px-2">
-              <hr>
-              <div id="comments3" class="comments collapse mb-2 mt-3">
-                <div class="commentInput row">
-                  <div class="col px-1">
-                    <img class=" userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
-                    <textarea class="form-control roundRadius pl-5" id="exampleFormControlTextarea1" rows="1"
-                      placeholder="Say something..."></textarea></div>
-                  <div class="col-auto p-0">
-                    <button class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
-                      <i class="fas fa-caret-right"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="card-comment-section pl-4 ">
-                  <div class="comment my-2">
-                    <img class="roundRadius" src="../img/user.jpg" alt="Card image cap">
-                    <div class="align-self-center commentText roundRadius px-4 ml-1">
-                      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                    </div>
-                  </div>
-                  <div class="comment my-2">
-                    <img class="roundRadius" src="../img/user.jpg" alt="Card image cap">
-                    <div class="align-self-center commentText roundRadius px-4 ml-1">
-                      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.</div>
-                    </div>
-                  </div>
-                </div>
-                <hr class="mt-4 mx-6">
-              </div>
-              <div class="footerText" data-toggle="collapse" href="#comments3" role="button" aria-expanded="false"
-                aria-controls="collapseExample">
-                <button>
-                  <i class="far fa-comments"></i>
-                  <span>67</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container-fluid actionCard">
-          <div class="card card-poll">
-            <div class="description header">
-              <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
-              <div class="headerText">
-                <span class="card-title"><span class="link-username">username123</span> posted on <span
-                    class="link-event">Tea
-                    Party</span></span>
-                <span class="card-date">13 Mar 2019 • 16h33</span>
-              </div>
-              <i class="far fa-flag"></i>
-            </div>
-            <div class="card-body">
-              <div class="span6">
-                <h5>How are you going to travel there?</h5>
-                <hr>
-                <div class="poll">
-                  <div>
-                    <div class="progress roundRadius">
-                      <div class="form-check">
-                        <input class="roundRadius form-check-input position-static form-radio" type="radio"
-                          name="poll-option" id="poll-option1" value="option1" aria-label="Bus">
-                      </div>
-                      <div class="progress-bar bg-info" role="progressbar" style="width: 100%;" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">100%</span>
-                      <span class="pollOption">Bus</span>
-                    </div>
-                  </div>
-                  <div class="progress roundRadius">
-                    <div class="form-check">
-                      <input class="roundRadius form-check-input position-static form-radio" type="radio"
-                        name="poll-option" id="poll-option2" value="option2" aria-label="...">
-                    </div>
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 40%;" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">40%</span>
-                    <span class="pollOption">Car</span>
-                  </div>
-                  <div class="progress roundRadius">
-                    <div class=" form-check">
-                      <input class="roundRadius form-check-input position-static form-radio" type="radio"
-                        name="poll-option" id="poll-option3" value="option3" aria-label="...">
-                    </div>
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 10%;" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">10%</span>
-                    <span class="pollOption">Subway</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="footer px-2">
-              <hr>
-              <div id="comments4" class="comments collapse mb-2 mt-3">
-                <div class="commentInput row">
-                  <div class="col px-1">
-                    <img class=" userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
-                    <textarea class="form-control roundRadius pl-5" id="exampleFormControlTextarea1" rows="1"
-                      placeholder="Say something..."></textarea></div>
-                  <div class="col-auto p-0">
-                    <button class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
-                      <i class="fas fa-caret-right"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="card-comment-section pl-4 ">
-                  <div class="comment my-2">
-                    <img class="roundRadius" src="../img/user.jpg" alt="Card image cap">
-                    <div class="align-self-center commentText roundRadius px-3  ml-1">
-                      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                    </div>
-                  </div>
-                  <div class="comment my-2">
-                    <img class="roundRadius" src="../img/user.jpg" alt="Card image cap">
-                    <div class="align-self-center commentText roundRadius px-4 ml-1">
-                      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.</div>
-                    </div>
-                  </div>
-                </div>
-                <hr class="mt-4 mx-6">
-              </div>
-              <div class="footerText" data-toggle="collapse" href="#comments4" role="button" aria-expanded="false"
-                aria-controls="collapseExample">
-                <button>
-                  <i class="far fa-comments"></i>
-                  <span>67</span>
-                </button>
-              </div>
-            </div>
-          </div>
+        </li>
+        <li>
+
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="carousel-container" class="container">
+    <hr>
+    <section class="c">
+      <div class="card--content">
+        <img class="d-block w-100" src="../img/event4.jpg" alt="First slide">
+        <div class="card-img-overlay">
+          <h5 class="card-title">Title of third event</h5>
         </div>
       </div>
+      <div class="card--content">
+        <img class="d-block w-100" src="../img/event5.jpg" alt="First slide">
+        <div class="card-img-overlay">
+          <h5 class="card-title">Title of third event</h5>
+        </div>
+      </div>
+      <div class="card--content">
+        <img class="d-block w-100" src="../img/event6.jpg" alt="First slide">
+        <div class="card-img-overlay">
+          <h5 class="card-title">Title of third event</h5>
+        </div>
+      </div>
+      <div class="card--content">
+        <img class="d-block w-100" src="../img/event4.jpg" alt="First slide">
+        <div class="card-img-overlay">
+          <h5 class="card-title">Title of third event</h5>
+        </div>
+      </div>
+      <div class="card--content">
+        <img class="d-block w-100" src="../img/event5.jpg" alt="First slide">
+        <div class="card-img-overlay">
+          <h5 class="card-title">Title of third event</h5>
+        </div>
+      </div>
+      <div class="card--content">
+        <img class="d-block w-100" src="../img/event6.jpg" alt="First slide">
+        <div class="card-img-overlay">
+          <h5 class="card-title">Title of third event</h5>
+        </div>
       </div>
     </section>
-  </section>
-  <footer class="page-footer mt-5">
+    <div id="highlights">
+      <h4>#Trending</h4>
+      <hr>
+    </div>
+  </div>
+  <div id="feed">
+
+
+    <div class="container-fluid actionCard">
+      <div class="card card-comment">
+        <div class="description header">
+          <img class="userAction roundRadius roundRadius" src="../img/user.jpg" alt="Card image cap">
+          <div class="headerText">
+            <span class="card-title"><span class="link-username">username123</span> posted on <span class="link-event">Tea
+                Party</span></span>
+            <span class="card-date">13 Mar 2019 • 16h33</span>
+          </div>
+          <i class="far fa-flag"></i>
+
+        </div>
+        <img id="headerPic" class="card-img-top" src="../img/event5.jpg" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">"What time should we be there?"</p>
+        </div>
+        <div class="footer">
+          <hr>
+          <div class="footerText">
+            <button><i class="far fa-comments"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid actionCard">
+      <div class="card card-going-event">
+        <div class="description header">
+          <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+          <div class="headerText">
+            <span class="card-title"><span class="link-username">username123</span> created an event</span>
+            <span class="card-date">13 Mar 2019 • 16h33</span>
+          </div>
+          <i class="far fa-flag"></i>
+        </div>
+      </div>
+      <div class="invite card">
+        <img src="../img/invite-card-event.jpg" class="card-img-top">
+        <span class="badge badge-pill badge-secondary card-category">category</span>
+        <div class="card-body" id="event-card-body">
+          <div class="row eventRow header align-items-start">
+            <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
+              <div id="eventPageMonth" class="eventPageMonth">
+                <span id="eventMonth" class="eventMonth">Mar</span>
+              </div>
+              <span id="eventPageDay" class="eventPageDay">03</span>
+            </div>
+            <div class="col-10 cardTitle text-left">
+              <span id="event-card-title">Lorem Ipsum Lorem Ipsum</span>
+              <div class="event-card-footer">
+                <span id="event-card-hour">12:00</span>
+                <p class="dot-separator"> • </p>
+                <span id="card-adress">adress 123, cidade</span>
+              </div>
+            </div>
+          </div>
+          <div id="event-card-people-attending" class="row text-left">
+            <div class="col ">
+              <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+              <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+              <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+              <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
+              <span id="peopleGoing">+300 going</i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid actionCard">
+      <div class="card card-poll">
+        <div class="description header">
+          <img class="userAction roundRadius " src="../img/user.jpg" alt="Card image cap">
+          <div class="headerText">
+            <span class="card-title"><span class="link-username">username123</span> posted on <span class="link-event">Tea
+                Party</span></span>
+            <span class="card-date">13 Mar 2019 • 16h33</span>
+          </div>
+          <i class="far fa-flag"></i>
+
+        </div>
+        <img id="headerPic" class="card-img-top" src="../img/event4.jpg" alt="Card image cap">
+        <div class="card-body">
+          <div class="span6">
+            <p>How are you going to travel there?</p>
+            <div class="poll">
+              <div>
+                <div class="progress roundRadius">
+                  <div class="form-check">
+                    <input class="roundRadius form-check-input position-static form-radio" type="radio" name="poll-option"
+                      id="poll-option1" value="option1" aria-label="Bus">
+                  </div>
+                  <div class="progress-bar bg-info" role="progressbar" style="width: 100%;" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">100 votes</span>
+                  <span class="pollOption">Bus</span>
+                </div>
+              </div>
+              <div class="progress roundRadius">
+                <div class="form-check">
+                  <input class="roundRadius form-check-input position-static form-radio" type="radio" name="poll-option"
+                    id="poll-option2" value="option2" aria-label="...">
+                </div>
+                <div class="progress-bar bg-info" role="progressbar" style="width: 40%;" aria-valuenow="25"
+                  aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">40 votes</span>
+                <span class="pollOption">Car</span>
+              </div>
+              <div class="progress roundRadius">
+                <div class=" form-check">
+                  <input class="roundRadius form-check-input position-static form-radio" type="radio" name="poll-option"
+                    id="poll-option3" value="option3" aria-label="...">
+                </div>
+                <div class="progress-bar bg-info" role="progressbar" style="width: 10%;" aria-valuenow="25"
+                  aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">10 votes</span>
+                <span class="pollOption">Subway</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <hr>
+          <div class="footerText">
+            <button><i class="far fa-comments"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid actionCard">
+      <div class="card card-upload">
+        <div class="description header">
+          <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+          <div class="headerText">
+            <span class="card-title"><span class="link-username">username123</span> uploaded a file on
+              <span class="link-event">Tea Party</span></span>
+            <span class="card-date">13 Mar 2019 • 16h33</span>
+          </div>
+          <i class="far fa-flag"></i>
+        </div>
+        <img id="headerPic" class="card-img-top" src="../img/event5.jpg" alt="Card image cap">
+        <div class="card-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mi sem, condimentum vel metus
+            eget, maximus dignissim orci. Cras et arcu pharetra, eleifend lacus eu, semper sapien. Donec
+            tristique metus leo, ac lacinia arcu interdum eget. </a>
+          </p>
+          <div class="card-text card-file-uploaded"><a href="../files/Document.txt" target="_blank"><i class="far fa-file"></i>Document.txt</a>
+          </div>
+        </div>
+        <div class="footer">
+          <hr>
+          <div class="footerText">
+            <button><i class="far fa-comments"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid actionCard">
+      <div class="card card-upload-pic">
+        <div class="description header">
+          <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+          <div class="headerText">
+            <span class="card-title"><span class="link-username">username123</span> uploaded a file on
+              <span class="link-event">Tea Party</span></span>
+            <span class="card-date">13 Mar 2019 • 16h33</span>
+          </div>
+          <i class="far fa-flag"></i>
+        </div>
+        <div class="card-body">
+          <div class="card-text card-pic-uploaded"><a href="../img/preview.jpg"><img src="../img/preview.jpg"></a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mi sem, condimentum vel metus
+              eget, maximus dignissim orci. Cras et arcu pharetra, eleifend lacus eu, semper sapien. Donec
+              tristique metus leo, ac lacinia arcu interdum eget. </a>
+            </p>
+          </div>
+        </div>
+        <div class="footer">
+          <hr>
+          <div class="footerText">
+            <button><i class="far fa-comments"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid actionCard">
+      <div class="card card-going-event">
+        <div class="description header">
+          <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+          <div class="headerText">
+            <span class="card-title"><span class="link-username">username123</span> is going to an event</span>
+            <span class="card-date">13 Mar 2019 • 16h33</span>
+          </div>
+          <i class="far fa-flag"></i>
+        </div>
+      </div>
+      <div class="invite card">
+        <img src="../img/invite-card-event.jpg" class="card-img-top">
+        <span class="badge badge-pill badge-secondary card-category">category</span>
+        <div class="card-body" id="event-card-body">
+          <div class="row eventRow header align-items-start">
+            <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
+              <div id="eventPageMonth" class="eventPageMonth">
+                <span id="eventMonth" class="eventMonth">Mar</span>
+              </div>
+              <span id="eventPageDay" class="eventPageDay">03</span>
+            </div>
+            <div class="col-10 cardTitle text-left">
+              <span id="event-card-title">Lorem Ipsum Lorem Ipsum</span>
+              <div class="event-card-footer">
+                <span id="event-card-hour">12:00</span>
+                <p class="dot-separator"> • </p>
+                <span id="card-adress">adress 123, cidade</span>
+              </div>
+            </div>
+          </div>
+          <div id="event-card-people-attending" class="row text-left">
+            <div class="col ">
+              <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+              <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+              <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+              <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
+              <span id="peopleGoing">+300 going</i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer mt-5">
       <div class="footer-copyright text-center py-3">© 2018 Copyright RainCheck</div>
-  </footer>
+    </footer>
+
+    <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                  <select class="custom-select">
+                      <option selected>Create public event</option>
+                      <option>Create private event</option>
+                    </select>
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" novalidate>
+                <div class="eventPhoto justify-content-md-center mb-5">
+                    <img src="../img/event-placeholder.png">
+                    
+                    <div class="uploadCover input-group">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="inputGroupFile04">
+                          <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                          <button class="" type="button">Upload</button>
+                        </div>
+                      </div>
+                  </div>
+                 
+                    <span>Details</span>
+                    <hr class="my-1">
+                      <div class="form-row m-0 py-1">
+                          <input type="text" id="inputName" class="form-control" placeholder="Event Title" required autofocus>
+                      </div>
+                      
+                      <div class="form-row m-0 py-1">
+                          <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Description" rows="3"></textarea>
+                      </div>
+                      
+                      <div class="form-row m-0 py-1">
+                          <input type="text" id="inputName" class="form-control" placeholder="Datepicker" required autofocus>
+                      </div>
+
+                      <div class="form-row py-1">
+                          <div class="col-md-6 mb-6">
+                          <input type="text" class="form-control" id="validationTooltip03" placeholder="Street" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <select class="custom-select">
+                                <option selected disabld>City</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                          <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip Code" required>
+                        </div>
+                      </div>
+                      
+                      <span >Tickets</span>
+                      <hr class="my-1">
+                    </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Discard</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </body>
 
 </html>
-</div>

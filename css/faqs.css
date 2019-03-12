@@ -8,6 +8,10 @@ body{
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+.navbar, #faqs .navbar{
+    box-shadow: none !important;
+}
+
 .card {
     background-color: var(--darkBlue);
     border: 0;
@@ -76,3 +80,5 @@ button:focus{outline:none;}
     background: none;
     box-shadow: none;
 }
+
+
