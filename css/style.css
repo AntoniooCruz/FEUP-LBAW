@@ -40,7 +40,7 @@ h1{
     box-shadow: none;
 }
 
-body > .navbar{
+body > .navbar:nth-child(1){
     background-color: var(--darkBlue) !important;
     box-shadow: 0px 0px 8px #888888;
 }
@@ -275,7 +275,7 @@ body > .navbar{
     font-size: 14px;
 }
 
-.dropdown-toggle{
+body > .navbar:nth-child(1) .dropdown-toggle{
     background: transparent;
     border:0;
     color:white;
@@ -291,3 +291,27 @@ body > .navbar{
     top: 45%;
 }
 
+.eventPhoto img {
+    width: 100%;
+}
+
+.eventPhoto {
+    margin: 0;
+    border-radius: 2px;
+    position: relative;
+}
+
+
+.friendList img {
+    width: 30px;
+    height: 30px;
+}
+
+.friendList > div{
+    background-color: #f1f1f1;
+}
+
+.friendList{
+    height:150px;
+    overflow-y: scroll;
+}

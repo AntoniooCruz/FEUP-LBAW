@@ -8,16 +8,6 @@
     }
 
     
-.eventPhoto img {
-    width: 100%;
-}
-
-.eventPhoto {
-    margin: 0;
-    border-radius: 2px;
-    position: relative;
-}
-
 .eventRow {
     margin: 5px 0 0 0;
     background-color: white;
