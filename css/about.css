@@ -9,7 +9,7 @@ body{
 }
 
 .navbar, #about .navbar{
-    box-shadow: none;
+    box-shadow: none !important;
 }
 
 #mainpage .container > #logo{
