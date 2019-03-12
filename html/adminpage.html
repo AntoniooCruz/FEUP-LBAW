@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/adminpage.css">
+    <link rel="stylesheet" href="../css/activityfeed.css">
+    <link rel="stylesheet" href="../css/myinvites.css">
+    <link rel="stylesheet" href="../css/event-cards.css">
+    <link rel="stylesheet" href="../css/activity-cards.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"
+        defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"
+        defer></script>
+
+    <title>RainCheck</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"> <img src="../img/icon.png" width="31,83" height="24,92"> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <form class="searchBar form-inline mr-auto my-2 my-lg-0">
+                <input class="form-control" type="search" placeholder="Search...">
+                <button class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <ul class="navbar-nav mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">FAQ</a>
+                </li>
+                <li class="nav-item"></li>
+                <i class="nav-link fas fa-plus-square"></i>
+                </li>
+                <li id="dropdown" class="nav-item">
+                    <img src="../img/user.jpg" width="30" height="30">
+                    <i class="fas fa-caret-down"></i>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <div class="container">
+            <nav>
+                <div class="nav nav-tabs" id="nav-admin" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-users-tab" data-toggle="tab" href="#nav-users"
+                        role="tab" aria-controls="nav-users" aria-selected="true"><i class="fas fa-user"></i> Users</a>
+                    <a class="nav-item nav-link" id="nav-comments-tab" data-toggle="tab" href="#nav-comments" role="tab"
+                        aria-controls="nav-comments" aria-selected="false"><i class="fas fa-comment"></i> Comments</a>
+                    <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab"
+                        aria-controls="nav-events" aria-selected="false"><i class="fas fa-calendar"></i> Events</a>
+                    <a class="nav-item nav-link" id="nav-verify-tab" data-toggle="tab" href="#nav-verify" role="tab"
+                        aria-controls="nav-verify" aria-selected="false"><i class="fas fa-check-circle"></i> Verify</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-admintab">
+                <div class="tab-pane fade show active" id="nav-users" role="tabpanel" aria-labelledby="nav-users-tab">
+                    <div class="container-fluid actionCard">
+                        <div class="report report-user">
+                            <div class="card card-user">
+                                <div class="card card-user">
+                                    <div class="description header">
+                                        <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                                        <div class="headerText">
+                                            <span class="card-title"><span class="link-username">username123</span>
+                                                reported
+                                                <span class="link-username">username321's</span> profile
+                                                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                    eiusmod tempor incididunt ut labore et
+                                                    dolore magna aliqua"</p>
+                                                <span class="card-date">13 Mar 2019 • 16h33</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="footerText">
+                                            <button><i class="fas fa-check"></i></button><button><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid actionCard">
+                        <div class="report report-user">
+                            <div class="card card-user">
+                                <div class="card card-user">
+                                    <div class="description header">
+                                        <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                                        <div class="headerText">
+                                            <span class="card-title"><span class="link-username">username123</span>
+                                                reported
+                                                <span class="link-username">username321's</span> profile
+                                                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                    eiusmod tempor incididunt ut labore et
+                                                    dolore magna aliqua"</p>
+                                                <span class="card-date">13 Mar 2019 • 16h33</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="footerText">
+                                            <button><i class="fas fa-check"></i></button><button><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid actionCard">
+                        <div class="report report-user">
+                            <div class="card card-user">
+                                <div class="card card-user">
+                                    <div class="description header">
+                                        <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                                        <div class="headerText">
+                                            <span class="card-title"><span class="link-username">username123</span>
+                                                reported
+                                                <span class="link-username">username321's</span> profile
+                                                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                    eiusmod tempor incididunt ut labore et
+                                                    dolore magna aliqua"</p>
+                                                <span class="card-date">13 Mar 2019 • 16h33</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="footerText">
+                                            <button><i class="fas fa-check"></i></button><button><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid actionCard">
+                        <div class="report report-user">
+                            <div class="card card-user">
+                                <div class="card card-user">
+                                    <div class="description header">
+                                        <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                                        <div class="headerText">
+                                            <span class="card-title"><span class="link-username">username123</span>
+                                                reported
+                                                <span class="link-username">username321's</span> profile
+                                                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                    eiusmod tempor incididunt ut labore et
+                                                    dolore magna aliqua"</p>
+                                                <span class="card-date">13 Mar 2019 • 16h33</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="footerText">
+                                            <button><i class="fas fa-check"></i></button><button><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-comments" role="tabpanel" aria-labelledby="nav-comments-tab">
+                    <div class="container-fluid actionCard">
+                        <div class="report report-comment">
+                            <div class="card card-comment">
+                                <div class="card card-comment">
+                                    <div class="description header">
+                                        <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                                        <div class="headerText">
+                                            <span class="card-title"><span class="link-username">username123</span>
+                                                reported
+                                                <span class="link-username">username321's</span> comment on
+                                                <span class="link-event">Tea
+                                                    Party</span></span>
+                                            <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                eiusmod tempor incididunt ut labore et
+                                                dolore magna aliqua"</p>
+                                            <span class="card-date">13 Mar 2019 • 16h33</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="container-fluid actionCard">
+                                        <div class="card card-comment">
+                                            <div class="description header">
+                                                <img class="userAction roundRadius" src="../img/user.jpg"
+                                                    alt="Card image cap">
+                                                <div class="headerText">
+                                                    <span class="card-title"><span
+                                                            class="link-username">username123</span> posted on <span
+                                                            class="link-event">Tea
+                                                            Party</span></span>
+                                                    <span class="card-date">13 Mar 2019 • 16h33</span>
+                                                </div>
+                                                <i class="far fa-flag"></i>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                    elit.</p>
+                                            </div>
+                                            <div class="footer px-2">
+                                                <hr>
+                                                <div id="comments1" class="comments collapse mb-2 mt-3">
+                                                    <div class="commentInput row">
+                                                        <div class="col px-1">
+                                                            <img class=" userAction roundRadius" src="../img/user.jpg"
+                                                                alt="Card image cap">
+                                                            <textarea class="form-control roundRadius pl-5"
+                                                                id="exampleFormControlTextarea1" rows="1"
+                                                                placeholder="Say something..."></textarea></div>
+                                                        <div class="col-auto p-0">
+                                                            <button class="commentButton  btn-primary roundRadius"
+                                                                type="button" aria-expanded="false">
+                                                                <i class="fas fa-caret-right"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-comment-section pl-4 ">
+                                                        <div class="comment my-2">
+                                                            <img class="roundRadius" src="../img/user.jpg"
+                                                                alt="Card image cap">
+                                                            <div
+                                                                class="align-self-center commentText roundRadius px-4 ml-1">
+                                                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                                    elit.</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment my-2">
+                                                            <img class="roundRadius" src="../img/user.jpg"
+                                                                alt="Card image cap">
+                                                            <div
+                                                                class="align-self-center commentText roundRadius px-4 ml-1">
+                                                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                                    elit. Lorem ipsum dolor sit amet,
+                                                                    consectetur adipiscing elit.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="mt-4 mx-6">
+                                                </div>
+                                                <div class="footerText" data-toggle="collapse" href="#comments1"
+                                                    role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                    <button>
+                                                        <i class="far fa-comments"></i>
+                                                        <span>67</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="footerText">
+                                            <button><i class="fas fa-check"></i></button><button><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid actionCard">
+                        <div class="report report-comment">
+                            <div class="card card-comment">
+                                <div class="card card-comment">
+                                    <div class="description header">
+                                        <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                                        <div class="headerText">
+                                            <span class="card-title"><span class="link-username">username123</span>
+                                                reported
+                                                <span class="link-username">username321's</span> comment on
+                                                <span class="link-event">Tea
+                                                    Party</span></span>
+                                            <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                eiusmod tempor incididunt ut labore et
+                                                dolore magna aliqua"</p>
+                                            <span class="card-date">13 Mar 2019 • 16h33</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="container-fluid actionCard">
+                                        <div class="card card-comment">
+                                            <div class="description header">
+                                                <img class="userAction roundRadius" src="../img/user.jpg"
+                                                    alt="Card image cap">
+                                                <div class="headerText">
+                                                    <span class="card-title"><span
+                                                            class="link-username">username123</span> posted on <span
+                                                            class="link-event">Tea
+                                                            Party</span></span>
+                                                    <span class="card-date">13 Mar 2019 • 16h33</span>
+                                                </div>
+                                                <i class="far fa-flag"></i>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                    elit.</p>
+                                            </div>
+                                            <div class="footer px-2">
+                                                <hr>
+                                                <div id="comments2" class="comments collapse mb-2 mt-3">
+                                                    <div class="commentInput row">
+                                                        <div class="col px-1">
+                                                            <img class=" userAction roundRadius" src="../img/user.jpg"
+                                                                alt="Card image cap">
+                                                            <textarea class="form-control roundRadius pl-5"
+                                                                id="exampleFormControlTextarea1" rows="1"
+                                                                placeholder="Say something..."></textarea></div>
+                                                        <div class="col-auto p-0">
+                                                            <button class="commentButton  btn-primary roundRadius"
+                                                                type="button" aria-expanded="false">
+                                                                <i class="fas fa-caret-right"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-comment-section pl-4 ">
+                                                        <div class="comment my-2">
+                                                            <img class="roundRadius" src="../img/user.jpg"
+                                                                alt="Card image cap">
+                                                            <div
+                                                                class="align-self-center commentText roundRadius px-4 ml-1">
+                                                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                                    elit.</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment my-2">
+                                                            <img class="roundRadius" src="../img/user.jpg"
+                                                                alt="Card image cap">
+                                                            <div
+                                                                class="align-self-center commentText roundRadius px-4 ml-1">
+                                                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                                    elit. Lorem ipsum dolor sit amet,
+                                                                    consectetur adipiscing elit.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="mt-4 mx-6">
+                                                </div>
+                                                <div class="footerText" data-toggle="collapse" href="#comments2"
+                                                    role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                    <button>
+                                                        <i class="far fa-comments"></i>
+                                                        <span>67</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="footerText">
+                                            <button><i class="fas fa-check"></i></button><button><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid actionCard">
+                        <div class="report report-comment">
+                            <div class="card card-comment">
+                                <div class="card card-comment">
+                                    <div class="description header">
+                                        <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                                        <div class="headerText">
+                                            <span class="card-title"><span class="link-username">username123</span>
+                                                reported
+                                                <span class="link-username">username321's</span> comment on
+                                                <span class="link-event">Tea
+                                                    Party</span></span>
+                                            <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                eiusmod tempor incididunt ut labore et
+                                                dolore magna aliqua"</p>
+                                            <span class="card-date">13 Mar 2019 • 16h33</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="container-fluid actionCard">
+                                        <div class="card card-comment">
+                                            <div class="description header">
+                                                <img class="userAction roundRadius" src="../img/user.jpg"
+                                                    alt="Card image cap">
+                                                <div class="headerText">
+                                                    <span class="card-title"><span
+                                                            class="link-username">username123</span> posted on <span
+                                                            class="link-event">Tea
+                                                            Party</span></span>
+                                                    <span class="card-date">13 Mar 2019 • 16h33</span>
+                                                </div>
+                                                <i class="far fa-flag"></i>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                    elit.</p>
+                                            </div>
+                                            <div class="footer px-2">
+                                                <hr>
+                                                <div id="comments3" class="comments collapse mb-2 mt-3">
+                                                    <div class="commentInput row">
+                                                        <div class="col px-1">
+                                                            <img class=" userAction roundRadius" src="../img/user.jpg"
+                                                                alt="Card image cap">
+                                                            <textarea class="form-control roundRadius pl-5"
+                                                                id="exampleFormControlTextarea1" rows="1"
+                                                                placeholder="Say something..."></textarea></div>
+                                                        <div class="col-auto p-0">
+                                                            <button class="commentButton  btn-primary roundRadius"
+                                                                type="button" aria-expanded="false">
+                                                                <i class="fas fa-caret-right"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-comment-section pl-4 ">
+                                                        <div class="comment my-2">
+                                                            <img class="roundRadius" src="../img/user.jpg"
+                                                                alt="Card image cap">
+                                                            <div
+                                                                class="align-self-center commentText roundRadius px-4 ml-1">
+                                                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                                    elit.</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment my-2">
+                                                            <img class="roundRadius" src="../img/user.jpg"
+                                                                alt="Card image cap">
+                                                            <div
+                                                                class="align-self-center commentText roundRadius px-4 ml-1">
+                                                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                                    elit. Lorem ipsum dolor sit amet,
+                                                                    consectetur adipiscing elit.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="mt-4 mx-6">
+                                                </div>
+                                                <div class="footerText" data-toggle="collapse" href="#comments3"
+                                                    role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                    <button>
+                                                        <i class="far fa-comments"></i>
+                                                        <span>67</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="footerText">
+                                            <button><i class="fas fa-check"></i></button><button><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
+                    <div class="container-fluid actionCard">
+                        <div class="report report-invite">
+                            <div class="row">
+                                <div class="col  mb-5 sm-12">
+                                    <div class="description header">
+                                        <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                                        <div class="headerText">
+                                            <span class="card-title"><span class="link-username">username123</span>
+                                                reported
+                                                <span class="link-username">username321's</span> event
+                                                <span class="link-event">Tea
+                                                    Party</span></span>
+                                            <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                eiusmod tempor incididunt hfghfgh hfgh hfg fghgf fgh fgh fgh ut labore
+                                                et
+                                                dolore magna aliqua"</p>
+                                            <span class="card-date">13 Mar 2019 • 16h33</span>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="footerText">
+                                            <button><i class="fas fa-check"></i></button><button><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col  mb-7 sm-12">
+                                    <div class="invite card">
+                                        <img src="../img/invite-card-event.jpg" class="card-img-top">
+                                        <span class="badge badge-pill badge-secondary card-category">category</span>
+                                        <div class="card-body" id="event-card-body">
+                                            <div class="row eventRow header align-items-start">
+                                                <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
+                                                    <div id="eventPageMonth" class="eventPageMonth">
+                                                        <span id="eventMonth" class="eventMonth">Mar</span>
+                                                    </div>
+                                                    <span id="eventPageDay" class="eventPageDay">03</span>
+                                                </div>
+                                                <div class="col-md-7 col-sm-10 col-10 cardTitle">
+                                                    <span id="event-card-title">Lorem Ipsum</span>
+                                                    <span class="dot-separator" id="event-card-title-going-separator"> •
+                                                    </span>
+                                                    <div class="event-card-footer">
+                                                        <span id="event-card-hour">12:00</span>
+                                                        <p class="dot-separator"> • </p>
+                                                        <span id="card-adress">adress 123, cidade</span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="event-card-people-attending" class="row text-left">
+                                            <div class="col ">
+                                                <img src="../img/user.jpg" class="event-card-user-photo" width="25"
+                                                    height="25">
+                                                <img src="../img/user.jpg" class="event-card-user-photo" width="25"
+                                                    height="25">
+                                                <img src="../img/user.jpg" class="event-card-user-photo" width="25"
+                                                    height="25">
+                                                <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
+                                                <span id="peopleGoing">+300 going</i></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid actionCard">
+                        <div class="report report-invite">
+                            <div class="row">
+                                <div class="col  mb-5 sm-12">
+                                    <div class="description header">
+                                        <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                                        <div class="headerText">
+                                            <span class="card-title"><span class="link-username">username123</span>
+                                                reported
+                                                <span class="link-username">username321's</span> event
+                                                <span class="link-event">Tea
+                                                    Party</span></span>
+                                            <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                eiusmod tempor incididunt hfghfgh hfgh hfg fghgf fgh fgh fgh ut labore
+                                                et
+                                                dolore magna aliqua"</p>
+                                            <span class="card-date">13 Mar 2019 • 16h33</span>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="footerText">
+                                            <button><i class="fas fa-check"></i></button><button><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col  mb-7 sm-12">
+                                    <div class="invite card">
+                                        <img src="../img/invite-card-event.jpg" class="card-img-top">
+                                        <span class="badge badge-pill badge-secondary card-category">category</span>
+                                        <div class="card-body" id="event-card-body">
+                                            <div class="row eventRow header align-items-start">
+                                                <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
+                                                    <div id="eventPageMonth" class="eventPageMonth">
+                                                        <span id="eventMonth" class="eventMonth">Mar</span>
+                                                    </div>
+                                                    <span id="eventPageDay" class="eventPageDay">03</span>
+                                                </div>
+                                                <div class="col-md-7 col-sm-10 col-10 cardTitle">
+                                                    <span id="event-card-title">Lorem Ipsum</span>
+                                                    <span class="dot-separator" id="event-card-title-going-separator"> •
+                                                    </span>
+                                                    <div class="event-card-footer">
+                                                        <span id="event-card-hour">12:00</span>
+                                                        <p class="dot-separator"> • </p>
+                                                        <span id="card-adress">adress 123, cidade</span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="event-card-people-attending" class="row text-left">
+                                            <div class="col ">
+                                                <img src="../img/user.jpg" class="event-card-user-photo" width="25"
+                                                    height="25">
+                                                <img src="../img/user.jpg" class="event-card-user-photo" width="25"
+                                                    height="25">
+                                                <img src="../img/user.jpg" class="event-card-user-photo" width="25"
+                                                    height="25">
+                                                <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
+                                                <span id="peopleGoing">+300 going</i></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-verify" role="tabpanel" aria-labelledby="nav-verify-tab">
+                    <div class="container-fluid actionCard">
+                        <div class="report report-company">
+                            <div class="card card-company">
+                                <div class="card card-company">
+                                    <div class="description header">
+                                        <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                                        <div class="headerText">
+                                            <span class="card-title"><span class="link-username">Company123</span>
+                                                is pending verification
+                                                <span class="card-date">13 Mar 2019 • 16h33</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="footerText">
+                                            <button><i class="fas fa-check"></i></button><button><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid actionCard">
+                        <div class="report report-company">
+                            <div class="card card-company">
+                                <div class="card card-company">
+                                    <div class="description header">
+                                        <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                                        <div class="headerText">
+                                            <span class="card-title"><span class="link-username">Company123</span>
+                                                is pending verification
+                                                <span class="card-date">13 Mar 2019 • 16h33</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="footerText">
+                                            <button><i class="fas fa-check"></i></button><button><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid actionCard">
+                        <div class="report report-company">
+                            <div class="card card-company">
+                                <div class="card card-company">
+                                    <div class="description header">
+                                        <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                                        <div class="headerText">
+                                            <span class="card-title"><span class="link-username">Company123</span>
+                                                is pending verification
+                                                <span class="card-date">13 Mar 2019 • 16h33</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="footerText">
+                                            <button><i class="fas fa-check"></i></button><button><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid actionCard">
+                        <div class="report report-company">
+                            <div class="card card-company">
+                                <div class="card card-company">
+                                    <div class="description header">
+                                        <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                                        <div class="headerText">
+                                            <span class="card-title"><span class="link-username">Company123</span>
+                                                is pending verification
+                                                <span class="card-date">13 Mar 2019 • 16h33</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="footerText">
+                                            <button><i class="fas fa-check"></i></button><button><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

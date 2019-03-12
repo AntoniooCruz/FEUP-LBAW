@@ -1,0 +1,36 @@
+#nav-admin {
+    justify-content: center;
+}
+
+#nav-events {
+    justify-content: center;
+}
+.nav-link {
+    color: var(--lightGrey);
+}
+
+.nav-link:hover {
+    color: #495057;
+}
+
+#nav-admin a {
+    padding: 20px;     
+}
+.report-invite .description {
+    max-width: 650px;
+    background: white;
+}
+
+.report .footer {
+    background: white;
+}
+
+#nav-admintab .actionCard {
+    max-width: 800px;
+}
+
+.commentButton {
+    padding: 0px 14px 0px 17px !important;
+    font-size: 27px;
+}
+
