@@ -7,20 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/activityfeed.css">
+  <link rel="stylesheet" href="../css/activity-cards.css">
   <link rel="stylesheet" href="../css/myinvites.css">
   <link rel="stylesheet" href="../css/event-cards.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous" defer></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"
+    defer></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"
+    defer></script>
   <title>RainCheck</title>
 </head>
 
@@ -62,43 +67,149 @@
         <h4>My Invites</h4>
       </span>
     </nav>
-    <div class="myinvites">
-      <p class="mt-5 ml-3">username has invted you to this event</p>
-      <div class="invite card">
-        <img src="../img/invite-card-event.jpg" class="card-img-top">
-        <span class="badge badge-pill badge-secondary card-category">category</span>
-        <div class="card-body" id="event-card-body">
-          <div class="row eventRow header align-items-start">
-            <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
-              <div id="eventPageMonth" class="eventPageMonth">
-                <span id="eventMonth" class="eventMonth">Mar</span>
+    <div class="container myinvites">
+      <div class="row">
+        <div class="col lg-6 sm-12 ">
+          <div class="container invite-container">
+            <div class="description header">
+              <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+              <div class="headerText">
+                <span class="card-title"><span class="link-username">username123</span> has invited you to this
+                  event</span>
+                <span class="card-date">13 Mar 2019 • 16h33</span>
               </div>
-              <span id="eventPageDay" class="eventPageDay">03</span>
+              <i class="far fa-flag"></i>
             </div>
-            <div class="col-md-7 col-sm-11 col-11 cardTitle">
-              <span id="event-card-title">Lorem Ipsum</span>
-              <span class="dot-separator" id="event-card-title-going-separator"> • </span>
-              <span id="going-tag"> going </span>
-              <div class="event-card-footer">
-                <span id="event-card-hour">12:00</span>
-                <p class="dot-separator"> • </p>
-                <span id="card-adress">adress 123, cidade</span>
+            <div class="invite card">
+              <img src="../img/invite-card-event.jpg" class="card-img-top">
+              <span class="badge badge-pill badge-secondary card-category">category</span>
+              <div class="card-body" id="event-card-body">
+                <div class="row eventRow header align-items-start">
+                  <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
+                    <div id="eventPageMonth" class="eventPageMonth">
+                      <span id="eventMonth" class="eventMonth">Mar</span>
+                    </div>
+                    <span id="eventPageDay" class="eventPageDay">03</span>
+                  </div>
+                  <div class="col-md-7 col-sm-11 col-11 cardTitle">
+                    <span id="event-card-title">Lorem Ipsum</span>
+                    <span class="dot-separator" id="event-card-title-going-separator"> • </span>
+                    <span id="going-tag"> going </span>
+                    <div class="event-card-footer">
+                      <span id="event-card-hour">12:00</span>
+                      <p class="dot-separator"> • </p>
+                      <span id="card-adress">adress 123, cidade</span>
 
-              </div>
-            </div>
-            <div id="event-card-people-attending" class="col text-right">
-              <div>
-                <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
+                    </div>
+                  </div>
+                  <div id="event-card-people-attending" class="col text-right">
+                    <div>
+                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                      <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
+        <div class="col lg-6 sm-12 ">
+          <div class="container invite-container">
+            <div class="description header">
+              <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+              <div class="headerText">
+                <span class="card-title"><span class="link-username">username123</span> has invited you to this
+                  event</span>
+                <span class="card-date">13 Mar 2019 • 16h33</span>
+              </div>
+              <i class="far fa-flag"></i>
+            </div>
+            <div class="invite card">
+              <img src="../img/invite-card-event.jpg" class="card-img-top">
+              <span class="badge badge-pill badge-secondary card-category">category</span>
+              <div class="card-body" id="event-card-body">
+                <div class="row eventRow header align-items-start">
+                  <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
+                    <div id="eventPageMonth" class="eventPageMonth">
+                      <span id="eventMonth" class="eventMonth">Mar</span>
+                    </div>
+                    <span id="eventPageDay" class="eventPageDay">03</span>
+                  </div>
+                  <div class="col-md-7 col-sm-11 col-11 cardTitle">
+                    <span id="event-card-title">Lorem Ipsum</span>
+                    <span class="dot-separator" id="event-card-title-going-separator"> • </span>
+                    <span id="going-tag"> going </span>
+                    <div class="event-card-footer">
+                      <span id="event-card-hour">12:00</span>
+                      <p class="dot-separator"> • </p>
+                      <span id="card-adress">adress 123, cidade</span>
+
+                    </div>
+                  </div>
+                  <div id="event-card-people-attending" class="col text-right">
+                    <div>
+                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                      <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col lg-6 sm-12 ">
+          <div class="container invite-container">
+            <div class="description header">
+              <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+              <div class="headerText">
+                <span class="card-title"><span class="link-username">username123</span> has invited you to this
+                  event</span>
+                <span class="card-date">13 Mar 2019 • 16h33</span>
+              </div>
+              <i class="far fa-flag"></i>
+            </div>
+            <div class="invite card">
+              <img src="../img/invite-card-event.jpg" class="card-img-top">
+              <span class="badge badge-pill badge-secondary card-category">category</span>
+              <div class="card-body" id="event-card-body">
+                <div class="row eventRow header align-items-start">
+                  <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
+                    <div id="eventPageMonth" class="eventPageMonth">
+                      <span id="eventMonth" class="eventMonth">Mar</span>
+                    </div>
+                    <span id="eventPageDay" class="eventPageDay">03</span>
+                  </div>
+                  <div class="col-md-7 col-sm-11 col-11 cardTitle">
+                    <span id="event-card-title">Lorem Ipsum</span>
+                    <span class="dot-separator" id="event-card-title-going-separator"> • </span>
+                    <span id="going-tag"> going </span>
+                    <div class="event-card-footer">
+                      <span id="event-card-hour">12:00</span>
+                      <p class="dot-separator"> • </p>
+                      <span id="card-adress">adress 123, cidade</span>
+
+                    </div>
+                  </div>
+                  <div id="event-card-people-attending" class="col text-right">
+                    <div>
+                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                      <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   </section>
 </body>
 

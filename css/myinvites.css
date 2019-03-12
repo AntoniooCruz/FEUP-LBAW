@@ -6,13 +6,28 @@
     margin-bottom: 0;
 }
 
-
-
-.myinvites {
-    width: 90%;
-}
-
 .invitation {
     justify-content: center;
+}
+
+.invite-container {
+    max-width: 500px;
+    min-width: 300px;
+    margin-bottom: 20px;
+}
+
+.description {
+    background: white;
+}
+
+@media (max-width: 768px){
+.container {
+    width: 100%;
+}
+}
+@media (min-width: 576px){
+.container {
+    width: 100%;
+}
 }
 
