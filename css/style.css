@@ -274,3 +274,9 @@ body > .navbar{
 .page-footer{
     font-size: 14px;
 }
+
+.dropdown-toggle{
+    background: transparent;
+    border:0;
+    color:white;
+}
