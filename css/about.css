@@ -45,3 +45,12 @@ h3 {
     font-size: 110%;
     margin-top: 6%;
 }
+
+
+@media (max-width: 570px) {
+    .container {
+       margin-left : 5% !important;
+       margin-right : 5% !important;
+       width: auto;
+    }
+}
