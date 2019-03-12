@@ -558,3 +558,8 @@
     background-color: #dc3545;
     color: white;
 }
+
+
+.btn{
+    border-radius: 50px !important;
+}
