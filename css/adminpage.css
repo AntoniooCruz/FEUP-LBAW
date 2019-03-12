@@ -34,3 +34,11 @@
     font-size: 27px;
 }
 
+.fa-check {
+    color: #79AF41;
+}
+
+button .fa-trash-alt {
+    color: red;
+}
+
