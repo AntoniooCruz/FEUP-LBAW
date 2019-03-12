@@ -69,3 +69,7 @@
 #filters button {
     font-size: 15px;
 }
+
+.invite{
+    max-width: 300px !important;
+}
