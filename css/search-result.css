@@ -1,0 +1,71 @@
+@import "./style.css";
+
+.searchBar-nb input{
+    font-size: 14px;
+    border-radius: 50px 0 0 50px;
+    height: 50px;
+    padding-left: 20px !important;
+    width: 70%;
+    border-right: none;
+    background-color:white;
+}
+
+
+.searchBar-nb input:focus{
+    box-shadow:none;
+    border: 1px solid #ced4da;
+    background-color:white;
+    border-right: none;
+}
+
+.navbar-collapse > .searchBar-nb button{
+    height: 30px;
+    padding-top: 3px!important;
+    padding-right: 12px !important;
+
+}
+
+ .searchBar-nb button{
+    border-radius: 0 50px 50px 0;
+    border: 1px solid #ced4da;
+    border-left: none;
+    background-color:white;
+    color:var(--lightGrey);
+    margin-right: 0!important;
+    height: 50px;
+    padding-right: 40px !important;
+    width: 40px;
+    box-shadow: none !important;
+
+}
+
+.searchBar-nb button:hover{
+    color:white;
+}
+
+#sidebar_container{
+    background-color:white;
+    box-shadow: var(--box-shadow);
+    border-radius:2px;
+}
+
+#selectCategory{
+    height: 100px;
+    overflow: scroll;
+}
+
+.sidebarHeader{
+    background-color: var(--lightBlue);
+}
+
+#filters select {
+    height: 42px;
+    background: none;
+    border:0;
+    color:var(--darkBlue);
+    font-size: 15px;
+}
+
+#filters button {
+    font-size: 15px;
+}
