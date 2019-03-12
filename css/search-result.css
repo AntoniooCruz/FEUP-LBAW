@@ -58,7 +58,7 @@
     background-color: var(--lightBlue);
 }
 
-#filters select {
+.filters select {
     height: 42px;
     background: none;
     border:0;
@@ -66,10 +66,28 @@
     font-size: 15px;
 }
 
+.filters select:focus {
+    background: none;
+    border:0;
+    outline:none;
+    box-shadow: none;
+}
+
 #filters button {
     font-size: 15px;
+    background: none;
+    border:0;
 }
 
 .invite{
     max-width: 300px !important;
+}
+
+.filters ul{
+    margin:auto;
+}
+
+
+.search .navbar{
+    background-color: transparent !important;
 }

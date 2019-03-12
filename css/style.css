@@ -40,7 +40,7 @@ h1{
     box-shadow: none;
 }
 
-.navbar{
+body > .navbar{
     background-color: var(--darkBlue) !important;
     box-shadow: 0px 0px 8px #888888;
 }
