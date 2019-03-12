@@ -315,3 +315,12 @@ body > .navbar:nth-child(1) .dropdown-toggle{
     height:150px;
     overflow-y: scroll;
 }
+
+.modal .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: var(--lightBlue);
+}
+
+
+.modal a {
+    color: var(--lightBlue);
+}
