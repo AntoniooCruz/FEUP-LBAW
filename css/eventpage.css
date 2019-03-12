@@ -1,5 +1,13 @@
 @import "./style.css";
 
+
+@media (min-width: 1200px){
+    .container {
+        max-width: 900px;
+    }
+    }
+
+    
 .eventPhoto img {
     width: 100%;
 }

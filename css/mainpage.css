@@ -15,9 +15,9 @@ body{
 }
 
 
-.searchBar input,
-.searchBar input:focus,
-.searchBar button{
+.searchBar-blue input,
+.searchBar-blue input:focus,
+.searchBar-blue button{
     background-color: #bbc4cc82;
 }
 
@@ -29,7 +29,7 @@ body{
     color: #8e8e8e;
 }
 
-.searchBar input{
+.searchBar-blue input{
     color:white;
 }
 #mainpage .container{
@@ -45,7 +45,7 @@ body{
 
 
 
-#mainpage .container > .searchBar input{
+#mainpage .container > .searchBar-blue input{
     width: 50% !important;
 }
 
