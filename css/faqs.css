@@ -37,7 +37,7 @@ body{
 }
 
 .navbar, #about .navbar{
-    box-shadow: none;
+    box-shadow: none !important;
 }
 
 #accordion .fa-sort-down {
@@ -68,7 +68,7 @@ body{
 }
 
 .container{
-    margin-top: 10%;
+    margin-top: 6%;
 }
 
 button:focus{outline:none;}
