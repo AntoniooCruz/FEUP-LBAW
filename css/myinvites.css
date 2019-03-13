@@ -37,14 +37,16 @@
 
 
 @media (max-width:535px){
-
-    .sortNav{
-        width: 350px !important;
+    .actionCard{
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 
-    .actionCard {
-        width: 370px;
-    }
+    .sortNav {
+        width: 95%;
+        }
+  
 }
 
 @media (min-width:535px){
