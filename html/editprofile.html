@@ -29,54 +29,54 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light  ">
-        <a class="navbar-brand" href="#"> <img src="../img/icon.png" width="31,83" height="24,92"> </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <form class="searchBar-blue form-inline mr-auto my-2 my-lg-0">
-            <input class="form-control" type="search" placeholder="Search...">
-            <button class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
-          </form>
-          <ul class="navbar-nav mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">FAQ</a>
-            </li>
-             <li class="nav-item">
-                        <button id="newEventBtn" type="button" class="" data-toggle="modal" data-target="#createEventModal">
-                          <i class="nav-link fas fa-plus-square"></i>
-                        </button>
-                      </li>
-            <li id="dropdown" class="dropdown nav-item">
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">My tickets</a>
-                <a class="dropdown-item" href="#">My invites</a>
-                <hr>
-                <a class="dropdown-item" href="#">Logout</a>
-                <a class="dropdown-item" href="#">Delete account</a>
-              </div>
-    
-              <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <img src="../img/user.jpg" class="roundRadius" width="30" height="30">
-              </button>
-            </li>
-            <li>
-    
-            </li>
-          </ul>
-        </div>
-      </nav>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="mainpage.html"> <img src="../img/icon.png" width="31,83" height="24,92"> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <form class="searchBar-blue form-inline mr-auto my-2 my-lg-0">
+        <input class="form-control" type="search" placeholder="Search...">
+        <button class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
+      </form>
+      <ul class="navbar-nav mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="mainpage.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="faqs.html">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <button id="newEventBtn" type="button" class="" data-toggle="modal" data-target="#createEventModal">
+            <i class="nav-link fas fa-plus-square"></i>
+          </button>
+        </li>
+        <li id="dropdown" class="dropdown nav-item">
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="userprofile.html">Profile</a>
+            <a class="dropdown-item" href="mytickets.html">My tickets</a>
+            <a class="dropdown-item" href="myinvites.html">My invites</a>
+            <hr>
+            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" href="#">Delete account</a>
+          </div>
+
+          <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img src="../img/user.jpg" class="roundRadius" width="30" height="30">
+          </button>
+        </li>
+        <li>
+
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <div class="parContainer row justify-content-center">
     <div id="profile_container" class="col-lg-3 col-12 container text-center">
@@ -89,16 +89,20 @@
           <div class="col text-left">
             <form class="form-signin">
               <div class="form-label-group">
-                <input type="text" id="inputName" class="form-control" placeholder="Jane Doe" required autofocus style="border:none;">
+                <input type="text" id="inputName" class="form-control" placeholder="Jane Doe" required autofocus
+                  style="border:none;">
               </div>
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="janedoe@gmail.com" required autofocus style="border:none;">
+                <input type="email" id="inputEmail" class="form-control" placeholder="janedoe@gmail.com" required
+                  autofocus style="border:none;">
               </div>
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Old Password" required style="border:none;">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Old Password" required
+                  style="border:none;">
               </div>
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="New Password" required style="border:none;">
+                <input type="password" id="inputPassword" class="form-control" placeholder="New Password" required
+                  style="border:none;">
               </div>
             </form>
           </div>
@@ -121,7 +125,8 @@
 
         </div>
         <hr>
-        <textarea id="description" class="col-10 text-left" style="overflow:hidden; resize:vertical"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+        <textarea id="description" class="col-10 text-left"
+          style="overflow:hidden; resize:vertical"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
       </div>
 
       <div class="row"><button id="tickets-button" type="button" class=" btn btn-secondary">My tickets</button></div>
@@ -133,110 +138,110 @@
 
       <div class="row justify-content-start">
         <div class="col mt-4">
-            <div class="invite card">
-                <img src="../img/invite-card-event.jpg" class="card-img-top">
-                <span class="badge badge-pill badge-secondary card-category">category</span>
-                <div class="card-body" id="event-card-body">
-                  <div class="row eventRow header align-items-start">
-                    <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
-                      <div id="eventPageMonth" class="eventPageMonth">
-                        <span id="eventMonth" class="eventMonth">Mar</span>
-                      </div>
-                      <span id="eventPageDay" class="eventPageDay">03</span>
-                    </div>
-                    <div class="col-10 cardTitle text-left">
-                      <span id="event-card-title">Lorem Ipsum Lorem Ipsum</span>
-                      <div class="event-card-footer">
-                        <span id="event-card-hour">12:00</span>
-                        <p class="dot-separator"> • </p>
-                        <span id="card-adress">adress 123, cidade</span>
-                      </div>
-                    </div>
+          <div class="invite card">
+            <img src="../img/invite-card-event.jpg" class="card-img-top">
+            <span class="badge badge-pill badge-secondary card-category">category</span>
+            <div class="card-body" id="event-card-body">
+              <div class="row eventRow header align-items-start">
+                <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
+                  <div id="eventPageMonth" class="eventPageMonth">
+                    <span id="eventMonth" class="eventMonth">Mar</span>
                   </div>
-                  <div id="event-card-people-attending" class="row text-left">
-                    <div class="col ">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                      <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
-                      <span id="peopleGoing">+300 going</i></span>
-                    </div>
+                  <span id="eventPageDay" class="eventPageDay">03</span>
+                </div>
+                <div class="col-10 cardTitle text-left">
+                  <span id="event-card-title">Lorem Ipsum Lorem Ipsum</span>
+                  <div class="event-card-footer">
+                    <span id="event-card-hour">12:00</span>
+                    <p class="dot-separator"> • </p>
+                    <span id="card-adress">adress 123, cidade</span>
                   </div>
                 </div>
               </div>
+              <div id="event-card-people-attending" class="row text-left">
+                <div class="col ">
+                  <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                  <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                  <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                  <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
+                  <span id="peopleGoing">+300 going</i></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col mt-4">
-            <div class="invite card">
-                <img src="../img/invite-card-event.jpg" class="card-img-top">
-                <span class="badge badge-pill badge-secondary card-category">category</span>
-                <div class="card-body" id="event-card-body">
-                  <div class="row eventRow header align-items-start">
-                    <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
-                      <div id="eventPageMonth" class="eventPageMonth">
-                        <span id="eventMonth" class="eventMonth">Mar</span>
-                      </div>
-                      <span id="eventPageDay" class="eventPageDay">03</span>
-                    </div>
-                    <div class="col-10 cardTitle text-left">
-                      <span id="event-card-title">Lorem Ipsum Lorem Ipsum</span>
-                      <div class="event-card-footer">
-                        <span id="event-card-hour">12:00</span>
-                        <p class="dot-separator"> • </p>
-                        <span id="card-adress">adress 123, cidade</span>
-                      </div>
-                    </div>
+          <div class="invite card">
+            <img src="../img/invite-card-event.jpg" class="card-img-top">
+            <span class="badge badge-pill badge-secondary card-category">category</span>
+            <div class="card-body" id="event-card-body">
+              <div class="row eventRow header align-items-start">
+                <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
+                  <div id="eventPageMonth" class="eventPageMonth">
+                    <span id="eventMonth" class="eventMonth">Mar</span>
                   </div>
-                  <div id="event-card-people-attending" class="row text-left">
-                    <div class="col ">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                      <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
-                      <span id="peopleGoing">+300 going</i></span>
-                    </div>
+                  <span id="eventPageDay" class="eventPageDay">03</span>
+                </div>
+                <div class="col-10 cardTitle text-left">
+                  <span id="event-card-title">Lorem Ipsum Lorem Ipsum</span>
+                  <div class="event-card-footer">
+                    <span id="event-card-hour">12:00</span>
+                    <p class="dot-separator"> • </p>
+                    <span id="card-adress">adress 123, cidade</span>
                   </div>
                 </div>
               </div>
+              <div id="event-card-people-attending" class="row text-left">
+                <div class="col ">
+                  <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                  <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                  <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                  <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
+                  <span id="peopleGoing">+300 going</i></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col col-sm-6 mt-4">
-            <div class="invite card">
-                <img src="../img/invite-card-event.jpg" class="card-img-top">
-                <span class="badge badge-pill badge-secondary card-category">category</span>
-                <div class="card-body" id="event-card-body">
-                  <div class="row eventRow header align-items-start">
-                    <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
-                      <div id="eventPageMonth" class="eventPageMonth">
-                        <span id="eventMonth" class="eventMonth">Mar</span>
-                      </div>
-                      <span id="eventPageDay" class="eventPageDay">03</span>
-                    </div>
-                    <div class="col-10 cardTitle text-left">
-                      <span id="event-card-title">Lorem Ipsum Lorem Ipsum</span>
-                      <div class="event-card-footer">
-                        <span id="event-card-hour">12:00</span>
-                        <p class="dot-separator"> • </p>
-                        <span id="card-adress">adress 123, cidade</span>
-                      </div>
-                    </div>
+          <div class="invite card">
+            <img src="../img/invite-card-event.jpg" class="card-img-top">
+            <span class="badge badge-pill badge-secondary card-category">category</span>
+            <div class="card-body" id="event-card-body">
+              <div class="row eventRow header align-items-start">
+                <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
+                  <div id="eventPageMonth" class="eventPageMonth">
+                    <span id="eventMonth" class="eventMonth">Mar</span>
                   </div>
-                  <div id="event-card-people-attending" class="row text-left">
-                    <div class="col ">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                      <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
-                      <span id="peopleGoing">+300 going</i></span>
-                    </div>
+                  <span id="eventPageDay" class="eventPageDay">03</span>
+                </div>
+                <div class="col-10 cardTitle text-left">
+                  <span id="event-card-title">Lorem Ipsum Lorem Ipsum</span>
+                  <div class="event-card-footer">
+                    <span id="event-card-hour">12:00</span>
+                    <p class="dot-separator"> • </p>
+                    <span id="card-adress">adress 123, cidade</span>
                   </div>
                 </div>
               </div>
+              <div id="event-card-people-attending" class="row text-left">
+                <div class="col ">
+                  <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                  <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                  <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                  <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
+                  <span id="peopleGoing">+300 going</i></span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
   <footer class="page-footer mt-5">
-      <div class="footer-copyright text-center py-3">© 2018 Copyright RainCheck</div>
+    <div class="footer-copyright text-center py-3">© 2018 Copyright RainCheck</div>
   </footer>
 </body>
 
