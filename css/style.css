@@ -21,6 +21,107 @@ html,body{
 /*--------------------------*/
 /*-------- NAV BAR ---------*/
 /*--------------------------*/
+@media (max-width:991px) {
+    .navbar-nav {
+        height: 30px;
+    }
+    #navbarTogglerDemo02 > form {
+        position: relative;
+        top: -40px;
+        left: 40px;
+        width: 200px;
+    }
+    #navbarTogglerDemo02 ul li:nth-child(1) {
+        position: relative;
+        top: -20px;
+        width: 20%;
+    }
+    #navbarTogglerDemo02 ul li:nth-child(2) {
+        position: relative;
+        top: -54px;
+        width: 20%;
+        left: 40%;
+    }
+
+    #navbarTogglerDemo02 ul li:nth-child(3) {
+        position: relative;
+        top: -88px;
+        width: 20%;
+        left: 80%;
+    }
+
+    #navbarTogglerDemo02 ul li:nth-child(4) {
+        position: relative;
+        top: -180px;
+        width: 30px;
+        left: 84%;
+    }
+
+    #dropdown {
+        position: relative;
+        top: -200px;
+        width: 10%;
+        left: 87%;
+    }
+    #dropdown .dropdown-menu{
+        position: absolute;
+    }
+}
+@media (max-width: 862px) {
+#navbarTogglerDemo02 ul li:nth-child(4) {
+    left: 83%;
+}
+
+#dropdown {
+    left: 86%;
+}
+}
+
+@media (max-width: 808px) {
+    #navbarTogglerDemo02 ul li:nth-child(4) {
+        left: 80%;
+    }
+    
+    #dropdown {
+        left: 83%;
+    }
+}
+
+@media (max-width: 682px) {
+    #navbarTogglerDemo02 ul li:nth-child(4) {
+        left: 77%;
+    }
+    
+    #dropdown {
+        left: 81%;
+    }
+}
+
+
+@media (max-width:600px) {
+    #navbarTogglerDemo02 > form {
+        left: 10%;
+    }
+
+    #navbarTogglerDemo02 ul li:nth-child(4) {
+        left: 73%;
+    }
+    
+    #dropdown {
+        left: 77%;
+    }
+}
+
+@media (max-width:504px) {
+
+    #navbarTogglerDemo02 ul li:nth-child(4) {
+        left: 70%;
+    }
+    
+    #dropdown {
+        left: 74%;
+    }
+}
 h1{
     font-family: 'Roboto Condensed', sans-serif;
 }
