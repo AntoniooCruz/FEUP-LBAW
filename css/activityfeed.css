@@ -9,6 +9,10 @@
 
 }
 
+#feed .actionCard .invite {
+    max-width: 100%;
+}
+
 .carousel {
     box-shadow: 0px 0px 5px #cecacaad;
 
@@ -122,3 +126,4 @@
 .card-img-overlay h5 {
     color: white;
 }
+

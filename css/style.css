@@ -311,7 +311,7 @@ body > .navbar:nth-child(1) .dropdown-toggle{
 }
 
 .friendList{
-    height:150px;
+    height:180px;
     overflow-y: scroll;
 }
 

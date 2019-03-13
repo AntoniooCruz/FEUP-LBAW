@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../css/eventpage.css">
   <link rel="stylesheet" href="../css/event-cards.css">
   <link rel="stylesheet" href="../css/activity-cards.css">
+  <link rel="stylesheet" href="../css/search-result.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
@@ -103,7 +104,7 @@
       </div>
       <div class="col-lg-2  col-md-3 col-sm-12 getTicket text-right">
         <div class="btn-group">
-            <button type="button" class="btn btn-outline-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="btn-more btn btn-outline-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-ellipsis-h"></i>
             </button>
         <div class="dropdown-menu dropdown-menu-right p-0 ">
@@ -718,9 +719,70 @@
           <div class="modal-content">
                 <div class="modal-header">Check in</div>
             <div class="modal-body">
-             <h4>Are you sure you want to delete this event?</h4>
-             <span>Please note this action is irreversible.</span>
+                <div id="friends-content" class="py-3">
+                    <form class=" row searchBar-nb justify-content-center mt-5">
+                        <input class="form-control" type="search" placeholder="Search...">
+                        <button class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
+                      </form>
+                    <div class="friendList py-3">
+                      <div class="input-group mb-1 row justify-content-center mx-0">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <img src="../img/user.jpg" class="roundRadius">
+                            <span class="ml-2">@username </span>
+                          </div>
+                        </div>
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <input type="checkbox" aria-label="Checkbox for following text input">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-group mb-1 row justify-content-center mx-0">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <img src="../img/user.jpg" class="roundRadius">
+                            <span class="ml-2">@username </span>
+                          </div>
+                        </div>
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <input type="checkbox" aria-label="Checkbox for following text input">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-group mb-1 row justify-content-center mx-0">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <img src="../img/user.jpg" class="roundRadius">
+                            <span class="ml-2">@username </span>
+                          </div>
+                        </div>
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <input type="checkbox" aria-label="Checkbox for following text input">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-group mb-1 row justify-content-center mx-0">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <img src="../img/user.jpg" class="roundRadius">
+                            <span class="ml-2">@username </span>
+                          </div>
+                        </div>
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <input type="checkbox" aria-label="Checkbox for following text input">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Done</button>
+              </div>
           </div>
         </div>
       </div>

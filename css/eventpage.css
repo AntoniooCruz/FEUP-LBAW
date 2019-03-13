@@ -469,6 +469,7 @@
 
 .leftCol {
     padding: 0;
+    z-index: -1;
 }
 
 #attendance {
@@ -559,7 +560,21 @@
     color: white;
 }
 
-
-.btn{
-    border-radius: 50px !important;
+#checkInModal .searchBar-nb input {
+    min-width: 400px;
 }
+
+@media (max-width: 767px){
+.eventRow .btn-group{
+    width: 100%;
+}
+.btn-more{
+    border-radius: 2px !important;
+}
+}
+
+@media (min-width: 768px){
+    .btn-more{
+        border-radius: 50px !important;
+    }
+    }
