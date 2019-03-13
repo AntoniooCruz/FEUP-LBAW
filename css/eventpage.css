@@ -569,9 +569,6 @@
     color: white;
 }
 
-#checkInModal .searchBar-nb input {
-    min-width: 400px;
-}
 
 @media (max-width: 767px){
 .eventRow .btn-group{
@@ -583,6 +580,9 @@
 }
 
 @media (min-width: 768px){
+    #checkInModal .searchBar-nb input {
+        min-width: 400px;
+    }
     .btn-more{
         border-radius: 50px !important;
     }
