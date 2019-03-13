@@ -34,7 +34,7 @@
     margin: 0;
 }
 
-.form-check {
+.card .form-check {
     background-color: #c6d3dc;
     padding: 7px 0 5px 30px;
     border-radius: 50px 0 0 50px;
@@ -154,7 +154,7 @@
 }
 
 .fa-flag:hover {
-    color:#d41111;
+    color:#dc3545;
     
 }
 

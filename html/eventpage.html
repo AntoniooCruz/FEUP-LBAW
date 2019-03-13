@@ -7,24 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/eventpage.css">
   <link rel="stylesheet" href="../css/event-cards.css">
   <link rel="stylesheet" href="../css/activity-cards.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"
-    defer></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"
-    defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous" defer></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous" defer></script>
 
   <title>RainCheck</title>
 </head>
@@ -67,8 +64,8 @@
             <a class="dropdown-item" href="#">Delete account</a>
           </div>
 
-          <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+          <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
             <img src="../img/user.jpg" class="roundRadius" width="30" height="30">
           </button>
         </li>
@@ -87,7 +84,7 @@
     </div>
 
     <div class="eventRow row">
-      <div class="col-lg-10 col-md-9 col-sm-12">
+      <div class="col-lg-9 col-md-8 col-sm-12">
         <div class="row header align-items-start">
           <div id="eventPagedate" class="col-xs align-items-start">
             <div id="eventPageMonth">
@@ -103,9 +100,15 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-2  col-md-3 col-sm-12 getTicket text-right">
+      <div class="col-lg-2  col-md-3 col-sm-12 getTicket text-right pr-1">
         <button class="btn btn-primary" type="button" aria-expanded="false">
           <i class="fas fa-ticket-alt"></i> 10,50€
+        </button>
+      </div>
+      <div class="col-lg-1  col-md-1 col-sm-12 getTicket text-right">
+        <button class="reportBtn btn-outline-secondary" type="button" aria-expanded="false" data-toggle="modal"
+          data-target="#reportEventModal">
+          <i class="far fa-flag"></i>
         </button>
       </div>
     </div>
@@ -170,8 +173,8 @@
             <div class="userPics">
               <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                  <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#friendsGoing"
-                    role="tab" aria-controls="nav-profile" aria-selected="false">All(86)</a>
+                  <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#friendsGoing" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">All(86)</a>
                   <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#allGoing" role="tab"
                     aria-controls="nav-home" aria-selected="true">Friends(36)</a>
               </nav>
@@ -219,8 +222,7 @@
           <img id="commentPic" class="roundRadius" src="../img/user.jpg">
           <div class="comment row">
             <div class="col-12 form-group">
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                placeholder="Say something..."></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Say something..."></textarea>
               <hr>
             </div>
             <div class="options">
@@ -243,8 +245,7 @@
               <div class="description header">
                 <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
                 <div class="headerText">
-                  <span class="card-title"><span class="link-username">username123</span> posted on <span
-                      class="link-event">Tea
+                  <span class="card-title"><span class="link-username">username123</span> posted on <span class="link-event">Tea
                       Party</span></span>
                   <span class="card-date">13 Mar 2019 • 16h33</span>
                 </div>
@@ -310,8 +311,7 @@
                   eget, maximus dignissim orci. Cras et arcu pharetra, eleifend lacus eu, semper sapien. Donec
                   tristique metus leo, ac lacinia arcu interdum eget. </a>
                 </p>
-                <div class="card-text card-file-uploaded"><a href="../files/Document.txt" target="_blank"><i
-                      class="far fa-file"></i>Document.txt</a>
+                <div class="card-text card-file-uploaded"><a href="../files/Document.txt" target="_blank"><i class="far fa-file"></i>Document.txt</a>
                 </div>
               </div>
               <div class="footer px-2">
@@ -421,8 +421,7 @@
             <div class="description header">
               <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
               <div class="headerText">
-                <span class="card-title"><span class="link-username">username123</span> posted on <span
-                    class="link-event">Tea
+                <span class="card-title"><span class="link-username">username123</span> posted on <span class="link-event">Tea
                     Party</span></span>
                 <span class="card-date">13 Mar 2019 • 16h33</span>
               </div>
@@ -436,8 +435,8 @@
                   <div>
                     <div class="progress roundRadius">
                       <div class="form-check">
-                        <input class="roundRadius form-check-input position-static form-radio" type="radio"
-                          name="poll-option" id="poll-option1" value="option1" aria-label="Bus">
+                        <input class="roundRadius form-check-input position-static form-radio" type="radio" name="poll-option"
+                          id="poll-option1" value="option1" aria-label="Bus">
                       </div>
                       <div class="progress-bar bg-info" role="progressbar" style="width: 100%;" aria-valuenow="25"
                         aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">100%</span>
@@ -446,8 +445,8 @@
                   </div>
                   <div class="progress roundRadius">
                     <div class="form-check">
-                      <input class="roundRadius form-check-input position-static form-radio" type="radio"
-                        name="poll-option" id="poll-option2" value="option2" aria-label="...">
+                      <input class="roundRadius form-check-input position-static form-radio" type="radio" name="poll-option"
+                        id="poll-option2" value="option2" aria-label="...">
                     </div>
                     <div class="progress-bar bg-info" role="progressbar" style="width: 40%;" aria-valuenow="25"
                       aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">40%</span>
@@ -455,8 +454,8 @@
                   </div>
                   <div class="progress roundRadius">
                     <div class=" form-check">
-                      <input class="roundRadius form-check-input position-static form-radio" type="radio"
-                        name="poll-option" id="poll-option3" value="option3" aria-label="...">
+                      <input class="roundRadius form-check-input position-static form-radio" type="radio" name="poll-option"
+                        id="poll-option3" value="option3" aria-label="...">
                     </div>
                     <div class="progress-bar bg-info" role="progressbar" style="width: 10%;" aria-valuenow="25"
                       aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">10%</span>
@@ -510,6 +509,54 @@
       </div>
     </section>
   </section>
+
+  <div class="modal fade" id="reportEventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Report Event</h5>
+        </div>
+        <div class="modal-body">
+          <p>Help us undertand what's happening?</p>
+          <fieldset class="form-group">
+              <div class="form-check ml-2">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                <label class="form-check-label" for="gridRadios1">
+                  Explicit content
+                </label>
+              </div>
+              <div class="form-check ml-2">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                  Harassment
+                </label>
+              </div>
+              <div class="form-check ml-2">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3"
+                  >
+                <label class="form-check-label" for="gridRadios3">
+                  Spam
+                </label>
+              </div>
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text pl-2">
+                    <input type="radio" aria-label="Radio button for following text input">
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Other">
+                </div>
+          </fieldset>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger">Report</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer class="page-footer mt-5">
     <div class="footer-copyright text-center py-3">© 2018 Copyright RainCheck</div>
   </footer>

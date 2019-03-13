@@ -406,10 +406,11 @@
         margin-top: 5px;
     }
 
-    .getTicket .btn{
+    .getTicket .btn, .reportBtn{
         width: 100%;
-        border-radius: 2px;
+        border-radius: 2px !important;
     }
+    
 
     .event > .eventRow:first-child{
         background: none;
@@ -420,6 +421,14 @@
     box-shadow: 0px 0px 8px #d4d2d2;
     border-radius: 2px;
     }
+}
+
+.reportBtn:hover{
+    border-color: #d41111 !important;
+}
+
+.reportBtn:hover .fa-flag{
+    color: #d41111;
 }
 
 .actionCard {
@@ -578,3 +587,13 @@
         border-radius: 50px !important;
     }
     }
+
+.reportBtn{
+    padding:6px 12px !important;
+    border-radius: 50px;
+}
+
+#reportEventModal .input-group-prepend .input-group-text{
+    background: none;
+    border: 0;
+}
