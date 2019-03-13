@@ -96,3 +96,7 @@
     color:var(--lightBlue);
     text-decoration: none;
 }
+
+.invite {
+    min-width: 200px !important;
+}
