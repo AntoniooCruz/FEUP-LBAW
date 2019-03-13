@@ -527,3 +527,9 @@ body > .navbar:nth-child(1) .dropdown-toggle{
 .modal-content{
     border-radius:3px;
 }
+
+
+.card .header a{
+    color:var(--lightBlue);
+    text-decoration: none;
+}

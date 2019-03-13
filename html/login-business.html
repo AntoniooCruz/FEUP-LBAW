@@ -11,6 +11,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/logincard.css">
+    <link rel="stylesheet" href="../css/mainpage.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
@@ -60,34 +61,24 @@
                     </div>
                   </nav>
 
+
         <div class="login container">
             <div class="row">
-                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div id="main_container" class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                     <div class="card card-signin my-5">
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
                                 <li id="personalBtn" class="nav-item col ">
-                                    <a class="nav-link active" href="./register.html">Personal</a>
+                                    <a class="nav-link" href="./login.html">Personal</a>
                                 </li>
                                 <li id="businessBtn" class="nav-item col">
-                                    <a class="nav-link" href="./register-business.html">Business</a>
+                                    <a class="nav-link active" href="./login-business.html">Business</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="card-body">
                             <form class="form-signin">
                                 <div id="loginlogo"><img src="../img/icon.png" width="191,5" height="149,5"></div>
-                                <div class="form-label-group">
-                                    <input type="text" id="inputName" class="form-control" placeholder="Name" required
-                                        autofocus>
-                                    <label for="inputName">Name</label>
-                                </div>
-                                <div class="form-label-group">
-                                    <input type="text" id="inputUserName" class="form-control" placeholder="Username" required
-                                        autofocus>
-                                    <label for="inputUserName">Username</label>
-                                </div>
-
                                 <div class="form-label-group">
                                     <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
                                         required autofocus>
@@ -100,12 +91,13 @@
                                     <label for="inputPassword">Password</label>
                                 </div>
 
-                                <span id="register-link">Already have an account?<a id="registerbtn"
-                                        href="./login.html">Log in</a></span>
+                                <span id="register-link">Don't have an account?<a id="registerbtn"
+                                        href="./register.html">Register</a></span>
                                 <button id="loginbtn" class="btn btn-lg btn-primary btn-block"
-                                    type="submit">Register</button>
+                                    type="submit">Login</button>
                                 <button id="googlebtn" class="btn btn-lg btn-outline-secondary btn-block" type="submit">
                                     Continue with <i class="fab fa-google"></i></button>
+
                             </form>
                         </div>
                     </div>
@@ -113,9 +105,6 @@
             </div>
         </div>
     </section>
-    <footer class="page-footer mt-5">
-            <div class="footer-copyright text-center py-3">© 2018 Copyright RainCheck</div>
-        </footer>    
 </body>
 
 </html>

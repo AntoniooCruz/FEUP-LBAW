@@ -92,3 +92,7 @@
 
 }
 
+#invites a:hover{
+    color:var(--lightBlue);
+    text-decoration: none;
+}
