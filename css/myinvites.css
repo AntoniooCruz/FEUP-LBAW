@@ -37,21 +37,6 @@
 
 
 @media (max-width:535px){
-    .row {
-        justify-content: center !important;
-    }
-
-    .tickets .col-auto {
-        padding: 0;
-    }
-
-    #ticketNavContainer {
-        width: 100%;
-    }
-
-    .tickets {
-        padding: 0;
-    }
 
     .sortNav{
         width: 350px !important;
