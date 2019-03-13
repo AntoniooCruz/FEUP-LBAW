@@ -455,7 +455,8 @@ body > .navbar:nth-child(1) .dropdown-toggle{
 }
 
 #createEventModal .form-control,
-#editEventModal .form-control {
+#editEventModal .form-control,
+#reportEventModal .form-control {
     border:0;
     border-radius: 0;
     border-bottom: 1px solid #ced4da;
