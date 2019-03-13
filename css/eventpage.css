@@ -423,10 +423,12 @@
     }
 }
 
-@media(mim-width: 767px) {
-    .reportBtn{
-        border: 0;
-    }
+.reportBtn:hover{
+    border-color: #d41111 !important;
+}
+
+.reportBtn:hover .fa-flag{
+    color: #d41111;
 }
 
 .actionCard {
