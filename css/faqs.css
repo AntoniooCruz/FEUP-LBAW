@@ -1,7 +1,11 @@
-@import "./style.css";
-
 body{
     background-color: var(--darkBlue);
+}
+
+hr {
+    margin-top: 0;
+    border-top: 2px solid;
+    color: #888888;
 }
 
 .navbar{
@@ -27,7 +31,7 @@ body{
 }
 
 .card-body{
-    padding-left: 3.7em;
+    padding-left: 3.9em;
     padding-top: 10px;
     font-weight: 100;
 }
