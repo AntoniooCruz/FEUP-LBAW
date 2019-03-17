@@ -126,12 +126,12 @@ h1{
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-#mainpage, #about{
+#mainpage{
     background-color:var(--darkBlue);
     height: 100%;
 }
 
-#mainpage .container, #about .container{
+#mainpage .container{
     background-color:var(--darkBlue);
     margin-top:5em;
 
@@ -199,7 +199,6 @@ body > .navbar:nth-child(1){
 .navbar-brand{
     font-size: 18px;
 }
-
 
 
 .navbar-nav .active>.nav-link, .navbar-brand{
