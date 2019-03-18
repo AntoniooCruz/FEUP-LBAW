@@ -41,11 +41,11 @@
     font-weight: 100;
 }
 
-.event #privateIndicator {
+.event #categoryIndicator {
     background-color: #1c2530b0;
 }
 
-.event #categoryIndicator {
+.event #privateIndicator  {
     background-color: #a1b8cbcf;
 }
 
