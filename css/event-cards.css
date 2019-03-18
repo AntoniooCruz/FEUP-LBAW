@@ -169,6 +169,11 @@
     text-decoration: underline;
 }
 
+.event .ownerUsername a{
+    color:black;
+}
+
+
 .event #titleHeader{
     padding: 0.8em;
 }

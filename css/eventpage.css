@@ -475,7 +475,7 @@
 
 .leftCol {
     padding: 0;
-    z-index: -1;
+    z-index: 1;
 }
 
 #attendance {
@@ -593,4 +593,8 @@
 #reportEventModal .input-group-prepend .input-group-text{
     background: none;
     border: 0;
+}
+
+.dropdown-menu {
+    z-index: 2;
 }
