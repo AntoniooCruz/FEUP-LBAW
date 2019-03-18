@@ -98,23 +98,25 @@ body{
 
 .login .custom-control{text-align: center;}
 
-.login .form-signin .btn { margin: auto; }
+.login .form-signin .btn, .login .form-register .btn { margin: auto; }
 
 .login  .btn-block {
     width:176px;
     height: 35px;
 }
 
-.login .form-signin #registerbtn{ margin-bottom: 5px !important;}
+.login .form-signin #registerbtn, .login .form-register #registerbtn{ margin-bottom: 5px !important;}
 
-.login .form-signin #googlebtn{ margin-bottom: 20px;}
+.login .form-signin #googlebtn, .login .form-register #googlebtn{ margin-bottom: 20px;
+    padding: 0px 20px !important;}
 
-.login .form-signin #loginbtn{
+.login .form-signin #loginbtn, .login .form-register #loginbtn{
     margin-top:  20px  !important;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    padding: 0px 20px !important;
 }
 
-.login .form-signin hr {
+.login .form-signin hr, .login .form-register hr {
     margin-top: 12px !important;
     margin-bottom: 12px !important;
 }
@@ -145,4 +147,25 @@ body{
 
 #register-link a:hover{
     text-decoration: underline;
+}
+
+#register-personal #loginlogo img{
+    width: 40%;
+    height: 40%;
+}
+
+#register-personal .form-label-group input{
+    padding-bottom: 5px;
+}
+
+#register-personal .form-label-group {
+    margin-bottom: 0.5rem;
+}
+
+#register-personal #register-link{
+margin-top: 1rem;
+}
+
+#register-personal #loginlogo {
+    margin-bottom: 1rem;
 }
