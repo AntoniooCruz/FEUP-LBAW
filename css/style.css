@@ -209,12 +209,17 @@ body > .navbar:nth-child(1){
     padding-left: 8px;
 }
 
+.navbar-collapse > .searchBar-blue input:focus{
+    width: 200px !important;
+}
 .navbar-collapse > .searchBar-blue input{
     margin-right: 0!important;
     width: 99px !important;
     padding-right: 0;
     height: 30px;
     padding-left: 12px !important;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 }
 
 .searchBar-blue input{
