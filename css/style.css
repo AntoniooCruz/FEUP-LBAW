@@ -209,12 +209,13 @@ body > .navbar:nth-child(1){
     padding-left: 8px;
 }
 
-.navbar-collapse > .searchBar-blue input:focus{
+.navbar-collapse > .searchBar-blue input:hover{
+    background-color:#262F3C;
     width: 150px !important;
 }
 
-.navbar-collapse > .searchBar-blue input:hover{
-    width: 150px !important;
+.navbar-collapse > .searchBar-blue input:hover + * {
+    background-color:#262F3C;
 }
 .navbar-collapse > .searchBar-blue input{
     margin-right: 0!important;
@@ -234,14 +235,19 @@ body > .navbar:nth-child(1){
 }
 
 .searchBar-blue input{
-    background-color:#262F3C;
+    background-color: transparent;
     border:none;
 }
 
 .searchBar-blue input:focus{
+    width: 150px !important;
     background-color:#262F3C;
     box-shadow:none;
     color:white;
+}
+
+.searchBar-blue input:focus + * {
+    background-color:#262F3C;
 }
 
 .navbar-collapse > .searchBar-blue button{
@@ -249,17 +255,14 @@ body > .navbar:nth-child(1){
     padding-top: 3px!important;
     padding-right: 12px !important;
     padding-left: 0px !important;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 
-}
-
-.navbar-collapse > .searchBar-blue button:hover + *{
-    width: 150px !important;
 }
 
  .searchBar-blue button{
     border-radius: 0 50px 50px 0;
     border:none;
-    background-color:#262F3C;
     color:var(--lightGrey);
     margin-right: 0!important;
     height: 50px;

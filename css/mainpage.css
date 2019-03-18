@@ -18,7 +18,27 @@ body{
 .searchBar-blue input,
 .searchBar-blue input:focus,
 .searchBar-blue button{
+    background-color: transparent;
+}
+
+.searchBar-blue input:focus{
+    width: 150px !important;
     background-color: #bbc4cc82;
+    box-shadow:none;
+    color:white;
+}
+
+.navbar-collapse > .searchBar-blue input:hover{
+    background-color: #bbc4cc82;
+    width: 150px !important;
+}
+
+.navbar-collapse > .searchBar-blue input:hover + * {
+    background-color: #bbc4cc82;
+}
+
+.searchBar-blue input:focus + * {
+    background-color: #bbc4cc82
 }
 
 .navbar-nav > .nav-item > .nav-link:hover, #dropdown:hover, .fa-plus-square:hover{
