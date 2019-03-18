@@ -32,8 +32,8 @@ small {
 }
 
 .parContainer {
-    margin: 0;
     width: 100%;
+    min-height: 80%;
 }
 
 #profile_content {
@@ -164,11 +164,30 @@ small {
     margin: 1.5rem;
 }
 
-#events_container h3 {
+#events_container ul {
     margin: 0 15px;
-    border-bottom: 1px solid var(--darkBlue);
-    padding-bottom: 8px;
-    color: var(--darkBlue);
+    border-radius: 2px;
+    border-bottom: 3px solid var(--lightBlue);
+}
+
+#events_container ul .nav-link {
+    color: #8fa1b1;
+    font-family: 'Roboto Condensed', sans-serif;
+    border: 2px solid #a4b6c7;
+    border-bottom: 0;
+}
+
+#events_container ul :nth-child(1) a{
+    border-radius: 4px 0 0  0px;
+}
+
+#events_container ul :nth-child(2) a{
+    border-radius: 0 4px 0 0px;
+}
+
+#events_container ul .nav-item .active {
+    background-color: #a4b6c7;
+    color: white;
 }
 
 #events_container .invite{
@@ -211,4 +230,8 @@ textarea{
     border-style: solid;
     border-radius: 2px;
     border-color: var(--lightGray);
+}
+
+.tab-content>.active {
+    display: flex;
 }
