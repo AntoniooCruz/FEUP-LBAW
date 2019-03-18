@@ -210,11 +210,15 @@ body > .navbar:nth-child(1){
 }
 
 .navbar-collapse > .searchBar-blue input:focus{
-    width: 200px !important;
+    width: 150px !important;
+}
+
+.navbar-collapse > .searchBar-blue input:hover{
+    width: 150px !important;
 }
 .navbar-collapse > .searchBar-blue input{
     margin-right: 0!important;
-    width: 99px !important;
+    width: 0px !important;
     padding-right: 0;
     height: 30px;
     padding-left: 12px !important;
@@ -244,7 +248,12 @@ body > .navbar:nth-child(1){
     height: 30px;
     padding-top: 3px!important;
     padding-right: 12px !important;
+    padding-left: 0px !important;
 
+}
+
+.navbar-collapse > .searchBar-blue button:hover + *{
+    width: 150px !important;
 }
 
  .searchBar-blue button{
