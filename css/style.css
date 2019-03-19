@@ -111,8 +111,8 @@ body > .navbar:nth-child(1){
 }
 
 @media (min-width:992px){
-    #dropdown{
-        right: 0;
+    body> nav #dropdown{
+        right: 10px;
     }
 
     .navbar-collapse .logged-in{
@@ -249,10 +249,17 @@ body > .navbar:nth-child(1){
     padding: 0.25em 0;
 }
 
-.dropdown-menu{
+body > nav .dropdown-menu{
     right: 5em;
-    left: -95px;
+    left: -114px;
     width: 180px;
+}
+
+.filters .dropdown-menu{
+    left: 12px;
+}
+
+.dropdown-menu{
     padding: 1em;
 }
 
