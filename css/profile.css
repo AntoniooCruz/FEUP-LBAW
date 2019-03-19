@@ -235,3 +235,8 @@ textarea{
 .tab-content>.active {
     display: flex;
 }
+
+
+.fa-check-circle{
+    color:var(--green);
+}

@@ -115,7 +115,7 @@ body > .navbar:nth-child(1){
         right: 0;
     }
 
-    .navbar-nav{
+    .navbar-collapse .logged-in{
         margin-right: 6em;
     }
     

@@ -32,6 +32,7 @@ body{
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
     max-width: 380px;
+    margin: auto;
 }
 
 #login .navbar {
