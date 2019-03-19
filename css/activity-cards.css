@@ -293,6 +293,7 @@ border:none;
 
 .comments textarea, .comments .comment{
     font-size:14px;
+    padding-left: 40px;
 }
 .comments textarea{
 padding-top: 10px;
@@ -311,6 +312,7 @@ padding-bottom: 10px;
 
 .card-comment-section{
     padding-right: 3.5rem;
+    margin-left: -15px;
 }
 
 .commentInput{
@@ -323,5 +325,5 @@ padding-bottom: 10px;
 }
 
 .reply{
-    font-size: 12px;
+    font-size: 10px;
 }
