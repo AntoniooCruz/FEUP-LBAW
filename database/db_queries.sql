@@ -141,6 +141,13 @@ insert into follow (id_user1, id_user2) values ($id_user1, $id_user2);
 --vote on poll
 insert into vote_on_poll (id_user, id_poll_option) VALUES ($id_user, $id_poll_option);
 
+--new report
+insert into report (reason, veridict, report_type) values ($reason, $veridict, $report_type);
+
+insert into report_event (id_report, id_reporter, id_event) values ($id_report, $id_reporter, $id_event);
+insert into report_post (id_report, id_reporter, id_post) values ($id_report, $id_reporter, $id_post);
+insert into report_user (id_report, id_reporter, id_reported_user) values ($id_report, $id_reporter, $id_event);
+
 --------------------
 -------DELETES------
 --------------------
