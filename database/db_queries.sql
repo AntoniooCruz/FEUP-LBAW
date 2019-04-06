@@ -70,13 +70,62 @@ SELECT token, title, user1.username
 	AND user2.id_user=event.id_owner;        
 
 
---users's invites:
+--users's invites: select invites of user with username = $username
+SELECT user1.username as inviter, user3.username as organizer, event.id_event
+	FROM invite,event,users user1,users user2, users user3
+	WHERE invite.id_inviter=user1.id_user
+      AND invite.id_invitee=user2.id_user
+			AND event.id_event = invite.id_event
+			AND event.id_owner = user3.id_user
+			AND user2.username = $username;
+
+
+--search
+/*events seen by the user with username = $username*/
+DROP VIEW IF EXISTS able_to_see_events;
+
+CREATE VIEW able_to_see_events AS
+SELECT e1.id_event 
+	FROM event e1,users user1, category, users user2
+	WHERE e1.id_owner=user1.id_user
+	    AND e1.id_category=category.id_category
+			AND user2.username = $username
+			AND (	isprivate = false
+					OR
+					(user2.id_user IN (SELECT id_invitee
+										FROM invite
+										WHERE invite.id_event=e1.id_event
+					                )
+				    )
+				);
+
+/*                
+SELECT id_event
+FROM event
+WHERE REG EX CENAS 
+AND event.id_event IN (select * from able_to_see_events);
+*/
 
 --reports:
+
+--feed: 
+
+--------------------
+-------UPDATE-------
+--------------------
+--edit event
+--edit profile:
 
 --------------------
 -------INSERTS------
 --------------------
+--new user
+--new event
+--new post
+--new comment
+--new ticket
+--new invite
+--new follow
 
 --------------------
 -------DELETES------
