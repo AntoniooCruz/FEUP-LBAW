@@ -10,11 +10,25 @@ SELECT title, date_created, date, location, event.description, price, capacity, 
         AND event.id_event = $event_id;
 
 --Account information: SELECT information FROM user with username = $username
-SELECT email, name, active, verification, website
-	FROM users
-	FULL JOIN business ON users.id_user=business.id_user
-	WHERE username = $username;
+--if user.type == personal
+SSELECT email, name, description, count(*) as followers, following
+	FROM users, follow, (SELECT users.username as username, count(*) as following
+												FROM users, follow
+												WHERE username = $username
+												AND follow.id_user1 = users.id_user
+												GROUP BY (users.id_user, email, name,description)
+											) as followingQuery
+	WHERE users.username = followingQuery.username
+	AND follow.id_user2 = users.id_user
+	GROUP BY (users.id_user, email, name,description,following);
 
+--else if user.type == business
+SELECT email, name, description, verification, website, count(*) as followers
+	FROM users, business, follow
+	WHERE business.id_user = users.id_user
+	AND username = $username
+	AND follow.id_user2 = users.id_user
+	GROUP BY (business.id_user, email, name,description, verification, website);
 
 --Posts of event: select posts from event with id = $event_id
 SELECT username,date, text, file."name", id_poll
@@ -47,19 +61,6 @@ SELECT name, count(*) as n_votes
 		AND poll_option.id_poll_option=vote_on_poll.id_poll_option
 	GROUP BY name;
 
---Followers: select usernames of users following user with username = $username
-SELECT user1.username
-	FROM follow, users user1,  users user2
-	WHERE id_user1 = user1.id_user
-		AND id_user2 = user2.id_user
-		AND user2.username = $username;
-
---Following: select usernames of users followed by user with username = $username
-SELECT user2.username
-	FROM follow, users user1,  users user2
-	WHERE id_user1 = user1.id_user
-		AND id_user2 = user2.id_user
-		AND user1.username = $username;    
 
 --users's tickets: select all tickets of user with username = $username
 SELECT token, title, user1.username
@@ -115,7 +116,7 @@ SELECT e1.id_event
 -------INSERTS------
 --------------------
 --new user
-insert into users (username, email, password) values ( $username, $email, $password);
+insert into users (username, email, password) values ( $username, $email, $password, $type);
 
 --new event
 insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ($title, $date_created, $date, $location, $description, $price, $capacity, $isPrivate, $id_owner, $id_category, $city);

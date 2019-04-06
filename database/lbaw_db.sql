@@ -8,6 +8,9 @@ CREATE TYPE report_state AS ENUM ('Pending', 'Approved', 'Ignored');
 DROP TYPE IF EXISTS report_types CASCADE;
 CREATE TYPE report_types AS ENUM ('Post', 'Event', 'User') ;
 
+DROP TYPE IF EXISTS user_types CASCADE;
+CREATE TYPE user_types AS ENUM ('Admin', 'Personal', 'Business') ;
+
 
 -- Table: users
 DROP TABLE IF EXISTS users CASCADE;
@@ -22,6 +25,7 @@ CREATE TABLE users (
     password VARCHAR      NOT NULL,
     description VARCHAR (100),
     active BOOLEAN default(true),
+    user_type user_types NOT NULL,
     is_admin BOOLEAN NOT NULL DEFAULT FALSE
 );
 
