@@ -18,11 +18,11 @@ CREATE TABLE users (
                           NOT NULL,
     email    VARCHAR      UNIQUE
                           NOT NULL,
-    name     VARCHAR (30) NOT NULL,
+    name     VARCHAR (30),
     password VARCHAR      NOT NULL,
     description VARCHAR (100),
     active BOOLEAN default(true),
-    is_admin BOOLEAN NOT NULL
+    is_admin BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 -- Table: category
@@ -257,3 +257,4 @@ CREATE TABLE vote_on_poll (
         id_poll_option
     )
 );
+

@@ -99,12 +99,7 @@ SELECT e1.id_event
 				    )
 				);
 
-/*                
-SELECT id_event
-FROM event
-WHERE REG EX CENAS 
-AND event.id_event IN (select * from able_to_see_events);
-*/
+    /* ... */            
 
 --reports:
 
@@ -120,12 +115,31 @@ AND event.id_event IN (select * from able_to_see_events);
 -------INSERTS------
 --------------------
 --new user
+insert into users (username, email, password) values ( $username, $email, $password);
+
 --new event
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ($title, $date_created, $date, $location, $description, $price, $capacity, $isPrivate, $id_owner, $id_category, $city);
+
 --new post
+insert into post (date, text, id_event, id_author) values ($date, $text, $id_event, $id_author);
+insert into file (name, id_post) VALUES ($name, $id_post);
+insert into poll (id_post) VALUES ($id_post);
+insert into poll_option (name, id_poll) VALUES ($name, $id_poll);
+
 --new comment
+insert into comment (text, id_post, id_parent_comment, id_author, date) values ($text, $id_post, $id_parent_comment, $id_author, $date);
+
 --new ticket
+insert into ticket (id_event,id_ticket_owner) VALUES ($id_event, $id_ticket_owner);
+
 --new invite
+insert into invite (id_inviter, id_invitee, id_event) VALUES ($id_inviter, $id_invitee, $id_event);
+
 --new follow
+insert into follow (id_user1, id_user2) values ($id_user1, $id_user2);
+
+--vote on poll
+insert into vote_on_poll (id_user, id_poll_option) VALUES ($id_user, $id_poll_option);
 
 --------------------
 -------DELETES------
