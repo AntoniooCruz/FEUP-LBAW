@@ -110,7 +110,14 @@ SELECT e1.id_event
 -------UPDATE-------
 --------------------
 --edit event
+UPDATE event
+  SET title = $title, date = $date, price = $price,capacity = $capacity, isPrivate = $privateBool, id_category=$category, city = $city
+  WHERE username = $username; 
+
 --edit profile:
+UPDATE users
+  SET name = $name, description = $description
+  WHERE username = $username; 
 
 --------------------
 -------INSERTS------
