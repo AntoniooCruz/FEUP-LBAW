@@ -115,6 +115,8 @@ CREATE TABLE comment (
     id_post           INTEGER      
                                    REFERENCES post (id_post) ON DELETE CASCADE,
     id_parent_comment INTEGER      REFERENCES comment (id_comment) ON DELETE CASCADE,
+    id_author INTEGER NOT NULL,
+    date      DATE          NOT NULL,
     CONSTRAINT type_comment CHECK ( (id_post IS NOT NULL) OR (id_parent_comment IS NOT NULL)) 
                                  
 );
