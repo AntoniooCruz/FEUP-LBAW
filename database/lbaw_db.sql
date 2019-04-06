@@ -111,11 +111,10 @@ DROP TABLE IF EXISTS comment CASCADE;
 
 CREATE TABLE comment (
     id_comment        SERIAL      PRIMARY KEY,
-    text              VARCHAR (50) NOT NULL,
-    id_post           INTEGER      NOT NULL
+    text              VARCHAR (500) NOT NULL,
+    id_post           INTEGER      
                                    REFERENCES post (id_post) ON DELETE CASCADE,
-    id_parent_comment INTEGER      REFERENCES comment (id_comment) ON DELETE CASCADE
-                                   NOT NULL,
+    id_parent_comment INTEGER      REFERENCES comment (id_comment) ON DELETE CASCADE,
     CONSTRAINT type_comment CHECK ( (id_post IS NOT NULL) OR (id_parent_comment IS NOT NULL)) 
                                  
 );
@@ -165,12 +164,11 @@ DROP TABLE IF EXISTS report CASCADE;
 
 CREATE TABLE report (
     id_report SERIAL      PRIMARY KEY,
-    reason    VARCHAR (50) NOT NULL,
+    reason    VARCHAR (300) NOT NULL,
     veridict  report_state DEFAULT ('Pending') 
                            NOT NULL,
     report_type report_types,
     id_admin INTEGER REFERENCES users (id_user) ON DELETE CASCADE
-                    NOT NULL
 );
 
 
