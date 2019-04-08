@@ -3,15 +3,23 @@
 --------------------
 
 --Event information: SELECT information FROM event with id = $event_id
-SELECT title, date_created, date, location, event.description, price, capacity, isPrivate, users.name AS owner_name, category.name AS category_name, city 
-	FROM event,users,category 
+SELECT title, date_created, date, location, event.description, price, capacity, isPrivate, users.name AS owner_name, category.name AS category_name, city, count(*) as participants 
+	FROM event,users,category, ticket 
 	WHERE event.id_owner=users.id_user
 	    AND event.id_category=category.id_category
-        AND event.id_event = $event_id;
+      AND event.id_event = $event_id
+			AND ticket.id_event=event.id_event
+	GROUP BY (title, date_created, date, location, event.description, price, capacity, isPrivate, users.name, category.name, city);
+
+SELECT username
+	FROM users, event, ticket
+	WHERE event.id_event = $event_id
+		AND event.id_event = ticket.id_event
+		AND ticket.id_ticket_owner = users.id_user;
 
 --Account information: SELECT information FROM user with username = $username
 --if user.type == personal
-SSELECT email, name, description, count(*) as followers, following
+SELECT email, name, description, count(*) as followers, following
 	FROM users, follow, (SELECT users.username as username, count(*) as following
 												FROM users, follow
 												WHERE username = $username
@@ -111,7 +119,7 @@ SELECT e1.id_event
 --------------------
 --edit event
 UPDATE event
-  SET title = $title, date = $date, price = $price,capacity = $capacity, isPrivate = $privateBool, id_category=$category, city = $city
+  SET title = $title, date = $date, capacity = $capacity, isPrivate = $privateBool, id_category=$category, city = $city
   WHERE username = $username; 
 
 --edit profile:
@@ -159,3 +167,6 @@ insert into report_user (id_report, id_reporter, id_reported_user) values ($id_r
 --------------------
 -------DELETES------
 --------------------
+DELETE FROM follow
+  WHERE id_user1 = $id_user1
+	 AND id_user2 = $id_user2;

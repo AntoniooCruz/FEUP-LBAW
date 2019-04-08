@@ -1,6 +1,8 @@
+-----------------------------------------
+-- Populate database
+-----------------------------------------
 
 --users
-
 insert into users (username, email, name, password, description, active, user_type) values ('ckinsett0', 'ckinsett0@edublogs.org', 'Corabel Kinsett', 'TSB0eROu', 'libero quis orci nullam molestie nibh in lectus pellentesque at', true, 'Personal');
 insert into users (username, email, name, password, description, active, user_type) values ('mbettaney1', 'mbettaney1@dailymotion.com', 'Mollie Bettaney', 'FmXGkoBIGmn9', 'quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit', true, 'Personal');
 insert into users (username, email, name, password, description, active, user_type) values ('scrumbleholme2', 'scrumbleholme2@bing.com', 'Spence Crumbleholme', 'ZZtIKj5uC', 'cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut', true, 'Personal');
@@ -34,6 +36,8 @@ insert into users (username, email, name, password, description, active, user_ty
 insert into users (username, email, name, password, description, active, user_type) values ('admin1', 'admin1@gmail.com', 'admin1', 'admin1lalalalala', '', true, 'Admin');
 insert into users (username, email, name, password, description, active, user_type) values ('admin2', 'admin2@gmail.com', 'admin1', 'admin2lalalalala', '', true, 'Admin');
 insert into users (username, email, name, password, description, active, user_type) values ('admin3', 'admin3@gmail.com', 'admin1', 'admin3lalalalala', '', true, 'Admin');
+
+
 --category
 insert into category (name) values ('Food');
 insert into category (name) values ('Film');
@@ -47,29 +51,29 @@ insert into category (name) values ('Other');
 
 
 --event
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('My 21st BDAY', '1/11/2018', '12/1/2018', '8446 Rockefeller Parkway', 'ut at dolor quis odio consequat varius', 127, 346, true, 12, 6, 'Vukatanë');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Tea Party', '11/30/2017', '6/8/2018', '95 Golf Center', 'lobortis est phasellus sit amet', 149, 483, false, 18, 8, 'Ajman');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Semana de Informatica', '11/3/2017', '10/5/2018', '877 Dayton Junction', 'libero nam dui proin leo odio porttitor id consequat in consequat ut', 126, 208, true, 3, 5, 'Xishan');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Queima 2019', '2/1/2018', '12/3/2018', '4 Bowman Park', 'sapien iaculis congue vivamus metus arcu adipiscing', 176, 451, false, 25, 2, 'Palaran');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Rock in Rio 2019', '10/29/2017', '3/25/2019', '81249 Summit Terrace', 'accumsan felis ut', 74, 399, true, 13, 9, 'Banjar Pekandelan');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Sleepover at Ritas', '11/21/2017', '1/31/2019', '71785 Mayer Court', 'morbi quis tortor', 81, 467, false, 17, 8, 'Rungis');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Feup Caffé', '10/13/2017', '2/7/2019', '264 Texas Plaza', 'luctus', 110, 376, false, 4, 5, 'Buga');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('White Party', '3/5/2018', '9/17/2018', '588 Dayton Circle', 'nascetur ridiculus mus vivamus vestibulum sagittis sapien cum', 28, 96, false, 23, 5, 'Vinež');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Halloween Party', '9/8/2017', '10/27/2018', '621 Maple Road', 'at nunc commodo placerat praesent blandit nam', 21, 191, false, 5, 9, 'Martapura');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'ENEI 2019', '1/21/2018', '1/30/2019', '3261 Pond Drive', 'nulla', 49, 136, true, 3, 9, 'Gaojingzhuang');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Talk a Bit', '2/9/2018', '5/6/2018', '012 Forest Pass', 'non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit', 21, 230, false, 16, 8, 'Sarimukti Kaler');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values (  'Ted Talk Porto', '1/30/2018', '3/23/2019', '39189 Morningstar Road', 'justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem', 122, 51, true, 2, 4, 'Shanhe');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values (  '"Persistent leading edge application"', '10/21/2017', '12/21/2018', '365 Trailsway Junction', 'convallis morbi odio odio elementum eu interdum eu tincidunt in', 169, 481, true, 4, 8, 'Vistino');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Workshop React Pt1', '9/26/2017', '1/24/2019', '0167 Sloan Street', 'non velit nec nisi', 112, 57, true, 1, 1, '‘Amrān');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Workshop React Pt2', '9/15/2017', '5/15/2018', '2583 Monument Hill', 'ipsum primis in faucibus orci luctus et', 98, 287, true, 6, 4, 'Lincoln');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Baby shower', '3/25/2018', '2/3/2019', '675 Morningstar Plaza', 'vestibulum ante ipsum', 124, 379, true, 27, 8, 'Saint-Gaudens');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Billie Eilish Concert', '11/1/2017', '11/22/2018', '5807 Bartelt Street', 'in felis eu sapien cursus vestibulum proin eu', 88, 215, true, 30, 2, 'Krasnokamensk');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Billie Eilish meet & greet', '9/8/2017', '5/7/2018', '42474 Ohio Trail', 'non mi integer ac neque duis', 68, 78, true, 21, 4, 'Nicolas Bravo');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Billie Eilish fan convention', '12/10/2017', '8/21/2018', '980 Anderson Plaza', 'at turpis a pede', 125, 205, true, 27, 7, 'Firminópolis');
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Time management talk', '11/16/2017', '7/5/2018', '36141 Westerfield Avenue', 'placerat praesent blandit nam nulla integer pede justo lacinia eget', 107, 183, false, 30, 7, 'Gonghe');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('My 21st BDAY', '1/11/2018', '12/1/2019 02:11:00', '8446 Rockefeller Parkway', 'ut at dolor quis odio consequat varius', 127, 346, true, 12, 6, 'Vukatanë');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Tea Party', '11/30/2017', '6/8/2019 02:11:00', '95 Golf Center', 'lobortis est phasellus sit amet', 149, 483, false, 18, 8, 'Ajman');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Semana de Informatica', '11/3/2017 02:11:00', '10/5/2019', '877 Dayton Junction', 'libero nam dui proin leo odio porttitor id consequat in consequat ut', 126, 208, true, 3, 5, 'Xishan');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Queima 2019', '2/1/2018', '12/3/2019 02:11:00', '4 Bowman Park', 'sapien iaculis congue vivamus metus arcu adipiscing', 176, 451, false, 25, 2, 'Palaran');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Rock in Rio 2019', '10/29/2017', '4/25/2019 02:11:00', '81249 Summit Terrace', 'accumsan felis ut', 74, 399, true, 13, 9, 'Banjar Pekandelan');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Sleepover at Ritas', '11/21/2017', '4/30/2019 02:11:00', '71785 Mayer Court', 'morbi quis tortor', 81, 467, false, 17, 8, 'Rungis');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Feup Caffé', '10/13/2017', '5/7/2019 02:11:00', '264 Texas Plaza', 'luctus', 110, 376, false, 4, 5, 'Buga');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('White Party', '3/5/2018', '9/17/2019 02:11:00', '588 Dayton Circle', 'nascetur ridiculus mus vivamus vestibulum sagittis sapien cum', 28, 96, false, 23, 5, 'Vinež');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ('Halloween Party', '9/8/2017', '10/27/2019 02:11:00', '621 Maple Road', 'at nunc commodo placerat praesent blandit nam', 21, 191, false, 5, 9, 'Martapura');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'ENEI 2019', '1/21/2018', '6/30/2019 02:11:00', '3261 Pond Drive', 'nulla', 49, 136, true, 3, 9, 'Gaojingzhuang');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Talk a Bit', '2/9/2018', '5/6/2019 02:11:00', '012 Forest Pass', 'non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit', 21, 230, false, 16, 8, 'Sarimukti Kaler');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values (  'Ted Talk Porto', '1/30/2018', '5/23/2019 02:11:00', '39189 Morningstar Road', 'justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem', 122, 51, true, 2, 4, 'Shanhe');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values (  '"Persistent leading edge application"', '10/21/2017', '12/21/2019 02:11:00', '365 Trailsway Junction', 'convallis morbi odio odio elementum eu interdum eu tincidunt in', 169, 481, true, 4, 8, 'Vistino');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Workshop React Pt1', '9/26/2017', '5/24/2019 02:11:00', '0167 Sloan Street', 'non velit nec nisi', 112, 57, true, 1, 1, '‘Amrān');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Workshop React Pt2', '9/15/2017', '5/15/2019 02:11:00', '2583 Monument Hill', 'ipsum primis in faucibus orci luctus et', 98, 287, true, 6, 4, 'Lincoln');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Baby shower', '3/25/2018', '8/3/2019 02:11:00', '675 Morningstar Plaza', 'vestibulum ante ipsum', 124, 379, true, 27, 8, 'Saint-Gaudens');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Billie Eilish Concert', '11/1/2017', '11/22/2019 02:11:00', '5807 Bartelt Street', 'in felis eu sapien cursus vestibulum proin eu', 88, 215, true, 30, 2, 'Krasnokamensk');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Billie Eilish meet & greet', '9/8/2017', '6/7/2019 02:11:00', '42474 Ohio Trail', 'non mi integer ac neque duis', 68, 78, true, 21, 4, 'Nicolas Bravo');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Billie Eilish fan convention', '12/10/2017', '8/21/2019 02:11:00', '980 Anderson Plaza', 'at turpis a pede', 125, 205, true, 27, 7, 'Firminópolis');
+insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ( 'Time management talk', '11/16/2017', '7/5/2019 02:11:00', '36141 Westerfield Avenue', 'placerat praesent blandit nam nulla integer pede justo lacinia eget', 107, 183, false, 30, 7, 'Gonghe');
+
 
 --personal
-
 insert into personal (id_user) values (1);
 insert into personal (id_user) values (2);
 insert into personal (id_user) values (3);
@@ -122,6 +126,7 @@ insert into post (date, text, id_event, id_author) values ('4/19/2018', 'nunc pu
 insert into post (date, text, id_event, id_author) values ('9/13/2018', 'platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet', 8, 1);
 insert into post (date, text, id_event, id_author) values ('7/11/2018', 'parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum', 10, 2);
 
+
 --attend_event
 insert into attend_event (id_user, id_event) VALUES (1, 1);
 insert into attend_event (id_user, id_event) VALUES (1, 2);
@@ -168,12 +173,14 @@ insert into file (name, id_post) VALUES ('congue.part', 14);
 insert into file (name, id_post) VALUES ('non_velit.z', 10);
 insert into file (name, id_post) VALUES ('vulputate_nonummy.sst', 3);
 
+
 --poll
 insert into poll (id_post) VALUES (1);
 insert into poll (id_post) VALUES (3);
 insert into poll (id_post) VALUES (4);
 insert into poll (id_post) VALUES (11);
 insert into poll (id_post) VALUES (12);
+
 
 --poll_option
 insert into poll_option (name, id_poll) VALUES ('bus', 1);
@@ -190,32 +197,32 @@ insert into poll_option (name, id_poll) VALUES ('porto', 5);
 
 
 --voteOnOption
-insert into vote_on_poll (id_user, id_poll_option) VALUES (1, 1);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (1, 2);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (1, 3);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (2, 1);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (2, 2);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (2, 5);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (3, 1);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (4, 2);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (5, 3);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (6, 4);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (7, 5);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (8, 1);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (9, 2);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (10, 3);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (10, 4);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (11, 1);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (11, 2);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (11, 3);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (11, 4);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (12, 1);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (13, 2);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (14, 3);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (20, 4);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (22, 5);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (21, 5);
-insert into vote_on_poll (id_user, id_poll_option) VALUES (21, 3);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (1, 1, 1);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (1, 2, 4);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (1, 3, 6);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (2, 1, 1);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (2, 3, 6);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (2, 2, 5);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (3, 1, 1);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (4, 1, 2);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (5, 1, 3);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (6, 2, 4);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (7, 2, 5);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (8, 1, 1);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (9, 1, 2);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (10, 1, 3);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (10, 2, 4);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (11, 1, 1);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (11, 2, 4);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (11, 3, 6);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (11, 4, 8);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (12, 1, 1);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (13, 1, 2);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (14, 1, 3);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (20, 2, 4);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (22, 5, 10);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (21, 4, 8);
+insert into vote_on_poll (id_user, id_poll, id_poll_option) VALUES (21, 3, 6);
 
 
 --invite
@@ -258,38 +265,39 @@ insert into invite (id_inviter, id_invitee, id_event) VALUES (2, 9, 6);
 insert into invite (id_inviter, id_invitee, id_event) VALUES (2, 19, 6);
 insert into invite (id_inviter, id_invitee, id_event) VALUES (20, 8, 20);
 
+
 --ticket
-insert into ticket ( id_event,id_ticket_owner) VALUES (1, 1);
-insert into ticket ( id_event,id_ticket_owner) VALUES (2, 1);
-insert into ticket ( id_event,id_ticket_owner) VALUES (1, 3);
-insert into ticket ( id_event,id_ticket_owner) VALUES (1, 4);
-insert into ticket ( id_event,id_ticket_owner) VALUES (2, 2);
-insert into ticket ( id_event,id_ticket_owner) VALUES (2, 3);
-insert into ticket ( id_event,id_ticket_owner) VALUES (2, 4);
-insert into ticket ( id_event,id_ticket_owner) VALUES (2, 5);
-insert into ticket ( id_event,id_ticket_owner) VALUES (3, 3);
-insert into ticket ( id_event,id_ticket_owner) VALUES (4, 4);
-insert into ticket ( id_event,id_ticket_owner) VALUES (4, 5);
-insert into ticket ( id_event,id_ticket_owner) VALUES (5, 6);
-insert into ticket ( id_event,id_ticket_owner) VALUES (5, 7);
-insert into ticket ( id_event,id_ticket_owner) VALUES (5, 5);
-insert into ticket ( id_event,id_ticket_owner) VALUES (6, 7);
-insert into ticket ( id_event,id_ticket_owner) VALUES (7, 8);
-insert into ticket ( id_event,id_ticket_owner) VALUES (8, 9);
-insert into ticket ( id_event,id_ticket_owner) VALUES (9, 10);
-insert into ticket ( id_event,id_ticket_owner) VALUES (11, 11);
-insert into ticket ( id_event,id_ticket_owner) VALUES (11, 12);
-insert into ticket ( id_event,id_ticket_owner) VALUES (12, 14);
-insert into ticket ( id_event,id_ticket_owner) VALUES (12, 11);
-insert into ticket ( id_event,id_ticket_owner) VALUES (13, 12);
-insert into ticket ( id_event,id_ticket_owner) VALUES (14, 20);
-insert into ticket ( id_event,id_ticket_owner) VALUES (14, 18);
-insert into ticket ( id_event,id_ticket_owner) VALUES (15, 17);
-insert into ticket ( id_event,id_ticket_owner) VALUES (15, 12);
-insert into ticket ( id_event,id_ticket_owner) VALUES (15, 5);
-insert into ticket ( id_event,id_ticket_owner) VALUES (17, 20);
-insert into ticket ( id_event,id_ticket_owner) VALUES (18, 1);
-insert into ticket ( id_event,id_ticket_owner) VALUES (19, 12);
+insert into ticket (id_event,id_ticket_owner) VALUES (1, 1);
+insert into ticket (id_event,id_ticket_owner) VALUES (2, 1);
+insert into ticket (id_event,id_ticket_owner) VALUES (1, 3);
+insert into ticket (id_event,id_ticket_owner) VALUES (1, 4);
+insert into ticket (id_event,id_ticket_owner) VALUES (2, 2);
+insert into ticket (id_event,id_ticket_owner) VALUES (2, 3);
+insert into ticket (id_event,id_ticket_owner) VALUES (2, 4);
+insert into ticket (id_event,id_ticket_owner) VALUES (2, 5);
+insert into ticket (id_event,id_ticket_owner) VALUES (4, 3);
+insert into ticket (id_event,id_ticket_owner) VALUES (4, 4);
+insert into ticket (id_event,id_ticket_owner) VALUES (4, 5);
+insert into ticket (id_event,id_ticket_owner) VALUES (5, 8);
+insert into ticket (id_event,id_ticket_owner) VALUES (5, 7);
+insert into ticket (id_event,id_ticket_owner) VALUES (5, 5);
+insert into ticket (id_event,id_ticket_owner) VALUES (6, 7);
+insert into ticket (id_event,id_ticket_owner) VALUES (7, 8);
+insert into ticket (id_event,id_ticket_owner) VALUES (8, 9);
+insert into ticket (id_event,id_ticket_owner) VALUES (9, 10);
+insert into ticket (id_event,id_ticket_owner) VALUES (11, 11);
+insert into ticket (id_event,id_ticket_owner) VALUES (11, 12);
+insert into ticket (id_event,id_ticket_owner) VALUES (12, 14);
+insert into ticket (id_event,id_ticket_owner) VALUES (12, 11);
+insert into ticket (id_event,id_ticket_owner) VALUES (13, 12);
+insert into ticket (id_event,id_ticket_owner) VALUES (14, 20);
+insert into ticket (id_event,id_ticket_owner) VALUES (14, 18);
+insert into ticket (id_event,id_ticket_owner) VALUES (15, 17);
+insert into ticket (id_event,id_ticket_owner) VALUES (15, 12);
+insert into ticket (id_event,id_ticket_owner) VALUES (15, 5);
+insert into ticket (id_event,id_ticket_owner) VALUES (17, 20);
+insert into ticket (id_event,id_ticket_owner) VALUES (18, 1);
+insert into ticket (id_event,id_ticket_owner) VALUES (19, 12);
 
 
 --follow
@@ -393,7 +401,6 @@ insert into follow (id_user1, id_user2) values (17, 30);
 insert into follow (id_user1, id_user2) values (15, 11);
 insert into follow (id_user1, id_user2) values (14, 19);
 insert into follow (id_user1, id_user2) values (6, 1);
-
 
 
 --comment
