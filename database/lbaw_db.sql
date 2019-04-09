@@ -64,6 +64,8 @@ CREATE TYPE report_types AS ENUM ('Post', 'Event', 'User') ;
 
 CREATE TYPE user_types AS ENUM ('Admin', 'Personal', 'Business') ;
 
+CREATE TYPE post_types AS ENUM ('Poll', 'File', 'None');
+
 
 -----------------------------------------
 -- Tables
@@ -120,7 +122,8 @@ CREATE TABLE post (
     id_event  INTEGER       REFERENCES event (id_event) ON DELETE CASCADE
                             NOT NULL,
     id_author INTEGER       REFERENCES users (id_user) ON DELETE CASCADE
-                            NOT NULL
+                            NOT NULL,
+    post_type post_types NOT NULL
 );
 
 
