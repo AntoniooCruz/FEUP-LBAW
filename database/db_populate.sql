@@ -252,29 +252,29 @@ INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (4, 12, 13);
 
 
 --ticket
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (1, 1);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (2, 1);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (1, 3);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (1, 4);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (2, 2);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (2, 3);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (2, 4);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (2, 5);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (4, 3);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (4, 4);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (4, 5);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (5, 8);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (5, 7);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (5, 5);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (6, 7);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (7, 8);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (8, 9);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (9, 10);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (12, 14);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (12, 11);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (13, 12);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (14, 20);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (14, 18);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (1, 1,'5/16/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (2, 1,'5/10/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (1, 3,'12/13/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (1, 4,'5/16/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (2, 2,'2/12/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (2, 3,'6/23/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (2, 4,'10/2/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (2, 5,'9/21/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (4, 3,'8/7/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (4, 4,'11/11/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (4, 5,'5/16/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (5, 8,'10/7/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (5, 7,'9/13/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (5, 5,'3/3/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (6, 7,'6/6/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (7, 8,'5/16/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (8, 9,'11/11/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (9, 10,'9/28/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (12, 14,'2/4/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (12, 11,'2/6/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (13, 12,'10/4/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (14, 20,'7/17/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (14, 18,'12/12/2018');
 
 --follow
 INSERT INTO follow (id_user1, id_user2) VALUES (15, 6);
