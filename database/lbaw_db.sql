@@ -43,6 +43,15 @@ DROP TRIGGER IF EXISTS business_follow ON event CASCADE;
 DROP TRIGGER IF EXISTS full_event  ON ticket CASCADE;
 DROP TRIGGER IF EXISTS invite_to_private  ON invite CASCADE;
 
+DROP INDEX IF EXISTS event_creator CASCADE;
+DROP INDEX IF EXISTS ticket_id_event CASCADE;
+DROP INDEX IF EXISTS file_id_post CASCADE;
+DROP INDEX IF EXISTS poll_id_post CASCADE;
+DROP INDEX IF EXISTS post_id_author CASCADE;
+DROP INDEX IF EXISTS comment_id_post CASCADE;
+DROP INDEX IF EXISTS comment_id_author CASCADE;
+DROP INDEX IF EXISTS ticket_id_author CASCADE;
+
 
 -----------------------------------------
 -- Types
@@ -264,6 +273,15 @@ CREATE TABLE vote_on_poll (
 -----------------------------------------
 -- INDEXES
 -----------------------------------------
+
+CREATE INDEX event_creator ON event USING btree (id_owner);
+CREATE INDEX ticket_id_event ON ticket USING hash (id_event);
+CREATE INDEX file_id_post ON file USING btree (id_post);
+CREATE INDEX poll_id_post ON poll USING btree (id_post);
+CREATE INDEX post_id_author ON post USING btree (id_author);
+CREATE INDEX comment_id_post ON comment USING btree (id_post);
+CREATE INDEX comment_id_author ON comment USING btree (id_author);
+CREATE INDEX ticket_id_author ON ticket USING btree (id_author, id_event);
 
 -----------------------------------------
 -- TRIGGERS and UDFs
