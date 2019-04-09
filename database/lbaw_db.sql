@@ -1,11 +1,15 @@
 -----------------------------------------
 -- Drop old schmema
 -----------------------------------------
+DROP TYPE IF EXISTS verification_state CASCADE;
+DROP TYPE IF EXISTS report_state CASCADE;
+DROP TYPE IF EXISTS report_types CASCADE;
+DROP TYPE IF EXISTS user_types CASCADE;
+
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS category CASCADE;
 DROP TABLE IF EXISTS event CASCADE;
 DROP TABLE IF EXISTS post CASCADE;
-DROP TABLE IF EXISTS attend_event CASCADE;
 DROP TABLE IF EXISTS business CASCADE;
 DROP TABLE IF EXISTS personal CASCADE;
 DROP TABLE IF EXISTS comment CASCADE;
@@ -21,17 +25,14 @@ DROP TABLE IF EXISTS report_user CASCADE;
 DROP TABLE IF EXISTS ticket CASCADE;
 DROP TABLE IF EXISTS vote_on_poll CASCADE;
 
-DROP TYPE IF EXISTS verification_state CASCADE;
-DROP TYPE IF EXISTS report_state CASCADE;
-DROP TYPE IF EXISTS report_types CASCADE;
-DROP TYPE IF EXISTS user_types CASCADE;
-
 DROP FUNCTION IF EXISTS cant_get_tickets() CASCADE;
 DROP FUNCTION IF EXISTS get_tickets_past_event() CASCADE;
 DROP FUNCTION IF EXISTS get_multiple_tickets() CASCADE;
 DROP FUNCTION IF EXISTS edit_past_event() CASCADE;
 DROP FUNCTION IF EXISTS change_event_event() CASCADE;
 DROP FUNCTION IF EXISTS business_follow() CASCADE;
+DROP FUNCTION IF EXISTS full_event() CASCADE;
+DROP FUNCTION IF EXISTS invite_to_private_event() CASCADE;
 
 DROP TRIGGER IF EXISTS cant_get_tickets ON ticket CASCADE;
 DROP TRIGGER IF EXISTS get_tickets_past_event ON ticket CASCADE;
@@ -39,6 +40,8 @@ DROP TRIGGER IF EXISTS get_multiple_tickets ON ticket CASCADE;
 DROP TRIGGER IF EXISTS edit_past_event ON event CASCADE;
 DROP TRIGGER IF EXISTS change_event_event ON event CASCADE;
 DROP TRIGGER IF EXISTS business_follow ON event CASCADE;
+DROP TRIGGER IF EXISTS full_event  ON ticket CASCADE;
+DROP TRIGGER IF EXISTS invite_to_private_event  ON invite CASCADE;
 
 
 -----------------------------------------
@@ -109,17 +112,6 @@ CREATE TABLE post (
                             NOT NULL,
     id_author INTEGER       REFERENCES users (id_user) ON DELETE CASCADE
                             NOT NULL
-);
-
-
--- Table: attend_event
-CREATE TABLE attend_event (
-    id_user INTEGER REFERENCES users (id_user) ON DELETE CASCADE,
-    id_event  INTEGER REFERENCES event (id_event) ON DELETE CASCADE,
-    PRIMARY KEY (
-        id_user,
-        id_event
-    )
 );
 
 
@@ -273,7 +265,6 @@ CREATE TABLE vote_on_poll (
 -- INDEXES
 -----------------------------------------
 
-
 -----------------------------------------
 -- TRIGGERS and UDFs
 -----------------------------------------
@@ -341,8 +332,7 @@ EXECUTE PROCEDURE get_multiple_tickets();
 
 --edit event info
     --procedure
-CREATE OR REPLACE FUNCTION edit_past_event()
-  RETURNS trigger AS $BODY$
+CREATE OR REPLACE FUNCTION edit_past_event() RETURNS trigger AS $BODY$
 BEGIN
   IF OLD.date >= now() THEN RAISE EXCEPTION 'Past events cannot be edited';
   END IF;
@@ -358,8 +348,7 @@ EXECUTE PROCEDURE edit_past_event();
 
 --change_event_event
     --procedure
-CREATE OR REPLACE FUNCTION change_event_event()
-  RETURNS trigger AS $BODY$
+CREATE OR REPLACE FUNCTION change_event_event() RETURNS trigger AS $BODY$
 BEGIN
   IF NEW.price != OLD.price THEN RAISE EXCEPTION 'Once the event has been created, the ticket price cannot be changed';
   END IF;
@@ -389,3 +378,68 @@ LANGUAGE plpgsql;
 CREATE TRIGGER business_follow BEFORE UPDATE ON event
 FOR EACH ROW
 EXECUTE PROCEDURE business_follow();
+
+
+--get ticket to full event
+    --procedure
+CREATE OR REPLACE FUNCTION full_event() RETURNS trigger AS $BODY$
+BEGIN
+  IF New.id_event IN ( SELECT id_event
+                        FROM (  SELECT event.id_event, capacity, count(*) AS occupancy
+							    FROM event, ticket
+							    WHERE event.id_event = ticket.id_event
+							    GROUP BY (event.id_event, capacity)
+			                ) AS lotation
+                        WHERE occupancy >= capacity
+				    ) THEN RAISE EXCEPTION 'Event is already at full capacity';
+  END IF;
+  RETURN NEW;	  
+END $BODY$
+LANGUAGE plpgsql;
+
+    --trigger
+CREATE TRIGGER full_event BEFORE INSERT OR UPDATE ON ticket
+FOR EACH ROW
+EXECUTE PROCEDURE full_event();  
+
+
+--permissions to get ticket to event
+    --procedure
+CREATE OR REPLACE FUNCTION get_ticket_permissions() RETURNS TRIGGER AS $BODY$
+BEGIN
+  IF NEW.id_event NOT IN (SELECT event.id_event
+						FROM event, invite
+						WHERE event.isprivate = 'true'
+							AND event.id_event = invite.id_event
+							AND invite.id_invitee = NEW.id_ticket_owner
+					    UNION 
+						SELECT event.id_event
+						FROM event
+						WHERE event.isprivate = 'false') THEN RAISE EXCEPTION 'An user cannot attend a private event they were not invited to';
+  END IF;
+  RETURN NEW;	  
+END $BODY$
+LANGUAGE plpgsql;
+
+    --trigger
+CREATE TRIGGER get_ticket_permissions BEFORE INSERT OR UPDATE ON ticket
+FOR EACH ROW
+EXECUTE PROCEDURE get_ticket_permissions();  
+
+/*
+--invitations permissions
+    --procedure
+CREATE OR REPLACE FUNCTION invite_to_private_event() RETURNS TRIGGER AS $BODY$
+BEGIN
+  IF EXISTS(SELECT event.isprivate
+        FROM event
+        WHERE event.id_event = NEW.id_event) THEN RAISE EXCEPTION 'Only the organizer of a private event can invite people to it';
+  END IF;
+  RETURN NEW;	  
+END $BODY$
+LANGUAGE plpgsql;
+
+    --trigger
+CREATE TRIGGER invite_to_private_event BEFORE INSERT OR UPDATE ON invite
+FOR EACH ROW
+EXECUTE PROCEDURE invite_to_private_event();  */

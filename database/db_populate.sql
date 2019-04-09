@@ -51,7 +51,7 @@ INSERT INTO category (name) VALUES ('Other');
 
 
 --event
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('My 21st BDAY', '1/11/2018', '12/1/2019 02:11:00', '8446 Rockefeller Parkway', 'ut at dolor quis odio consequat varius', 127, 346, true, 12, 6, 'Vukatanë');
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('My 21st BDAY', '1/11/2018', '12/1/2019 02:11:00', '8446 Rockefeller Parkway', 'ut at dolor quis odio consequat varius', 127, 20, false, 12, 6, 'Vukatanë');
 INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('Tea Party', '11/30/2017', '6/8/2019 02:11:00', '95 Golf Center', 'lobortis est phasellus sit amet', 149, 483, false, 18, 8, 'Ajman');
 INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('Semana de Informatica', '11/3/2017 02:11:00', '10/5/2019', '877 Dayton Junction', 'libero nam dui proin leo odio porttitor id consequat in consequat ut', 126, 208, true, 3, 5, 'Xishan');
 INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('Queima 2019', '2/1/2018', '12/3/2019 02:11:00', '4 Bowman Park', 'sapien iaculis congue vivamus metus arcu adipiscing', 176, 451, false, 25, 2, 'Palaran');
@@ -60,16 +60,16 @@ INSERT INTO event (title, date_created, date, location, description, price, capa
 INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('Feup Caffé', '10/13/2017', '5/7/2019 02:11:00', '264 Texas Plaza', 'luctus', 110, 376, false, 4, 5, 'Buga');
 INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('White Party', '3/5/2018', '9/17/2019 02:11:00', '588 Dayton Circle', 'nascetur ridiculus mus vivamus vestibulum sagittis sapien cum', 28, 96, false, 23, 5, 'Vinež');
 INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('Halloween Party', '9/8/2017', '10/27/2019 02:11:00', '621 Maple Road', 'at nunc commodo placerat praesent blandit nam', 21, 191, false, 5, 9, 'Martapura');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'ENEI 2019', '1/21/2018', '6/30/2019 02:11:00', '3261 Pond Drive', 'nulla', 49, 136, true, 3, 9, 'Gaojingzhuang');
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'ENEI 2019', '1/21/2018', '6/30/2019 02:11:00', '3261 Pond Drive', 'nulla', 49, 136, false, 3, 9, 'Gaojingzhuang');
 INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Talk a Bit', '2/9/2018', '5/6/2019 02:11:00', '012 Forest Pass', 'non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit', 21, 230, false, 16, 8, 'Sarimukti Kaler');
 INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES (  'Ted Talk Porto', '1/30/2018', '5/23/2019 02:11:00', '39189 Morningstar Road', 'justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem', 122, 51, true, 2, 4, 'Shanhe');
 INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES (  '"Persistent leading edge application"', '10/21/2017', '12/21/2019 02:11:00', '365 Trailsway Junction', 'convallis morbi odio odio elementum eu interdum eu tincidunt in', 169, 481, true, 4, 8, 'Vistino');
 INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Workshop React Pt1', '9/26/2017', '5/24/2019 02:11:00', '0167 Sloan Street', 'non velit nec nisi', 112, 57, true, 1, 1, '‘Amrān');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Workshop React Pt2', '9/15/2017', '5/15/2019 02:11:00', '2583 Monument Hill', 'ipsum primis in faucibus orci luctus et', 98, 287, true, 6, 4, 'Lincoln');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Baby shower', '3/25/2018', '8/3/2019 02:11:00', '675 Morningstar Plaza', 'vestibulum ante ipsum', 124, 379, true, 27, 8, 'Saint-Gaudens');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Billie Eilish Concert', '11/1/2017', '11/22/2019 02:11:00', '5807 Bartelt Street', 'in felis eu sapien cursus vestibulum proin eu', 88, 215, true, 30, 2, 'Krasnokamensk');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Billie Eilish meet & greet', '9/8/2017', '6/7/2019 02:11:00', '42474 Ohio Trail', 'non mi integer ac neque duis', 68, 78, true, 21, 4, 'Nicolas Bravo');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Billie Eilish fan convention', '12/10/2017', '8/21/2019 02:11:00', '980 Anderson Plaza', 'at turpis a pede', 125, 205, true, 27, 7, 'Firminópolis');
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Workshop React Pt2', '9/15/2017', '5/15/2019 02:11:00', '2583 Monument Hill', 'ipsum primis in faucibus orci luctus et', 98, 287, false, 6, 4, 'Lincoln');
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Baby shower', '3/25/2018', '8/3/2019 02:11:00', '675 Morningstar Plaza', 'vestibulum ante ipsum', 124, 379, true, 20, 8, 'Saint-Gaudens');
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Billie Eilish Concert', '11/1/2017', '11/22/2019 02:11:00', '5807 Bartelt Street', 'in felis eu sapien cursus vestibulum proin eu', 88, 215, false, 30, 2, 'Krasnokamensk');
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Billie Eilish meet & greet', '9/8/2017', '6/7/2019 02:11:00', '42474 Ohio Trail', 'non mi integer ac neque duis', 68, 78, false, 21, 4, 'Nicolas Bravo');
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Billie Eilish fan convention', '12/10/2017', '8/21/2019 02:11:00', '980 Anderson Plaza', 'at turpis a pede', 125, 205, true, 20      , 7, 'Firminópolis');
 INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Time management talk', '11/16/2017', '7/5/2019 02:11:00', '36141 Westerfield Avenue', 'placerat praesent blandit nam nulla integer pede justo lacinia eget', 107, 183, false, 30, 7, 'Gonghe');
 
 
@@ -125,40 +125,6 @@ INSERT INTO post (date, text, id_event, id_author) VALUES ('2/21/2019', 'erat er
 INSERT INTO post (date, text, id_event, id_author) VALUES ('4/19/2018', 'nunc purus', 12, 10);
 INSERT INTO post (date, text, id_event, id_author) VALUES ('9/13/2018', 'platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet', 8, 1);
 INSERT INTO post (date, text, id_event, id_author) VALUES ('7/11/2018', 'parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum', 10, 2);
-
-
---attend_event
-INSERT INTO attend_event (id_user, id_event) VALUES (1, 1);
-INSERT INTO attend_event (id_user, id_event) VALUES (1, 2);
-INSERT INTO attend_event (id_user, id_event) VALUES (1, 3);
-INSERT INTO attend_event (id_user, id_event) VALUES (1, 4);
-INSERT INTO attend_event (id_user, id_event) VALUES (2, 2);
-INSERT INTO attend_event (id_user, id_event) VALUES (2, 3);
-INSERT INTO attend_event (id_user, id_event) VALUES (2, 4);
-INSERT INTO attend_event (id_user, id_event) VALUES (2, 5);
-INSERT INTO attend_event (id_user, id_event) VALUES (3, 3);
-INSERT INTO attend_event (id_user, id_event) VALUES (4, 4);
-INSERT INTO attend_event (id_user, id_event) VALUES (4, 5);
-INSERT INTO attend_event (id_user, id_event) VALUES (5, 6);
-INSERT INTO attend_event (id_user, id_event) VALUES (5, 7);
-INSERT INTO attend_event (id_user, id_event) VALUES (5, 5);
-INSERT INTO attend_event (id_user, id_event) VALUES (6, 7);
-INSERT INTO attend_event (id_user, id_event) VALUES (7, 8);
-INSERT INTO attend_event (id_user, id_event) VALUES (8, 9);
-INSERT INTO attend_event (id_user, id_event) VALUES (9, 10);
-INSERT INTO attend_event (id_user, id_event) VALUES (11, 11);
-INSERT INTO attend_event (id_user, id_event) VALUES (11, 12);
-INSERT INTO attend_event (id_user, id_event) VALUES (12, 14);
-INSERT INTO attend_event (id_user, id_event) VALUES (12, 11);
-INSERT INTO attend_event (id_user, id_event) VALUES (13, 12);
-INSERT INTO attend_event (id_user, id_event) VALUES (14, 20);
-INSERT INTO attend_event (id_user, id_event) VALUES (14, 18);
-INSERT INTO attend_event (id_user, id_event) VALUES (15, 17);
-INSERT INTO attend_event (id_user, id_event) VALUES (15, 12);
-INSERT INTO attend_event (id_user, id_event) VALUES (15, 5);
-INSERT INTO attend_event (id_user, id_event) VALUES (17, 20);
-INSERT INTO attend_event (id_user, id_event) VALUES (18, 1);
-INSERT INTO attend_event (id_user, id_event) VALUES (19, 12);
 
 
 --file
@@ -228,15 +194,16 @@ INSERT INTO vote_on_poll (id_user, id_poll, id_poll_option) VALUES (21, 3, 6);
 --invite
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (12, 1, 1);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (12, 18, 1);
-INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (4, 1, 3);
-INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (4, 2, 3);
-INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (4, 3, 3);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (3, 1, 3);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (3, 2, 3);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (3, 3, 3);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (13, 2, 5);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (13, 4, 5);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (13, 5, 5);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (13, 15, 5);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (3, 19, 10);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 11, 12);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 11, 11);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 13, 12);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 15, 12);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 19, 12);
@@ -247,9 +214,9 @@ INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 10, 6);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (20, 18, 20);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (12, 3, 1);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (12, 5, 1);
-INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (4, 13, 3);
-INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (4, 20, 3);
-INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (4, 15, 3);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (3, 13, 3);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (3, 20, 3);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (3, 15, 3);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (13, 20, 5);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (13, 14, 5);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (13, 6, 5);
@@ -264,6 +231,24 @@ INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 10, 4);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 9, 6);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 19, 6);
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (20, 8, 20);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 3, 2);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 1, 2);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 4, 2);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (20, 5, 2);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (20, 2, 2);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 4, 4);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (20, 5, 4);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (20, 3, 4);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (3, 7, 6);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (3, 8, 7);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (3, 9, 8);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (13, 8, 5);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (13, 7, 5);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (2, 14, 12);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (1, 18, 14);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (1, 20, 14);
+INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (4, 12, 13);
+
 
 
 --ticket
@@ -285,20 +270,11 @@ INSERT INTO ticket (id_event,id_ticket_owner) VALUES (6, 7);
 INSERT INTO ticket (id_event,id_ticket_owner) VALUES (7, 8);
 INSERT INTO ticket (id_event,id_ticket_owner) VALUES (8, 9);
 INSERT INTO ticket (id_event,id_ticket_owner) VALUES (9, 10);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (11, 11);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (11, 12);
 INSERT INTO ticket (id_event,id_ticket_owner) VALUES (12, 14);
 INSERT INTO ticket (id_event,id_ticket_owner) VALUES (12, 11);
 INSERT INTO ticket (id_event,id_ticket_owner) VALUES (13, 12);
 INSERT INTO ticket (id_event,id_ticket_owner) VALUES (14, 20);
 INSERT INTO ticket (id_event,id_ticket_owner) VALUES (14, 18);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (15, 17);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (15, 12);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (15, 5);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (17, 20);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (18, 1);
-INSERT INTO ticket (id_event,id_ticket_owner) VALUES (19, 12);
-
 
 --follow
 INSERT INTO follow (id_user1, id_user2) VALUES (15, 6);
