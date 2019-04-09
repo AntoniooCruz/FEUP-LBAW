@@ -254,7 +254,8 @@ CREATE TABLE ticket (
     id_event        INTEGER REFERENCES event (id_event) ON DELETE CASCADE
                             NOT NULL,
     id_ticket_owner INTEGER REFERENCES personal (id_user) ON DELETE CASCADE
-                            NOT NULL
+                            NOT NULL,
+    date_acquired     DATE          NOT NULL,
 );
 
 
