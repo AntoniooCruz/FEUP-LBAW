@@ -282,7 +282,7 @@ CREATE INDEX poll_id_post ON poll USING btree (id_post);
 CREATE INDEX post_id_author ON post USING btree (id_author);
 CREATE INDEX comment_id_post ON comment USING btree (id_post);
 CREATE INDEX comment_id_author ON comment USING btree (id_author);
-CREATE INDEX ticket_id_author ON ticket USING btree (id_author, id_event);
+CREATE INDEX ticket_id_owner ON ticket USING btree (id_ticket_owner, id_event);
 
 -----------------------------------------
 -- TRIGGERS and UDFs
