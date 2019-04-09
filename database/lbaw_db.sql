@@ -32,7 +32,7 @@ DROP FUNCTION IF EXISTS edit_past_event() CASCADE;
 DROP FUNCTION IF EXISTS change_event_event() CASCADE;
 DROP FUNCTION IF EXISTS business_follow() CASCADE;
 DROP FUNCTION IF EXISTS full_event() CASCADE;
-DROP FUNCTION IF EXISTS invite_to_private_event() CASCADE;
+DROP FUNCTION IF EXISTS invite_to_private() CASCADE;
 
 DROP TRIGGER IF EXISTS cant_get_tickets ON ticket CASCADE;
 DROP TRIGGER IF EXISTS get_tickets_past_event ON ticket CASCADE;
@@ -41,7 +41,7 @@ DROP TRIGGER IF EXISTS edit_past_event ON event CASCADE;
 DROP TRIGGER IF EXISTS change_event_event ON event CASCADE;
 DROP TRIGGER IF EXISTS business_follow ON event CASCADE;
 DROP TRIGGER IF EXISTS full_event  ON ticket CASCADE;
-DROP TRIGGER IF EXISTS invite_to_private_event  ON invite CASCADE;
+DROP TRIGGER IF EXISTS invite_to_private  ON invite CASCADE;
 
 
 -----------------------------------------
@@ -426,20 +426,22 @@ CREATE TRIGGER get_ticket_permissions BEFORE INSERT OR UPDATE ON ticket
 FOR EACH ROW
 EXECUTE PROCEDURE get_ticket_permissions();  
 
-/*
+
 --invitations permissions
     --procedure
-CREATE OR REPLACE FUNCTION invite_to_private_event() RETURNS TRIGGER AS $BODY$
+CREATE OR REPLACE FUNCTION invite_to_private() RETURNS  TRIGGER AS $BODY$
 BEGIN
-  IF EXISTS(SELECT event.isprivate
-        FROM event
-        WHERE event.id_event = NEW.id_event) THEN RAISE EXCEPTION 'Only the organizer of a private event can invite people to it';
-  END IF;
-  RETURN NEW;	  
+  IF EXISTS ( SELECT * FROM event 
+							WHERE NEW.id_event = event.id_event
+							AND event.isprivate = true
+							AND event.id_owner != NEW.id_inviter
+						) THEN RAISE EXCEPTION 'Only the organizer of a private event can invite people to it';
+	END IF;
+  RETURN NEW;	
 END $BODY$
-LANGUAGE plpgsql;
+  LANGUAGE plpgsql;
 
     --trigger
-CREATE TRIGGER invite_to_private_event BEFORE INSERT OR UPDATE ON invite
+CREATE TRIGGER invite_to_private BEFORE INSERT OR UPDATE ON invite
 FOR EACH ROW
-EXECUTE PROCEDURE invite_to_private_event();  */
+EXECUTE PROCEDURE invite_to_private();  
