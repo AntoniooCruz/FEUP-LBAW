@@ -380,15 +380,13 @@ FOR EACH ROW
 EXECUTE PROCEDURE business_follow();
 
 
---get ticket to full event
-    --procedure
 CREATE OR REPLACE FUNCTION full_event() RETURNS trigger AS $BODY$
 BEGIN
   IF New.id_event IN ( SELECT id_event
                         FROM (  SELECT event.id_event, capacity, count(*) AS occupancy
 							    FROM event, ticket
 							    WHERE event.id_event = ticket.id_event
-							    GROUP BY (event.id_event, capacity)
+							    GROUP BY event.id_event, capacity
 			                ) AS lotation
                         WHERE occupancy >= capacity
 				    ) THEN RAISE EXCEPTION 'Event is already at full capacity';
