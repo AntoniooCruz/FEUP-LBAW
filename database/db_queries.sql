@@ -115,9 +115,17 @@ SELECT e1.id_event
 					                )
 				    )
 				);
+				
+/* search without category filter  */
 
-    /* ... */            
+SELECT * 
+FROM event
+WHERE title LIKE '%$search%' AND event.id_event IN able_to_see_events;
 
+/* search with category filter  */
+SELECT * 
+FROM event
+WHERE title LIKE '%$search%' AND event.id_category= $category AND event.id_event IN able_to_see_events;
 --reports:
 
 --feed: 
