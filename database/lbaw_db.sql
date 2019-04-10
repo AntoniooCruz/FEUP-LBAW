@@ -43,6 +43,7 @@ DROP TRIGGER IF EXISTS change_event_event ON event CASCADE;
 DROP TRIGGER IF EXISTS business_follow ON event CASCADE;
 DROP TRIGGER IF EXISTS full_event  ON ticket CASCADE;
 DROP TRIGGER IF EXISTS invite_to_private  ON invite CASCADE;
+DROP TRIGGER IF EXISTS search_idx ON event CASCADE;
 
 DROP INDEX IF EXISTS event_creator CASCADE;
 DROP INDEX IF EXISTS ticket_id_event CASCADE;
@@ -287,6 +288,7 @@ CREATE INDEX post_id_author ON post USING btree (id_author);
 CREATE INDEX comment_id_post ON comment USING btree (id_post);
 CREATE INDEX comment_id_author ON comment USING btree (id_author);
 CREATE INDEX ticket_id_owner ON ticket USING btree (id_ticket_owner, id_event);
+CREATE INDEX search_idx ON event USING GIST (to_tsvector('english', title)); 
 
 -----------------------------------------
 -- TRIGGERS and UDFs
