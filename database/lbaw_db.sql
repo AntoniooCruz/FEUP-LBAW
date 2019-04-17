@@ -289,7 +289,7 @@ CREATE INDEX post_id_author ON post USING btree (id_author);
 CREATE INDEX comment_id_post ON comment USING btree (id_post);
 CREATE INDEX comment_id_author ON comment USING btree (id_author);
 CREATE INDEX ticket_id_owner ON ticket USING btree (id_ticket_owner, id_event);
-CREATE INDEX search_idx ON event USING GIST (to_tsvector('english', title)); 
+CREATE INDEX search_idx ON event USING GIST (to_tsvector('english', title || description)); 
 
 -----------------------------------------
 -- TRIGGERS and UDFs
