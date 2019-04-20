@@ -261,7 +261,8 @@ CREATE TABLE ticket (
                             NOT NULL,
     id_ticket_owner INTEGER REFERENCES personal (id_user) ON DELETE CASCADE
                             NOT NULL,
-    date_acquired     DATE          NOT NULL
+    date_acquired     DATE          NOT NULL,
+    checked_in BOOLEAN NOT NULL 
 );
 
 
@@ -468,4 +469,4 @@ END $BODY$
     --trigger
 CREATE TRIGGER invite_to_private BEFORE INSERT OR UPDATE ON invite
 FOR EACH ROW
-EXECUTE PROCEDURE invite_to_private();  
+EXECUTE PROCEDURE invite_to_private(); 
