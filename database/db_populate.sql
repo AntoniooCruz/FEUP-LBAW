@@ -51,26 +51,65 @@ INSERT INTO category (name) VALUES ('Other');
 
 
 --event
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('My 21st BDAY', '1/11/2018', '12/1/2019 02:11:00', '8446 Rockefeller Parkway', 'ut at dolor quis odio consequat varius', 127, 20, false, 12, 6, 'Vukatanë');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('Tea Party', '11/30/2017', '6/8/2019 02:11:00', '95 Golf Center', 'lobortis est phasellus sit amet', 149, 483, false, 18, 8, 'Ajman');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('Semana de Informatica', '11/3/2017 02:11:00', '10/5/2019', '877 Dayton Junction', 'libero nam dui proin leo odio porttitor id consequat in consequat ut', 126, 208, true, 3, 5, 'Xishan');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('Queima 2019', '2/1/2018', '12/3/2019 02:11:00', '4 Bowman Park', 'sapien iaculis congue vivamus metus arcu adipiscing', 176, 451, false, 25, 2, 'Palaran');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('Rock in Rio 2019', '10/29/2017', '4/25/2019 02:11:00', '81249 Summit Terrace', 'accumsan felis ut', 74, 399, true, 13, 9, 'Banjar Pekandelan');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('Sleepover at Ritas', '11/21/2017', '4/30/2019 02:11:00', '71785 Mayer Court', 'morbi quis tortor', 81, 467, false, 17, 8, 'Rungis');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('Feup Caffé', '10/13/2017', '5/7/2019 02:11:00', '264 Texas Plaza', 'luctus', 110, 376, false, 4, 5, 'Buga');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('White Party', '3/5/2018', '9/17/2019 02:11:00', '588 Dayton Circle', 'nascetur ridiculus mus vivamus vestibulum sagittis sapien cum', 28, 96, false, 23, 5, 'Vinež');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ('Halloween Party', '9/8/2017', '10/27/2019 02:11:00', '621 Maple Road', 'at nunc commodo placerat praesent blandit nam', 21, 191, false, 5, 9, 'Martapura');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'ENEI 2019', '1/21/2018', '6/30/2019 02:11:00', '3261 Pond Drive', 'nulla', 49, 136, false, 3, 9, 'Gaojingzhuang');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Talk a Bit', '2/9/2018', '5/6/2019 02:11:00', '012 Forest Pass', 'non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit', 21, 230, false, 16, 8, 'Sarimukti Kaler');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES (  'Ted Talk Porto', '1/30/2018', '5/23/2019 02:11:00', '39189 Morningstar Road', 'justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem', 122, 51, true, 2, 4, 'Shanhe');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES (  '"Persistent leading edge application"', '10/21/2017', '12/21/2019 02:11:00', '365 Trailsway Junction', 'convallis morbi odio odio elementum eu interdum eu tincidunt in', 169, 481, true, 4, 8, 'Vistino');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Workshop React Pt1', '9/26/2017', '5/24/2019 02:11:00', '0167 Sloan Street', 'non velit nec nisi', 112, 57, true, 1, 1, '‘Amrān');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Workshop React Pt2', '9/15/2017', '5/15/2019 02:11:00', '2583 Monument Hill', 'ipsum primis in faucibus orci luctus et', 98, 287, false, 6, 4, 'Lincoln');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Baby shower', '3/25/2018', '8/3/2019 02:11:00', '675 Morningstar Plaza', 'vestibulum ante ipsum', 124, 379, true, 20, 8, 'Saint-Gaudens');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Billie Eilish Concert', '11/1/2017', '11/22/2019 02:11:00', '5807 Bartelt Street', 'in felis eu sapien cursus vestibulum proin eu', 88, 215, false, 30, 2, 'Krasnokamensk');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Billie Eilish meet & greet', '9/8/2017', '6/7/2019 02:11:00', '42474 Ohio Trail', 'non mi integer ac neque duis', 68, 78, false, 21, 4, 'Nicolas Bravo');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Billie Eilish fan convention', '12/10/2017', '8/21/2019 02:11:00', '980 Anderson Plaza', 'at turpis a pede', 125, 205, true, 20, 7, 'Firminópolis');
-INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) VALUES ( 'Time management talk', '11/16/2017', '7/5/2019 02:11:00', '36141 Westerfield Avenue', 'placerat praesent blandit nam nulla integer pede justo lacinia eget', 107, 183, false, 30, 7, 'Gonghe');
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ('My 21st BDAY', '1/11/2018', '12/1/2019 02:11:00', '8446 Rockefeller Parkway', 'ut at dolor queima odio consequat varius', 127, 20, false, 12, 6, 'Vukatanë',setweight(to_tsvector('english', 'My 21st BDAY'), 'A') ||
+   setweight(to_tsvector('english', 'ut at dolor queima odio consequat varius'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ('Tea Party', '11/30/2017', '6/8/2019 02:11:00', '95 Golf Center', 'lobortis est phasellus sit amet', 149, 483, false, 18, 8, 'Ajman',setweight(to_tsvector('english', 'Tea Party'), 'A') ||
+   setweight(to_tsvector('english', 'semana dedicada a beber cha'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ('Semana de Informatica', '11/3/2017 02:11:00', '10/5/2019', '877 Dayton Junction', 'libero nam dui proin leo odio porttitor id consequat in consequat ut', 126, 208, true, 3, 5, 'Xishan',setweight(to_tsvector('english', 'Semana de Informatica'), 'A') ||
+   setweight(to_tsvector('english', 'libero nam dui proin leo odio porttitor id consequat in consequat ut'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ('Queima 2019', '2/1/2018', '12/3/2019 02:11:00', '4 Bowman Park', 'sapien iaculis congue vivamus metus arcu adipiscing', 176, 451, false, 25, 2, 'Palaran',setweight(to_tsvector('english', 'Queima 2019'), 'A') ||
+   setweight(to_tsvector('english', 'sapien iaculis congue vivamus metus arcu adipiscing'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ('Rock in Rio 2019', '10/29/2017', '4/25/2019 02:11:00', '81249 Summit Terrace', 'accumsan felis ut', 74, 399, true, 13, 9, 'Banjar Pekandelan',setweight(to_tsvector('english', 'Rock in Rio 2019'), 'A') ||
+   setweight(to_tsvector('english', 'accumsan felis ut'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ('Sleepover at Ritas', '11/21/2017', '4/30/2019 02:11:00', '71785 Mayer Court', 'morbi quis tortor', 81, 467, false, 17, 8, 'Rungis',setweight(to_tsvector('english', 'Sleepover at Ritas'), 'A') ||
+   setweight(to_tsvector('english', 'morbi quis tortor'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ('Feup Caffé', '10/13/2017', '5/7/2019 02:11:00', '264 Texas Plaza', 'luctus sleepover', 110, 376, false, 4, 5, 'Buga',setweight(to_tsvector('english', 'Feup Caffé'), 'A') ||
+   setweight(to_tsvector('english', 'luctus sleepover'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ('White Party', '3/5/2018', '9/17/2019 02:11:00', '588 Dayton Circle', 'nascetur ridiculus mus vivamus vestibulum sagittis sapien cum', 28, 96, false, 23, 5, 'Vinež',setweight(to_tsvector('english', 'White Party'), 'A') ||
+   setweight(to_tsvector('english', 'nascetur ridiculus mus vivamus vestibulum sagittis sapien cum'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ('Halloween Party', '9/8/2017', '10/27/2019 02:11:00', '621 Maple Road', 'at nunc commodo placerat praesent blandit nam', 21, 191, false, 5, 9, 'Martapura',setweight(to_tsvector('english', 'Halloween Party'), 'A') ||
+   setweight(to_tsvector('english', 'at nunc commodo placerat praesent blandit nam'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ( 'ENEI 2019', '1/21/2018', '6/30/2019 02:11:00', '3261 Pond Drive', 'nulla', 49, 136, false, 3, 9, 'Gaojingzhuang',setweight(to_tsvector('english', 'ENEI 2019'), 'A') ||
+   setweight(to_tsvector('english', 'nulla'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ( 'Talk a Bit', '2/9/2018', '5/6/2019 02:11:00', '012 Forest Pass', 'non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit', 21, 230, false, 16, 8, 'Sarimukti Kaler',setweight(to_tsvector('english', 'Talk a Bit'), 'A') ||
+   setweight(to_tsvector('english', 'non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES (  'Ted Talk Porto', '1/30/2018', '5/23/2019 02:11:00', '39189 Morningstar Road', 'justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem', 122, 51, true, 2, 4, 'Shanhe',setweight(to_tsvector('english', 'Ted Talk Porto'), 'A') ||
+   setweight(to_tsvector('english', 'justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES (  '"Persistent leading edge application"', '10/21/2017', '12/21/2019 02:11:00', '365 Trailsway Junction', 'convallis morbi odio odio elementum eu interdum eu tincidunt in', 169, 481, true, 4, 8, 'Vistino',setweight(to_tsvector('english', '"Persistent leading edge application"'), 'A') ||
+   setweight(to_tsvector('english', 'convallis morbi odio odio elementum eu interdum eu tincidunt in'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ( 'Workshop React Pt1', '9/26/2017', '5/24/2019 02:11:00', '0167 Sloan Street', 'non velit nec nisi', 112, 57, true, 1, 1, '‘Amrān',setweight(to_tsvector('english', 'Workshop React Pt1'), 'A') ||
+   setweight(to_tsvector('english', 'non velit nec nisi'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ( 'Workshop React Pt2', '9/15/2017', '5/15/2019 02:11:00', '2583 Monument Hill', 'ipsum primis in faucibus orci luctus et', 98, 287, false, 6, 4, 'Lincoln',setweight(to_tsvector('english', 'Workshop React Pt2'), 'A') ||
+   setweight(to_tsvector('english', 'ipsum primis in faucibus orci luctus et'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ( 'Baby shower', '3/25/2018', '8/3/2019 02:11:00', '675 Morningstar Plaza', 'vestibulum ante ipsum', 124, 379, true, 20, 8, 'Saint-Gaudens',setweight(to_tsvector('english',  'Baby shower'), 'A') ||
+   setweight(to_tsvector('english', 'ut at dolor quis odio consequat varius.'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ( 'Billie Eilish Concert', '11/1/2017', '11/22/2019 02:11:00', '5807 Bartelt Street', 'in felis eu sapien cursus vestibulum proin eu', 88, 215, false, 30, 2, 'Krasnokamensk',setweight(to_tsvector('english', 'My 21st BDAY'), 'A') ||
+   setweight(to_tsvector('english', 'vestibulum ante ipsum'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ( 'Billie Eilish meet & greet', '9/8/2017', '6/7/2019 02:11:00', '42474 Ohio Trail', 'queima non mi integer ac neque duis', 68, 78, false, 21, 4, 'Nicolas Bravo',setweight(to_tsvector('english', 'Billie Eilish meet & greet'), 'A') ||
+   setweight(to_tsvector('english', 'queima non mi integer ac neque duis'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ( 'Billie Eilish fan queima convention', '12/10/2017', '8/21/2019 02:11:00', '980 Anderson Plaza', 'at turpis a pede', 125, 205, true, 20, 7, 'Firminópolis',setweight(to_tsvector('english', 'Billie Eilish fan queima convention'), 'A') ||
+   setweight(to_tsvector('english', 'at turpis a pede'), 'B'));
+
+INSERT INTO event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city,search_tokens) VALUES ( 'Time management talk', '11/16/2017', '7/5/2019 02:11:00', '36141 Westerfield Avenue', 'placerat praesent blandit nam nulla integer pede justo lacinia eget', 107, 183, false, 30, 7, 'Gonghe',setweight(to_tsvector('english', 'Time management talk'), 'A') ||
+   setweight(to_tsvector('english', 'placerat praesent blandit nam nulla integer pede justo lacinia eget'), 'B'));
 
 
 --personal
@@ -252,29 +291,29 @@ INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (4, 12, 13);
 
 
 --ticket
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (1, 1,'5/16/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (2, 1,'5/10/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (1, 3,'12/13/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (1, 4,'5/16/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (2, 2,'2/12/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (2, 3,'6/23/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (2, 4,'10/2/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (2, 5,'9/21/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (4, 3,'8/7/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (4, 4,'11/11/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (4, 5,'5/16/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (5, 8,'10/7/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (5, 7,'9/13/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (5, 5,'3/3/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (6, 7,'6/6/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (7, 8,'5/16/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (8, 9,'11/11/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (9, 10,'9/28/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (12, 14,'2/4/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (12, 11,'2/6/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (13, 12,'10/4/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (14, 20,'7/17/2018');
-INSERT INTO ticket (id_event,id_ticket_owner,date_acquired) VALUES (14, 18,'12/12/2018');
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (1, 1,'5/16/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (2, 1,'5/10/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (1, 3,'12/13/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (1, 4,'5/16/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (2, 2,'2/12/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (2, 3,'6/23/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (2, 4,'10/2/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (2, 5,'9/21/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (4, 3,'8/7/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (4, 4,'11/11/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (4, 5,'5/16/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (5, 8,'10/7/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (5, 7,'9/13/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (5, 5,'3/3/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (6, 7,'6/6/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (7, 8,'5/16/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (8, 9,'11/11/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (9, 10,'9/28/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (12, 14,'2/4/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (12, 11,'2/6/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (13, 12,'10/4/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (14, 20,'7/17/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (14, 18,'12/12/2018',false);
 
 --follow
 INSERT INTO follow (id_user1, id_user2) VALUES (15, 6);
