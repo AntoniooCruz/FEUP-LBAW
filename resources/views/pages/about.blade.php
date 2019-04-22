@@ -4,6 +4,7 @@
 
 @yield('navbar')
 
+<link href="{{ asset('css/about.css') }}" rel="stylesheet">
 
 <section class="container">
     <div class="row">

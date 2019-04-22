@@ -4,7 +4,7 @@
 
 @yield('navbar')
 
-
+<link href="{{ asset('css/faqs.css') }}" rel="stylesheet">
 <section id="faqs">
     <div class="container">
       <nav class="navbar sortNav">
