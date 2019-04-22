@@ -48,8 +48,9 @@ Route::get('faqs', function () {
 
 //Profile
 Route::get('profile', 'ProfileController@show')->name('myProfile');
-Route::get('profile/edit', 'ProfileController@showEdit')->name('editProfile');
+Route::get('profile/edit', 'ProfileController@showEdit');
 Route::post('profile/edit', 'ProfileController@update');
+Route::get('profile/{id_user}', 'ProfileController@showUser');
 
 //Event
 Route::get('event/{id_event}', 'EventController@show');

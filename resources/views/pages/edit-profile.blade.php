@@ -24,11 +24,11 @@
                                     autofocus style="border:none;">
                             </div>
                             <div class="form-label-group">
-                                <input type="email" id="inputEmail" class="form-control" value="{{$user->email}}"
+                                <input type="email" name="email" id="inputEmail" class="form-control" value="{{$user->email}}"
                                     required autofocus style="border:none;">
                             </div>
                             <div class="form-label-group">
-                                <input type="text" id="inputUsername" class="form-control" value="{{$user->username}}"
+                                <input type="text" name="username" id="inputUsername" class="form-control" value="{{$user->username}}"
                                     required autofocus style="border:none;">
                             </div>
 
@@ -52,7 +52,7 @@
 
                     </div>
                     <hr>
-                    <textarea id="description" class="col-10 text-left"
+                    <textarea id="description" name="description" class="col-10 text-left"
                         style="overflow:hidden; resize:none; border: 1px solid #cfd4da; margin-top:0"
                         rows="4"> {{$user->description}}</textarea>
                     <div class="row justify-content-center"><button type="submit"
