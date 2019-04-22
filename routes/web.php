@@ -36,6 +36,9 @@ Route::post('register', 'Auth\RegisterController@register');
 //Profile
 Route::get('profile', 'ProfileController@show');
 
+//Event
+Route::get('event/{id_event}', 'EventController@show');
+
 
 Route::get('about', function () {
     return view('pages.about');
