@@ -84,7 +84,8 @@ CREATE TABLE users (
     description VARCHAR (100),
     active BOOLEAN default(true),
     user_type user_types NOT NULL,
-    is_admin BOOLEAN NOT NULL DEFAULT FALSE
+    is_admin BOOLEAN NOT NULL DEFAULT FALSE,
+    remember_token TEXT
 );
 
 -- Table: category

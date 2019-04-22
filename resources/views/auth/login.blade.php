@@ -74,8 +74,12 @@
                                         </span>
                                     @endif
                                     <label for="inputPassword">Password</label>
-                                    
                                 </div>
+
+                                <label>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} class="form-control">
+                                        Remember Me
+                                    </label>
 
                                 <span id="register-link">Don't have an account?<a id="registerbtn"
                                     href="{{ route('register') }}">Register</a></span>
