@@ -35,3 +35,12 @@ Route::post('register', 'Auth\RegisterController@register');
 
 //Profile
 Route::get('profile', 'ProfileController@show');
+
+
+Route::get('about', function () {
+    return view('pages.about');
+  });
+
+Route::get('faqs', function () {
+    return view('pages.faqs');
+  });
