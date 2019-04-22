@@ -15,6 +15,8 @@ Route::get('/', function () {
     return redirect('login');
 });
 
+
+
 // Cards
 Route::get('cards', 'CardController@list');
 Route::get('cards/{id}', 'CardController@show');
@@ -33,17 +35,21 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
-//Profile
-Route::get('profile', 'ProfileController@show');
 
-//Event
-Route::get('event/{id_event}', 'EventController@show');
-
-
+//static pages
 Route::get('about', function () {
     return view('pages.about');
-  });
+  })->name('about');
 
 Route::get('faqs', function () {
     return view('pages.faqs');
-  });
+  })->name('faqs');
+
+
+//Profile
+Route::get('profile', 'ProfileController@show')->name('myProfile');
+Route::get('profile/edit', 'ProfileController@showEdit')->name('editProfile');
+Route::post('profile/edit', 'ProfileController@update');
+
+//Event
+Route::get('event/{id_event}', 'EventController@show');

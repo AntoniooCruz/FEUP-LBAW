@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @yield('navbar')
+<section id="profile">
 
     <div class="parContainer row justify-content-center">
         <div id="profile_container" class="col-lg-3 col-12 container text-center">
@@ -16,7 +16,7 @@
                 <div class="row"><span id="username">@<span>{{$user->username}}</span></div>
               </div>
               <div class="col-3 col text-right">
-                <button id="follow_button" type="button" class="profile-pri-button btn btn-primary">Follow</button>
+                <button id="edit_button" type="button" class="profile-pri-button btn btn-primary">Edit</button>
               </div>
             </div>
             <hr>
@@ -38,6 +38,8 @@
             <hr>
             <p id="description" class="row text-left">{{$user->description}} </p>
           </div>
+          <div class="row"><a href="mytickets.html" id="tickets-button" class=" btn btn-secondary">My tickets</a></div>
+
         </div>
     
         <div id="events_container" class="col-lg-6 col-12 container text-left">
@@ -63,4 +65,5 @@
         </div>
       </div>
       </div>
+    </section> 
 @endsection

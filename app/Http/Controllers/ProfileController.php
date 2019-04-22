@@ -32,5 +32,32 @@ class ProfileController extends Controller
         return view('profile', ['user' => $user, 'followers' => $followers, 'following' =>$following, 'eventsOwned' => $eventsOwned, 'eventsAttending' => $eventsAttending]);
     }
 
+    public function showEdit() {
+
+        $user = Auth::user();
+
+        $followers = sizeof(Follow::where('id_user2', $user->id_user)->get());
+        $following = sizeof(Follow::where('id_user1', $user->id_user)->get());
+
+        $eventsOwned = Event::where('id_owner', 3)->get();
+        $userTickets = Ticket::where('id_ticket_owner', 3)->get();
+        $eventsAttending = [];
+
+        foreach($userTickets as $ticket){
+            array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
+        }
+
+        return view('pages.edit-profile', ['user' => $user, 'followers' => $followers, 'following' =>$following, 'eventsOwned' => $eventsOwned, 'eventsAttending' => $eventsAttending]);
+    }
+
+    public function update(Request $request) {
+        
+        $user = Auth::user();
+        $user-> name = $request->input('name');
+        $user->save();
+        
+        return redirect('profile');
+
+    }
 }
 
