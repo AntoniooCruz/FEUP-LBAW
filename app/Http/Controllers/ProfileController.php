@@ -22,6 +22,7 @@ class ProfileController extends Controller
         $following = sizeof(Follow::where('id_user1', $user->id_user)->get());
 
         $eventsOwned = Event::where('id_owner', 3)->get();
+        
         $userTickets = Ticket::where('id_ticket_owner', 3)->get();
         $eventsAttending = [];
 

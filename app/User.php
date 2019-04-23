@@ -34,7 +34,26 @@ class User extends Authenticatable
     /**
      * The cards this user owns.
      */
-     public function cards() {
-      return $this->hasMany('App\Card');
+     public function following() {
+        return $this->belongsToMany('App\User', 'follow', 'id_user1', 'id_user2');
+    }
+
+    public function followers() {
+        return $this->belongsToMany('App\User', 'follow', 'id_user2', 'id_user1');
+    }
+
+    public function tickets() {
+        return $this->hasMany('App\Ticket', 'id_ticket_owner', 'id_user');
+    }
+
+    public function scopeGoingToEvent($query, $id_event){
+        
+        return $query->whereExists(function ($query) {
+            $query->select(\DB::raw(1))
+                ->from('ticket')
+                ->whereRaw('ticket.id_ticket_owner = users.id_user')
+                ->where('ticket.id_event', $id_event);
+        });
+
     }
 }

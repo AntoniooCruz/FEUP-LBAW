@@ -776,6 +776,8 @@ INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (2
 INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (2, 4,'10/2/2018',false);
 INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (2, 5,'9/21/2018',false);
 INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (4, 3,'8/7/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (4, 18,'8/7/2018',false);
+INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (4, 12,'8/7/2018',false);
 INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (4, 4,'11/11/2018',false);
 INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (4, 5,'5/16/2018',false);
 INSERT INTO ticket (id_event,id_ticket_owner,date_acquired,checked_in) VALUES (5, 8,'10/7/2018',false);
