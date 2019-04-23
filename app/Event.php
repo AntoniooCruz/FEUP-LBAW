@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Category;
 use App\User;
 use App\Ticket;
+use App\Post;
 
 class Event extends Model
 {
@@ -24,5 +25,9 @@ class Event extends Model
 
     public function tickets(){
         return $this->hasMany('App\Ticket', 'id_event', 'id_event');
+    }
+
+    public function posts() {
+        return $this->hasMany('App\Post', 'id_event', 'id_event');
     }
 }

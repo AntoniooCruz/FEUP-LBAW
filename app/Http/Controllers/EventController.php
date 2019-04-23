@@ -15,8 +15,6 @@ use App\Ticket;
 
 class EventController extends Controller
 {   
-
-
     public function show($id_event) {
 
 
@@ -26,7 +24,7 @@ class EventController extends Controller
 
         return view('Pages.event', ['event' => $event , 
                                     'friendsGoing' => $this->friendsGoing($id_event),
-                                    'usersGoing' => $this->usersGoing($id_event)
+                                    'usersGoing' => $this->usersGoing($id_event),
                                     ] 
         );
     }
