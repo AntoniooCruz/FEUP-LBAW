@@ -6,7 +6,7 @@
         <div class="eventPhoto justify-content-md-center">
           <div id="floatingLabels">
             @if($event->isPrivate)<span id="privateIndicator" class="label"> <i class="fas fa-lock"></i></span>@endif
-            <span id="categoryIndicator" class="label"> {{$event->getCategoryName()}}</span>
+            <span id="categoryIndicator" class="label"> {{$eventCategoryName}}</span>
           </div>
           <img src="../img/eventbanner.jpg">
         </div>
@@ -24,7 +24,7 @@
               <h2 id="eventTitle">{{$event->title}}</h2>
                 <div>
                   <span id="#created" class="eventDate">Created by <span class="ownerUsername"><a
-                        href="userprofile.html">{{$event->getCreator()}}</a></span></span>
+                        href="userprofile.html">{{$eventCreator}}</a></span></span>
                 </div>
               </div>
             </div>
@@ -53,7 +53,7 @@
             <div class="col-lg-4 col-sm-12 ">
               <div id="dateNhours">
                 <h6><i class="far fa-calendar-alt"></i> Date & Hours</h6>
-                <span>03 de Marcço 2019</span>
+                <span>03 de Março 2019</span>
                 <span>14h30 - 16h30</span>
               </div>
     
@@ -86,8 +86,8 @@
                   <img class="graph" src="../img/graphTemplate.png">
                   <div class="col-auto align-self-center">
                   <span class="row">Capacity: {{$event->capacity}}</span>
-                    <span class="row">Taken: {{$event->getSoldTickets()}}</span>
-                    <span class="row">Left: {{$event->capacity - $event->getSoldTickets()}} </span>
+                    <span class="row">Taken: {{$eventSoldTicketsCount}}</span>
+                    <span class="row">Left: {{$event->capacity - $eventSoldTicketsCount}} </span>
                   </div>
                 </div>
                 <div class="userPics">
