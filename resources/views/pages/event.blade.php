@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="event container">
+<section id="event" class="event container">
         <div class="eventPhoto justify-content-md-center">
           <div id="floatingLabels">
             @if($event->isPrivate)<span id="privateIndicator" class="label"> <i class="fas fa-lock"></i></span>@endif
