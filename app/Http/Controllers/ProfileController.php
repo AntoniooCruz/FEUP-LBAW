@@ -18,19 +18,19 @@ class ProfileController extends Controller
 
         $user = Auth::user();
 
-        $followers = sizeof(Follow::where('id_user2', $user->id_user)->get());
-        $following = sizeof(Follow::where('id_user1', $user->id_user)->get());
-
-        $eventsOwned = Event::where('id_owner', 3)->get();
+        $eventsOwned = Event::where('id_owner', $user->id_user)->get();
         
-        $userTickets = Ticket::where('id_ticket_owner', 3)->get();
+        $userTickets = Ticket::where('id_ticket_owner', $user->id_user)->get();
         $eventsAttending = [];
 
         foreach($userTickets as $ticket){
             array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
         }
 
-        return view('pages.my-profile', ['user' => $user, 'followers' => $followers, 'following' =>$following, 'eventsOwned' => $eventsOwned, 'eventsAttending' => $eventsAttending]);
+        return view('pages.my-profile', ['user' => $user,
+                                        'eventsOwned' => $eventsOwned, 
+                                        'eventsAttending' => $eventsAttending
+                                        ]);
     }
 
     public function showUser($id_user) {
@@ -48,7 +48,7 @@ class ProfileController extends Controller
             array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
         }
 
-        return view('pages.profile', ['user' => $user, 'followers' => $followers, 'following' =>$following, 'eventsOwned' => $eventsOwned, 'eventsAttending' => $eventsAttending]);
+        return view('pages.profile', ['user' => $user, 'eventsOwned' => $eventsOwned, 'eventsAttending' => $eventsAttending]);
     }
 
     public function showEdit() {
@@ -57,15 +57,15 @@ class ProfileController extends Controller
         $followers = sizeof(Follow::where('id_user2', $user->id_user)->get());
         $following = sizeof(Follow::where('id_user1', $user->id_user)->get());
 
-        $eventsOwned = Event::where('id_owner', 3)->get();
-        $userTickets = Ticket::where('id_ticket_owner', 3)->get();
+        $eventsOwned = Event::where('id_owner', $user->id_user)->get();
+        $userTickets = Ticket::where('id_ticket_owner', $user->id_user)->get();
         $eventsAttending = [];
 
         foreach($userTickets as $ticket){
             array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
         }
 
-        return view('pages.edit-profile', ['user' => $user, 'followers' => $followers, 'following' =>$following, 'eventsOwned' => $eventsOwned, 'eventsAttending' => $eventsAttending]);
+        return view('pages.edit-profile', ['user' => $user, 'eventsOwned' => $eventsOwned, 'eventsAttending' => $eventsAttending]);
     }
 
     public function update(Request $request) {

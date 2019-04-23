@@ -16,13 +16,6 @@ use App\Ticket;
 class EventController extends Controller
 {   
 
-    public function getCategoryName($event) {
-        
-        $category = Category::where('id_category', $event->id_category)->get()->first();
-
-        return $category->name;
-    }
-
     public function getCreator($event) {
 
         return User::where('id_user', $event->id_owner)->get()->first()->name;
@@ -35,12 +28,15 @@ class EventController extends Controller
 
     public function show($id_event) {
 
+
         $this->friendsGoing($id_event);
         
         $event = Event::find($id_event);
 
-        return view('Pages.event', ['event' => $event , 'eventCategoryName' => $this->getCategoryName($event),
-         'eventCreator' => $this->getCreator($event), 'eventSoldTicketsCount' => $this->getSoldTicketsCount($event)]);
+        return view('Pages.event', ['event' => $event , 
+                                    'friendsGoing' => $this->friendsGoing($id_event)
+                                    ] 
+        );
     }
 
     public function friendsGoing($id_event){
@@ -50,7 +46,7 @@ class EventController extends Controller
             return $item->id_ticket_owner;
         });
 
-        return User::find(3)->following()->whereIn('id_user', $idsUsersGoing)->get();
+        return Auth::user()->following()->whereIn('id_user', $idsUsersGoing)->get();
     }
 
 }

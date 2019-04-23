@@ -13,4 +13,16 @@ class Event extends Model
     protected $table = 'event';
 
     protected $primaryKey = 'id_event';
+
+    public function category(){
+        return $this->hasOne('App\Category', 'id_category', 'id_category');
+    }
+
+    public function owner(){
+        return $this->hasOne('App\User', 'id_user', 'id_owner');
+    }
+
+    public function tickets(){
+        return $this->hasMany('App\Ticket', 'id_event', 'id_event');
+    }
 }

@@ -22,11 +22,11 @@
             <hr>
             <div class="stats row justify-content-center">
               <div id="followers" class="col text-center">
-                <div></div><strong> {{$followers}} </strong>
+                <div></div><strong> {{$user->followers()->count()}} </strong>
                 <small>Followers</small>
               </div>
               <div id="following" class="col text-center">
-                <strong> {{$following}} </strong>
+                <strong> {{$user->following()->count()}} </strong>
                 <small>Following</small>
               </div>
               <div id="events" class="col text-center">

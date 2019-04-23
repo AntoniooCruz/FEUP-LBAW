@@ -6,7 +6,7 @@
         <div class="eventPhoto justify-content-md-center">
           <div id="floatingLabels">
             @if($event->isPrivate)<span id="privateIndicator" class="label"> <i class="fas fa-lock"></i></span>@endif
-            <span id="categoryIndicator" class="label"> {{$eventCategoryName}}</span>
+            <span id="categoryIndicator" class="label"> {{$event->category->name}}</span>
           </div>
           <img src="../img/eventbanner.jpg">
         </div>
@@ -24,7 +24,7 @@
               <h2 id="eventTitle">{{$event->title}}</h2>
                 <div>
                   <span id="#created" class="eventDate">Created by <span class="ownerUsername"><a
-                        href="userprofile.html">{{$eventCreator}}</a></span></span>
+                        href="userprofile.html">{{$event->owner->name}}</a></span></span>
                 </div>
               </div>
             </div>
@@ -86,8 +86,8 @@
                   <img class="graph" src="../img/graphTemplate.png">
                   <div class="col-auto align-self-center">
                   <span class="row">Capacity: {{$event->capacity}}</span>
-                    <span class="row">Taken: {{$eventSoldTicketsCount}}</span>
-                    <span class="row">Left: {{$event->capacity - $eventSoldTicketsCount}} </span>
+                    <span class="row">Taken: {{$event->tickets()->count()}}</span>
+                    <span class="row">Left: {{$event->capacity - ($event->tickets()->count())}} </span>
                   </div>
                 </div>
                 <div class="userPics">
@@ -96,7 +96,7 @@
                       <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#friendsGoing"
                         role="tab" aria-controls="nav-profile" aria-selected="false">All(86)</a>
                       <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#allGoing" role="tab"
-                        aria-controls="nav-home" aria-selected="true">Friends(36)</a>
+                        aria-controls="nav-home" aria-selected="true">Friends({{sizeof($friendsGoing)}})</a>
                   </nav>
                   <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade" id="allGoing" role="tabpanel" aria-labelledby="nav-home-tab">
