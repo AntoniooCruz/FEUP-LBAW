@@ -26,6 +26,18 @@ class EventController extends Controller
         return $ticketsSold = Ticket::where('id_event', $event->id_event)->get()->count();
     }
 
+    public function getSoldTicketsUsers($event) {
+    
+        $tickets = Ticket::where('id_event', $event->id_event)->get();
+        $users_attending = [];
+        foreach ($tickets as $ticket) {
+            array_push($users_attending, User::find($ticket->id_ticket_owner));
+        }
+        return $users_attending;
+    }
+
+    
+
     public function show($id_event) {
 
 
