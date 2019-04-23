@@ -16,27 +16,6 @@ use App\Ticket;
 class EventController extends Controller
 {   
 
-    public function getCreator($event) {
-
-        return User::where('id_user', $event->id_owner)->get()->first()->name;
-    }
-
-    public function getSoldTicketsCount($event) {
-
-        return $ticketsSold = Ticket::where('id_event', $event->id_event)->get()->count();
-    }
-
-    public function getSoldTicketsUsers($event) {
-    
-        $tickets = Ticket::where('id_event', $event->id_event)->get();
-        $users_attending = [];
-        foreach ($tickets as $ticket) {
-            array_push($users_attending, User::find($ticket->id_ticket_owner));
-        }
-        return $users_attending;
-    }
-
-    
 
     public function show($id_event) {
 
@@ -46,7 +25,8 @@ class EventController extends Controller
         $event = Event::find($id_event);
 
         return view('Pages.event', ['event' => $event , 
-                                    'friendsGoing' => $this->friendsGoing($id_event)
+                                    'friendsGoing' => $this->friendsGoing($id_event),
+                                    'usersGoing' => $this->usersGoing($id_event)
                                     ] 
         );
     }
@@ -59,6 +39,16 @@ class EventController extends Controller
         });
 
         return Auth::user()->following()->whereIn('id_user', $idsUsersGoing)->get();
+    }
+
+    public function usersGoing($id_event){
+
+        $ticketsSold = Ticket::where('id_event', $id_event)->get();
+        $idsUsersGoing = $ticketsSold->map(function($item, $key) {
+            return $item->id_ticket_owner;
+        });
+
+        return $idsUsersGoing->toArray();
     }
 
 }

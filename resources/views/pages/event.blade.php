@@ -94,7 +94,7 @@
                   <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                       <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#friendsGoing"
-                        role="tab" aria-controls="nav-profile" aria-selected="false">All({{$eventSoldTicketsCount}})</a>
+                        role="tab" aria-controls="nav-profile" aria-selected="false">All({{sizeof($usersGoing)}})</a>
                       <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#allGoing" role="tab"
                         aria-controls="nav-home" aria-selected="true">Friends({{sizeof($friendsGoing)}})</a>
                   </nav>
@@ -102,10 +102,10 @@
                     <div class="tab-pane fade" id="allGoing" role="tabpanel" aria-labelledby="nav-home-tab">
                       <div class="row justify-content-center">
                         
-                          @foreach (array_slice($eventSoldTicketsUsers, 0, 7) as $soldTicketUser)
+                          @foreach (array_slice($usersGoing, 0, 7) as $soldTicketUser)
                           <img class="userPic" src="../img/user.jpg">
                         @endforeach
-                        @if($eventSoldTicketsCount > 7)
+                        @if(sizeof($usersGoing) > 7)
                           <a a href="#">
                             <img class="userPic-more" src="../img/user.jpg">
                             <i class="fas fa-circle"></i>
@@ -117,10 +117,10 @@
                     <div class="tab-pane fade show active" id="friendsGoing" role="tabpanel" aria-labelledby="nav-home-tab">
                       <div class="row justify-content-center">
                         
-                        @foreach (array_slice($eventSoldTicketsUsers, 0, 7) as $soldTicketUser)
+                        @foreach (array_slice($usersGoing, 0, 7) as $soldTicketUser)
                           <img class="userPic" src="../img/user.jpg">
                         @endforeach
-                        @if($eventSoldTicketsCount > 7)
+                        @if(sizeof($usersGoing) > 7)
                           <a a href="#">
                             <img class="userPic-more" src="../img/user.jpg">
                             <i class="fas fa-circle"></i>
