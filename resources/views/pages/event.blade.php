@@ -102,10 +102,11 @@
                     <div class="tab-pane fade" id="allGoing" role="tabpanel" aria-labelledby="nav-home-tab">
                       <div class="row justify-content-center">
                         
-                          @foreach (array_slice($usersGoing, 0, 7) as $soldTicketUser)
+                          @foreach ($friendsGoing->take(7) as $soldTicketUser)
                           <img class="userPic" src="../img/user.jpg">
                         @endforeach
-                        @if(sizeof($usersGoing) > 7)
+    
+                        @if(count($friendsGoing) > 7)
                           <a a href="#">
                             <img class="userPic-more" src="../img/user.jpg">
                             <i class="fas fa-circle"></i>
@@ -116,11 +117,11 @@
                     </div>
                     <div class="tab-pane fade show active" id="friendsGoing" role="tabpanel" aria-labelledby="nav-home-tab">
                       <div class="row justify-content-center">
-                        
-                        @foreach (array_slice($usersGoing, 0, 7) as $soldTicketUser)
+                          
+                        @foreach ($usersGoing->take(7) as $soldTicketUser)
                           <img class="userPic" src="../img/user.jpg">
                         @endforeach
-                        @if(sizeof($usersGoing) > 7)
+                        @if(count($usersGoing) > 7)
                           <a a href="#">
                             <img class="userPic-more" src="../img/user.jpg">
                             <i class="fas fa-circle"></i>
