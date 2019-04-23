@@ -94,41 +94,40 @@
                   <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                       <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#friendsGoing"
-                        role="tab" aria-controls="nav-profile" aria-selected="false">All(86)</a>
+                        role="tab" aria-controls="nav-profile" aria-selected="false">All({{$eventSoldTicketsCount}})</a>
                       <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#allGoing" role="tab"
                         aria-controls="nav-home" aria-selected="true">Friends(36)</a>
                   </nav>
                   <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade" id="allGoing" role="tabpanel" aria-labelledby="nav-home-tab">
                       <div class="row justify-content-center">
-                        <img class="userPic" src="../img/user.jpg">
-                        <img class="userPic" src="../img/user.jpg">
-                        <img class="userPic" src="../img/user.jpg">
-                        <img class="userPic" src="../img/user.jpg">
-                        <img class="userPic" src="../img/user.jpg">
-                        <img class="userPic" src="../img/user.jpg">
-                        <img class="userPic" src="../img/user.jpg">
-                        <a a href="#">
-                          <img class="userPic-more" src="../img/user.jpg">
-                          <i class="fas fa-circle"></i>
-                          <i class="fas fa-ellipsis-h"></i>
-                        </a>
+                        
+                          @foreach (array_slice($eventSoldTicketsUsers, 0, 7) as $soldTicketUser)
+                          <img class="userPic" src="../img/user.jpg">
+                        @endforeach
+                        @if($eventSoldTicketsCount > 7)
+                          <a a href="#">
+                            <img class="userPic-more" src="../img/user.jpg">
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                          </a>
+                        @endif
                       </div>
                     </div>
                     <div class="tab-pane fade show active" id="friendsGoing" role="tabpanel" aria-labelledby="nav-home-tab">
                       <div class="row justify-content-center">
-                        <img class="userPic" src="../img/user.jpg">
-                        <img class="userPic" src="../img/user.jpg">
-                        <img class="userPic" src="../img/user.jpg">
-                        <img class="userPic" src="../img/user.jpg">
-                        <img class="userPic" src="../img/user.jpg">
-                        <img class="userPic" src="../img/user.jpg">
-                        <img class="userPic" src="../img/user.jpg">
-                        <a a href="#">
-                          <img class="userPic-more" src="../img/user.jpg">
-                          <i class="fas fa-circle"></i>
-                          <i class="fas fa-ellipsis-h"></i>
-                        </a>
+                        
+                        @foreach (array_slice($eventSoldTicketsUsers, 0, 7) as $soldTicketUser)
+                          <img class="userPic" src="../img/user.jpg">
+                        @endforeach
+                        @if($eventSoldTicketsCount > 7)
+                          <a a href="#">
+                            <img class="userPic-more" src="../img/user.jpg">
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                          </a>
+                        @endif
+                        
                       </div>
                     </div>
                   </div>

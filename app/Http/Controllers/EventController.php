@@ -31,12 +31,24 @@ class EventController extends Controller
         return $ticketsSold = Ticket::where('id_event', $event->id_event)->get()->count();
     }
 
+    public function getSoldTicketsUsers($event) {
+    
+        $tickets = Ticket::where('id_event', $event->id_event)->get();
+        $users_attending = [];
+        foreach ($tickets as $ticket) {
+            array_push($users_attending, User::find($ticket->id_ticket_owner));
+        }
+        return $users_attending;
+    }
+
+    
+
     public function show($id_event) {
         
         $event = Event::find($id_event);
 
         return view('Pages.event', ['event' => $event , 'eventCategoryName' => $this->getCategoryName($event),
-         'eventCreator' => $this->getCreator($event), 'eventSoldTicketsCount' => $this->getSoldTicketsCount($event)]);
+         'eventCreator' => $this->getCreator($event), 'eventSoldTicketsCount' => $this->getSoldTicketsCount($event), 'eventSoldTicketsUsers' => $this->getSoldTicketsUsers($event)]);
     }
 
 }
