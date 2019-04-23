@@ -17,7 +17,7 @@ class EventPolicy
      * @param  \App\Event  $event
      * @return mixed
      */
-    public function view(User $user, Event $event)
+    public function view(?User $user, Event $event)
     {
         if(!$event->isprivate){
             return true;
