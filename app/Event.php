@@ -30,4 +30,8 @@ class Event extends Model
     public function posts() {
         return $this->hasMany('App\Post', 'id_event', 'id_event');
     }
+
+    public function invited(){
+        return $this->belongsToMany('App\User','invite','id_event','id_invitee');
+    }
 }
