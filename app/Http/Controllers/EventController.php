@@ -16,6 +16,14 @@ use App\Ticket;
 class EventController extends Controller
 {   
 
+/**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct() {
+        $this->middleware('auth');
+    }
 
     public function show($id_event) {
 
@@ -23,6 +31,10 @@ class EventController extends Controller
         $this->friendsGoing($id_event);
         
         $event = Event::find($id_event);
+
+        $this->authorize('view', $event);
+
+
 
         return view('Pages.event', ['event' => $event , 
                                     'friendsGoing' => $this->friendsGoing($id_event),

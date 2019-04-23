@@ -25,4 +25,8 @@ class Event extends Model
     public function tickets(){
         return $this->hasMany('App\Ticket', 'id_event', 'id_event');
     }
+
+    public function invited(){
+        return $this->belongsToMany('App\User','invite','id_event','id_invitee');
+    }
 }
