@@ -72,68 +72,73 @@
 
   <hr>
   <section class="discussion row">
-    <div class="leftCol col-lg-4 col-md-12">
-      <div id="attendance" class="container sticky-top">
-        <div class="row justify-content-center">
-          <h6>Attendance</h6>
-          <button class="btn-no attendanceButton" type="button" data-toggle="collapse" data-target="#collapseContent"
-            aria-expanded="true" aria-controls="collapseOne">
-            Attendance <i class="fas fa-caret-down"></i>
-          </button>
-        </div>
-        <section id="collapseContent" class="collapse">
-          <div class="lotation row align-self-center justify-content-center">
-            <img class="graph" src="../img/graphTemplate.png">
-            <div class="col-auto align-self-center">
-              <span class="row">Capacity: {{$event->capacity}}</span>
-              <span class="row">Taken: {{$event->tickets()->count()}}</span>
-              <span class="row">Left: {{$event->capacity - ($event->tickets()->count())}} </span>
+      <div class="leftCol col-lg-4 col-md-12">
+          <div id="attendance" class="container sticky-top">
+            <div class="row justify-content-center">
+              <h6>Attendance</h6>
+              <button class="btn-no attendanceButton" type="button" data-toggle="collapse" data-target="#collapseContent"
+                aria-expanded="true" aria-controls="collapseOne">
+                Attendance <i class="fas fa-caret-down"></i>
+              </button>
             </div>
+            <section id="collapseContent" class="collapse">
+              <div class="lotation row align-self-center justify-content-center">
+                <img class="graph" src="../img/graphTemplate.png">
+                <div class="col-auto align-self-center">
+                <span class="row">Capacity: {{$event->capacity}}</span>
+                  <span class="row">Taken: {{$event->tickets()->count()}}</span>
+                  <span class="row">Left: {{$event->capacity - ($event->tickets()->count())}} </span>
+                </div>
+              </div>
+              <div class="userPics">
+                <nav>
+                  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#allGoing"
+                      role="tab" aria-controls="nav-profile" aria-selected="false">All({{sizeof($usersGoing)}})</a>
+                      @if(Auth::check())
+                        <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#friendsGoing" role="tab"
+                        aria-controls="nav-home" aria-selected="true">Friends({{sizeof($friendsGoing)}})</a>
+                      @endif      
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                  <div class="tab-pane fade show active" id="allGoing" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="row justify-content-center">  
+                        @foreach ($usersGoing->take(7) as $soldTicketUser)
+                        <img class="userPic" src="../img/user.jpg">
+                      @endforeach
+  
+                      @if(count($usersGoing) > 7)
+                        <a a href="#">
+                          <img class="userPic-more" src="../img/user.jpg">
+                          <i class="fas fa-circle"></i>
+                          <i class="fas fa-ellipsis-h"></i>
+                        </a>
+                      @endif
+                    </div>
+                  </div>
+                  @if(Auth::check())
+                  <div class="tab-pane fade" id="friendsGoing" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="row justify-content-center">
+                        
+                      @foreach ($friendsGoing->take(7) as $soldTicketUser)
+                        <img class="userPic" src="../img/user.jpg">
+                      @endforeach
+                      
+                      @if(count($friendsGoing) > 7)
+                        <a a href="#">
+                          <img class="userPic-more" src="../img/user.jpg">
+                          <i class="fas fa-circle"></i>
+                          <i class="fas fa-ellipsis-h"></i>
+                        </a>
+                      @endif
+                      
+                    </div>
+                  </div>
+                  @endif
+                </div>
+            </section>
           </div>
-          <div class="userPics">
-            <nav>
-              <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#friendsGoing"
-                  role="tab" aria-controls="nav-profile" aria-selected="false">All({{sizeof($usersGoing)}})</a>
-                <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#allGoing" role="tab"
-                  aria-controls="nav-home" aria-selected="true">Friends({{sizeof($friendsGoing)}})</a>
-            </nav>
-            <div class="tab-content" id="nav-tabContent">
-              <div class="tab-pane fade" id="allGoing" role="tabpanel" aria-labelledby="nav-home-tab">
-                <div class="row justify-content-center">
-
-                  @foreach (array_slice($usersGoing, 0, 7) as $soldTicketUser)
-                  <img class="userPic" src="../img/user.jpg">
-                  @endforeach
-                  @if(sizeof($usersGoing) > 7)
-                  <a a href="#">
-                    <img class="userPic-more" src="../img/user.jpg">
-                    <i class="fas fa-circle"></i>
-                    <i class="fas fa-ellipsis-h"></i>
-                  </a>
-                  @endif
-                </div>
-              </div>
-              <div class="tab-pane fade show active" id="friendsGoing" role="tabpanel" aria-labelledby="nav-home-tab">
-                <div class="row justify-content-center">
-
-                  @foreach (array_slice($usersGoing, 0, 7) as $soldTicketUser)
-                  <img class="userPic" src="../img/user.jpg">
-                  @endforeach
-                  @if(sizeof($usersGoing) > 7)
-                  <a a href="#">
-                    <img class="userPic-more" src="../img/user.jpg">
-                    <i class="fas fa-circle"></i>
-                    <i class="fas fa-ellipsis-h"></i>
-                  </a>
-                  @endif
-
-                </div>
-              </div>
-            </div>
-        </section>
-      </div>
-    </div>
+        </div>
     </div>
     <div class="rightCol col-auto col-md-12">
       <div class="commentArea">
