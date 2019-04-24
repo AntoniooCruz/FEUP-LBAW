@@ -28,7 +28,7 @@ class EventController extends Controller
             $this->authorize('view', $event);
         }
 
-            return view('Pages.event', ['event' => $event , 
+            return view('pages.event', ['event' => $event , 
                                         'friendsGoing' => $this->friendsGoing($id_event),
                                         'usersGoing' => $this->usersGoing($id_event)
                                         ] 
