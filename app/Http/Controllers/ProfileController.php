@@ -86,8 +86,7 @@ class ProfileController extends Controller
         $user-> active = false;
         $user->save();
 
-        route('logout') ;
-
+        return redirect('logout');
     }
 }
 
