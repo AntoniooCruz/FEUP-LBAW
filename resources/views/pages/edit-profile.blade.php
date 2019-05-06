@@ -20,7 +20,7 @@
                         <div class="col text-left">
 
                             <div class="form-label-group">
-                                <input type="text"  name="name" id="inputName" class=" ... {{$errors->has('name')? 'is-invalid' : '' }} form-control" value="{{$user->name}}" required
+                                <input type="text"  name="name" id="inputName" class=" ... {{$errors->has('name')? 'is-invalid' : '' }} form-control" value="{{old('name',$user->name)}}" required
                                     autofocus style="border:none;">
                                     @if ($errors->has('name'))
 								        <span class="invalid-feedback">
@@ -29,7 +29,7 @@
                         	@endif
                             </div>
                             <div class="form-label-group">
-                                <input type="email" name="email" id="inputEmail" class="... {{$errors->has('email')? 'is-invalid' : '' }} form-control" value="{{$user->email}}"
+                                <input type="email" name="email" id="inputEmail" class="... {{$errors->has('email')? 'is-invalid' : '' }} form-control" value="{{old('email',$user->email)}}"
                                     required autofocus style="border:none;">
                                     @if ($errors->has('email'))
 								        <span class="invalid-feedback">
@@ -38,7 +38,7 @@
                                     @endif
                             </div>
                             <div class="form-label-group">
-                                <input type="text" name="username" id="inputUsername" class="... {{$errors->has('username')? 'is-invalid' : '' }} form-control" value="{{$user->username}}"
+                                <input type="text" name="username" id="inputUsername" class="... {{$errors->has('username')? 'is-invalid' : '' }} form-control" value="{{old('username',$user->username)}}"
                                     required autofocus style="border:none;">
                                     @if ($errors->has('username'))
 								        <span class="invalid-feedback">
@@ -52,25 +52,25 @@
                     <hr>
 
                     <div class="stats row justify-content-center">
-                        <div id="followers" class="col text-center">
-                            <div></div><strong> 20,7K </strong>
-                            <small>Followers</small>
-                        </div>
-                        <div id="following" class="col text-center">
-                            <strong>245</strong>
-                            <small>Following</small>
-                        </div>
-                        <div id="events" class="col text-center">
-                            <strong>7</strong>
-                            <small>Events</small>
-                        </div>
-
-                    </div>
+                            <div id="followers" class="col text-center">
+                              <div></div><strong> {{$user->followers()->count()}} </strong>
+                              <small>Followers</small>
+                            </div>
+                            <div id="following" class="col text-center">
+                              <strong> {{$user->following()->count()}} </strong>
+                              <small>Following</small>
+                            </div>
+                            <div id="events" class="col text-center">
+                              <strong> {{sizeof($eventsOwned)}}</strong>
+                              <small>Events</small>
+                            </div>
+                  
+                          </div>
                     <hr>
                     <div>
                     <textarea id="description" name="description" class="... {{$errors->has('description')? 'is-invalid' : '' }} col-10 text-left"
                         style="overflow:hidden; resize:none; border: 1px solid #cfd4da; margin-top:0"
-                        rows="4"> {{$user->description}}</textarea>
+                        rows="4"> {{old('description',$user->description)}}</textarea>
                         @if ($errors->has('description'))
 								        <span class="invalid-feedback">
                                                 {{ $errors->first('description') }}
