@@ -228,9 +228,13 @@ color: white;
     color: red;
 }
 
-.form-label-group {
+.form-label-group > input{
     margin-bottom: 5%;
     border-bottom: 1px solid #ced4da !important;
+}
+
+div > .invalid-feedback{
+    display:block;
 }
 
 textarea{

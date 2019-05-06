@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+
 
 use App\Follow;
 use App\User;
@@ -69,9 +71,23 @@ class ProfileController extends Controller
         return view('pages.edit-profile', ['user' => $user, 'eventsOwned' => $eventsOwned, 'eventsAttending' => $eventsAttending]);
     }
 
+
+    protected function validator($data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|string|max:30',
+            'username' => 'required|string|max:20',
+            'email' => 'required|string|email|max:100',
+            'description' => 'string|max:100',
+        ])->validate();
+    }
+
     public function update(Request $request) {
         
         $user = Auth::user();
+
+        $this->validator($request->all());
+
         $user-> name = $request->input('name');
         $user-> username = $request->input('username');
         $user-> description = $request->input('description');

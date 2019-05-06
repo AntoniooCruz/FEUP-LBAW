@@ -20,16 +20,31 @@
                         <div class="col text-left">
 
                             <div class="form-label-group">
-                                <input type="text"  name="name" id="inputName" class="form-control" value="{{$user->name}}" required
+                                <input type="text"  name="name" id="inputName" class=" ... {{$errors->has('name')? 'is-invalid' : '' }} form-control" value="{{$user->name}}" required
                                     autofocus style="border:none;">
+                                    @if ($errors->has('name'))
+								        <span class="invalid-feedback">
+                                                {{ $errors->first('name') }}
+								    </span>
+                        	@endif
                             </div>
                             <div class="form-label-group">
-                                <input type="email" name="email" id="inputEmail" class="form-control" value="{{$user->email}}"
+                                <input type="email" name="email" id="inputEmail" class="... {{$errors->has('email')? 'is-invalid' : '' }} form-control" value="{{$user->email}}"
                                     required autofocus style="border:none;">
+                                    @if ($errors->has('email'))
+								        <span class="invalid-feedback">
+                                                {{ $errors->first('email') }}
+                                    </span>
+                                    @endif
                             </div>
                             <div class="form-label-group">
-                                <input type="text" name="username" id="inputUsername" class="form-control" value="{{$user->username}}"
+                                <input type="text" name="username" id="inputUsername" class="... {{$errors->has('username')? 'is-invalid' : '' }} form-control" value="{{$user->username}}"
                                     required autofocus style="border:none;">
+                                    @if ($errors->has('username'))
+								        <span class="invalid-feedback">
+                                                {{ $errors->first('username') }}
+                                    </span>
+                                    @endif
                             </div>
 
                         </div>
@@ -52,9 +67,16 @@
 
                     </div>
                     <hr>
-                    <textarea id="description" name="description" class="col-10 text-left"
+                    <div>
+                    <textarea id="description" name="description" class="... {{$errors->has('description')? 'is-invalid' : '' }} col-10 text-left"
                         style="overflow:hidden; resize:none; border: 1px solid #cfd4da; margin-top:0"
                         rows="4"> {{$user->description}}</textarea>
+                        @if ($errors->has('description'))
+								        <span class="invalid-feedback">
+                                                {{ $errors->first('description') }}
+                                    </span>
+                                    @endif
+                                </div>
                     <div class="row justify-content-center"><button type="submit"
                             class="profile-pri-button btn btn-primary">Save</button></div>
                 </div>
