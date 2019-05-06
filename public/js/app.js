@@ -24,8 +24,13 @@ function addEventListeners() {
 
   function followUserRequest(){
       
-    //sendAjaxRequest('put','api/profile{id_user}/follow',)
+    //sendAjaxRequest('put','api/profile{id_user}/follow', ,followUserHandler)
     alert('handler')
   }
+
+  function followUserHandler(){
+    //Handle Request
+  }
+
   addEventListeners();
   
