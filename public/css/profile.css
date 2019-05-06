@@ -42,6 +42,10 @@ small {
     padding: 0 1em;
 }
 
+#edit_button a{
+    color:white;
+}
+
 
 @media (max-width: 992px) {
     #profile_container {

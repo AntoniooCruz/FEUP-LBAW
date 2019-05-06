@@ -16,7 +16,7 @@
                 <div class="row"><span id="username">@<span>{{$user->username}}</span></div>
               </div>
               <div class="col-3 col text-right">
-                <button id="edit_button" type="button" class="profile-pri-button btn btn-primary">Edit</button>
+                <button id="edit_button" type="button" class="profile-pri-button btn btn-primary"><a href="{{ url('/profile/edit') }}">Edit</a></button>
               </div>
             </div>
             <hr>

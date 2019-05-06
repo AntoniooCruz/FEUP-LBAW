@@ -52,6 +52,7 @@ class ProfileController extends Controller
     }
 
     public function showEdit() {
+
         $user = Auth::user();
 
         $followers = sizeof(Follow::where('id_user2', $user->id_user)->get());
@@ -77,6 +78,15 @@ class ProfileController extends Controller
         $user->save();
         
         return redirect('profile');
+
+    }
+
+    public function remove(Request $request){
+        $user = Auth::user();
+        $user-> active = false;
+        $user->save();
+
+        route('logout') ;
 
     }
 }

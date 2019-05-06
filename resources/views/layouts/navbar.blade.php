@@ -13,7 +13,10 @@
       <hr>
       <a class="dropdown-item" href="#"> <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
       </a>
-      <a class="dropdown-item" href="#">Delete account</a>
+        <form  method="POST" action="{{ url('/profile/remove') }}">
+          {{ csrf_field() }}
+            <button class="dropdown-item" href="#">Delete account</button>
+      </form>
     </div>
 
     <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
