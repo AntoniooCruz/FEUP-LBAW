@@ -104,5 +104,16 @@ class ProfileController extends Controller
 
         return redirect('logout');
     }
+
+    public function followUser($id_user) {
+
+        $user = Auth::user();
+
+        $user = User::find($id_user);
+
+        
+
+        return view('pages.profile', ['user' => $user, 'eventsOwned' => $eventsOwned, 'eventsAttending' => $eventsAttending]);
+    }
 }
 
