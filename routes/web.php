@@ -51,6 +51,7 @@ Route::get('profile', 'ProfileController@show')->name('myProfile');
 Route::get('profile/edit', 'ProfileController@showEdit');
 Route::post('profile/edit', 'ProfileController@update');
 Route::get('profile/{id_user}', 'ProfileController@showUser');
+Route::post('api/profile{id_user}/follow','ProfileController@followUser');
 
 //Event
 Route::get('event/{id_event}', 'EventController@show');
