@@ -61,7 +61,7 @@
               aria-controls="collapseExample">
               <button>
                 <i class="far fa-comments"></i>
-                <span>67</span>
+                <span>{{sizeof($post->comments()->get())}}</span>
               </button>
             </div>
           </div>

@@ -21,4 +21,8 @@ class Post extends Model
     public function poll() {
         return $this->hasOne('App\Poll', 'id_post', 'id_post');
     }
+
+    public function comments() {
+        return $this->hasMany('App\Comment', 'id_post', 'id_post');
+    }
 }
