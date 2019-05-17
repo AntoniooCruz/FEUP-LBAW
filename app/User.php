@@ -35,11 +35,11 @@ class User extends Authenticatable
      * The cards this user owns.
      */
      public function following() {
-        return $this->belongsToMany('App\User', 'follow', 'id_user1', 'id_user2');
+        return $this->belongsToMany('App\User', 'follow', 'id_user1', 'id_user2')->using('App\Follow');
     }
 
     public function followers() {
-        return $this->belongsToMany('App\User', 'follow', 'id_user2', 'id_user1');
+        return $this->belongsToMany('App\User', 'follow', 'id_user2', 'id_user1')->using('App\Follow');
     }
 
     public function tickets() {

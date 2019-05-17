@@ -3,6 +3,7 @@
 @section('content')
 
 <section id="profile">
+  <span id="id_user" style="display:none;">{{$user->id_user}}</span>
 
     <div class="parContainer row justify-content-center">
         <div id="profile_container" class="col-lg-3 col-12 container text-center">
@@ -16,7 +17,7 @@
                 <div class="row"><span id="username">@<span>{{$user->username}}</span></div>
               </div>
               <div class="col-3 col text-right">
-                <button id="follow_button" type="button" class="profile-pri-button btn btn-primary">Follow</button>
+                <button id="follow_button" type="button" class="profile-pri-button btn btn-primary">{{$isFollowing? 'Unfollow': 'Follow'}}</button>
               </div>
             </div>
             <hr>

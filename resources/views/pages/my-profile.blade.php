@@ -4,6 +4,7 @@
 
 <section id="profile">
 
+  <span id="id_user" style="display:none;">{{$user->id_user}}</span>
     <div class="parContainer row justify-content-center">
         <div id="profile_container" class="col-lg-3 col-12 container text-center">
           <img src="../img/jane.jpg">

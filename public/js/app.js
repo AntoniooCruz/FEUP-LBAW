@@ -1,6 +1,8 @@
+let follow;
+
 function addEventListeners() {
     let followUser = document.querySelector('#follow_button'); 
-
+    follow = followUser.innerHTML == 'Follow'? true : false;
     followUser.addEventListener('click',followUserRequest);
   
   }
@@ -18,18 +20,35 @@ function addEventListeners() {
     request.open(method, url, true);
     request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.setRequestHeader('Accept', 'application/json');
     request.addEventListener('load', handler);
     request.send(encodeForAjax(data));
   }
 
   function followUserRequest(){
-      
-    //sendAjaxRequest('put','api/profile{id_user}/follow', ,followUserHandler)
-    alert('handler')
+    let id_user = document.querySelector('#id_user').innerHTML; 
+    let method;
+    if (follow) {
+      method = 'put';
+    } else {
+      method = 'delete';
+    } 
+    sendAjaxRequest(method, '/api/profile/' + id_user + '/follow', null, followUserHandler);
+
   }
 
   function followUserHandler(){
-    //Handle Request
+    console.log(this.responseText);
+    if (this.status === 200) {
+      let followButton = document.querySelector('#follow_button');
+      
+      if(followButton.innerHTML == "Follow")
+        followButton.innerHTML = "Unfollow";
+      else followButton.innerHTML = "Follow";
+
+      follow = !follow;
+    }
+    
   }
 
   addEventListeners();
