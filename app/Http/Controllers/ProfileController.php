@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-use App\Follow;
 use App\User;
 use App\Event;
 use App\Ticket;
@@ -38,15 +37,13 @@ class ProfileController extends Controller
 
         $user = User::find($id_user); //TODO: passar para findOrFail
         
-        //$followers = sizeof(Follow::where('id_user2', $user->id_user)->get());
         $followers = $user->followers()->count();
-        //$following = sizeof(Follow::where('id_user1', $user->id_user)->get());
         $following = $user->following()->count();
 
         $isFollowing = null;
 
         if (Auth::check()) {
-            $isFollowing = Auth::user()->following()->wherePivot('id_user2', $id_user)->exists();
+            $isFollowing = Auth::user()->following()->get()->contains($user);
         }
 
         $eventsOwned = Event::where('id_owner', $id_user)->get();
@@ -64,8 +61,8 @@ class ProfileController extends Controller
 
         $user = Auth::user();
 
-        $followers = sizeof(Follow::where('id_user2', $user->id_user)->get());
-        $following = sizeof(Follow::where('id_user1', $user->id_user)->get());
+        $followers = $user->followers()->count();
+        $following = $user->following()->count();
 
         $eventsOwned = Event::where('id_owner', $user->id_user)->get();
         $userTickets = Ticket::where('id_ticket_owner', $user->id_user)->get();
@@ -114,15 +111,16 @@ class ProfileController extends Controller
 
     public function followUser($id) {
 
-        if (!Auth::check()) {
+        if (!Auth::check()) 
             return response(403);
-        }
-
+        
         $user1 = Auth::user();
         $user2 = User::findOrFail($id);
 
         try {
-            Follow::updateOrCreate(array('id_user1' => $user1->id_user, 'id_user2' => $user2->id_user));
+           /* $user2->followers()->attach($user1);*/
+            $user1->following()->attach($user2);
+
         } catch (Exception $e) {
             return response()->json(["error" => $e], 400);
         }
@@ -132,15 +130,15 @@ class ProfileController extends Controller
 
     public function unfollowUser($id) {
 
-        if (!Auth::check()) {
+        if (!Auth::check()) 
             return response(403);
-        }
 
         $user1 = Auth::user();
+        $user2 = User::findOrFail($id);
 
         try {
-            $f = Follow::where('id_user1', $user1->id_user)->where('id_user2', $id)->firstOrFail();
-            $f->delete();
+            $user1->following()->detach($user2);
+            $user2->followers()->detach($user1);
         } catch (Exception $e) {
             return response()->json(["error" => $e], 400);
         }
