@@ -5,8 +5,8 @@
 @yield('navbar')
 
     <div id="background"></div>
+    <section id="loginBack">
     <section id="login">
-
         <div class="login container">
             <div class="row">
                 <div id="main_container" class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -68,5 +68,6 @@
             </div>
         </div>
     </section>
+</section>
 
     @endsection

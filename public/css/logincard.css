@@ -1,16 +1,17 @@
 
- body {
-     background-color: var(--lightBlue) !important;
- }
-
  #background {
     position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 50%;
-    z-index: -1;
+    z-index: 0;
     background-color: var(--darkBlue);
+}
+
+#loginBack{
+    background: var(--lightBlue);
+    z-index: -5;
 }
 
 .card-header{
