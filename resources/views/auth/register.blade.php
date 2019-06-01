@@ -59,8 +59,18 @@
                                 <!-- PASSWORD -->
                                 <div class="form-label-group">
                                     <input type="password" id="inputPassword" class="form-control"
-                                        placeholder="Password" name="password" value="{{ old('password') }}" required>
+                                        placeholder="Password" name="password" value="{{ old('password') }}" onkeyup='checkPasswordMatch();' required>
                                     <label for="inputPassword">Password</label>
+                                    <div class="help-tooltip">
+                                    <i id="onlineHelp" class="far fa-question-circle"></i>
+                                    <span id="tooltipMessage" class="tooltiptext"> 
+                                        Password must contain:
+                                        <hr>
+                                        <p id="letter" >A <b>lowercase</b> letter</p>
+                                        <p id="capital">A <b>capital</b> letter</p>
+                                        <p id="number">A <b>number</b></p>
+                                        <p id="length">Minimum <b>6 characters</b></p></span>
+                                    </div>
                                     @if ($errors->has('password'))
                                       <span class="error">
                                           {{ $errors->first('password') }}
@@ -69,9 +79,11 @@
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input id="password-confirm" class="form-control" type="password" name="password_confirmation" required>
-                                    <label for="password-confirm">Confirm Password</label>
-                              </div>
+                                    <input type="password" id="confirm-password" class="form-control"
+                                        placeholder="Confirm Password" name="confirm-password" value="" onkeyup='checkPasswordMatch();' required>
+                                        <span id='password-match'></span>
+                                    <label for="confirm-password">Confirm Password</label>
+                                </div>
 
                                 <span id="register-link">Already have an account?<a id="registerbtn"
                                         href="{{ route('login') }}">Log in</a></span>

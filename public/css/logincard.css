@@ -1,6 +1,6 @@
 body{
     --darkBlue:#1A2431;
-    --lightBlue:#A1B6C8;
+    --lightBlue:rgb(161, 182, 200);
     --green:#79AF41;
     --lightGrey:#bfbfbf;
     --offWhite:#EBECEC;
@@ -9,7 +9,7 @@ body{
  }
 
  body {
-     background-color: var(--lightBlue);
+     background-color: var(--lightBlue) !important;
  }
 
  #background {
@@ -171,3 +171,81 @@ margin-top: 1rem;
 #register-personal #loginlogo {
     margin-bottom: 1rem;
 }
+
+#onlineHelp{
+    position: absolute;
+    top: 35%;
+    right: 5%;
+    font-size: 20px;
+    color:#7a7c82d6;
+}
+
+.form-label-group{
+    position: relative;
+}
+
+#password-match{
+    position:absolute;
+    top: 35%;
+    right: 5%;
+    font-size: 20px;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #7a7c82d6;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    font-size: 15px;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 90%;
+    right: -33%;
+    padding: 1em 1.5em;
+    transition: opacity 0.3s;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  #tooltipMessage hr{
+      margin:5px -22px 8px -22px!important;
+  }
+  .tooltiptext p {
+    margin:5px 0;
+    font-size: 13px;
+  }
+  
+  /* Tooltip arrow */
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(183, 196, 207) transparent transparent transparent;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .help-tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .valid {
+    color: green;
+  }
+  
+  .valid:before {
+    position: relative;
+    left: -35px;
+  }
+  
+  /* Add a red text color and an "x" when the requirements are wrong */
+  .invalid {
+    color: #ea4335;
+  }
+  
+  .invalid:before {
+    position: relative;
+    left: -35px;
+  }
