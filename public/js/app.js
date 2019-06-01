@@ -56,7 +56,7 @@ function addEventListeners() {
 
   addEventListeners();
   
-
+//register
   let myInput = document.getElementById("inputPassword");
   let questionMark = document.getElementById("onlineHelp");
   let letter = document.getElementById("letter");
@@ -66,9 +66,9 @@ function addEventListeners() {
 
 
   var checkPasswordMatch = function() {
-    if (myInput.value == document.getElementById('confirm-password').value && myInput.value=='') {
+    if (myInput.value == document.getElementById('password-confirm').value && myInput.value=='') {
       document.getElementById('password-match').innerHTML = '';
-    }else if (myInput.value == document.getElementById('confirm-password').value) {
+    }else if (myInput.value == document.getElementById('password-confirm').value) {
         document.getElementById('password-match').style.color = 'green';
         document.getElementById('password-match').innerHTML = '<i class="far fa-check-circle"></i>';
     } else {

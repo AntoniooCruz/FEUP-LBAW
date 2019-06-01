@@ -46,7 +46,10 @@
     text-align: center;
 }
   
-.card-signin .card-body { padding: 2rem;}
+.card-signin .card-body { 
+    padding: 2rem;
+    position: relative;
+}
   
   
 .login .form-label-group {
@@ -145,11 +148,11 @@
 }
 
 #register-personal #loginlogo img{
-    width: 40%;
-    height: 40%;
+    width: 20%;
+    height: 20%;
 }
 
-#register-personal .form-label-group input{
+#register-personal .form-label-group input {
     padding-bottom: 5px;
 }
 
@@ -158,11 +161,14 @@
 }
 
 #register-personal #register-link{
-margin-top: 1rem;
+margin-top: 2rem;
 }
 
 #register-personal #loginlogo {
-    margin-bottom: 1rem;
+    position: absolute;
+    z-index: 1;
+    top: 14px;
+    left: 0;
 }
 
 #onlineHelp{
@@ -245,4 +251,15 @@ margin-top: 1rem;
   #remember-me{
       display: flex;
       justify-content: center;
+  }
+
+  #welcomeRaincheck{
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5em;
+    margin-bottom: 1em;
+  }
+
+  #register-personal form{
+    margin-top: 3.25em;
   }

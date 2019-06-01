@@ -22,6 +22,7 @@
                           <!-- FORM -->
                             <form class="form-register" method="POST" action="{{ route('register') }}">
                                 {{ csrf_field() }}
+
                                 <div id="loginlogo"><img src="{{ asset('img/icon.png') }}" ></div>
 
                                 <div class="form-label-group">
@@ -79,10 +80,10 @@
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="password" id="confirm-password" class="form-control"
-                                        placeholder="Confirm Password" name="confirm-password" value="" onkeyup='checkPasswordMatch();' required>
+                                        <input id="password-confirm" class="form-control" type="password" name="password_confirmation" 
+                                        onkeyup='checkPasswordMatch();' placeholder="Confirm Password" required>
                                         <span id='password-match'></span>
-                                    <label for="confirm-password">Confirm Password</label>
+                                        <label for="password-confirm">Confirm Password</label>
                                 </div>
 
                                 <span id="register-link">Already have an account?<a id="registerbtn"
