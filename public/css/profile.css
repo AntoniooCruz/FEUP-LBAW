@@ -245,6 +245,7 @@ textarea{
 
 .tab-content>.active {
     display: flex;
+    align-items: center;
 }
 
 
