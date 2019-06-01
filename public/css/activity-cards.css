@@ -32,7 +32,7 @@
     margin: 0;
 }
 
-.card .form-check {
+.card .progress .form-check {
     background-color: #c6d3dc;
     padding: 7px 0 5px 30px;
     border-radius: 50px 0 0 50px;

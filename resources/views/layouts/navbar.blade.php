@@ -37,7 +37,9 @@
     <button class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
   </form>
 
-  <ul class="logged-in navbar-nav mt-2 mt-lg-0">
+  @if(Auth::check()) <ul class="logged-in navbar-nav mt-2 mt-lg-0">
+  @else <ul class="navbar-nav mt-2 mt-lg-0"> 
+      @endif
     <li class="nav-item active">
       <a class="nav-link" href="mainpage.html">Home <span class="sr-only">(current)</span></a>
     </li>

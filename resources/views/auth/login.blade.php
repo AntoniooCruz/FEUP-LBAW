@@ -47,10 +47,12 @@
                                     <label for="inputPassword">Password</label>
                                 </div>
 
-                                <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} class="form-control">
-                                        Remember Me
-                                    </label>
+                                <div id = "remember-me" >
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="remember"  name="remember" {{ old('remember') ? 'checked' : '' }}> 
+                                    <label class="form-check-label" for="remember">Remember Me</label>
+                                </div>
+                                </div>
 
                                 <span id="register-link">Don't have an account?<a id="registerbtn"
                                     href="{{ route('register') }}">Register</a></span>
