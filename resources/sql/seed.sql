@@ -369,9 +369,9 @@ END $BODY$
 LANGUAGE plpgsql;
 
     --trigger
-CREATE TRIGGER edit_past_event BEFORE UPDATE ON event
-FOR EACH ROW
-EXECUTE PROCEDURE edit_past_event();
+--CREATE TRIGGER edit_past_event BEFORE UPDATE ON event
+--FOR EACH ROW
+--EXECUTE PROCEDURE edit_past_event();
 
 
 --change_event_event
@@ -403,7 +403,7 @@ END $BODY$
 LANGUAGE plpgsql;
 
     --trigger
-CREATE TRIGGER business_follow BEFORE UPDATE ON event
+CREATE TRIGGER business_follow BEFORE UPDATE ON follow
 FOR EACH ROW
 EXECUTE PROCEDURE business_follow();
 
@@ -467,11 +467,25 @@ BEGIN
 END $BODY$
   LANGUAGE plpgsql;
 
+
+
     --trigger
 CREATE TRIGGER invite_to_private BEFORE INSERT OR UPDATE ON invite
 FOR EACH ROW
-EXECUTE PROCEDURE invite_to_private(); 
+EXECUTE PROCEDURE invite_to_private();
 
+--fulltext search event
+    --procedure
+CREATE OR REPLACE FUNCTION update_tsvector() RETURNS  TRIGGER AS $BODY$
+BEGIN
+  UPDATE event SET search_tokens = setweight(to_tsvector('english', NEW.title), 'A') || setweight(to_tsvector('english', NEW.description), 'B');
+  RETURN NEW;	
+END $BODY$
+  LANGUAGE plpgsql;
+
+CREATE TRIGGER tsvectorupdate BEFORE INSERT OR UPDATE OF title,description ON event
+FOR EACH ROW
+EXECUTE PROCEDURE update_tsvector();
 
 
 -----------------------------------------
@@ -527,65 +541,45 @@ INSERT INTO category (name) VALUES ('Other');
 
 
 --event
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('My 21st BDAY', '1/11/2018', '12/1/2019 02:11:00', '8446 Rockefeller Parkway', 'ut at dolor queima odio consequat varius', 127, 20, false, 12, 6, 'Vukatanë',setweight(to_tsvector('english', 'My 21st BDAY'), 'A') ||
-   setweight(to_tsvector('english', 'ut at dolor queima odio consequat varius'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('My 21st BDAY', '1/11/2018', '12/1/2019 02:11:00', '8446 Rockefeller Parkway', 'ut at dolor queima odio consequat varius', 127, 20, false, 12, 6, 'Vukatanë',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Tea Party', '11/30/2017', '6/8/2019 02:11:00', '95 Golf Center', 'lobortis est phasellus sit amet', 149, 483, false, 18, 8, 'Ajman',setweight(to_tsvector('english', 'Tea Party'), 'A') ||
-   setweight(to_tsvector('english', 'semana dedicada a beber cha'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Tea Party', '11/30/2017', '6/8/2019 02:11:00', '95 Golf Center', 'lobortis est phasellus sit amet', 149, 483, false, 18, 8, 'Ajman',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Semana de Informatica', '11/3/2017 02:11:00', '10/5/2019', '877 Dayton Junction', 'libero nam dui proin leo odio porttitor id consequat in consequat ut', 126, 208, true, 3, 5, 'Xishan',setweight(to_tsvector('english', 'Semana de Informatica'), 'A') ||
-   setweight(to_tsvector('english', 'libero nam dui proin leo odio porttitor id consequat in consequat ut'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Semana de Informatica', '11/3/2017 02:11:00', '10/5/2019', '877 Dayton Junction', 'libero nam dui proin leo odio porttitor id consequat in consequat ut', 126, 208, true, 3, 5, 'Xishan',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Queima 2019', '2/1/2018', '12/3/2019 02:11:00', '4 Bowman Park', 'sapien iaculis congue vivamus metus arcu adipiscing', 176, 451, false, 25, 2, 'Palaran',setweight(to_tsvector('english', 'Queima 2019'), 'A') ||
-   setweight(to_tsvector('english', 'sapien iaculis congue vivamus metus arcu adipiscing'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Queima 2019', '2/1/2018', '12/3/2019 02:11:00', '4 Bowman Park', 'sapien iaculis congue vivamus metus arcu adipiscing', 176, 451, false, 25, 2, 'Palaran',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Rock in Rio 2019', '10/29/2017', '7/25/2019 02:11:00', '81249 Summit Terrace', 'accumsan felis ut', 74, 399, true, 13, 9, 'Banjar Pekandelan',setweight(to_tsvector('english', 'Rock in Rio 2019'), 'A') ||
-   setweight(to_tsvector('english', 'accumsan felis ut'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Rock in Rio 2019', '10/29/2017', '7/25/2019 02:11:00', '81249 Summit Terrace', 'accumsan felis ut', 74, 399, true, 13, 9, 'Banjar Pekandelan',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Sleepover at Ritas', '11/21/2017', '7/30/2019 02:11:00', '71785 Mayer Court', 'morbi quis tortor', 81, 467, false, 17, 8, 'Rungis',setweight(to_tsvector('english', 'Sleepover at Ritas'), 'A') ||
-   setweight(to_tsvector('english', 'morbi quis tortor'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Sleepover at Ritas', '11/21/2017', '7/30/2019 02:11:00', '71785 Mayer Court', 'morbi quis tortor', 81, 467, false, 17, 8, 'Rungis',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Feup Caffé', '10/13/2017', '9/7/2019 02:11:00', '264 Texas Plaza', 'luctus sleepover', 110, 376, false, 4, 5, 'Buga',setweight(to_tsvector('english', 'Feup Caffé'), 'A') ||
-   setweight(to_tsvector('english', 'luctus sleepover'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Feup Caffé', '10/13/2017', '9/7/2019 02:11:00', '264 Texas Plaza', 'luctus sleepover', 110, 376, false, 4, 5, 'Buga',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('White Party', '3/5/2018', '9/17/2019 02:11:00', '588 Dayton Circle', 'nascetur ridiculus mus vivamus vestibulum sagittis sapien cum', 28, 96, false, 23, 5, 'Vinež',setweight(to_tsvector('english', 'White Party'), 'A') ||
-   setweight(to_tsvector('english', 'nascetur ridiculus mus vivamus vestibulum sagittis sapien cum'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('White Party', '3/5/2018', '9/17/2019 02:11:00', '588 Dayton Circle', 'nascetur ridiculus mus vivamus vestibulum sagittis sapien cum', 28, 96, false, 23, 5, 'Vinež',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Halloween Party', '9/8/2017', '10/27/2019 02:11:00', '621 Maple Road', 'at nunc commodo placerat praesent blandit nam', 21, 191, false, 5, 9, 'Martapura',setweight(to_tsvector('english', 'Halloween Party'), 'A') ||
-   setweight(to_tsvector('english', 'at nunc commodo placerat praesent blandit nam'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ('Halloween Party', '9/8/2017', '10/27/2019 02:11:00', '621 Maple Road', 'at nunc commodo placerat praesent blandit nam', 21, 191, false, 5, 9, 'Martapura',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'ENEI 2019', '1/21/2018', '7/30/2019 02:11:00', '3261 Pond Drive', 'nulla', 49, 136, false, 3, 9, 'Gaojingzhuang',setweight(to_tsvector('english', 'ENEI 2019'), 'A') ||
-   setweight(to_tsvector('english', 'nulla'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'ENEI 2019', '1/21/2018', '7/30/2019 02:11:00', '3261 Pond Drive', 'nulla', 49, 136, false, 3, 9, 'Gaojingzhuang',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Talk a Bit', '2/9/2018', '10/6/2019 02:11:00', '012 Forest Pass', 'non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit', 21, 230, false, 16, 8, 'Sarimukti Kaler',setweight(to_tsvector('english', 'Talk a Bit'), 'A') ||
-   setweight(to_tsvector('english', 'non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Talk a Bit', '2/9/2018', '10/6/2019 02:11:00', '012 Forest Pass', 'non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit', 21, 230, false, 16, 8, 'Sarimukti Kaler',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES (  'Ted Talk Porto', '1/30/2018', '12/23/2019 02:11:00', '39189 Morningstar Road', 'justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem', 122, 51, true, 2, 4, 'Shanhe',setweight(to_tsvector('english', 'Ted Talk Porto'), 'A') ||
-   setweight(to_tsvector('english', 'justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES (  'Ted Talk Porto', '1/30/2018', '12/23/2019 02:11:00', '39189 Morningstar Road', 'justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem', 122, 51, true, 2, 4, 'Shanhe',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES (  '"Persistent leading edge application"', '10/21/2017', '12/21/2019 02:11:00', '365 Trailsway Junction', 'convallis morbi odio odio elementum eu interdum eu tincidunt in', 169, 481, true, 4, 8, 'Vistino',setweight(to_tsvector('english', '"Persistent leading edge application"'), 'A') ||
-   setweight(to_tsvector('english', 'convallis morbi odio odio elementum eu interdum eu tincidunt in'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES (  '"Persistent leading edge application"', '10/21/2017', '12/21/2019 02:11:00', '365 Trailsway Junction', 'convallis morbi odio odio elementum eu interdum eu tincidunt in', 169, 481, true, 4, 8, 'Vistino',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Workshop React Pt1', '9/26/2017', '5/24/2020 02:11:00', '0167 Sloan Street', 'non velit nec nisi', 112, 57, true, 1, 1, '‘Amrān',setweight(to_tsvector('english', 'Workshop React Pt1'), 'A') ||
-   setweight(to_tsvector('english', 'non velit nec nisi'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Workshop React Pt1', '9/26/2017', '5/24/2020 02:11:00', '0167 Sloan Street', 'non velit nec nisi', 112, 57, true, 1, 1, '‘Amrān',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Workshop React Pt2', '9/15/2017', '5/15/2020 02:11:00', '2583 Monument Hill', 'ipsum primis in faucibus orci luctus et', 98, 287, false, 6, 4, 'Lincoln',setweight(to_tsvector('english', 'Workshop React Pt2'), 'A') ||
-   setweight(to_tsvector('english', 'ipsum primis in faucibus orci luctus et'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Workshop React Pt2', '9/15/2017', '5/15/2020 02:11:00', '2583 Monument Hill', 'ipsum primis in faucibus orci luctus et', 98, 287, false, 6, 4, 'Lincoln',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Baby shower', '3/25/2018', '8/3/2019 02:11:00', '675 Morningstar Plaza', 'vestibulum ante ipsum', 124, 379, true, 20, 8, 'Saint-Gaudens',setweight(to_tsvector('english',  'Baby shower'), 'A') ||
-   setweight(to_tsvector('english', 'ut at dolor quis odio consequat varius.'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Baby shower', '3/25/2018', '8/3/2019 02:11:00', '675 Morningstar Plaza', 'vestibulum ante ipsum', 124, 379, true, 20, 8, 'Saint-Gaudens',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Billie Eilish Concert', '11/1/2017', '11/22/2019 02:11:00', '5807 Bartelt Street', 'in felis eu sapien cursus vestibulum proin eu', 88, 215, false, 30, 2, 'Krasnokamensk',setweight(to_tsvector('english', 'My 21st BDAY'), 'A') ||
-   setweight(to_tsvector('english', 'vestibulum ante ipsum'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Billie Eilish Concert', '11/1/2017', '11/22/2019 02:11:00', '5807 Bartelt Street', 'in felis eu sapien cursus vestibulum proin eu', 88, 215, false, 30, 2, 'Krasnokamensk',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Billie Eilish meet & greet', '9/8/2017', '8/7/2019 02:11:00', '42474 Ohio Trail', 'queima non mi integer ac neque duis', 68, 78, false, 21, 4, 'Nicolas Bravo',setweight(to_tsvector('english', 'Billie Eilish meet & greet'), 'A') ||
-   setweight(to_tsvector('english', 'queima non mi integer ac neque duis'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Billie Eilish meet & greet', '9/8/2017', '8/7/2019 02:11:00', '42474 Ohio Trail', 'queima non mi integer ac neque duis', 68, 78, false, 21, 4, 'Nicolas Bravo',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Billie Eilish fan queima convention', '12/10/2017', '8/21/2019 02:11:00', '980 Anderson Plaza', 'at turpis a pede', 125, 205, true, 20, 7, 'Firminópolis',setweight(to_tsvector('english', 'Billie Eilish fan queima convention'), 'A') ||
-   setweight(to_tsvector('english', 'at turpis a pede'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Billie Eilish fan queima convention', '12/10/2017', '8/21/2019 02:11:00', '980 Anderson Plaza', 'at turpis a pede', 125, 205, true, 20, 7, 'Firminópolis',null);
 
-INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Time management talk', '11/16/2017', '7/5/2019 02:11:00', '36141 Westerfield Avenue', 'placerat praesent blandit nam nulla integer pede justo lacinia eget', 107, 183, false, 30, 7, 'Gonghe',setweight(to_tsvector('english', 'Time management talk'), 'A') ||
-   setweight(to_tsvector('english', 'placerat praesent blandit nam nulla integer pede justo lacinia eget'), 'B'));
+INSERT INTO event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city,search_tokens) VALUES ( 'Time management talk', '11/16/2017', '7/5/2019 02:11:00', '36141 Westerfield Avenue', 'placerat praesent blandit nam nulla integer pede justo lacinia eget', 107, 183, false, 30, 7, 'Gonghe',null);
 
 
 --personal
