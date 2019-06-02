@@ -25,6 +25,8 @@ DROP TABLE IF EXISTS report_post CASCADE;
 DROP TABLE IF EXISTS report_user CASCADE;
 DROP TABLE IF EXISTS ticket CASCADE;
 DROP TABLE IF EXISTS vote_on_poll CASCADE;
+DROP TABLE IF EXISTS password_resets CASCADE;
+
 
 DROP FUNCTION IF EXISTS cant_get_tickets() CASCADE;
 DROP FUNCTION IF EXISTS get_tickets_past_event() CASCADE;
@@ -276,6 +278,13 @@ CREATE TABLE vote_on_poll (
         id_user,
         id_poll
     )
+);
+
+-- Table: password_resets
+CREATE TABLE password_resets (
+    email       TEXT PRIMARY KEY,
+    token      TEXT,
+    created_at TIMESTAMP WITH TIME zone
 );
 
 
