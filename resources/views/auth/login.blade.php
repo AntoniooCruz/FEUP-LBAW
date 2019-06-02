@@ -5,7 +5,7 @@
 @yield('navbar')
 
     <div id="background"></div>
-    <section id="loginBack">
+    <section class="loginBack">
     <section id="login">
         <div class="login container">
             <div class="row">

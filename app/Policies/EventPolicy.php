@@ -19,7 +19,7 @@ class EventPolicy
      */
     public function view(?User $user, Event $event)
     {
-        if(!$event->isprivate){
+        if(!$event->is_private){
             return true;
         } else {
             return $event->invited->contains($user->id_user);

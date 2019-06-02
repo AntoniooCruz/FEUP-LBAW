@@ -15,12 +15,14 @@ class Event extends Model
 
     protected $primaryKey = 'id_event';
 
+    public $timestamps  = false;
+
     protected $fillable = [
-        'title', 'date_created', 'date', 'location', 'description', 'price', 'capacity', 'isPrivate', 'city', 'id_owner'
+        'title', 'date_created', 'date', 'location', 'description', 'price', 'capacity', 'is_private', 'city', 'id_owner','id_category'
     ];
 
     public function category(){
-        return $this->hasOne('App\Category', 'id_category', 'id_category');
+        return $this->belongsTo('App\Category', 'id_category', 'id_category');
     }
 
     public function owner(){

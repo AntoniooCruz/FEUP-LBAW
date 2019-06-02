@@ -5,7 +5,7 @@
 <section id="event" class="event container">
   <div class="eventPhoto justify-content-md-center">
     <div id="floatingLabels">
-      @if($event->isPrivate)<span id="privateIndicator" class="label"> <i class="fas fa-lock"></i></span>@endif
+      @if($event->is_private)<span id="privateIndicator" class="label"> <i class="fas fa-lock"></i></span>@endif
       <span id="categoryIndicator" class="label"> {{$event->category->name}}</span>
     </div>
     <img src="../img/eventbanner.jpg">

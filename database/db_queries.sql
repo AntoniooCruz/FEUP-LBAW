@@ -3,13 +3,13 @@
 --------------------
 
 --Event information: SELECT information FROM event with id = $event_id
-SELECT title, date_created, date, location, event.description, price, capacity, isPrivate, users.name AS owner_name, category.name AS category_name, city, count(*) as participants 
+SELECT title, date_created, date, location, event.description, price, capacity, is_private, users.name AS owner_name, category.name AS category_name, city, count(*) as participants 
 	FROM event,users,category, ticket 
 	WHERE event.id_owner=users.id_user
 	    AND event.id_category=category.id_category
       AND event.id_event = $event_id
 			AND ticket.id_event=event.id_event
-	GROUP BY (title, date_created, date, location, event.description, price, capacity, isPrivate, users.name, category.name, city);
+	GROUP BY (title, date_created, date, location, event.description, price, capacity, is_private, users.name, category.name, city);
 
 SELECT username
 	FROM users, event, ticket
@@ -107,7 +107,7 @@ SELECT e1.id_event
 	WHERE e1.id_owner=user1.id_user
 	    AND e1.id_category=category.id_category
 			AND user2.username = $username
-			AND (	isprivate = false
+			AND (	is_private = false
 					OR
 					(user2.id_user IN (SELECT id_invitee
 										FROM invite
@@ -135,7 +135,7 @@ WHERE title LIKE '%$search%' AND event.id_category= $category AND event.id_event
 --------------------
 --edit event
 UPDATE event
-  SET title = $title, date = $date, capacity = $capacity, isPrivate = $privateBool, id_category=$category, city = $city
+  SET title = $title, date = $date, capacity = $capacity, is_private = $privateBool, id_category=$category, city = $city
   WHERE username = $username; 
 
 --edit profile:
@@ -150,7 +150,7 @@ UPDATE users
 insert into users (username, email, password) values ( $username, $email, $password, $type);
 
 --new event
-insert into event (title, date_created, date, location, description, price, capacity, isPrivate, id_owner, id_category, city) values ($title, $date_created, $date, $location, $description, $price, $capacity, $isPrivate, $id_owner, $id_category, $city);
+insert into event (title, date_created, date, location, description, price, capacity, is_private, id_owner, id_category, city) values ($title, $date_created, $date, $location, $description, $price, $capacity, $is_private, $id_owner, $id_category, $city);
 
 --new post
 insert into post (date, text, id_event, id_author) values ($date, $text, $id_event, $id_author);

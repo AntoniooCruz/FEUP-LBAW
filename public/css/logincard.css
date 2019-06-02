@@ -1,3 +1,5 @@
+body{
+}
 
  #background {
     position: fixed;
@@ -9,7 +11,7 @@
     background-color: var(--darkBlue);
 }
 
-#loginBack{
+.loginBack{
     background: var(--lightBlue);
     z-index: -5;
 }

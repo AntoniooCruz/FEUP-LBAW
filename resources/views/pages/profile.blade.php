@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('content')
+@section('custom-scripts')
+<script type="text/javascript" src={{ asset('js/follow.js') }} defer></script>
+@endsection
 
+@section('content')
 <section id="profile">
   <span id="id_user" style="display:none;">{{$user->id_user}}</span>
 

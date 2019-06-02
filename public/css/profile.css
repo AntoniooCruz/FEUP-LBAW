@@ -64,7 +64,6 @@ small {
     #profile_container {
         margin: 4em 1em 0 auto !important;
         padding: 0;
-
     }
 
     #events_container {
@@ -82,7 +81,7 @@ small {
     margin-bottom: -5em;
     border: 2px solid var(--lightBlue);
     position: relative;
-    z-index: 3;
+    z-index: 1;
 }
 
 #profile_content {
@@ -93,7 +92,7 @@ small {
     border-radius: 4px;
     max-width: 400px;
     margin: auto;
-
+    z-index: 0;
 }
 
 

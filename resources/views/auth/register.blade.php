@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
+@section('custom-scripts')
+<script type="text/javascript" src={{ asset('js/register.js') }} defer></script>
+@endsection
+
 @section('content')
 
  <div id="background"></div>
+ <section class="loginBack">
     <section id="register-personal">
         <div class="login container">
             <div class="row">
@@ -99,4 +104,5 @@
             </div>
         </div>
     </section>   
+</section>   
     @endsection

@@ -6,9 +6,9 @@
                 {{ csrf_field() }}
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">
-                    <select name="isPrivate" class="custom-select">
-                      <option selected>Create public event</option>
-                      <option>Create private event</option>
+                    <select name="is_private" class="custom-select">
+                      <option value="public" selected>Create public event</option>
+                      <option value="private">Create private event</option>
                     </select>
                   </h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -28,7 +28,7 @@
                         <hr class="mb-3 mt-1">
                         <div id="details-content" class="py-3">
                           <div class="form-row m-0 py-1">
-                            <input type="text" id="inputName" class="form-control" name="title" placeholder="Event Title" required
+                            <input type="text" id="eventTitle" class="form-control" name="title" placeholder="Event Title" required
                               autofocus>
                           </div>
       
@@ -38,8 +38,8 @@
                           </div>
       
                           <div class="form-row m-0 py-1">
-                            <input type="text" id="inputName" class="form-control" placeholder="Datepicker" name="date" required
-                              autofocus>
+                            <input type="text" id="eventdate" class="form-control datepicker-here" data-language="en" placeholder="Datepicker" name="date"
+                            required autofocus>
                           </div>
       
                           <div class="form-row py-1">
@@ -58,7 +58,7 @@
                                 </div>
                                 <select name="category" class="ml-auto col-6 custom-select">
                                   @foreach ($categories as $category)
-                                    <option>{{$category->name}}</option>
+                                    <option value={{$category->id_category}}>{{$category->name}}</option>
                                   @endforeach
                                   </select>
                           </div>

@@ -11,23 +11,46 @@ use App\Event;
 use App\Category;
 use App\User;
 use App\Ticket;
-
+use Carbon\Carbon;
 
 class EventController extends Controller
 {   
 
     public function create(Request $request){
-       $event = new Event;
-
-       $event->fill([
-        'title' => $request->input('title'),
-        'id_owner' => Auth::user()->id_user
-        ]);
-
-        $event->owner()->save(Auth::user());
-
     
-        //$event->save();
+
+       $date_created = Carbon::now()->toDateTimeString();
+       if($request->input('price')== null)
+        $price = 0;
+       else $price = $request->input('price');
+
+       if( $request->input('is_private')=='public') 
+        $private = false;
+       else if( $request->input('is_private')=='private') 
+        $private = true;
+
+        $event = Event::create([
+            'title' => $request->input('title'),
+            'date_created' => $date_created,
+            'date' => '12/21/2020 02:11:00',
+            'location' => $request->input('street'),
+            'description' => $request->input('title'),
+            'price' => $price,
+            'capacity' => $request->input('capacity'),
+            'is_private' => $private,
+            'id_owner' => Auth::user()->id_user,
+            'id_category' => $request->input('category'),
+            'city' => $request->input('city')
+            ]);
+        $event->save();
+
+
+        return view('pages.event', ['event' => $event , 
+                                        'friendsGoing' => $this->friendsGoing($event->id_event),
+                                        'usersGoing' => $this->usersGoing($event->id_event),
+                                        'categories' => Category::all()
+                                        ] 
+            );
     }
 
     public function show($id_event) {
@@ -37,13 +60,14 @@ class EventController extends Controller
         
         $event = Event::find($id_event);
 
-        if(Auth::check() || $event->isprivate){
+        if(Auth::check() || $event->is_private){
             $this->authorize('view', $event);
         }
 
             return view('pages.event', ['event' => $event , 
                                         'friendsGoing' => $this->friendsGoing($id_event),
-                                        'usersGoing' => $this->usersGoing($id_event)
+                                        'usersGoing' => $this->usersGoing($id_event),
+                                        'categories' => Category::all()
                                         ] 
             );
 
