@@ -1,7 +1,7 @@
  <div class="col mt-4">
     <div class="invite card">
       <a href="eventpage.html"><img src="../img/invite-card-event.jpg" class="card-img-top"></a>
-      <span class="badge badge-pill badge-secondary card-category">{{$event->category->name}}</span>
+      <span class="badge badge-pill badge-secondary card-category">{{$event->title}}</span>
       <div class="card-body" id="event-card-body">
         <div class="row eventRow header align-items-start">
           <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
@@ -31,3 +31,5 @@
       </div>
     </div>
   </div>
+
+  
