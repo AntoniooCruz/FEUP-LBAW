@@ -217,4 +217,6 @@
   </div>
 </div>
 
+@include('layouts.create-event')
+
 @endsection

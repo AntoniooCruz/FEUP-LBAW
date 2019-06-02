@@ -67,4 +67,7 @@
       </div>
       </div>
     </section> 
+
+    @include('layouts.create-event', ['categories'=>$categories])
+
 @endsection

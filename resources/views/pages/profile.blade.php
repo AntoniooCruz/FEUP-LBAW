@@ -66,4 +66,7 @@
       </div>
       </div>
     </section> 
+
+    @include('layouts.create-event')
+
 @endsection

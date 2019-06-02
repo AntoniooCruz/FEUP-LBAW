@@ -77,6 +77,36 @@ function addEventListeners() {
     }
   }
 
+let unlimited = false;
+  //create event
+document.querySelector('#pills-free-tab').addEventListener('click', function(){
+  document.querySelector('#pricePticket').style.display = 'none';
+  //document.querySelector('#pills-free > div >div').classList.remove('col-6');
+  document.querySelector('#pricePticket input').required = false;
+})
+
+document.querySelector('#pills-paid-tab').addEventListener('click', function(){
+  document.querySelector('#pricePticket').style.display = 'flex';
+  //document.querySelector('#pills-free > div > div').classList.add('col-6');
+  document.querySelector('#pricePticket input').required = true;
+})
+
+document.querySelector('#unlimitedTickets').addEventListener('click', function(){
+  unlimited=!unlimited;
+
+  if(unlimited){
+    document.querySelector('#capacityDiv input').required = false;
+    document.querySelector('#capacityDiv input').disabled = true;
+
+  }else{
+    document.querySelector('#capacityDiv input').required = true;
+    document.querySelector('#capacityDiv input').disabled = false;
+
+  }
+  
+})
+
+
 
 // When the user starts to type something inside the password field
 myInput.onkeyup = function() {
@@ -138,3 +168,8 @@ myInput.onkeyup = function() {
 
   }
 }
+
+
+$('#my-element').datepicker([options])
+// Access instance of plugin
+$('#my-element').data('datepicker')

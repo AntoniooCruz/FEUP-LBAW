@@ -15,6 +15,10 @@ class Event extends Model
 
     protected $primaryKey = 'id_event';
 
+    protected $fillable = [
+        'title', 'date_created', 'date', 'location', 'description', 'price', 'capacity', 'isPrivate', 'city', 'id_owner'
+    ];
+
     public function category(){
         return $this->hasOne('App\Category', 'id_category', 'id_category');
     }

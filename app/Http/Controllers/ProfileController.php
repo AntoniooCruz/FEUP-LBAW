@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Validator;
 use App\User;
 use App\Event;
 use App\Ticket;
+use App\Category;
+
 
 class ProfileController extends Controller
 {
@@ -27,10 +29,13 @@ class ProfileController extends Controller
             array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
         }
 
+
         return view('pages.my-profile', ['user' => $user,
                                         'eventsOwned' => $eventsOwned, 
-                                        'eventsAttending' => $eventsAttending
+                                        'eventsAttending' => $eventsAttending,
+                                        'categories' => Category::all()
                                         ]);
+                                        
     }
 
     public function showUser($id_user) {
@@ -54,7 +59,12 @@ class ProfileController extends Controller
             array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
         }
 
-        return view('pages.profile', ['user' => $user, 'eventsOwned' => $eventsOwned, 'eventsAttending' => $eventsAttending, 'isFollowing' => $isFollowing]);
+        return view('pages.profile',['user' => $user, 
+                                    'eventsOwned' => $eventsOwned,
+                                    'eventsAttending' => $eventsAttending, 
+                                    'isFollowing' => $isFollowing,
+                                    'categories' => Category::all()
+                                    ]);
     }
 
     public function showEdit() {

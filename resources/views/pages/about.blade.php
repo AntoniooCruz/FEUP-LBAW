@@ -29,4 +29,6 @@
     </div>
 </section>
 
-    @endsection
+@include('layouts.create-event')
+
+@endsection

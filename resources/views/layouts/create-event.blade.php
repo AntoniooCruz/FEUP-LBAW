@@ -6,7 +6,7 @@
                 {{ csrf_field() }}
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">
-                    <select class="custom-select">
+                    <select name="isPrivate" class="custom-select">
                       <option selected>Create public event</option>
                       <option>Create private event</option>
                     </select>
@@ -56,7 +56,13 @@
                                   <input type="text" class="form-control" id="validationTooltip05" name="zip-code" placeholder="Zip Code"
                                     required>
                                 </div>
+                                <select name="category" class="ml-auto col-6 custom-select">
+                                  @foreach ($categories as $category)
+                                    <option>{{$category->name}}</option>
+                                  @endforeach
+                                  </select>
                           </div>
+                    
                         </div>
                       </div>
       
@@ -66,58 +72,35 @@
                         <div id="tickets-content" class="py-3">
                           <ul class="justify-content-center mx-0 row nav nav-pills mb-3" id="pills-tab" role="tablist">
                             <li class="nav-item">
-                              <a class="nav-link active" id="pills-free-tab" data-toggle="pill" href="#pills-paid" role="tab"
-                                aria-controls="pills-free" aria-selected="true">Free</a>
+                              <a class="nav-link active" id="pills-free-tab" data-toggle="pill" href="#pills-free" role="tab"
+                                aria-controls="pills-free" aria-selected="false">Free</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" id="pills-paid-tab" data-toggle="pill" href="#pills-paid" role="tab"
-                                aria-controls="pills-paid" aria-selected="false">Paid</a>
+                              <a class="nav-link" id="pills-paid-tab" data-toggle="pill" href="#pills-free" role="tab"
+                                aria-controls="pills-free" aria-selected="true">Paid</a>
                             </li>
                           </ul>
                           <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-free" role="tabpanel"
-                              aria-labelledby="pills-free-tab">
-                              <div class="form-row m-0 py-1">
+                              <div id="capacityDiv" class="form-row m-0 py-1">
                                 <div class="col-6 input-group mb-2">
                                   <div class="input-group-prepend">
                                     <div class="input-group-text pl-0"><i class="fas fa-ticket-alt"></i></div>
                                   </div>
                                   <input type="text" class="form-control pl-0" id="inlineFormInputGroup"
-                                    placeholder="Capacity" required>
+                                    placeholder="Capacity"  name="capacity" required>
                                 </div>
-                                <div class="col-6 input-group mb-2">
+                                <div id="pricePticket" class="col-6 input-group mb-2" style="display:none">
                                   <div class="input-group-prepend">
                                     <div class="input-group-text pl-0"><i class="fas fa-euro-sign"></i></div>
                                   </div>
                                   <input type="text" class="form-control pl-0" id="inlineFormInputGroup"
-                                    placeholder="Price p/ ticket" required>
+                                  name="price" placeholder="Price p/ ticket">
                                 </div>
                               </div>
                               <div class="row px-5">
-                                <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                                <label class="form-check-label" for="autoSizingCheck">Unlimited</label>
+                                <input class="form-check-input" type="checkbox" id="unlimitedTickets"  name="unlimited">
+                                <label class="form-check-label" for="unlimitedTickets">Unlimited</label>
                               </div>
-                            </div>
-                            <div class="tab-pane fade" id="pills-paid" role="tabpanel" aria-labelledby="pills-paid-tab">
-                              <div class="tab-pane fade show active" id="pills-free" role="tabpanel"
-                                aria-labelledby="pills-free-tab">
-                                <div class="form-row m-0 py-1">
-                                  <div class="col-6 form-row m-0 py-1">
-                                    <div class="input-group mb-2">
-                                      <div class="input-group-prepend">
-                                        <div class="input-group-text pl-0"><i class="fas fa-ticket-alt"></i></div>
-                                      </div>
-                                      <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        placeholder="Capacity">
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row px-5">
-                                  <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                                  <label class="form-check-label" for="autoSizingCheck">Unlimited</label>
-                                </div>
-                              </div>
-                            </div>
                           </div>
                         </div>
                       </div>

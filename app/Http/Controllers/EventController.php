@@ -17,6 +17,17 @@ class EventController extends Controller
 {   
 
     public function create(Request $request){
+       $event = new Event;
+
+       $event->fill([
+        'title' => $request->input('title'),
+        'id_owner' => Auth::user()->id_user
+        ]);
+
+        $event->owner()->save(Auth::user());
+
+    
+        //$event->save();
     }
 
     public function show($id_event) {
