@@ -23,6 +23,13 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
+Route::group(['prefix' => 'admin','namespace' => 'Auth'],function(){
+  // Password Reset Routes...
+  Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+  Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+  Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset.token');
+  Route::post('password/reset', 'ResetPasswordController@reset');
+});
 
 //static pages
 Route::get('about', function () {
@@ -50,3 +57,8 @@ Route::post('createvent', 'EventController@create');
 //Search
 Route::get('search', 'SearchController@search');
 Route::post('search/', 'SearchController@search');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
