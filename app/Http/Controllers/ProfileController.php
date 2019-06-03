@@ -82,7 +82,12 @@ class ProfileController extends Controller
             array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
         }
 
-        return view('pages.edit-profile', ['user' => $user, 'eventsOwned' => $eventsOwned, 'eventsAttending' => $eventsAttending]);
+        return view('pages.edit-profile', 
+                    ['user' => $user, 
+                    'eventsOwned' => $eventsOwned, 
+                    'eventsAttending' => $eventsAttending,
+                    'categories' => Category::all()
+                    ]);
     }
 
 
