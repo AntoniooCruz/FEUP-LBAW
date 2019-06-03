@@ -126,7 +126,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 2em;
+    margin-bottom: 3.5em;
 }
 
 .login .form-control{
@@ -311,4 +311,12 @@ margin-top: 2rem;
 #resetEmail div{
     margin-top:0.9em;
     font-size: 14px;
+}
+
+.alert-success{
+    font-size: 13px;
+    position: absolute;
+    width: 100%;
+    top: 55px;
+    padding: 5px 1.5em;
 }

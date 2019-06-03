@@ -2,6 +2,7 @@
 
 @section('custom-scripts')
 <script type="text/javascript" src={{ asset('js/follow.js') }} defer></script>
+<link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')

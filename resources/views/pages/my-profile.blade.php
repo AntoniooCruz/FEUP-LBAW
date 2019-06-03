@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('custom-scripts')
+  <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 
 <section id="profile">

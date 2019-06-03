@@ -1,26 +1,28 @@
 let unlimited = false;
-  //create event
-document.querySelector('#pills-free-tab').addEventListener('click', function(){
-  document.querySelector('#pricePticket').style.display = 'none';
-  document.querySelector('#pricePticket input').required = false;
-})
+let freeTab = document.querySelector('#pills-free-tab');
+let paidTab = document.querySelector('#pills-paid-tab');
 
-document.querySelector('#pills-paid-tab').addEventListener('click', function(){
-  document.querySelector('#pricePticket').style.display = 'flex';
-  document.querySelector('#pricePticket input').required = true;
-})
+if(paidTab!=null && freeTab !=null){
+    freeTab.addEventListener('click', function(){
+        document.querySelector('#pricePticket').style.display = 'none';
+        document.querySelector('#pricePticket input').required = false;
+        })
 
-document.querySelector('#unlimitedTickets').addEventListener('click', function(){
-  unlimited=!unlimited;
+    paidTab.addEventListener('click', function(){
+        document.querySelector('#pricePticket').style.display = 'flex';
+        document.querySelector('#pricePticket input').required = true;
+    })
 
-  if(unlimited){
-    document.querySelector('#capacityDiv input').required = false;
-    document.querySelector('#capacityDiv input').disabled = true;
+    document.querySelector('#unlimitedTickets').addEventListener('click', function(){
+        unlimited=!unlimited;
 
-  }else{
-    document.querySelector('#capacityDiv input').required = true;
-    document.querySelector('#capacityDiv input').disabled = false;
+        if(unlimited){
+            document.querySelector('#capacityDiv input').required = false;
+            document.querySelector('#capacityDiv input').disabled = true;
 
-  }
-  
-})
+        }else{
+            document.querySelector('#capacityDiv input').required = true;
+            document.querySelector('#capacityDiv input').disabled = false;
+        }
+    })
+}
