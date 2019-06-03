@@ -13,4 +13,9 @@ class Poll extends Model
 
         return $this->hasMany('App\PollOption', 'id_poll', 'id_poll');
     }
+
+    public function votesOnPoll() {
+
+        return $this->hasMany('App\VoteOnPoll', 'id_poll', 'id_poll');
+    }
 }
