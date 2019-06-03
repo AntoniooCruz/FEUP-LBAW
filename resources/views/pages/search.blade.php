@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@extends('layouts.search-results')
 @section('content')
 
 <section class="search container">
@@ -91,5 +92,9 @@
         </select>
       </div>
     </div>
-@each('partials.card', $events, 'event')
+    <div id="results_container" class="text-center mt-5">
+      <div class="row justify-content-center">
+      @each('partials.card', $events, 'event')
+      </div>
+    </div>
 @endsection

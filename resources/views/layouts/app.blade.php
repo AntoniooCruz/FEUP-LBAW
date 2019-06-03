@@ -11,7 +11,7 @@
 
   <title>{{ config('app.name', 'Laravel') }}</title>
 
-  <!-- Styles -->
+ <!-- Styles -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="{{ asset('css/logincard.css') }}" rel="stylesheet">
@@ -21,6 +21,8 @@
   <link href="{{ asset('css/activity-cards.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
   <link href="{{ asset('css/datepicker.min.css')}}" rel="stylesheet" type="text/css">
+
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="{{ asset('js/datepicker.min.js')}}"></script>
   <script src="{{ asset('js/i18n/datepicker.en.js')}}"></script>
