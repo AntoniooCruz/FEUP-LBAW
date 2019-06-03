@@ -53,8 +53,9 @@
                                     <label class="form-check-label" for="remember">Remember Me</label>
                                 </div>
                                 </div>
+                                <div id="resetPassword">
                                 <a class="reset_pass" href="{{ url('/password/reset') }}">Lost your password?</a>
-
+                            </div>
                                 <span id="register-link">Don't have an account?<a id="registerbtn"
                                     href="{{ route('register') }}">Register</a></span>
                                 <button id="loginbtn" class="btn btn-lg btn-primary btn-block"

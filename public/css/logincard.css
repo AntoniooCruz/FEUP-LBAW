@@ -1,4 +1,5 @@
 body{
+    background-color: var(--lightBlue);
 }
 
  #background {
@@ -111,7 +112,7 @@ body{
     padding: 0px 20px !important;}
 
 .login .form-signin #loginbtn, .login .form-register #loginbtn{
-    margin-top:  20px  !important;
+    margin-top: 10px !important;
     margin-bottom: 10px;
     padding: 0px 20px !important;
 }
@@ -153,6 +154,11 @@ body{
 #register-personal #loginlogo img{
     width: 20%;
     height: 20%;
+}
+
+#login #loginlogo img{
+    width: 54%;
+    height: 54%;
 }
 
 #register-personal .form-label-group input {
@@ -254,6 +260,7 @@ margin-top: 2rem;
   #remember-me{
       display: flex;
       justify-content: center;
+      font-size: 14px;
   }
 
   #welcomeRaincheck{
@@ -264,5 +271,44 @@ margin-top: 2rem;
   }
 
   #register-personal form{
-    margin-top: 3.25em;
+    margin-top: 3em;
   }
+
+#resetPassword{
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+}
+
+#resetPassword a, #resetEmail div a{
+    color:#799ab7;
+    text-decoration: underline;
+  }
+
+#emailBlade{
+    height: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#resetDescription{
+    margin-top:4em;
+    margin-bottom:1em;
+}
+
+#emailInputReset{
+    margin-bottom:4em;
+}
+
+#resetEmail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:4em;
+}
+
+#resetEmail div{
+    margin-top:0.9em;
+    font-size: 14px;
+}

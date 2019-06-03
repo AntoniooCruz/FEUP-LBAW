@@ -1,6 +1,9 @@
+body{
+    background-color: #f1f1f1;
+}
+
 #feed {
     margin-top: 2em;
-
 }
 
 #feed .actionCard .invite {
