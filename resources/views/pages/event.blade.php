@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('content')
+@section('custom-scripts')
+<link rel="stylesheet" href="../css/eventpage.css">
+@endsection
 
+@section('content')
 <section id="event" class="event container">
   <div class="eventPhoto justify-content-md-center">
     <div id="floatingLabels">
