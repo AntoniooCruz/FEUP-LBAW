@@ -1,7 +1,10 @@
 @extends('layouts.app')
-@extends('layouts.search-results')
-@section('content')
 
+@section('custom-scripts')
+<link href="{{ asset('css/search-result.css') }}" rel="stylesheet">
+@endsection
+
+@section('content')
 <section class="search container">
     <form action="{{URL::to('/search')}}" method="POST" role="search" class=" row searchBar-nb justify-content-center mt-5">
     {{csrf_field()}}  

@@ -19,7 +19,6 @@
   <link href="{{ asset('css/activity-cards.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
   <link href="{{ asset('css/datepicker.min.css')}}" rel="stylesheet" type="text/css">
-
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="{{ asset('js/datepicker.min.js')}}"></script>
