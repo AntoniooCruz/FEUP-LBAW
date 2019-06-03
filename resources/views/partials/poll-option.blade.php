@@ -5,5 +5,5 @@
         </div>
         <div class="progress-bar bg-info" role="progressbar" style="width: 100%;" aria-valuenow="25"
           aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">100%</span>
-        <span class="pollOption">oi</span>
+        <span class="pollOption">{{$pollOption->name}}</span>
       </div>
