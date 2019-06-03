@@ -53,6 +53,12 @@ Route::delete('api/profile/{id_user}/follow','ProfileController@unfollowUser');
 //Event
 Route::get('event/{id_event}', 'EventController@show');
 Route::post('createvent', 'EventController@create');
+
+//Search
+Route::get('search', 'SearchController@search');
+Route::post('search/', 'SearchController@search');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
