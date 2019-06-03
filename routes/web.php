@@ -33,11 +33,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Auth'],function(){
 
 //static pages
 Route::get('about', function () {
-    return view('pages.about');
+    return view('pages.about', ['categories' => Category::all()]);
   })->name('about');
 
 Route::get('faqs', function () {
-    return view('pages.faqs');
+    return view('pages.faqs', ['categories' => Category::all()]);
   })->name('faqs');
 
 

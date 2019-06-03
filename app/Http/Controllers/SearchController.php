@@ -24,7 +24,9 @@ class SearchController extends Controller
         ORDER BY ts_rank(search_tokens,plainto_tsquery('english',:search)) 
         DESC;",['search' => $search_text]);
 
-        return view('pages.search',['events' => $events
+        return view('pages.search',['events' => $events,
+        'categories' => Category::all()
+
         ]);
     }
 
