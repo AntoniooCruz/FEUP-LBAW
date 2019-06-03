@@ -13,7 +13,7 @@
     </form>
 
     <div class="row filters justify-content-center align-items-center">
-      <nav class="navbar navbar-expand-lg navbar-light   col-auto pr-0">
+      <nav class="navbar navbar-expand-lg navbar-light col-auto pr-0 justify-content-center">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#filters"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span id="filterby">Filter by</span>

@@ -104,3 +104,9 @@ body{
 .filters .navbar-toggler{
 padding-top:0;
 }
+
+#filters ul li{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
