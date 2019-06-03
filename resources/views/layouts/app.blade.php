@@ -37,6 +37,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"
     defer></script>
   <script type="text/javascript" src={{ asset('js/app.js') }} defer></script>
+  <script type="text/javascript" src={{ asset('js/createEvent.js') }} defer></script>
   @yield('custom-scripts')
 </head>
 
