@@ -130,4 +130,17 @@ class EventController extends Controller
         return response()->json([$comment]);
     }
 
+    public function getComments($id_post) {
+
+        if (!Auth::check()) 
+            return response(403);
+        
+        $post = Post::find($id_post);
+        
+        $comments = $post->comments()->get()->map(function ($comment) {
+            return ['id' => $comment->id_comment, 'id_post'=> $comment->id_post, 'date'=> $comment->date, 'text'=> $comment->text];
+        });
+
+        return response()->json([$comments]);
+    }
 }
