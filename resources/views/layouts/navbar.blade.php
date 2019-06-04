@@ -33,7 +33,7 @@
 
      
 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-  <form action="{{URL::to('/search')}}" method="POST" role="search" class="searchBar-blue form-inline mr-auto my-2 my-lg-0">
+  <form action="{{URL::to('/search')}}" method="GET" role="search" class="searchBar-blue form-inline mr-auto my-2 my-lg-0">
   {{csrf_field()}} 
     <input class="form-control" type="search" placeholder="Search..." name="search" >
     <button class="btn form-control" type="submit"><i class="fas fa-search"></i></button>

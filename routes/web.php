@@ -58,7 +58,7 @@ Route::post('api/event/{id_event}/post/{id_post}/addcomment', 'EventController@a
 
 //Search
 Route::get('search', 'SearchController@search');
-Route::post('search/', 'SearchController@search');
+Route::get('api/search', 'SearchController@filter');
 
 Auth::routes();
 

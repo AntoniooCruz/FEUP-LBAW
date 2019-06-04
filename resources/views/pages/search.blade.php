@@ -3,11 +3,12 @@
 @section('custom-scripts')
 <link href="{{ asset('css/search-result.css') }}" rel="stylesheet">
 <script type="text/javascript" src={{ asset('js/event-card.js') }} defer></script>
+<script type="text/javascript" src={{ asset('js/search.js') }} defer></script>
 @endsection
 
 @section('content')
 <section class="search container">
-    <form action="{{URL::to('/search')}}" method="POST" role="search" class=" row searchBar-nb justify-content-center mt-5">
+    <form action="{{URL::to('/search')}}" method="GET" role="search" class=" row searchBar-nb justify-content-center mt-5">
     {{csrf_field()}}  
     <input class="form-control" type="search" placeholder="Search..." name="search">
       <button class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
@@ -29,14 +30,14 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                  <label class="form-check-label" for="defaultCheck1">
+                  <input class="form-check-input" type="checkbox" value="Free" id="checkFree" checked>
+                  <label class="form-check-label" for="checkFree">
                     Free
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                  <label class="form-check-label" for="defaultCheck1">
+                  <input class="form-check-input" type="checkbox" value="Paid" id="checkPaid" checked>
+                  <label class="form-check-label" for="checkPaid">
                     Paid
                   </label>
                 </div>
