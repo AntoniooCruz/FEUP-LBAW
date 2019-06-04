@@ -18,11 +18,8 @@
   <link href="{{ asset('css/event-cards.css') }}" rel="stylesheet">
   <link href="{{ asset('css/activity-cards.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/datepicker.min.css')}}" rel="stylesheet" type="text/css">
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="{{ asset('js/datepicker.min.js')}}"></script>
-  <script src="{{ asset('js/i18n/datepicker.en.js')}}"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 

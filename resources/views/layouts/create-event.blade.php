@@ -38,7 +38,7 @@
                           </div>
       
                           <div class="form-row m-0 py-1">
-                            <input type="text" id="eventdate" class="form-control datepicker-here" data-language="en" placeholder="Datepicker" name="date"
+                            <input type="text" id="eventdate" class="form-control" data-language="en" placeholder="Datepicker" name="date"
                             required autofocus>
                           </div>
       
