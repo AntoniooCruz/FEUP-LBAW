@@ -16,10 +16,10 @@
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
                                 <li id="personalBtn" class="nav-item col ">
-                                    <a class="nav-link active" href="">Personal</a>
+                                    <span class="nav-link active" >Personal</span>
                                 </li>
                                 <li id="businessBtn" class="nav-item col">
-                                    <a class="nav-link" href="">Business</a>
+                                    <span class="nav-link" >Business</span>
                                 </li>
                             </ul>
                         </div>
@@ -37,7 +37,7 @@
                                     <label for="inputName">Name</label>
                                     <label for="name">Name</label>
                                     @if ($errors->has('name'))
-                                      <span class="error">
+                                      <span class="error ml-4">
                                           {{ $errors->first('name') }}
                                       </span>
                                     @endif
@@ -50,13 +50,25 @@
                                     <label for="inputUserName">Username</label>
                                 </div>
 
+                                <div class="form-label-group">
+                                        <!-- NAME -->
+                                        <input type="text" id="inputSite" class="form-control" placeholder="Website URL" 
+                                        name="site" value="{{ old('site') }}">
+                                        <label for="inputSite">Website URL</label>
+                                        @if ($errors->has('site'))
+                                          <span class="error ml-4">
+                                              {{ $errors->first('site') }}
+                                          </span>
+                                        @endif
+                                    </div>
+
                               <!-- EMAIL -->
                                 <div class="form-label-group">
                                     <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
                                     name="email" value="{{ old('email') }}" required autofocus>
                                     <label for="inputEmail">Email address</label>
                                     @if ($errors->has('email'))
-                                    <span class="error">
+                                    <span class="error ml-4">
                                         {{ $errors->first('email') }}
                                     </span>
                                     @endif
@@ -78,7 +90,7 @@
                                         <p id="length">Minimum <b>6 characters</b></p></span>
                                     </div>
                                     @if ($errors->has('password'))
-                                      <span class="error">
+                                      <span class="error ml-4">
                                           {{ $errors->first('password') }}
                                       </span>
                                     @endif
