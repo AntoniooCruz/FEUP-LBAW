@@ -113,6 +113,8 @@ CREATE TABLE event (
     id_owner     INTEGER       REFERENCES users (id_user) ON DELETE CASCADE,
     id_category  INTEGER       REFERENCES category (id_category) ON DELETE CASCADE,
     city         VARCHAR (30),
+    country     VARCHAR (30),
+    zip_code     VARCHAR (7),
     search_tokens TSVECTOR,
 
     CONSTRAINT event_dates CHECK ("date" > date_created)

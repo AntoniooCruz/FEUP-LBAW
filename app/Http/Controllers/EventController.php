@@ -32,10 +32,15 @@ class EventController extends Controller
        else if( $request->input('is_private')=='private') 
         $private = true;
 
+        $splitDatepicker = explode(' @', $request->input('date'), 2);
+        $date = $splitDatepicker[0];
+        $time = !empty($splitDatepicker[1]) ? $splitDatepicker[1] : '';
+        $datetime = $date . $time;
+
         $event = Event::create([
             'title' => $request->input('title'),
             'date_created' => $date_created,
-            'date' => '12/21/2020 02:11:00',
+            'date' => $datetime,
             'location' => $request->input('street'),
             'description' => $request->input('title'),
             'price' => $price,
@@ -43,10 +48,13 @@ class EventController extends Controller
             'is_private' => $private,
             'id_owner' => Auth::user()->id_user,
             'id_category' => $request->input('category'),
-            'city' => $request->input('city')
+            'city' => $request->input('city'),
+            'zip_code' => $request->input('zip_code'),
+            'country' => $request->input('country')
             ]);
         $event->save();
 
+        return redirect("event/".$event->id_event);
 
         return view('pages.event', ['event' => $event , 
                                         'friendsGoing' => $this->friendsGoing($event->id_event),
@@ -119,18 +127,21 @@ class EventController extends Controller
             ]);
 
         $comment->save();
-        
-        /*try {
-            $post->comments()->attach($comment);
 
-        } catch (Exception $e) {
-            return response()->json(["error" => $e], 400);
-        }
-        */
-        
-        echo($post->comments()->get());
-
-        return response(200);
+        return response()->json([$comment]);
     }
 
+    public function getComments($id_post) {
+
+        if (!Auth::check()) 
+            return response(403);
+        
+        $post = Post::find($id_post);
+        
+        $comments = $post->comments()->get()->map(function ($comment) {
+            return ['id' => $comment->id_comment, 'id_post'=> $comment->id_post, 'date'=> $comment->date, 'text'=> $comment->text];
+        });
+
+        return response()->json([$comments]);
+    }
 }

@@ -21,9 +21,9 @@
       <div class="row header align-items-start">
         <div id="eventPagedate" class="col-xs align-items-start">
           <div id="eventPageMonth">
-            <span class="eventMonth">Mar</span>
+            <span class="eventMonth">{{$event->date}}</span>
           </div>
-          <span id="eventPageDay">03</span>
+          <span class="eventPageDay">{{$event->date}}</span>
         </div>
         <div id="titleHeader" class="col">
           <h2 id="eventTitle">{{$event->title}}</h2>
@@ -36,7 +36,10 @@
     </div>
     <div class="col-lg-2  col-md-3 col-sm-12 getTicket text-right pr-1">
       <button class="btn btn-primary" type="button" aria-expanded="false">
-        <i class="fas fa-ticket-alt"></i> {{$event->price}}€
+        <i class="fas fa-ticket-alt"></i> 
+        @if($event->price>0)
+        {{$event->price}}€
+        @endif
       </button>
     </div>
     <div class="col-lg-1  col-md-1 col-sm-12 getTicket text-right">
@@ -58,14 +61,25 @@
       <div class="col-lg-4 col-sm-12 ">
         <div id="dateNhours">
           <h6><i class="far fa-calendar-alt"></i> Date & Hours</h6>
-          <span>03 de Março 2019</span>
-          <span>14h30 - 16h30</span>
+          <span id="extendedDate">{{$event->date}}</span>
         </div>
 
         <div id="location">
           <h6><i class="fas fa-map-marker-alt"></i> Location</h6>
-          <span>{{$event->location}}</span>
-          <span>Porto</span>
+          <span>{{$event->location}}</span>    
+          <span>
+              @if($event->zip_code!=null)
+              {{$event->zip_code}},
+              @endif
+              @if($event->city!=null)
+              {{$event->city}}
+              @endif
+          </span>
+          @if($event->country!=null)
+          <span>
+              {{$event->country}}
+          </span> 
+          @endif       
         </div>
       </div>
       <div class="col">

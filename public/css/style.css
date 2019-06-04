@@ -448,6 +448,14 @@ body > .navbar:nth-child(1) .dropdown-toggle{
     border-bottom: 1px solid #ced4da;
 }
 
+.disabled{
+    color:#bfc4c9;
+}
+.disabled::-webkit-input-placeholder{
+    color:#bfc4c9;
+}
+
+
 #createEventModal .tab-content .input-group-prepend div,
 #editEventModal .tab-content .input-group-prepend div{
     border-radius: 0;
@@ -522,4 +530,8 @@ body > .navbar:nth-child(1) .dropdown-toggle{
 
 .fa-flag:hover {
     color: var(--red);
+}
+
+.custom-select{
+    margin-left: 5px;
 }
