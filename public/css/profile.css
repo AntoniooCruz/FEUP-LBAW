@@ -56,6 +56,9 @@ small {
         margin: 2em 0em !important;
     }
 
+    #edit_button {
+        left: -328% !important;
+    }
 
     #events_container {
         margin-left: 0em !important;
@@ -268,7 +271,7 @@ span a{
   #edit_button{
     position: absolute;
     top: -160px;
-    left: -175px;
+    left: -342%;
     width: 60px;
   }
 
