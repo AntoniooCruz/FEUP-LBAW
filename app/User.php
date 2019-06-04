@@ -50,6 +50,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Ticket','invite','id_invitee','id_event');
     }
 
+    public function business(){
+        return $this->hasOne('App\Business','id_user','id_user');
+    }
+
     public function scopeGoingToEvent($query, $id_event){
         
         return $query->whereExists(function ($query) {

@@ -1,4 +1,5 @@
 <div class="container-fluid actionCard">
+  <span id="id_post" style="display:none;">{{$post->id_post}}</span>
         <div class="card card-comment">
           <div class="description header">
             <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
@@ -23,26 +24,16 @@
               <div class="commentInput row">
                 <div class="col px-1">
                   <img class=" userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
-                  <textarea class="form-control roundRadius pl-5" id="exampleFormControlTextarea1" rows="1"
+                  <textarea id ="comment_data" class="form-control roundRadius pl-5" id="exampleFormControlTextarea1" rows="1"
                     placeholder="Say something..."></textarea></div>
                 <div class="col-auto p-0">
-                  <button class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
+                  <button id="add_comment_button" class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
                     <i class="fas fa-caret-right"></i>
                   </button>
                 </div>
               </div>
               <div class="card-comment-section ">
-                <div class="comment my-2">
-                  <div class="row">
-                    <img class="roundRadius" src="../img/user.jpg" alt="Card image cap">
-                    <div class="col-10 align-self-center commentText roundRadius px-4 ml-1">
-                      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                    </div>
-                  </div>
-                  <div class="reply row justify-content-end mr-4">
-                    Reply
-                  </div>
-                </div>
+              @each ('partials.comment', $post->comments()->get(), 'comment')
                 <div class="comment my-2">
                   <div class="row">
                     <img class="roundRadius" src="../img/user.jpg" alt="Card image cap">
@@ -59,7 +50,7 @@
             </div>
             <div class="footerText" data-toggle="collapse" href="#comments1" role="button" aria-expanded="false"
               aria-controls="collapseExample">
-              <button>
+              <button id="comment_button">
                 <i class="far fa-comments"></i>
                 <span>{{sizeof($post->comments()->get())}}</span>
               </button>

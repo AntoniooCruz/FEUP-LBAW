@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="mainpage.html"> <img src="../img/icon.png" width="31,83" height="24,92"> </a>
+  <a class="navbar-brand" href="mainpage.html"> <img src="{{ asset('img/icon.png') }}" width="31,83" height="24,92"> </a>
 
 @if(Auth::check())
   <button id="newEventBtn" type="button" class="" data-toggle="modal" data-target="#createEventModal">

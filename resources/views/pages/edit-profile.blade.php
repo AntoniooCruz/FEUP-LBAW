@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('custom-scripts')
+  <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 
 <section id="profile">
@@ -7,7 +11,6 @@
         <div id="profile_container" class="col-lg-3 col-12 container text-center">
             <div>
                 <img src="../img/user.jpg">
-                <button type="button" class="profile-pri-button btn btn-outline-primary">Update</button>
             </div>
             <form method="POST" action="{{ url('/profile/edit') }}" class="form-signin">
 
@@ -21,7 +24,7 @@
 
                             <div class="form-label-group">
                                 <input type="text"  name="name" id="inputName" class=" ... {{$errors->has('name')? 'is-invalid' : '' }} form-control" value="{{old('name',$user->name)}}" required
-                                    autofocus style="border:none;">
+                                    autofocus style="border:none;" placeholder="Name">
                                     @if ($errors->has('name'))
 								        <span class="invalid-feedback">
                                                 {{ $errors->first('name') }}
@@ -30,16 +33,28 @@
                             </div>
                             <div class="form-label-group">
                                 <input type="email" name="email" id="inputEmail" class="... {{$errors->has('email')? 'is-invalid' : '' }} form-control" value="{{old('email',$user->email)}}"
-                                    required autofocus style="border:none;">
+                                    required autofocus style="border:none;" placeholder="Email">
                                     @if ($errors->has('email'))
 								        <span class="invalid-feedback">
                                                 {{ $errors->first('email') }}
                                     </span>
                                     @endif
                             </div>
+
+                            @if($user->user_type=='Business')
+                            <div class="form-label-group">
+                                <input type="text" name="website" id="inputwebsite" class="... {{$errors->has('website')? 'is-invalid' : '' }} form-control" value="{{old('website',$user->business->website)}}"
+                                    required autofocus style="border:none;" placeholder="Website">
+                                    @if ($errors->has('website'))
+								        <span class="invalid-feedback">
+                                                {{ $errors->first('website') }}
+                                    </span>
+                                    @endif
+                            </div>
+                            @endif
                             <div class="form-label-group">
                                 <input type="text" name="username" id="inputUsername" class="... {{$errors->has('username')? 'is-invalid' : '' }} form-control" value="{{old('username',$user->username)}}"
-                                    required autofocus style="border:none;">
+                                    required autofocus style="border:none;" placeholder="Username">
                                     @if ($errors->has('username'))
 								        <span class="invalid-feedback">
                                                 {{ $errors->first('username') }}
@@ -48,6 +63,9 @@
                             </div>
 
                         </div>
+                        <div class="col-3 col text-right">
+                                <button id="update_button" type="button" class="profile-pri-button btn btn-outline-primary">Update</button>
+                              </div>
                     </div>
                     <hr>
 
@@ -70,7 +88,7 @@
                     <div>
                     <textarea id="description" name="description" class="... {{$errors->has('description')? 'is-invalid' : '' }} col-10 text-left"
                         style="overflow:hidden; resize:none; border: 1px solid #cfd4da; margin-top:0"
-                        rows="4"> {{old('description',$user->description)}}</textarea>
+                        rows="4" placeholder="Description"> {{old('description',$user->description)}}</textarea>
                         @if ($errors->has('description'))
 								        <span class="invalid-feedback">
                                                 {{ $errors->first('description') }}

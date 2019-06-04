@@ -79,7 +79,7 @@ small {
 
 
 #profile_container img {
-    width: 60%;
+    width: 50%;
     border-radius: 100px;
     max-width: 140px;
     margin-bottom: -5em;
@@ -156,9 +156,11 @@ small {
     margin: 1rem;
 }
 #profile form input{
-height: 25px;
-padding: 0 .75rem;
-font-size: 13px;
+    height: 25px;
+    padding: 0 .75rem;
+    font-size: 13px;
+    width: 200px;
+    border-radius: 0;
 }
 #profile_content #header {
     padding: 3em;
@@ -221,14 +223,9 @@ color: white;
 
 #profile .fa-flag {
     position: absolute;
-    top: 0.8rem;
-    right: 1rem;
+    top: -26px;
+    right: 0;
     z-index: 2;
-    color: white;
-}
-
-.fa-flag:hover {
-    color: red;
 }
 
 .form-label-group > input{
@@ -254,4 +251,30 @@ textarea{
 
 .fa-check-circle{
     color:var(--green);
+    padding-top: 3.5px;
+    margin-left: 5px;
 }
+
+span a{
+    text-decoration: underline;
+    color:black;
+    font-size: 14px;
+  }
+
+  span a:hover{
+    color:#799ab7;
+  }
+
+  #edit_button{
+    position: absolute;
+    top: -160px;
+    left: -175px;
+    width: 60px;
+  }
+
+  #update_button{
+    position: absolute;
+    top: -303px;
+    left: -24px;
+    width: 60px;
+  }

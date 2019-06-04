@@ -11,7 +11,10 @@ use App\Event;
 use App\Category;
 use App\User;
 use App\Ticket;
+use App\Post;
+use App\Comment;
 use Carbon\Carbon;
+
 
 class EventController extends Controller
 {   
@@ -94,6 +97,40 @@ class EventController extends Controller
         });
 
         return $idsUsersGoing;
+    }
+
+    public function addComment(Request $request, $id_event, $id_post) {
+
+        if (!Auth::check()) 
+            return response(403);
+        
+        $id_author = Auth::user()->id_user;
+        $post = Post::find($id_post);
+        $id_parent = 2;
+
+        $date_created = Carbon::now()->toDateTimeString();
+
+        $comment = Comment::create([
+            'text' => $request->input('data'),
+            'id_post' => $id_post,
+            'id_parent' => $id_parent,
+            'id_author' => $id_author,
+            'date' => $date_created
+            ]);
+
+        $comment->save();
+        
+        /*try {
+            $post->comments()->attach($comment);
+
+        } catch (Exception $e) {
+            return response()->json(["error" => $e], 400);
+        }
+        */
+        
+        echo($post->comments()->get());
+
+        return response(200);
     }
 
 }

@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use App\Business;
+
 class RegisterController extends Controller
 {
     /*
@@ -65,18 +67,31 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
+    {        
+        if($data['site']==null){
+            $user_type = 'Personal';
+        }else $user_type = 'Business';
 
         $user =  User::create([
             'username' => $data['username'],
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'user_type' => 'Personal',
+            'user_type' => $user_type,
             'description' => '',
         ]);
 
-        DB::insert('insert into personal (id_user) values (?)', [$user->id_user]);
+
+        if( $user_type =='Personal')
+            DB::insert('insert into personal (id_user) values (?)', [$user->id_user]);
+        else if( $user_type =='Business'){
+            $business_user = Business::create([
+                'id_user' => $user->id_user,
+                'verification' => 'Pending',
+                'website' => $data['site']
+            ]);
+            $business_user->save();
+        } 
 
         return $user;
 

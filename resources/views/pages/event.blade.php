@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('custom-scripts')
-<link rel="stylesheet" href="../css/eventpage.css">
+<script type="text/javascript" src={{ asset('js/comments.js') }} defer></script>
+  <link href="{{ asset('css/eventpage.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
 <section id="event" class="event container">
+  <span id="id_event" style="display:none;">{{$event->id_event}}</span>
   <div class="eventPhoto justify-content-md-center">
     <div id="floatingLabels">
       @if($event->is_private)<span id="privateIndicator" class="label"> <i class="fas fa-lock"></i></span>@endif
