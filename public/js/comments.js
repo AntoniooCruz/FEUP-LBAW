@@ -1,8 +1,10 @@
 let showCommentBttn = document.querySelector('#comment_button');
-showCommentBttn.addEventListener('click', showCommentsRequest);
+if(showCommentBttn!=null)
+  showCommentBttn.addEventListener('click', showCommentsRequest);
 
 let addCommentBttn = document.querySelector('#add_comment_button');
-addCommentBttn.addEventListener('click', addCommentRequest);
+if(addCommentBttn!=null)
+  addCommentBttn.addEventListener('click', addCommentRequest);
 
 
 function addCommentToSection(id_user, comment_text){
