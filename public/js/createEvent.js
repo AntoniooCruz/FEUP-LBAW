@@ -46,3 +46,14 @@ if(paidTab!=null && freeTab !=null){
         });
       });
 }
+
+let oldDate;
+
+if(document.getElementById('errors').innerHTML!=0){
+  $('input[name="date"]').value =oldDate;
+  $('#createEventModal').modal();
+}
+  
+document.getElementsByClassName('submit').addEventListener("click", function(){
+  oldDate = $('input[name="date"]').value;
+});

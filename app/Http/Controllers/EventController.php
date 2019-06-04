@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Support\Collection;
 use App\Event;
@@ -18,9 +20,26 @@ use Carbon\Carbon;
 
 class EventController extends Controller
 {   
+    protected function validator($data)
+    {
+
+        return Validator::make($data, [
+            'title' => 'required|string|max:50',
+            'date' => 'required|string|regex:/[0-9]{2}\/[0-9]{2}\/[0-9]{4} @ [0-9][0-9]?:[0-9]{2}/',
+            'location' => 'string|max:40|nullable',
+            'description' => 'string|max:100|nullable',
+            'price' => 'required|numeric|max:20',
+            'capacity' => 'required|integer',
+            'city' => 'string|max:30|nullable',
+            'zip_code' => 'string|max:6|nullable',
+            'country' => 'string|max:30|nullable'
+        ])->validate();
+        
+    }
 
     public function create(Request $request){
-    
+
+        $this->validator($request->all());
 
        $date_created = Carbon::now()->toDateTimeString();
        if($request->input('price')== null)
@@ -36,6 +55,8 @@ class EventController extends Controller
         $date = $splitDatepicker[0];
         $time = !empty($splitDatepicker[1]) ? $splitDatepicker[1] : '';
         $datetime = $date . $time;
+
+
 
         $event = Event::create([
             'title' => $request->input('title'),
@@ -65,7 +86,6 @@ class EventController extends Controller
     }
 
     public function show($id_event) {
-
 
         $this->friendsGoing($id_event);
         

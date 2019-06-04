@@ -16,6 +16,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
+                  <span id="errors" style="display:none;">{{ sizeof($errors) }}</span>
                     <div class="eventPhoto justify-content-md-center">
                       <img src="../img/event-placeholder.png">
                       <span class="col-sm-2 col-3 btn btn-secondary btn-file form-control-file"
@@ -28,34 +29,69 @@
                         <hr class="mb-3 mt-1">
                         <div id="details-content" class="py-3">
                           <div class="form-row m-0 py-1">
-                            <input type="text" id="eventTitle" class="form-control" name="title" placeholder="Event Title" required
-                              autofocus>
+                            <input type="text" id="eventTitle" class="form-control" name="title" placeholder="Event Title" 
+                            value="{{ old('title') }}" required autofocus>
+                              @if ($errors->has('title'))
+                              <span class="error ml-2">
+                                  {{ $errors->first('title') }}
+                              </span>
+                            @endif
                           </div>
       
                           <div class="form-row m-0 py-1">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description" placeholder="Description"
+                            <textarea class="form-control" value="{{ old('description') }}" id="exampleFormControlTextarea1" name="description" placeholder="Description"
                               rows="3"></textarea>
+                              @if ($errors->has('description'))
+                              <span class="error ml-2">
+                                  {{ $errors->first('description') }}
+                              </span>
+                            @endif
                           </div>
       
                           <div class="form-row m-0 py-1">
                             <input type="text" id="eventdate" class="form-control" data-language="en" placeholder="Datepicker" name="date"
-                            required autofocus>
+                            value="{{ old('date') }}" readonly='true' required autofocus>
+                            @if ($errors->has('date'))
+                              <span class="error ml-2">
+                                  {{ $errors->first('date') }}
+                              </span>
+                            @endif
                           </div>
       
                           <div class="form-row py-1">
                             <div class="col">
-                              <input type="text" class="form-control" id="inputStreet" placeholder="Street" name="street">
+                              <input type="text" class="form-control" id="inputStreet" placeholder="Street" name="street" value={{ old('street') }}>
+                              @if ($errors->has('street'))
+                              <span class="error ml-2">
+                                  {{ $errors->first('street') }}
+                              </span>
+                              @endif
                             </div>
                           </div>
                           <div class="form-row py-1">  
-                              <div class="col-md-4 mb-6">
-                                  <input type="text" class="form-control" id="inputCountry" placeholder="Country" name="country">
-                                </div>
+                            <div class="col-md-4 mb-6">
+                              <input type="text" class="form-control" id="inputCountry" placeholder="Country" name="country" value={{ old('country') }}>
+                              @if ($errors->has('country'))
+                              <span class="error ml-2">
+                                  {{ $errors->first('country') }}
+                              </span>
+                              @endif
+                            </div>
                             <div class="col-md-5 mb-6">
-                                <input type="text" class="form-control" id="inputCity" placeholder="City" name="city">
+                                <input type="text" class="form-control" id="inputCity" placeholder="City" name="city" value={{ old('city') }}>
+                                @if ($errors->has('city'))
+                              <span class="error ml-2">
+                                  {{ $errors->first('city') }}
+                              </span>
+                              @endif
                             </div>
                             <div class="col-md-3 mb-3">
-                                <input type="text" class="form-control" id="validationTooltip05" name="zip-code" placeholder="Zip Code">
+                                <input type="text" class="form-control" id="validationTooltip05" name="zip-code" placeholder="Zip Code" value={{ old('zip-code') }}>
+                                @if ($errors->has('zip-code'))
+                              <span class="error ml-2">
+                                  {{ $errors->first('zip-code') }}
+                              </span>
+                              @endif
                             </div>
                           </div>
                           <div class="form-row py-1">  
@@ -125,52 +161,14 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="input-group mb-1 row justify-content-center mx-0">
-                              <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                  <img src="../img/user.jpg" class="roundRadius">
-                                  <span class="ml-2">@username </span>
-                                </div>
-                              </div>
-                              <div class="input-group-append">
-                                <div class="input-group-text">
-                                  <input type="checkbox" aria-label="Checkbox for following text input">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="input-group mb-1 row justify-content-center mx-0">
-                              <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                  <img src="../img/user.jpg" class="roundRadius">
-                                  <span class="ml-2">@username </span>
-                                </div>
-                              </div>
-                              <div class="input-group-append">
-                                <div class="input-group-text">
-                                  <input type="checkbox" aria-label="Checkbox for following text input">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="input-group mb-1 row justify-content-center mx-0">
-                              <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                  <img src="../img/user.jpg" class="roundRadius">
-                                  <span class="ml-2">@username </span>
-                                </div>
-                              </div>
-                              <div class="input-group-append">
-                                <div class="input-group-text">
-                                  <input type="checkbox" aria-label="Checkbox for following text input">
-                                </div>
-                              </div>
-                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div id="createEntBtn">
-                        <button type="submit" class="btn btn-secondary">Create</button>
-                      </div>  
+                        <button type="submit" class="btn btn-primary">Create</button>
+                        <button id="cancelBtn" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
                 </div> 
               </form> 
             </div>

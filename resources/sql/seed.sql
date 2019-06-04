@@ -114,7 +114,7 @@ CREATE TABLE event (
     id_category  INTEGER       REFERENCES category (id_category) ON DELETE CASCADE,
     city         VARCHAR (30),
     country     VARCHAR (30),
-    zip_code     VARCHAR (7),
+    zip_code     VARCHAR (10),
     search_tokens TSVECTOR,
 
     CONSTRAINT event_dates CHECK ("date" > date_created)
