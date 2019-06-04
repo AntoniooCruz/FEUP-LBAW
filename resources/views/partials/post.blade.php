@@ -32,19 +32,8 @@
                   </button>
                 </div>
               </div>
-              <div class="card-comment-section ">
+              <div id="comment_section" class="card-comment-section ">
               @each ('partials.comment', $post->comments()->get(), 'comment')
-                <div class="comment my-2">
-                  <div class="row">
-                    <img class="roundRadius" src="../img/user.jpg" alt="Card image cap">
-                    <div class="col-10 align-self-center commentText roundRadius px-4 ml-1">
-                      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                    </div>
-                  </div>
-                  <div class="reply row justify-content-end mr-4">
-                    Reply
-                  </div>
-                </div>
               </div>
               <hr class="mt-4 mx-6">
             </div>
