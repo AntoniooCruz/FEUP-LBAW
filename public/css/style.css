@@ -6,7 +6,7 @@ body{
     --green:#79AF41;
     --lightGrey:#bfbfbf;
     --offWhite:#EBECEC;
-    --red: #ea4335;
+    --red: #c34a40;
 
     font-family: 'Roboto', sans-serif;
 
@@ -271,6 +271,11 @@ body > nav .dropdown-menu{
     box-shadow: 0px 0px 1px #d8d8d8;
 }
 
+.btn a{
+    text-decoration: none;
+    color:white;
+}
+
 .btn-no{
     border:0;
     box-shadow: none;
@@ -323,13 +328,13 @@ body > nav .dropdown-menu{
 }
 
 .btn-google {
-    border-color: #ea4335;
+    border-color: var(--red);
     background: none;
-    color: #ea4335;
+    color: var(--red);
   }
 
   .btn-google:hover {
-    background: #ea4335;
+    background: var(--red);
     color: white !important;
   }
 
@@ -513,4 +518,8 @@ body > .navbar:nth-child(1) .dropdown-toggle{
 .card .header a{
     color:var(--lightBlue);
     text-decoration: none;
+}
+
+.fa-flag:hover {
+    color: var(--red);
 }

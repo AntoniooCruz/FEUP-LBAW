@@ -2,8 +2,9 @@
 
 @section('custom-scripts')
 <script type="text/javascript" src={{ asset('js/follow.js') }} defer></script>
-  <link href="{{ asset('css/eventpage.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 @endsection
+
 
 @section('content')
 <section id="profile">
@@ -30,10 +31,12 @@
                 <div></div><strong> {{$user->followers()->count()}} </strong>
                 <small>Followers</small>
               </div>
+              @if($user->user_type=='Personal')
               <div id="following" class="col text-center">
                 <strong> {{$user->following()->count()}} </strong>
                 <small>Following</small>
               </div>
+              @endif
               <div id="events" class="col text-center">
                 <strong> {{sizeof($eventsOwned)}}</strong>
                 <small>Events</small>
