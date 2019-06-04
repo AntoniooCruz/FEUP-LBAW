@@ -19,10 +19,30 @@ if(paidTab!=null && freeTab !=null){
         if(unlimited){
             document.querySelector('#capacityDiv input').required = false;
             document.querySelector('#capacityDiv input').disabled = true;
+            document.querySelector('.fa-ticket-alt').classList.add('disabled');
+            document.querySelector('#capacityDiv input').classList.add('disabled');
 
         }else{
             document.querySelector('#capacityDiv input').required = true;
             document.querySelector('#capacityDiv input').disabled = false;
+            document.querySelector('.fa-ticket-alt').classList.remove('disabled');
+            document.querySelector('#capacityDiv input').classList.remove('disabled');
         }
     })
+
+    $(function() {
+        $('input[name="date"]').daterangepicker({
+          singleDatePicker: true,
+          timePicker24Hour: true,
+          "locale": {
+            "format": "MM/DD/YYYY @ H:mm"
+          },
+          timePicker: true,
+          minYear: 1901,
+          maxYear: parseInt(moment().format('YYYY'),10)
+        }, function(start, end, label) {
+          var years = moment().diff(start, 'years');
+          
+        });
+      });
 }

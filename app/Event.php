@@ -18,7 +18,8 @@ class Event extends Model
     public $timestamps  = false;
 
     protected $fillable = [
-        'title', 'date_created', 'date', 'location', 'description', 'price', 'capacity', 'is_private', 'city', 'id_owner','id_category'
+        'title', 'date_created', 'date', 'location', 'description', 'price', 'capacity', 'is_private', 'city', 'id_owner','id_category',
+        'zip_code','country'
     ];
 
     public function category(){

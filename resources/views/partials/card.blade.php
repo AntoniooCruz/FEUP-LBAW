@@ -6,16 +6,16 @@
       <div class="row eventRow header align-items-start">
         <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
           <div id="eventPageMonth" class="eventPageMonth">
-            <span id="eventMonth" class="eventMonth">Mar</span>
+            <span id="eventMonth" class="eventMonth">{{$event->date}}</span>
           </div>
-          <span id="eventPageDay" class="eventPageDay">03</span>
+          <span id="eventPageDay" class="eventPageDay">{{$event->date}}</span>
         </div>
         <div class="col-10 cardTitle text-left">
           <span id="event-card-title">{{$event->title}}</span>
           <div class="event-card-footer">
-            <span id="event-card-hour">12:00</span>
+            <span id="event-card-hour">{{$event->date}}</span>
             <p class="dot-separator"> • </p>
-            <span id="card-adress">Avenida Aliados 1100, Porto</span>
+            <span id="card-adress">{{$event->location}}</span>
           </div>
         </div>
       </div>

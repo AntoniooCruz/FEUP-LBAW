@@ -38,29 +38,32 @@
                           </div>
       
                           <div class="form-row m-0 py-1">
-                            <input type="text" id="eventdate" class="form-control datepicker-here" data-language="en" placeholder="Datepicker" name="date"
+                            <input type="text" id="eventdate" class="form-control" data-language="en" placeholder="Datepicker" name="date"
                             required autofocus>
                           </div>
       
                           <div class="form-row py-1">
-                            <div class="col-md-6 mb-6">
-                              <input type="text" class="form-control" id="validationTooltip03" placeholder="Street" name="street" required>
+                            <div class="col">
+                              <input type="text" class="form-control" id="inputStreet" placeholder="Street" name="street">
                             </div>
-                            <div class="col-md-6 mb-6">
-                                <input type="text" class="form-control" id="validationTooltip03" placeholder="City" name="city" required>
-                              </div>
-                          
                           </div>
                           <div class="form-row py-1">  
-                              <div class="col-md-3 mb-3">
-                                  <input type="text" class="form-control" id="validationTooltip05" name="zip-code" placeholder="Zip Code"
-                                    required>
+                              <div class="col-md-4 mb-6">
+                                  <input type="text" class="form-control" id="inputCountry" placeholder="Country" name="country">
                                 </div>
-                                <select name="category" class="ml-auto col-6 custom-select">
-                                  @foreach ($categories as $category)
-                                    <option value={{$category->id_category}}>{{$category->name}}</option>
-                                  @endforeach
-                                  </select>
+                            <div class="col-md-5 mb-6">
+                                <input type="text" class="form-control" id="inputCity" placeholder="City" name="city">
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <input type="text" class="form-control" id="validationTooltip05" name="zip-code" placeholder="Zip Code">
+                            </div>
+                          </div>
+                          <div class="form-row py-1">  
+                            <select name="category" class="col-md-6 custom-select" required>
+                            @foreach ($categories as $category)
+                              <option value={{$category->id_category}}>{{$category->name}}</option>
+                            @endforeach
+                            </select>
                           </div>
                     
                         </div>
@@ -86,14 +89,14 @@
                                   <div class="input-group-prepend">
                                     <div class="input-group-text pl-0"><i class="fas fa-ticket-alt"></i></div>
                                   </div>
-                                  <input type="text" class="form-control pl-0" id="inlineFormInputGroup"
+                                  <input type="text" class="form-control pl-0" id="capacity"
                                     placeholder="Capacity"  name="capacity" required>
                                 </div>
                                 <div id="pricePticket" class="col-6 input-group mb-2" style="display:none">
                                   <div class="input-group-prepend">
                                     <div class="input-group-text pl-0"><i class="fas fa-euro-sign"></i></div>
                                   </div>
-                                  <input type="text" class="form-control pl-0" id="inlineFormInputGroup"
+                                  <input type="text" class="form-control pl-0" id="price"
                                   name="price" placeholder="Price p/ ticket">
                                 </div>
                               </div>
