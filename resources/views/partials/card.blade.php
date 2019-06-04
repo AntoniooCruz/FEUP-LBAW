@@ -6,14 +6,14 @@
       <div class="row eventRow header align-items-start">
         <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
           <div id="eventPageMonth" class="eventPageMonth">
-            <span id="eventMonth" class="eventMonth">{{$event->date}}</span>
+            <span class="eventMonth">{{$event->date}}</span>
           </div>
-          <span id="eventPageDay" class="eventPageDay">{{$event->date}}</span>
+          <span class="eventPageDay">{{$event->date}}</span>
         </div>
         <div class="col-10 cardTitle text-left">
           <span id="event-card-title">{{$event->title}}</span>
           <div class="event-card-footer">
-            <span id="event-card-hour">{{$event->date}}</span>
+            <span class="event-card-hour">{{$event->date}}</span>
             <p class="dot-separator"> • </p>
             <span id="card-adress">{{$event->location}}</span>
           </div>

@@ -42,6 +42,7 @@
   <!-- my js scripts -->
   <script type="text/javascript" src={{ asset('js/app.js') }} defer></script>
   <script type="text/javascript" src={{ asset('js/createEvent.js') }} defer></script>
+  <script type="text/javascript" src={{ asset('js/event.js') }} defer></script>
 
   @yield('custom-scripts')
 </head>

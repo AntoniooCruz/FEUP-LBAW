@@ -61,7 +61,7 @@ body{
 }
 
 .event #eventPageMonth {
-    font-size: 20px;
+    font-size: 16px !important;
     color: #A1B6C8;
     margin-bottom: -8px;
     position: absolute;
@@ -70,7 +70,7 @@ body{
     font-size: 14px;
 }
 
-.event #eventPageDay {
+.event .eventPageDay {
     font-size: 30px;
     padding-top: 28px;
 }
@@ -83,10 +83,6 @@ body{
     text-decoration: underline;
 }
 
-.event #titleHeader {
-    padding: 0.8em;
-}
-
 .eventRow .header {
     padding: 0 1em;
 }
@@ -94,10 +90,6 @@ body{
 .event .eventYear {
     color: #bbbbbb;
     margin-left: 1px;
-}
-
-.event .eventMonth {
-    text-transform: uppercase;
 }
 
 .event .nav-link {

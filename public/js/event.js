@@ -7,17 +7,17 @@ function loadHandler() {
         title.textContent = title.textContent.substring(0,22) + "...";
     });
 
-    months = document.querySelectorAll("#eventMonth");
+    months = document.querySelectorAll(".eventMonth");
     months.forEach(date => {
         date.textContent = parseDateMonth(date.textContent);
     });
 
-    days = document.querySelectorAll("#eventPageDay");
+    days = document.querySelectorAll(".eventPageDay");
     days.forEach(date => {
         date.textContent = parseDateDay(date.textContent);
     });
 
-    hours = document.querySelectorAll("#event-card-hour");
+    hours = document.querySelectorAll(".event-card-hour");
     hours.forEach(date => {
         date.textContent = parseDateHours(date.textContent);
     });
@@ -68,6 +68,8 @@ function parseDateMonth(date){
     let parseDate = date.split(" ");
     let aux = parseDate[0].split("-");
 
+    console.log(date);
+
     return translateMonth(aux[1]);
 }
 
@@ -83,4 +85,8 @@ function parseDateHours(date){
     let aux = parseDate[1].split(":");
 
     return aux[0] + ":" + aux[1];
+}
+
+if(document.querySelector('#extendedDate')!=null){
+    
 }

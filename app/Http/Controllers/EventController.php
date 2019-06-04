@@ -54,6 +54,7 @@ class EventController extends Controller
             ]);
         $event->save();
 
+        return redirect("event/".$event->id_event);
 
         return view('pages.event', ['event' => $event , 
                                         'friendsGoing' => $this->friendsGoing($event->id_event),
