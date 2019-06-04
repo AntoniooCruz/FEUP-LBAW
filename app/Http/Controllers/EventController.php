@@ -127,18 +127,8 @@ class EventController extends Controller
             ]);
 
         $comment->save();
-        
-        /*try {
-            $post->comments()->attach($comment);
 
-        } catch (Exception $e) {
-            return response()->json(["error" => $e], 400);
-        }
-        */
-        
-        echo($post->comments()->get());
-
-        return response(200);
+        return response()->json([$comment]);
     }
 
 }
