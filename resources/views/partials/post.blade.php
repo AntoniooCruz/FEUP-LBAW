@@ -33,7 +33,6 @@
                 </div>
               </div>
               <div id="comment_section" class="card-comment-section ">
-              @each ('partials.comment', $post->comments()->get(), 'comment')
               </div>
               <hr class="mt-4 mx-6">
             </div>

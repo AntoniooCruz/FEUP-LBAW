@@ -53,12 +53,12 @@ Route::delete('api/profile/{id_user}/follow','ProfileController@unfollowUser');
 //Event
 Route::get('event/{id_event}', 'EventController@show');
 Route::post('createvent', 'EventController@create');
-//Route::get('api/post/{id_post}/getcomments','ProfileController@unfollowUser');
+Route::get('api/post/{id_post}/getcomments','EventController@getComments');
 Route::post('api/event/{id_event}/post/{id_post}/addcomment', 'EventController@addComment');
 
 //Search
 Route::get('search', 'SearchController@search');
-Route::post('search/', 'SearchController@search');
+Route::get('api/search', 'SearchController@filter');
 
 Auth::routes();
 
