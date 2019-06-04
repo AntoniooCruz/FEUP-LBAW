@@ -27,7 +27,7 @@ class EventController extends Controller
         $price = 0;
        else $price = $request->input('price');
 
-       if( $request->input('is_private')=='public') 
+       if($request->input('is_private')=='public') 
         $private = false;
        else if( $request->input('is_private')=='private') 
         $private = true;
