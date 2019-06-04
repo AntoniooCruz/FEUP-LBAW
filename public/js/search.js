@@ -18,9 +18,11 @@ function checkboxHandler() {
         }
      });
 
-     sendAjaxRequest('get', '/api/search/' ,{'categories': categories}, filterHandler);
+     let method = 'get';
+
+     sendAjaxRequest(method, '/api/search', {data: categories}, filterHandler);
 }
 
 function filterHandler () {
-
+    console.log('worked')
 }

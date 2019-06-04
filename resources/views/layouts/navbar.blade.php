@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="mainpage.html"> <img src="{{ asset('img/icon.png') }}" width="31,83" height="24,92"> </a>
+  <a class="navbar-brand" href="/home"> <img src="{{ asset('img/icon.png') }}" width="31,83" height="24,92"> </a>
 
 @if(Auth::check())
   <button id="newEventBtn" type="button" class="" data-toggle="modal" data-target="#createEventModal">
@@ -43,7 +43,7 @@
   @else <ul class="navbar-nav mt-2 mt-lg-0"> 
       @endif
     <li class="nav-item active">
-      <a class="nav-link" href="mainpage.html">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href={{ route('about') }}>About</a>

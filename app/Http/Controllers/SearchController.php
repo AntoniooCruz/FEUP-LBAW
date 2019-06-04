@@ -29,9 +29,9 @@ class SearchController extends Controller
                                     ]);
     }
 
-    public function filter() {
-        $categories = Input::get('categories');
-        dd($categories);
+    public function filter(Request $request) {
+        dd($request);
+        return response(200);
     }
 
 
