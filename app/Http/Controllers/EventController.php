@@ -16,7 +16,7 @@ use App\Ticket;
 use App\Post;
 use App\Comment;
 use Carbon\Carbon;
-
+use App\Invite;
 
 class EventController extends Controller
 {   
@@ -80,7 +80,12 @@ class EventController extends Controller
 
     public function sendInvites($invites, $id_event) {
         foreach ($invites as $id_invitee) {
-            Auth::user()->invited()->attach([$id_invitee,$id_event]);
+            $invite = Invite::create([
+                    'id_event' => $id_event,
+                    'id_inviter' => Auth::user()->user_id,
+                    'id_invitee' => $id_invitee
+                    ]);
+            $invite->save();
         }
     }
 
