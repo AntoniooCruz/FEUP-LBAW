@@ -38,6 +38,7 @@ inputPassword.onkeyup = function() {
     if(inputPassword.value.match(lowerCaseLetters)) {  
       letter.classList.remove("invalid");
       letter.classList.add("valid");
+      questionMark.style.color = '#7a7c82d6';
     } else {
       letter.classList.remove("valid");
       letter.classList.add("invalid");
@@ -49,6 +50,7 @@ inputPassword.onkeyup = function() {
     if(inputPassword.value.match(upperCaseLetters)) {  
       capital.classList.remove("invalid");
       capital.classList.add("valid");
+      questionMark.style.color = '#7a7c82d6';
     } else {
       capital.classList.remove("valid");
       capital.classList.add("invalid");
@@ -60,6 +62,7 @@ inputPassword.onkeyup = function() {
     if(inputPassword.value.match(numbers)) {  
       number.classList.remove("invalid");
       number.classList.add("valid");
+      questionMark.style.color = '#7a7c82d6';
     } else {
       number.classList.remove("valid");
       number.classList.add("invalid");
@@ -67,9 +70,10 @@ inputPassword.onkeyup = function() {
     }
     
     // Validate length
-    if(inputPassword.value.length >= 8) {
+    if(inputPassword.value.length >= 6) {
       length.classList.remove("invalid");
       length.classList.add("valid");
+      questionMark.style.color = '#7a7c82d6';
     } else {
       length.classList.remove("valid");
       length.classList.add("invalid");
@@ -77,3 +81,25 @@ inputPassword.onkeyup = function() {
   
     }
 }
+
+
+let businessBtn = document.getElementById('businessBtn');
+let inputSite =  document.getElementById('inputSite');
+inputSite.style.display = 'none';
+
+businessBtn.addEventListener('click', function(){
+  document.getElementById('googlebtn').remove();
+  inputSite.style.display = 'inline';
+    document.querySelector('#businessBtn > span').classList.add('active');
+  document.querySelector('#personalBtn > span').classList.remove('active');
+})
+
+let googlebtn = document.getElementById('googlebtn');
+let personalBtn = document.getElementById('personalBtn');
+
+personalBtn.addEventListener('click', function(){
+  inputSite.style.display = 'none';
+  document.querySelector('.form-register').appendChild(googlebtn);
+  document.querySelector('#personalBtn > span').classList.add('active');
+  document.querySelector('#businessBtn > span').classList.remove('active');
+})

@@ -17,13 +17,13 @@
                                     <span class="nav-link active" href="">Recover your password</span>
                                 </li>
                             </ul>
-                        </div>
-                        <div class="card-body">
-                                @if (session('status'))
+                            @if (session('status'))
                                 <div class="alert alert-success">
                                     {{ session('status') }}
                                 </div>
                             @endif
+                        </div>
+                        <div class="card-body">
                             <form method="POST" action="{{ route('password.email') }}" class="form-signin">
                                 {{ csrf_field() }}
                                 <div id="loginlogo"><img src="{{ asset('img/icon.png') }}" width="191,5" height="149,5">

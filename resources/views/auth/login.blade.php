@@ -14,10 +14,7 @@
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
                                 <li id="personalBtn" class="nav-item col ">
-                                    <a class="nav-link active" href="">Personal</a>
-                                </li>
-                                <li id="businessBtn" class="nav-item col">
-                                    <a class="nav-link" href="">Business</a>
+                                    <span class="nav-link active">Login to your account</span>
                                 </li>
                             </ul>
                         </div>
