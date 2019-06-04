@@ -68,8 +68,6 @@ function parseDateMonth(date){
     let parseDate = date.split(" ");
     let aux = parseDate[0].split("-");
 
-    console.log(date);
-
     return translateMonth(aux[1]);
 }
 

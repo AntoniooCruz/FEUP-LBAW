@@ -28,8 +28,8 @@ class EventController extends Controller
             'date' => 'required|string|regex:/[0-9]{2}\/[0-9]{2}\/[0-9]{4} @ [0-9][0-9]?:[0-9]{2}/',
             'location' => 'string|max:40|nullable',
             'description' => 'string|max:100|nullable',
-            'price' => 'required|numeric|max:20',
-            'capacity' => 'required|integer',
+            'price' => 'numeric|max:20|nullable',
+            'capacity' => 'integer|nullable',
             'city' => 'string|max:30|nullable',
             'zip_code' => 'string|max:6|nullable',
             'country' => 'string|max:30|nullable'
@@ -56,8 +56,6 @@ class EventController extends Controller
         $time = !empty($splitDatepicker[1]) ? $splitDatepicker[1] : '';
         $datetime = $date . $time;
 
-
-
         $event = Event::create([
             'title' => $request->input('title'),
             'date_created' => $date_created,
@@ -75,14 +73,15 @@ class EventController extends Controller
             ]);
         $event->save();
 
-        return redirect("event/".$event->id_event);
+        $this->sendInvites( $request->input('invites'), $event->id_event);
 
-        return view('pages.event', ['event' => $event , 
-                                        'friendsGoing' => $this->friendsGoing($event->id_event),
-                                        'usersGoing' => $this->usersGoing($event->id_event),
-                                        'categories' => Category::all()
-                                        ] 
-            );
+        return redirect("event/".$event->id_event);
+    }
+
+    public function sendInvites($invites, $id_event) {
+        foreach ($invites as $id_invitee) {
+            Auth::user()->invited()->attach([$id_invitee,$id_event]);
+        }
     }
 
     public function show($id_event) {

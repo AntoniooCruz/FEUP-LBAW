@@ -38,7 +38,7 @@ if(paidTab!=null && freeTab !=null){
             "format": "MM/DD/YYYY @ H:mm"
           },
           timePicker: true,
-          minYear: 1901,
+          minDate: Date.now(),
           maxYear: parseInt(moment().format('YYYY'),10)
         }, function(start, end, label) {
           var years = moment().diff(start, 'years');
@@ -54,6 +54,6 @@ if(document.getElementById('errors').innerHTML!=0){
   $('#createEventModal').modal();
 }
   
-document.getElementsByClassName('submit').addEventListener("click", function(){
+document.getElementById('click', function(){
   oldDate = $('input[name="date"]').value;
 });
