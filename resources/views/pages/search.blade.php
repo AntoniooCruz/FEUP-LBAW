@@ -78,7 +78,7 @@
     <div id="results_container" class="text-center mt-5">
       <div class="row justify-content-center">
       @foreach ($events as $event)
-      @include('partials.card', ['event'=>$event, 'categories'=>$categories])
+      @include('partials.search-card', ['event'=>$event, 'categories'=>$categories])
       @endforeach
       
       </div>
