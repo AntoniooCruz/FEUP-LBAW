@@ -23,7 +23,7 @@
                 <div class="modal-body">
                   <span id="errors" style="display:none;">{{ sizeof($errors) }}</span>
                     <div class="eventPhoto justify-content-md-center">
-                      <img src="../img/event-placeholder.png">
+                      <img src="../img/event-placeholder.png" height="300">
                       <span class="col-sm-2 col-3 btn btn-secondary btn-file form-control-file"
                         id="exampleFormControlFile1">Upload
                         <input type="file"></span>
@@ -173,6 +173,7 @@
                         <hr class="mb-3 mt-1">
                         <fieldset id="friends-content" class="py-3">
                           <div class="friendList py-3">
+                            @if(Auth::user())
                             @foreach (Auth::user()->following as $friend)
                             <div class="input-group mb-1 row justify-content-center mx-0">
                               <div class="input-group-prepend">
@@ -193,6 +194,7 @@
                               </div>
                             </div>
                             @endforeach
+                            @endif
                           </div>
                         </fieldset>
                       </div>

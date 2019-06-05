@@ -383,6 +383,8 @@ body > .navbar:nth-child(1) .dropdown-toggle{
 
 .eventPhoto img {
     width: 100%;
+    object-fit: cover;
+    height: 500px;
 }
 
 .eventPhoto {
@@ -528,7 +530,7 @@ body > .navbar:nth-child(1) .dropdown-toggle{
     text-decoration: none;
 }
 
-.fa-flag:hover {
+.fa-font-awesome-flag:hover {
     color: var(--red);
 }
 

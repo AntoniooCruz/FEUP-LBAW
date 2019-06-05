@@ -39,13 +39,11 @@
   <!-- datepicker -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-
-  <script type="text/javascript" src={{ asset('js/circliful/jquery.circliful.min.js') }} defer></script>
-
   <!-- my js scripts -->
   <script type="text/javascript" src={{ asset('js/app.js') }} defer></script>
+  @if(Auth::check())
   <script type="text/javascript" src={{ asset('js/createEvent.js') }} defer></script>
-  <script type="text/javascript" src={{ asset('js/event.js') }} defer></script>
+  @endif
 
   @yield('custom-scripts')
 </head>
