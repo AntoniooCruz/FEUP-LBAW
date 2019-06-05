@@ -25,8 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(!Auth::check()){
-            return view('home');
+        if(Auth::check()){
+            $user = Auth::user();
+            if($user->user_type == 'Personal'){
+               //FEED
+            } else {
+                return redirect('profile');
+            }
         } else {
             return view('home');
         }

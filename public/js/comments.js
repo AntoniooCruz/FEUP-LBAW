@@ -47,7 +47,7 @@ function addCommentToSection(id_user, comment_text, comment_id_post) {
   newComment.appendChild(row);
   newComment.appendChild(reply);
 
-  $("#comment_data").val('');
+  $(`#comment_data[data-id="${comment_id_post}"]`).val('');
 
   comment_section.appendChild(newComment);
 }
@@ -73,12 +73,15 @@ function showCommentsRequestHandler() {
   });
 }
 
-function addCommentRequest() {
+function addCommentRequest(evt) {
 
-  let id_post = document.querySelector('#id_post').innerHTML;
+  console.log(evt);
+  let id_post = evt.path[3].dataset.id;
   let id_event = document.querySelector('#id_event').innerHTML;
 
-  let comment = $('#comment_data').val();
+  let comment = $(`#comment_data[data-id="${id_post}"]`).val();
+
+  console.log(comment);
 
   let method = 'post';
 
@@ -92,6 +95,10 @@ function addCommentsRequestHandler() {
 
     let comment = JSON.parse(this.response);
     addCommentToSection(comment[0].id_user, comment[0].text, comment[0].id_post);
+
+    let valueOfComments = document.querySelector(`.fa-comments[data-id="${comment[0].id_post}"] +span`);
+    valueOfComments.innerHTML++;
+
   }
 
 }
