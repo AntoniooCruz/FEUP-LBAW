@@ -101,10 +101,13 @@ class EventController extends Controller
             $this->authorize('view', $event);
         }
 
+        $hasTicket = !empty($event->tickets()->where('id_ticket_owner', Auth::user()->id_user)->first());
+
         return view('pages.event', ['event' => $event , 
                                      'friendsGoing' => $this->friendsGoing($id_event),
                                     'usersGoing' => $this->usersGoing($id_event),
-                                    'categories' => Category::all()
+                                    'categories' => Category::all(),
+                                    'hasTicket' => $hasTicket
                                     ] 
             );
     }

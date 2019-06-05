@@ -43,10 +43,16 @@
     </div>
     @if(Auth::check() && $event->owner!=Auth::user())
     <div class="col-lg-2  col-md-3 col-sm-12 getTicket text-right pr-1">
-      <button id="getTicketBtn" class="btn btn-primary" type="button" aria-expanded="false" data-toggle="modal" data-target="#getTicketModal">
-        <i class="fas fa-ticket-alt"></i> 
-        @if($event->price>0)
-        {{$event->price}}€
+        @if($hasTicket)
+        <button id="getTicketBtn" class="btn btn-primary" type="button" aria-expanded="false">
+          Going
+        </button>
+        @else
+        <button id="getTicketBtn" class="btn btn-primary" type="button" aria-expanded="false" data-toggle="modal" data-target="#getTicketModal">
+          <i class="fas fa-ticket-alt"></i> 
+          @if($event->price>0)
+            {{$event->price}}€
+          @endif
         @endif
       </button>
     </div>
