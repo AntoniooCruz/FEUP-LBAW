@@ -155,8 +155,6 @@ class EventController extends Controller
             'date' => $date_created
             ]);
             
-
-
         return response()->json([$comment]);
     }
 
