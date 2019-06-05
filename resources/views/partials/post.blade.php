@@ -20,7 +20,7 @@
           </div>
           <div class="footer px-2">
             <hr>
-            <div id="comments1-{{$post->id_post}}" class="comments collapse mb-2 mt-3">
+            <div id="comments1-{{$post->id_post}}" data-id={{$post->id_post}} class="comments collapse mb-2 mt-3">
               <div class="commentInput row">
                 <div class="col px-1">
                   <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
@@ -39,7 +39,7 @@
             <div class="footerText" data-toggle="collapse" href="#comments1-{{$post->id_post}}" role="button" aria-expanded="false"
               aria-controls="collapseExample">
               <button id="comment_button" data-id={{$post->id_post}} > 
-                <i class="far fa-comments"></i>
+                <i data-id={{$post->id_post}} class="far fa-comments"></i>
                 <span>{{sizeof($post->comments()->get())}}</span>
               </button>
             </div>

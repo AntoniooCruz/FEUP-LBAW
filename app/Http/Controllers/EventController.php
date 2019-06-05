@@ -138,7 +138,7 @@ class EventController extends Controller
         
         $id_author = Auth::user()->id_user;
         $post = Post::find($id_post);
-        $id_parent = 2;
+        $id_parent = null;
 
         $date_created = Carbon::now()->toDateTimeString();
 
@@ -149,8 +149,7 @@ class EventController extends Controller
             'id_author' => $id_author,
             'date' => $date_created
             ]);
-
-        $comment->save();
+            
 
         return response()->json([$comment]);
     }
