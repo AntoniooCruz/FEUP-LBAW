@@ -12,11 +12,11 @@ if (addCommentBttn != null) {
   addCommentBttn[i].addEventListener('click', addCommentRequest);
  }
 }
+function addCommentToSection(id_user, comment_text, comment_id_post) {
 
-
-function addCommentToSection(id_user, comment_text) {
-
-  let comment_section = document.querySelector('#comment_section');
+  let comment_section = document.querySelector(`#comment_section[data-id="${comment_id_post}"]`);
+  console.log(comment_id_post);
+  console.log(comment_section);
 
   let newComment = document.createElement("div");
   newComment.className = "comment my-2";
@@ -52,9 +52,9 @@ function addCommentToSection(id_user, comment_text) {
   comment_section.appendChild(newComment);
 }
 
-function showCommentsRequest() {
+function showCommentsRequest(evt) {
 
-  let id_post = document.querySelector('#id_post').innerHTML;
+  let id_post = evt.path[1].dataset.id;
 
   console.log('Show Comments from post ' + id_post);
 
@@ -69,9 +69,8 @@ function showCommentsRequestHandler() {
   let comments = JSON.parse(this.response);
  
   comments[0].forEach(element => {
-    addCommentToSection(element.id, element.text);
+    addCommentToSection(element.id, element.text, element.id_post);
   });
-
 }
 
 function addCommentRequest() {
@@ -92,7 +91,7 @@ function addCommentsRequestHandler() {
   if (this.status == 200) {
 
     let comment = JSON.parse(this.response);
-    addCommentToSection(comment[0].id_user, comment[0].text);
+    addCommentToSection(comment[0].id_user, comment[0].text, comment[0].id_post);
   }
 
 }

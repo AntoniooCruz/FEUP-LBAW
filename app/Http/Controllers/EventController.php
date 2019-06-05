@@ -167,6 +167,9 @@ class EventController extends Controller
 
         $date_created = Carbon::now()->toDateTimeString();
 
+        $event_name = Event::find($id_event)->title;
+        $author_name = User::find($id_author)->username;
+
         $post = Post::create([
             'date' => $date_created,
             'text' => $request->input('data'),
@@ -177,7 +180,7 @@ class EventController extends Controller
 
         $post->save();
 
-        return response()->json([$post]);
+        return response()->json([$post, $event_name, $author_name]);
     }
 
     public function getComments($id_post) {
