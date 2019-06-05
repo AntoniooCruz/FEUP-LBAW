@@ -4,6 +4,7 @@
   <link href="{{ asset('css/eventpage.css') }}" rel="stylesheet">
 @endsection
 
+@section('content')
 <div class="container">
     <nav>
       <div class="nav nav-tabs" id="nav-admin" role="tablist">
@@ -466,3 +467,5 @@
       </div>
     </div>
   </div>
+
+  @endsection
