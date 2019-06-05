@@ -24,5 +24,5 @@ function checkboxHandler() {
 }
 
 function filterHandler () {
-    console.log('worked')
+    console.log(this.response);
 }

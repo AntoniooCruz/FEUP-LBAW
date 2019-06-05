@@ -23,13 +23,20 @@ class SearchController extends Controller
         $events = DB::select("SELECT * FROM event WHERE search_tokens @@ plainto_tsquery('english',:search) 
                             ORDER BY ts_rank(search_tokens,plainto_tsquery('english',:search)) 
                             DESC;",['search' => $search_text]);
+
         return view('pages.search',['events' => $events,
                                     'categories' => Category::all()
                                     ]);
     }
 
     public function filter(Request $request) {
-        return response()->json(200);
+        $search_text = Input::get('search');
+
+        $events = DB::select("SELECT * FROM event WHERE search_tokens @@ plainto_tsquery('english',:search) 
+                            ORDER BY ts_rank(search_tokens,plainto_tsquery('english',:search)) 
+                            DESC;",['search' => $search_text]);
+
+        return response()->json($events,200);
     }
 
 
