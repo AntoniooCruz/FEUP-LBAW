@@ -49,6 +49,7 @@ Route::get('profile/{id_user}', 'ProfileController@showUser');
 Route::post('profile/remove', 'ProfileController@remove');
 Route::put('api/profile/{id_user}/follow','ProfileController@followUser');
 Route::delete('api/profile/{id_user}/follow','ProfileController@unfollowUser');
+Route::post('api/event/{id_event}/getticket', 'ProfileController@purchaseTicket');
 
 //Event
 Route::get('event/{id_event}', 'EventController@show');

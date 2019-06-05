@@ -14,7 +14,7 @@
         <div id="profile_container" class="col-lg-3 col-12 container text-center">
           <img src="../img/jane.jpg">
           <div id="profile_content">
-            <i class="far fa-flag"></i>
+            <i class="fab fa-font-awesome-flag"></i>
             <div id="header"></div>
             <div id="name" class="row justify-content-left">
               <div class="col text-left">

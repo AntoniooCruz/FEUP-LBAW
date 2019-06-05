@@ -8,7 +8,7 @@
             posted on <a href="eventpage.html"><span class="link-event">{{$post->event->title}}</span></a></span>
               <span class="card-date">13 Mar 2019 • 16h33</span>
             </div>
-            <i class="far fa-flag"></i>
+            <i class="fab fa-font-awesome-flag"></i>
           </div>
           <div class="card-body">
             <p class="card-text">{{$post->text}}</p>

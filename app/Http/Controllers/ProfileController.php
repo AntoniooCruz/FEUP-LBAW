@@ -159,5 +159,9 @@ class ProfileController extends Controller
 
         return response(200);
     }
+
+    public function purchaseTicket(Request $request, $id_event){
+        
+    }
 }
 

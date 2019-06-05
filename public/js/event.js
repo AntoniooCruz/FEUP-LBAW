@@ -1,5 +1,6 @@
 window.addEventListener("load",loadHandler);
 
+//date format
 function loadHandler() {
     titles = document.querySelectorAll("#event-card-title");
     titles.forEach(title => {
@@ -85,7 +86,7 @@ function parseDateHours(date){
     return aux[0] + ":" + aux[1];
 }
 
-
+//circular graph
 $( document ).ready(function() { 
     $("#test-circle").circliful({
         animationStep: 5,
@@ -97,3 +98,15 @@ $( document ).ready(function() {
     });
    
 });
+
+
+//get ticket
+document.getElementById('getTicketBtn').onclick=  purchaseTicketRequest;
+
+function purchaseTicketRequest(){
+    sendAjaxRequest(method, '/api/event/' + id_event + '/getticket', null, purchaseTicketHandler);
+}
+
+function purchaseTicketHandler(){
+
+}

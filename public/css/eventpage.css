@@ -417,7 +417,7 @@ body{
     border-color: #d41111 !important;
 }
 
-.reportBtn:hover .fa-flag{
+.reportBtn:hover .fa-font-awesome-flag{
     color: #d41111;
 }
 
@@ -601,4 +601,9 @@ body{
 #after-circle{
     margin-left: 8rem;
     margin-top: 1em;
+}
+
+
+.ticketUnderline{
+    text-decoration: underline;
 }

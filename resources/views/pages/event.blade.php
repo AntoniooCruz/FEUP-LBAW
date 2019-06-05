@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="col-lg-2  col-md-3 col-sm-12 getTicket text-right pr-1">
-      <button class="btn btn-primary" type="button" aria-expanded="false">
+      <button id="getTicketBtn" class="btn btn-primary" type="button" aria-expanded="false" data-toggle="modal" data-target="#getTicketModal">
         <i class="fas fa-ticket-alt"></i> 
         @if($event->price>0)
         {{$event->price}}€
@@ -45,7 +45,7 @@
     <div class="col-lg-1  col-md-1 col-sm-12 getTicket text-right">
       <button class="reportBtn btn-outline-secondary" type="button" aria-expanded="false" data-toggle="modal"
         data-target="#reportEventModal">
-        <i class="far fa-flag"></i>
+        <i class="fab fa-font-awesome-flag"></i>
       </button>
     </div>
   </div>
@@ -238,6 +238,31 @@
     </div>
   </div>
 </div>
+
+<div class="modal" tabindex="-1" role="dialog" id="getTicketModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"> 
+            <i class="fas fa-ticket-alt"></i>  Purchase Ticket</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>You are about to purchase a ticket for <span class="ticketUnderline">{{$event->title}}<span>
+             ocurring at <span class="extendedDate">{{$event->date}}</span> 
+          </p>
+          <ul><li>Cost: {{$event->price}}€</li></ul>
+          <p>Are you sure you want to continue?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Confirm purchase</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 @include('layouts.create-event')
 

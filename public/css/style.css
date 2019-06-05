@@ -528,7 +528,7 @@ body > .navbar:nth-child(1) .dropdown-toggle{
     text-decoration: none;
 }
 
-.fa-flag:hover {
+.fa-font-awesome-flag:hover {
     color: var(--red);
 }
 
