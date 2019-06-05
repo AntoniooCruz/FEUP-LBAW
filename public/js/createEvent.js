@@ -38,7 +38,7 @@ if(paidTab!=null && freeTab !=null){
             "format": "MM/DD/YYYY @ H:mm"
           },
           timePicker: true,
-          minDate: Date.now(),
+          minDate: moment(),
           maxYear: parseInt(moment().format('YYYY'),10)
         }, function(start, end, label) {
           var years = moment().diff(start, 'years');

@@ -593,15 +593,14 @@ body{
 }
 
 #circle{
-    width: 200px;
-    left: 0;
-    position: absolute;
+    height: 200px;
 }
 
-#after-circle{
-    margin-left: 8rem;
-    margin-top: 1em;
+
+#test-circle{
+    margin-top: -50px;
 }
+
 
 
 .ticketUnderline{
