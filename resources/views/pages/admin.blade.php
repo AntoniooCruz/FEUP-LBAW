@@ -177,9 +177,6 @@
                                   <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                                 </div>
                               </div>
-                              <div class="reply row justify-content-end mr-4">
-                                  Reply
-                                </div>
                             </div>
                             <div class="comment my-2">
                                 <div class="row">
@@ -188,9 +185,6 @@
                                     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                                   </div>
                                 </div>
-                                <div class="reply row justify-content-end mr-4">
-                                    Reply
-                                  </div>
                               </div>
                           </div>
                         <hr class="mt-4 mx-6">
@@ -269,9 +263,6 @@
                                   <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                                 </div>
                               </div>
-                              <div class="reply row justify-content-end mr-4">
-                                  Reply
-                                </div>
                             </div>
                             <div class="comment my-2">
                                 <div class="row">
@@ -280,9 +271,6 @@
                                     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                                   </div>
                                 </div>
-                                <div class="reply row justify-content-end mr-4">
-                                    Reply
-                                  </div>
                               </div>
                           </div>
                         <hr class="mt-4 mx-6">
