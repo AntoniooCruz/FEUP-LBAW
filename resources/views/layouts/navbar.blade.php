@@ -34,12 +34,14 @@
      
 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 
-  <form action="{{URL::to('/search')}}" method="GET" role="search" class="searchBar-blue">
     @if(Route::current()->getName() != 'home')
+
+  <form action="{{URL::to('/search')}}" method="GET" role="search" class="searchBar-blue">
     {{csrf_field()}} 
         <input type="search" placeholder="Search">
-        @endif
       </form>
+      @endif
+
 
    
 
