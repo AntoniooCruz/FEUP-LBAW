@@ -43,30 +43,26 @@ newPostBttn.addEventListener('click', newPostRequest);
 
         let span2 = document.createElement("SPAN");
         span2.className = "card-title";
-        span2.innerText = ' posted on ';
+
+        let textNode = document.createTextNode(" posted on ")
 
         let a = document.createElement("a");
         a.href = "userprofile.html";
 
         let span3 = document.createElement("SPAN");
         span3.className = "link-username";
-        //TODO pass it to name
-        span3.innerText = post[0].id_author;
+        span3.innerText = post[2];
 
         let a2 = document.createElement("a");
         a2.href = "eventpage.html";
 
         let span4 = document.createElement("SPAN");
         span4.className = "link-event";
-        //TODO pass it to name
-        span4.innerText = post[0].id_event;
+        span4.innerText = post[1];
 
         let spanDate = document.createElement("SPAN");
         spanDate.className = "card-date";
         spanDate.innerText = post[0].date;
-
-        let img_far_flag = document.createElement("IMG");
-        img_far_flag.className = "far fa-flag";
 
         let card_body = document.createElement("div");
         card_body.className = "card-body";
@@ -109,9 +105,12 @@ newPostBttn.addEventListener('click', newPostRequest);
 
         let button = document.createElement("button");
         button.id = "add comment_button";
-        button.class = "commentButton  btn-primary roundRadius";
+        button.className = "commentButton  btn-primary roundRadius";
         button.type = "button";
-        // TODO button.aria-expanded = "false";
+        button.setAttribute("aria-expanded","false");
+        button.setAttribute("data-id", post[0].id_post.toString());
+
+        button.addEventListener('click', addCommentRequest);
 
         let i = document.createElement("i");
         i.className = "far fa-flag";
@@ -125,14 +124,16 @@ newPostBttn.addEventListener('click', newPostRequest);
 
         let footerText = document.createElement("div");
         footerText.className = "footerText";
-        //footerText.attr("data-toggle","comment_section");
+        footerText.setAttribute("data-toggle","comment_section");
         footerText.href = "#comments1";
         footerText.role = "button";
-        //footerText.attr("aria-expanded","false");
-        //footerText.attr("aria-controls","collapseExample");
+        footerText.setAttribute("aria-expanded","false");
+        footerText.setAttribute("aria-controls","collapseExample");
 
         let button_comment_button = document.createElement("button");
         button_comment_button.id = "comment_button";
+        button_comment_button.setAttribute("data-id" , post[0].id_post.toString());
+        button_comment_button.addEventListener('click', showCommentsRequest);
 
         let i2 = document.createElement("i");
         i2.className = "fas fa-caret-right";
@@ -149,8 +150,8 @@ newPostBttn.addEventListener('click', newPostRequest);
         description_header.appendChild(img);
         description_header.appendChild(header_text);
         header_text.appendChild(span2);
-        //TODO Posted on problem
         span2.appendChild(a);
+        span2.appendChild(textNode);
         a.appendChild(span3)
         span2.appendChild(a2);
         a2.appendChild(span4);
@@ -163,7 +164,7 @@ newPostBttn.addEventListener('click', newPostRequest);
         footer.appendChild(comments1);
         comments1.appendChild(commentInput);
         commentInput.appendChild(col);
-        col.appendChild(img_far_flag);
+        col.appendChild(img_userAction);
         col.appendChild(textarea_comment);
         commentInput.appendChild(div_col_auth);
         div_col_auth.appendChild(button);

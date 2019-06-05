@@ -91,6 +91,7 @@ class EventController extends Controller
     }
 
     public function show($id_event) {
+        
 
         $this->friendsGoing($id_event);
         
@@ -100,14 +101,12 @@ class EventController extends Controller
             $this->authorize('view', $event);
         }
 
-            return view('pages.event', ['event' => $event , 
-                                        'friendsGoing' => $this->friendsGoing($id_event),
-                                        'usersGoing' => $this->usersGoing($id_event),
-                                        'categories' => Category::all()
-                                        ] 
+        return view('pages.event', ['event' => $event , 
+                                     'friendsGoing' => $this->friendsGoing($id_event),
+                                    'usersGoing' => $this->usersGoing($id_event),
+                                    'categories' => Category::all()
+                                    ] 
             );
-
-        
     }
 
     public function friendsGoing($id_event){
@@ -165,6 +164,9 @@ class EventController extends Controller
 
         $date_created = Carbon::now()->toDateTimeString();
 
+        $event_name = Event::find($id_event)->title;
+        $author_name = User::find($id_author)->username;
+
         $post = Post::create([
             'date' => $date_created,
             'text' => $request->input('data'),
@@ -175,7 +177,7 @@ class EventController extends Controller
 
         $post->save();
 
-        return response()->json([$post]);
+        return response()->json([$post, $event_name, $author_name]);
     }
 
     public function getComments($id_post) {
@@ -190,5 +192,21 @@ class EventController extends Controller
         });
 
         return response()->json([$comments]);
+    }
+
+    public function purchaseTicket(Request $request, $id_event){
+
+        $date_created = Carbon::now()->toDateTimeString();
+
+        $ticket = Ticket::create([
+            'id_event' => $id_event,
+            'id_ticket_owner' => Auth::user()->id_user,
+            'date_acquired' =>  $date_created,
+            'checked_in' => false
+        ]);
+
+        $ticket->save();
+        
+        return response()->json($id_event, 200);
     }
 }

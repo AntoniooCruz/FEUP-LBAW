@@ -142,14 +142,21 @@ $( document ).ready(function() {
 
 
 //get ticket
-let ticketBtn = document.getElementById('getTicketBtn');
+let ticketBtn = document.getElementById('confirmTicket');
 if(ticketBtn!=null)
     ticketBtn.onclick =  purchaseTicketRequest;
 
 function purchaseTicketRequest(){
-    sendAjaxRequest(method, '/api/event/' + id_event + '/getticket', null, purchaseTicketHandler);
+    let id_event = document.getElementById('id_event').innerHTML;
+    sendAjaxRequest('post', '/api/event/' + id_event + '/getticket', null, purchaseTicketHandler);
 }
 
 function purchaseTicketHandler(){
-
+    if (this.status == 200){
+        document.getElementById('getTicketBtn').innerHTML="Going";
+        let template = document.createElement('div');
+        template.innerHTML = '<div id="ticketAlert" class="alert alert-success" role="alert"> Ticket purchased!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+        document.getElementById('content').prepend(template);
+        $('#getTicketModal').modal('hide');
+    }
 }
