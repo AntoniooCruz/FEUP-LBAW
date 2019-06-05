@@ -79,11 +79,13 @@ newPostBttn.addEventListener('click', newPostRequest);
         let hr = document.createElement("hr");
 
         let comments1 = document.createElement("div");
-        comments1.id = "comments1";
+        comments1.id = "comments1-".concat(post[0].id_post.toString());
         comments1.className = "comments collapse mb-2 mt-3";
+        comments1.setAttribute("data-id", post[0].id_post);
 
         let commentInput = document.createElement("div");
         commentInput.className = "commentInput row";
+        commentInput.setAttribute("data-id", post[0].id_post);
 
         let col = document.createElement("div");
         col.className = "col px-1";
@@ -95,7 +97,7 @@ newPostBttn.addEventListener('click', newPostRequest);
 
         let textarea_comment = document.createElement("textarea");
         textarea_comment.id = "comment_data";
-        textarea_comment.name = post[0].id_post;
+        textarea_comment.setAttribute("data-id", post[0].id_post);
         textarea_comment.className = "form-control roundRadius pl-5";
         textarea_comment.rows = "1";
         textarea_comment.placeholder = "Say something...";
@@ -108,31 +110,32 @@ newPostBttn.addEventListener('click', newPostRequest);
         button.className = "commentButton  btn-primary roundRadius";
         button.type = "button";
         button.setAttribute("aria-expanded","false");
-        button.setAttribute("data-id", post[0].id_post.toString());
+        button.setAttribute("data-id", post[0].id_post);
 
         button.addEventListener('click', addCommentRequest);
 
         let i = document.createElement("i");
-        i.className = "far fa-flag";
+        i.className = "fab fa-font-awesome-flag";
 
         let comment_section = document.createElement("div");
         comment_section.className = "card-comment-section";
         comment_section.id = "comment_section";
+        comment_section.setAttribute("data-id",post[0].id_post);
 
         let hr_mt = document.createElement("hr");
         hr_mt.className = "mt-4 mx-6";
 
         let footerText = document.createElement("div");
         footerText.className = "footerText";
-        footerText.setAttribute("data-toggle","comment_section");
-        footerText.href = "#comments1";
+        footerText.setAttribute("data-toggle","collapse");
+        footerText.setAttribute('href' , "#comments1-".concat(post[0].id_post.toString()));
         footerText.role = "button";
         footerText.setAttribute("aria-expanded","false");
         footerText.setAttribute("aria-controls","collapseExample");
 
         let button_comment_button = document.createElement("button");
         button_comment_button.id = "comment_button";
-        button_comment_button.setAttribute("data-id" , post[0].id_post.toString());
+        button_comment_button.setAttribute("data-id" , post[0].id_post);
         button_comment_button.addEventListener('click', showCommentsRequest);
 
         let i2 = document.createElement("i");
@@ -140,6 +143,7 @@ newPostBttn.addEventListener('click', newPostRequest);
 
         let i3 = document.createElement("i");
         i3.className = "far fa-comments";
+        i3.setAttribute("data-id" , post[0].id_post);
 
         let size_span = document.createElement("SPAN");
         size_span.innerText = 0;
