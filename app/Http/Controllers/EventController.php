@@ -38,45 +38,46 @@ class EventController extends Controller
     }
 
     public function create(Request $request){
+        if(Auth::check()){
+            $this->validator($request->all());
 
-        $this->validator($request->all());
+        $date_created = Carbon::now()->toDateTimeString();
+        if($request->input('price')== null)
+            $price = 0;
+        else $price = $request->input('price');
 
-       $date_created = Carbon::now()->toDateTimeString();
-       if($request->input('price')== null)
-        $price = 0;
-       else $price = $request->input('price');
+        if($request->input('is_private')=='public') 
+            $private = false;
+        else if( $request->input('is_private')=='private') 
+            $private = true;
 
-       if($request->input('is_private')=='public') 
-        $private = false;
-       else if( $request->input('is_private')=='private') 
-        $private = true;
+            $splitDatepicker = explode(' @', $request->input('date'), 2);
+            $date = $splitDatepicker[0];
+            $time = !empty($splitDatepicker[1]) ? $splitDatepicker[1] : '';
+            $datetime = $date . $time;
 
-        $splitDatepicker = explode(' @', $request->input('date'), 2);
-        $date = $splitDatepicker[0];
-        $time = !empty($splitDatepicker[1]) ? $splitDatepicker[1] : '';
-        $datetime = $date . $time;
+            $event = Event::create([
+                'title' => $request->input('title'),
+                'date_created' => $date_created,
+                'date' => $datetime,
+                'location' => $request->input('street'),
+                'description' => $request->input('title'),
+                'price' => $price,
+                'capacity' => $request->input('capacity'),
+                'is_private' => $private,
+                'id_owner' => Auth::user()->id_user,
+                'id_category' => $request->input('category'),
+                'city' => $request->input('city'),
+                'zip_code' => $request->input('zip_code'),
+                'country' => $request->input('country')
+                ]);
+            $event->save();
 
-        $event = Event::create([
-            'title' => $request->input('title'),
-            'date_created' => $date_created,
-            'date' => $datetime,
-            'location' => $request->input('street'),
-            'description' => $request->input('title'),
-            'price' => $price,
-            'capacity' => $request->input('capacity'),
-            'is_private' => $private,
-            'id_owner' => Auth::user()->id_user,
-            'id_category' => $request->input('category'),
-            'city' => $request->input('city'),
-            'zip_code' => $request->input('zip_code'),
-            'country' => $request->input('country')
-            ]);
-        $event->save();
+            if($request->has('invites'))
+                $this->sendInvites( $request->input('invites'), $event->id_event);
 
-        if($request->has('invites'))
-            $this->sendInvites( $request->input('invites'), $event->id_event);
-
-        return redirect("event/".$event->id_event);
+            return redirect("event/".$event->id_event);
+        } else return redirect('login');
     }
 
     public function sendInvites($invites, $id_event) {
