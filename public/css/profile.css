@@ -209,7 +209,7 @@ small {
     margin:auto;
 }
 
-#tickets-button {
+#tickets-button, #bann-button {
     width: 100%;
     border-radius: 4px;
     font-size: 14px;
@@ -220,7 +220,7 @@ small {
     margin: auto;
 }
 
-#tickets-button a{
+#tickets-button a,  #bann-button a{
 color: white;
 }
 

@@ -66,7 +66,7 @@
             <i class="fas fa-ellipsis-h"></i>
           </button>
           <div class="dropdown-menu dropdown-menu-right p-0 ">
-            @if($event->owner!=Auth::user())
+            @if($event->owner==Auth::user())
             <button class="dropdown-item px-3 pt-2 pb-2" type="button" data-toggle="modal" data-target="#editEventModal">Edit
               event</button>
             @if($event->is_private)  
