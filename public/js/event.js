@@ -85,6 +85,15 @@ function parseDateHours(date){
     return aux[0] + ":" + aux[1];
 }
 
-if(document.querySelector('#extendedDate')!=null){
-    
-}
+
+$( document ).ready(function() { 
+    $("#test-circle").circliful({
+        animationStep: 5,
+        foregroundBorderWidth: 5,
+        backgroundBorderWidth: 5,
+        percent: Math.round(parseInt(document.getElementById('eventTaken').innerHTML)*100/parseInt(document.getElementById('eventCapacity').innerHTML)),
+        foregroundColor: '#A1B6C8',
+        fontColor: '#A1B6C8'
+    });
+   
+});

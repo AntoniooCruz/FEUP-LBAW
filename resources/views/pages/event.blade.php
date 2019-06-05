@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom-scripts')
-<script type="text/javascript" src={{ asset('js/comments.js') }} defer></script>
+  <script type="text/javascript" src={{ asset('js/comments.js') }} defer></script>
   <link href="{{ asset('css/eventpage.css') }}" rel="stylesheet">
 @endsection
 
@@ -49,6 +49,7 @@
       </button>
     </div>
   </div>
+  
 
   <div class="eventRow details">
     <div class="row detailsHeader justify-content-center">
@@ -101,12 +102,14 @@
               </button>
             </div>
             <section id="collapseContent" class="collapse">
-              <div class="lotation row align-self-center justify-content-center">
-                <img class="graph" src="../img/graphTemplate.png">
-                <div class="col-auto align-self-center">
-                <span class="row">Capacity: {{$event->capacity}}</span>
-                  <span class="row">Taken: {{$event->tickets()->count()}}</span>
-                  <span class="row">Left: {{$event->capacity - ($event->tickets()->count())}} </span>
+              <div class="lotation row align-self-center justify-content-center container">
+                <div id="circle" class="col-auto align-self-center">
+                     <div id="test-circle"></div>
+                </div>
+                <div id="after-circle" class="col-auto align-self-center">
+                <span class="row">Capacity: <span id="eventCapacity">{{$event->capacity}}</span></span>
+                  <span class="row">Taken: <span id="eventTaken">{{$event->tickets()->count()}}</span></span>
+                  <span class="row">Left: <span id="eventLeft">{{$event->capacity - ($event->tickets()->count())}} </span></span>
                 </div>
               </div>
               <div class="userPics">
