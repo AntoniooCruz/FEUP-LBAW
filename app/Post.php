@@ -8,6 +8,12 @@ class Post extends Model
 {
     protected $table = 'post';
     protected $primaryKey = 'id_post';
+    
+    public $timestamps  = false;    
+
+    protected $fillable = [
+        'date', 'text', 'id_event', 'id_author', 'post_type'
+    ];
 
     public function author() {
 
