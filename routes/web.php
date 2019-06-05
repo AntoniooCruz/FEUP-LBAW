@@ -49,7 +49,7 @@ Route::post('profile/edit', 'ProfileController@update');
 Route::get('profile/{id_user}', 'ProfileController@showUser');
 Route::put('api/profile/{id_user}/follow','ProfileController@followUser');
 Route::delete('api/profile/{id_user}/follow','ProfileController@unfollowUser');
-Route::post('api/event/{id_event}/getticket', 'EventController@purchaseTicket');
+Route::post('api/event/{id_event}/buyticket', 'EventController@purchaseTicket');
 
 //Event
 Route::get('event/{id_event}', 'EventController@show');
@@ -60,7 +60,7 @@ Route::post('api/event/{id_event}/newpost', 'EventController@newPost');
 
 //Search
 Route::get('search', 'SearchController@search');
-Route::get('api/search', 'SearchController@filter');
+Route::get('api/search', 'SearchController@onpagesearch');
 
 Auth::routes();
 

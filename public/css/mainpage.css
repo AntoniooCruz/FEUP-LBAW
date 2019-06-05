@@ -1,5 +1,3 @@
-@import "./style.css";
-
 body{
     background-color: var(--darkBlue);
 }
@@ -18,7 +16,7 @@ body > .navbar:nth-child(1){
 .searchBar-blue input,
 .searchBar-blue input:focus,
 .searchBar-blue button{
-    background-color: transparent;
+    background-color: #ffffff5e;
 }
 
 .searchBar-blue input:focus{
@@ -87,16 +85,17 @@ body > .navbar:nth-child(1){
     top:0;
     z-index: -1;
     background: var(--darkBlue);
+    width:100vw;
+
 }
 
 .carousel img{
-    opacity: 0.2;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  max-width: none;
+    opacity: 0.35;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    object-fit: cover;
+    overflow-y: hidden;
 }
 
 
@@ -140,4 +139,35 @@ body > .navbar:nth-child(1){
 .search img{
     width:30%;
     height:50%;
+}
+
+
+.searchBar-blue input{
+    font-size: 18px;
+    border-radius: 50px 0 0 50px;
+    height: 50px;
+    padding-left: 20px !important;
+}
+
+.searchBar-blue input{
+    background-color: #ffffff5e;
+    border:none;
+}
+
+
+
+ .searchBar-blue button{
+    border-radius: 0 50px 50px 0;
+    border:none;
+    color:var(--lightGrey);
+    margin-right: 0!important;
+    height: 50px;
+    padding-right: 40px !important;
+    width: 40px;
+    box-shadow: none !important;
+
+}
+
+.searchBar-blue button:hover{
+    color:white;
 }

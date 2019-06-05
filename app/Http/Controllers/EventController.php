@@ -71,7 +71,6 @@ class EventController extends Controller
                 'zip_code' => $request->input('zip_code'),
                 'country' => $request->input('country')
                 ]);
-            $event->save();
 
             if($request->has('invites'))
                 $this->sendInvites( $request->input('invites'), $event->id_event);
@@ -87,7 +86,6 @@ class EventController extends Controller
                     'id_inviter' => Auth::user()->user_id,
                     'id_invitee' => $id_invitee
                     ]);
-            $invite->save();
         }
     }
 
@@ -102,10 +100,13 @@ class EventController extends Controller
             $this->authorize('view', $event);
         }
 
+        $hasTicket = !empty($event->tickets()->where('id_ticket_owner', Auth::user()->id_user)->first());
+
         return view('pages.event', ['event' => $event , 
                                      'friendsGoing' => $this->friendsGoing($id_event),
                                     'usersGoing' => $this->usersGoing($id_event),
-                                    'categories' => Category::all()
+                                    'categories' => Category::all(),
+                                    'hasTicket' => $hasTicket
                                     ] 
             );
     }
@@ -152,6 +153,7 @@ class EventController extends Controller
             ]);
             
 
+
         return response()->json([$comment]);
     }
 
@@ -175,7 +177,6 @@ class EventController extends Controller
             'post_type' => $request->input('post_type')
             ]);
 
-        $post->save();
 
         return response()->json([$post, $event_name, $author_name]);
     }
@@ -205,7 +206,6 @@ class EventController extends Controller
             'checked_in' => false
         ]);
 
-        $ticket->save();
         
         return response()->json($id_event, 200);
     }
