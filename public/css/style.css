@@ -160,19 +160,11 @@ body > .navbar:nth-child(1){
 .navbar-nav .active>.nav-link, .navbar-brand{
     color:white !important;
 }
-
+/*
 .navbar-collapse > .searchBar-blue{
     padding-left: 8px;
 }
 
-.navbar-collapse > .searchBar-blue input:hover{
-    background-color:#262F3C;
-    width: 150px !important;
-}
-
-.navbar-collapse > .searchBar-blue input:hover + * {
-    background-color:#262F3C;
-}
 .navbar-collapse > .searchBar-blue input{
     margin-right: 0!important;
     width: 0px !important;
@@ -232,7 +224,7 @@ body > .navbar:nth-child(1){
     color:white;
 }
 
-
+*/
 
 .sortNav {
     background-color: transparent !important;
@@ -536,4 +528,66 @@ body > .navbar:nth-child(1) .dropdown-toggle{
 
 .custom-select{
     margin-left: 5px;
+}
+
+
+.searchBar-blue input {
+	outline: none;
+}
+.searchBar-blue input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+.searchBar-blue input::-webkit-search-decoration,
+.searchBar-blue input::-webkit-search-cancel-button {
+	display: none; 
+}
+
+
+.searchBar-blue input[type=search] {
+	background: transparent url(https://png.icons8.com/search/ffffff/20) no-repeat 9px center;
+	border:none;
+	padding: 9px 10px 9px 32px;
+	width: 55px;
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+
+.searchBar-blue input[type=search]:focus {
+	width: 130px;
+	background-color: #fff;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+/* Demo 2 */
+.searchBar-blue input[type=search] {
+    width: 15px;
+    height:15px;
+	padding-left: 10px;
+	color: transparent;
+    cursor: pointer;
+}
+
+.searchBar-blue input[type=search]:focus {
+	width: 130px;
+	padding-left: 32px;
+	color: white;
+    background-color: #a5a5a57d;
+	cursor: auto;
+}
+
+.searchBar-blue input::-webkit-input-placeholder {
+	color: transparent;
 }
