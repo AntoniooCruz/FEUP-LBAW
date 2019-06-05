@@ -23,7 +23,7 @@
                 <div class="modal-body">
                   <span id="errors" style="display:none;">{{ sizeof($errors) }}</span>
                     <div class="eventPhoto justify-content-md-center">
-                      <img src="../img/event-placeholder.png">
+                      <img src="../img/event-placeholder.png" height="300">
                       <span class="col-sm-2 col-3 btn btn-secondary btn-file form-control-file"
                         id="exampleFormControlFile1">Upload
                         <input type="file"></span>

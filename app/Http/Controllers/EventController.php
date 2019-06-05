@@ -73,7 +73,8 @@ class EventController extends Controller
             ]);
         $event->save();
 
-        $this->sendInvites( $request->input('invites'), $event->id_event);
+        if($request->has('invites'))
+            $this->sendInvites( $request->input('invites'), $event->id_event);
 
         return redirect("event/".$event->id_event);
     }

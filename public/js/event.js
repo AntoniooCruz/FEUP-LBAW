@@ -1,5 +1,8 @@
 window.addEventListener("load",loadHandler);
 
+Popper.Defaults.modifiers.computeStyle.gpuAcceleration = false;
+
+
 //date format
 function loadHandler() {
     titles = document.querySelectorAll("#event-card-title");
@@ -121,11 +124,16 @@ function parseDateHours(date, letter){
 
 //circular graph
 $( document ).ready(function() { 
+    let percentVar;
+    if(parseInt(document.getElementById('eventTaken').innerHTML)==0)
+         percentVar=0;
+    else percentVar = Math.round(parseInt(document.getElementById('eventTaken').innerHTML)*100/parseInt(document.getElementById('eventCapacity').innerHTML));
+
     $("#test-circle").circliful({
         animationStep: 5,
         foregroundBorderWidth: 5,
         backgroundBorderWidth: 5,
-        percent: Math.round(parseInt(document.getElementById('eventTaken').innerHTML)*100/parseInt(document.getElementById('eventCapacity').innerHTML)),
+        percent: percentVar,
         foregroundColor: '#A1B6C8',
         fontColor: '#A1B6C8'
     });

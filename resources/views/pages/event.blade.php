@@ -17,13 +17,13 @@
       @if($event->is_private)<span id="privateIndicator" class="label"> <i class="fas fa-lock"></i></span>@endif
       <span id="categoryIndicator" class="label"> {{$event->category->name}}</span>
     </div>
-    <img src="../img/eventbanner.jpg">
+    <img src="../img/eventbanner.jpg" width="400" height="300">
   </div>
 
   <div class="eventRow row">
-    @if(Auth::check())
+    @if(Auth::check()  && $event->owner!=Auth::user())
     <div class="col-lg-9 col-md-8 col-sm-12">
-    @else <div class="col-lg-11 col-md-8 col-sm-12">
+    @else <div class="col-lg-10 col-md-8 col-sm-12">
     @endif
       <div class="row header align-items-start">
         <div id="eventPagedate" class="col-xs align-items-start">
@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-    @if(Auth::check())
+    @if(Auth::check() && $event->owner!=Auth::user())
     <div class="col-lg-2  col-md-3 col-sm-12 getTicket text-right pr-1">
       <button id="getTicketBtn" class="btn btn-primary" type="button" aria-expanded="false" data-toggle="modal" data-target="#getTicketModal">
         <i class="fas fa-ticket-alt"></i> 
@@ -50,13 +50,30 @@
         @endif
       </button>
     </div>
-    @endif
     <div class="col-lg-1  col-md-1 col-sm-12 getTicket text-right">
-      <button class="reportBtn btn-outline-secondary" type="button" aria-expanded="false" data-toggle="modal"
-        data-target="#reportEventModal">
-        <i class="fab fa-font-awesome-flag"></i>
-      </button>
-    </div>
+        <button class="reportBtn btn-outline-secondary" type="button" aria-expanded="false" data-toggle="modal"
+          data-target="#reportEventModal">
+          <i class="fab fa-font-awesome-flag"></i>
+        </button>
+      </div>
+    @else
+    <div class="col-lg-2  col-md-3 col-sm-12 getTicket text-right">
+        <div class="btn-group">
+          <button type="button" class="btn-more btn btn-outline-primary" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-ellipsis-h"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right p-0 ">
+            <button class="dropdown-item px-3 pt-2 pb-2" type="button" data-toggle="modal" data-target="#editEventModal">Edit
+              event</button>
+            <button class="dropdown-item px-3 pt-2 pb-2" type="button" data-toggle="modal" data-target="#checkInModal">Check
+              in attendees</button>
+            <button id="deleteEvent" class="dropdown-item px-3 pt-2 pb-2 " type="button" data-toggle="modal"
+              data-target="#deleteEventModal">Delete event</button>
+          </div>
+        </div>
+      </div>
+    @endif
   </div>
   
 

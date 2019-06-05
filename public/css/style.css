@@ -383,6 +383,8 @@ body > .navbar:nth-child(1) .dropdown-toggle{
 
 .eventPhoto img {
     width: 100%;
+    object-fit: cover;
+    height: 400px;
 }
 
 .eventPhoto {
