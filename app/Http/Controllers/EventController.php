@@ -131,6 +131,28 @@ class EventController extends Controller
         return response()->json([$comment]);
     }
 
+    public function newPost(Request $request, $id_event) {
+
+        if (!Auth::check()) 
+            return response(403);
+        
+        $id_author = Auth::user()->id_user;
+
+        $date_created = Carbon::now()->toDateTimeString();
+
+        $post = Post::create([
+            'date' => $date_created,
+            'text' => $request->input('data'),
+            'id_event' => $id_event,
+            'id_author' => $id_author,
+            'post_type' => $request->input('post_type')
+            ]);
+
+        $post->save();
+
+        return response()->json([$post]);
+    }
+
     public function getComments($id_post) {
 
         if (!Auth::check()) 

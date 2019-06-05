@@ -24,7 +24,7 @@
               <div class="commentInput row">
                 <div class="col px-1">
                   <img class=" userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
-                  <textarea id ="comment_data" class="form-control roundRadius pl-5" id="exampleFormControlTextarea1" rows="1"
+                  <textarea id ="comment_data" name= {{$post->id_post}} class="form-control roundRadius pl-5" id="exampleFormControlTextarea1" rows="1"
                     placeholder="Say something..."></textarea></div>
                 <div class="col-auto p-0">
                   <button id="add_comment_button" class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">

@@ -2,6 +2,7 @@
 
 @section('custom-scripts')
 <script type="text/javascript" src={{ asset('js/comments.js') }} defer></script>
+<script type="text/javascript" src={{ asset('js/post.js') }} defer></script>
   <link href="{{ asset('css/eventpage.css') }}" rel="stylesheet">
 @endsection
 
@@ -165,7 +166,7 @@
         <img id="commentPic" class="roundRadius" src="../img/user.jpg">
         <div class="comment row">
           <div class="col-12 form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+            <textarea class="form-control" name="newPost" id="exampleFormControlTextarea1" rows="3"
               placeholder="Say something..."></textarea>
             <hr>
           </div>
@@ -178,12 +179,12 @@
             </button>
           </div>
         </div>
-        <button class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
+        <button id ="new_post_button" class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
           <i class="fas fa-caret-right"></i>
         </button>
       </div>
       <hr>
-      <div id="#posts">
+      <div id="posts">
         @each ('partials.post', $event->posts()->get(), 'post')
       </div>
     </div>
