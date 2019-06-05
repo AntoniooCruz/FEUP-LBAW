@@ -2,6 +2,7 @@
 
 @section('custom-scripts')
 <link href="{{ asset('css/search-result.css') }}" rel="stylesheet">
+<script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
 <script type="text/javascript" src={{ asset('js/search.js') }} defer></script>
 @endsection
 

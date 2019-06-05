@@ -48,7 +48,8 @@ if(paidTab!=null && freeTab !=null){
 }
 
 let oldDate;
-
+let errors = (document.getElementById('errors'));
+if(errors!=null){
 if(document.getElementById('errors').innerHTML!=0){
   $('input[name="date"]').value =oldDate;
   $('#createEventModal').modal();
@@ -57,3 +58,4 @@ if(document.getElementById('errors').innerHTML!=0){
 document.getElementById('click', function(){
   oldDate = $('input[name="date"]').value;
 });
+}

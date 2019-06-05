@@ -29,8 +29,7 @@ class SearchController extends Controller
     }
 
     public function filter(Request $request) {
-        dd($request);
-        return response(200);
+        return response()->json(200);
     }
 
 
