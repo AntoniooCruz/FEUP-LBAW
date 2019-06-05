@@ -54,6 +54,10 @@ class User extends Authenticatable
         return $this->hasOne('App\Business','id_user','id_user');
     }
 
+    public function adminReports(){
+        return $this->hasMany('App\Reports', 'id_admin', 'id_user');
+    }
+
     public function scopeGoingToEvent($query, $id_event){
         
         return $query->whereExists(function ($query) {
@@ -62,6 +66,5 @@ class User extends Authenticatable
                 ->whereRaw('ticket.id_ticket_owner = users.id_user')
                 ->where('ticket.id_event', $id_event);
         });
-
     }
 }
