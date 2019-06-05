@@ -55,11 +55,18 @@ function showCommentsRequest(evt) {
 
   let id_post = evt.path[1].dataset.id;
 
+  console.log(evt.path[2].getAttribute("aria-expanded"));
+  if(evt.path[2].getAttribute("aria-expanded") == "false") {
   console.log('Show Comments from post ' + id_post);
 
   let method = 'get';
 
   sendAjaxRequest(method, '/api/post/' + id_post + '/getcomments', null, showCommentsRequestHandler);
+  } else {
+    let comment_section = document.querySelector(`#comment_section[data-id="${id_post}"]`);
+    comment_section.innerHTML = "";
+    console.log(comment_section);
+  }
 }
 
 function showCommentsRequestHandler() {
@@ -80,11 +87,12 @@ function addCommentRequest(evt) {
 
   let comment = $(`#comment_data[data-id="${id_post}"]`).val();
 
-  console.log(comment);
+  if(comment != "") {
 
   let method = 'post';
 
   sendAjaxRequest(method, '/api/event/' + id_event + '/post/' + id_post + '/addcomment', { data: comment }, addCommentsRequestHandler);
+  }
 }
 
 
