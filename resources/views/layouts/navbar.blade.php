@@ -9,7 +9,7 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <a class="dropdown-item" href="{{ route('myProfile') }}">Profile</a>
       <a class="dropdown-item" href="mytickets.html">My tickets</a>
-      <a class="dropdown-item" href="myinvites.html">My invites</a>
+      <a class="dropdown-item" href="{{ url('/myInvites') }}">My invites</a>
       <hr>
       <a class="dropdown-item" href="#"> <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
       </a>
