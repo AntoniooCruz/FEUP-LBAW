@@ -17,7 +17,7 @@ function followUserRequest(){
   }
 
   function followUserHandler(){
-    console.log(this.responseText);
+    
     if (this.status === 200) {
       let followButton = document.querySelector('#follow_button');
       

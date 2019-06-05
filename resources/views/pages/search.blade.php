@@ -2,7 +2,6 @@
 
 @section('custom-scripts')
 <link href="{{ asset('css/search-result.css') }}" rel="stylesheet">
-<script type="text/javascript" src={{ asset('js/event-card.js') }} defer></script>
 <script type="text/javascript" src={{ asset('js/search.js') }} defer></script>
 @endsection
 
@@ -48,37 +47,16 @@
                 aria-haspopup="true" aria-expanded="false">
                 Categories
               </button>
+              
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              @foreach ($categories as $category)
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="{{$category->name}}" id="defaultCheck1">
                   <label class="form-check-label" for="defaultCheck1">
-                    Music
+                  {{$category->name}}
                   </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                  <label class="form-check-label" for="defaultCheck1">
-                    Film
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                  <label class="form-check-label" for="defaultCheck1">
-                    Food
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                  <label class="form-check-label" for="defaultCheck1">
-                    Conference
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                  <label class="form-check-label" for="defaultCheck1">
-                    Fitness
-                  </label>
-                </div>
+              </div>
+              @endforeach
               </div>
             </li>
           </ul>
@@ -99,7 +77,10 @@
     </div>
     <div id="results_container" class="text-center mt-5">
       <div class="row justify-content-center">
-      @each('partials.card', $events, 'event')
+      @foreach ($events as $event)
+      @include('partials.search-card', ['event'=>$event, 'categories'=>$categories])
+      @endforeach
+      
       </div>
     </div>
 @endsection

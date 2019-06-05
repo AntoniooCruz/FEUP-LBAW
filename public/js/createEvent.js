@@ -38,7 +38,7 @@ if(paidTab!=null && freeTab !=null){
             "format": "MM/DD/YYYY @ H:mm"
           },
           timePicker: true,
-          minYear: 1901,
+          minDate: Date.now(),
           maxYear: parseInt(moment().format('YYYY'),10)
         }, function(start, end, label) {
           var years = moment().diff(start, 'years');
@@ -46,3 +46,14 @@ if(paidTab!=null && freeTab !=null){
         });
       });
 }
+
+let oldDate;
+
+if(document.getElementById('errors').innerHTML!=0){
+  $('input[name="date"]').value =oldDate;
+  $('#createEventModal').modal();
+}
+  
+document.getElementById('click', function(){
+  oldDate = $('input[name="date"]').value;
+});

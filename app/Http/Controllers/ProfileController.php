@@ -133,7 +133,6 @@ class ProfileController extends Controller
         $user2 = User::findOrFail($id);
 
         try {
-           /* $user2->followers()->attach($user1);*/
             $user1->following()->attach($user2);
 
         } catch (Exception $e) {

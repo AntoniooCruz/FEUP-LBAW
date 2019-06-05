@@ -114,7 +114,7 @@ CREATE TABLE event (
     id_category  INTEGER       REFERENCES category (id_category) ON DELETE CASCADE,
     city         VARCHAR (30),
     country     VARCHAR (30),
-    zip_code     VARCHAR (7),
+    zip_code     VARCHAR (10),
     search_tokens TSVECTOR,
 
     CONSTRAINT event_dates CHECK ("date" > date_created)
@@ -187,14 +187,10 @@ CREATE TABLE follow (
 
 -- Table: invite
 CREATE TABLE invite (
+    id_invite SERIAL PRIMARY KEY,
     id_inviter INTEGER REFERENCES personal (id_user) ON DELETE CASCADE,
     id_invitee INTEGER REFERENCES personal (id_user) ON DELETE CASCADE,
-    id_event   INTEGER REFERENCES event (id_event) ON DELETE CASCADE,
-    PRIMARY KEY (
-        id_inviter,
-        id_invitee,
-        id_event
-    )
+    id_event   INTEGER REFERENCES event (id_event) ON DELETE CASCADE
 );
 
 

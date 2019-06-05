@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Support\Collection;
 use App\Event;
@@ -14,13 +16,30 @@ use App\Ticket;
 use App\Post;
 use App\Comment;
 use Carbon\Carbon;
-
+use App\Invite;
 
 class EventController extends Controller
 {   
+    protected function validator($data)
+    {
+
+        return Validator::make($data, [
+            'title' => 'required|string|max:50',
+            'date' => 'required|string|regex:/[0-9]{2}\/[0-9]{2}\/[0-9]{4} @ [0-9][0-9]?:[0-9]{2}/',
+            'location' => 'string|max:40|nullable',
+            'description' => 'string|max:100|nullable',
+            'price' => 'numeric|max:20|nullable',
+            'capacity' => 'integer|nullable',
+            'city' => 'string|max:30|nullable',
+            'zip_code' => 'string|max:6|nullable',
+            'country' => 'string|max:30|nullable'
+        ])->validate();
+        
+    }
 
     public function create(Request $request){
-    
+
+        $this->validator($request->all());
 
        $date_created = Carbon::now()->toDateTimeString();
        if($request->input('price')== null)
@@ -54,18 +73,23 @@ class EventController extends Controller
             ]);
         $event->save();
 
-        return redirect("event/".$event->id_event);
+        $this->sendInvites( $request->input('invites'), $event->id_event);
 
-        return view('pages.event', ['event' => $event , 
-                                        'friendsGoing' => $this->friendsGoing($event->id_event),
-                                        'usersGoing' => $this->usersGoing($event->id_event),
-                                        'categories' => Category::all()
-                                        ] 
-            );
+        return redirect("event/".$event->id_event);
+    }
+
+    public function sendInvites($invites, $id_event) {
+        foreach ($invites as $id_invitee) {
+            $invite = Invite::create([
+                    'id_event' => $id_event,
+                    'id_inviter' => Auth::user()->user_id,
+                    'id_invitee' => $id_invitee
+                    ]);
+            $invite->save();
+        }
     }
 
     public function show($id_event) {
-
 
         $this->friendsGoing($id_event);
         

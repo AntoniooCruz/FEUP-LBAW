@@ -39,6 +39,6 @@ class Event extends Model
     }
 
     public function invited(){
-        return $this->belongsToMany('App\User','invite','id_event','id_invitee');
+        return $this->hasMany('App\Invite','id_event','id_event');
     }
 }
