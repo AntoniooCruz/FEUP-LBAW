@@ -1,5 +1,4 @@
 let showCommentBttn = document.querySelectorAll('#comment_button');
-console.log(showCommentBttn);
 if (showCommentBttn != null) {
   for(var j= 0; j < showCommentBttn.length; j++){
     showCommentBttn[j].addEventListener('click', showCommentsRequest);
@@ -92,7 +91,6 @@ function addCommentRequest(evt) {
 function addCommentsRequestHandler() {
 
   if (this.status == 200) {
-
     let comment = JSON.parse(this.response);
     addCommentToSection(comment[0].id_user, comment[0].text, comment[0].id_post);
 

@@ -118,11 +118,17 @@ class ProfileController extends Controller
     }
 
     public function remove(Request $request){
-        $user = Auth::user();
-        $user-> active = false;
-        $user->save();
+            if (!Auth::check()) 
+                return redirect('home');
 
-        return redirect('logout');
+            $user = Auth::user();
+
+            try {
+                $user->delete();
+                return redirect('home');
+            } catch (Exception $e) {
+                return redirect('profile');
+            }
     }
 
     public function followUser($id) {

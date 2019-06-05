@@ -22,3 +22,4 @@ function encodeForAjax(data) {
       request.send(encodeForAjax(null));
     else request.send(encodeForAjax(data));
   }
+  
