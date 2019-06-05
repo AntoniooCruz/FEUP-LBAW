@@ -3,7 +3,6 @@
 @section('custom-scripts')
   <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
   <script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
-
 @endsection
 
 @section('content')

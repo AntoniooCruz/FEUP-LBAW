@@ -3,12 +3,15 @@
 @section('custom-scripts')
 <script type="text/javascript" src={{ asset('js/follow.js') }} defer></script>
 <script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
-
+<script type="text/javascript" src={{ asset('js/profile.js') }} defer></script>
   <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 @endsection
 
 
 @section('content')
+@if(!$user->active)
+<div class="alert alert-danger" role="alert">This user has been banned!</div>
+@endif
 <section id="profile">
   <span id="id_user" style="display:none;">{{$user->id_user}}</span>
 
@@ -48,7 +51,7 @@
             <hr>
             <p id="description" class="row text-left">{{$user->description}} </p>
           </div>
-
+          <div class="row"><button id="bann-button" class=" btn btn-danger">Ban user</button></div>
         </div>
     
         <div id="events_container" class="col-lg-6 col-12 container text-left">
