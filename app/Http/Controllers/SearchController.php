@@ -29,15 +29,17 @@ class SearchController extends Controller
                                     ]);
     }
 
-    public function filter(Request $request) {
-        $search_text = Input::get('search');
+    public function onpagesearch(Request $request) {
+        $priceCats = $request->input('price');
+        $categories = $request->input('categories');
+        
 
-        $events = DB::select("SELECT * FROM event WHERE search_tokens @@ plainto_tsquery('english',:search) 
+        $events = DB::select("SELECT * FROM event, category
+                             WHERE search_tokens @@ plainto_tsquery('english',:search)
+                            AND event.id_category = category.id_category 
                             ORDER BY ts_rank(search_tokens,plainto_tsquery('english',:search)) 
-                            DESC;",['search' => $search_text]);
+                            DESC;",['search' => $request->input('searchquery')]);
 
-        return response()->json($events,200);
+        return response()->json($events, 200);
     }
-
-
 }

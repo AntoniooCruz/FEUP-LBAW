@@ -10,8 +10,8 @@
 <section class="search container">
     <form action="{{URL::to('/search')}}" method="GET" role="search" class=" row searchBar-nb justify-content-center mt-5">
     {{csrf_field()}}  
-    <input class="form-control" type="search" placeholder="Search..." name="search">
-      <button class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
+    <input id="fieldText" class="form-control" type="search" placeholder="Search..." name="search">
+      <button id="fieldSubmit" class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
     </form>
 
     <div class="row filters justify-content-center align-items-center">
@@ -24,8 +24,8 @@
         <div class="collapse navbar-collapse " id="filters">
           <ul class="navbar-nav mr-auto">
             <li class="dropdown col-auto align-self-center">
-              <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
+              <button class="dropdown-toggle" type="button" id="dropdownPrice" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" id="price">
                 Price
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -44,12 +44,12 @@
               </div>
             </li>
             <li class="dropdown col-auto align-self-center">
-              <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              <button class="dropdown-toggle" type="button" id="dropdownCategories" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 Categories
               </button>
               
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="categories">
               @foreach ($categories as $category)
               <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="{{$category->name}}" id="defaultCheck1">

@@ -60,7 +60,7 @@ Route::post('api/event/{id_event}/newpost', 'EventController@newPost');
 
 //Search
 Route::get('search', 'SearchController@search');
-Route::get('api/search', 'SearchController@filter');
+Route::get('api/search', 'SearchController@onpagesearch');
 
 Auth::routes();
 
