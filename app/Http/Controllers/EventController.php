@@ -38,44 +38,45 @@ class EventController extends Controller
     }
 
     public function create(Request $request){
+        if(Auth::check()){
+            $this->validator($request->all());
 
-        $this->validator($request->all());
+        $date_created = Carbon::now()->toDateTimeString();
+        if($request->input('price')== null)
+            $price = 0;
+        else $price = $request->input('price');
 
-       $date_created = Carbon::now()->toDateTimeString();
-       if($request->input('price')== null)
-        $price = 0;
-       else $price = $request->input('price');
+        if($request->input('is_private')=='public') 
+            $private = false;
+        else if( $request->input('is_private')=='private') 
+            $private = true;
 
-       if($request->input('is_private')=='public') 
-        $private = false;
-       else if( $request->input('is_private')=='private') 
-        $private = true;
+            $splitDatepicker = explode(' @', $request->input('date'), 2);
+            $date = $splitDatepicker[0];
+            $time = !empty($splitDatepicker[1]) ? $splitDatepicker[1] : '';
+            $datetime = $date . $time;
 
-        $splitDatepicker = explode(' @', $request->input('date'), 2);
-        $date = $splitDatepicker[0];
-        $time = !empty($splitDatepicker[1]) ? $splitDatepicker[1] : '';
-        $datetime = $date . $time;
+            $event = Event::create([
+                'title' => $request->input('title'),
+                'date_created' => $date_created,
+                'date' => $datetime,
+                'location' => $request->input('street'),
+                'description' => $request->input('title'),
+                'price' => $price,
+                'capacity' => $request->input('capacity'),
+                'is_private' => $private,
+                'id_owner' => Auth::user()->id_user,
+                'id_category' => $request->input('category'),
+                'city' => $request->input('city'),
+                'zip_code' => $request->input('zip_code'),
+                'country' => $request->input('country')
+                ]);
 
-        $event = Event::create([
-            'title' => $request->input('title'),
-            'date_created' => $date_created,
-            'date' => $datetime,
-            'location' => $request->input('street'),
-            'description' => $request->input('title'),
-            'price' => $price,
-            'capacity' => $request->input('capacity'),
-            'is_private' => $private,
-            'id_owner' => Auth::user()->id_user,
-            'id_category' => $request->input('category'),
-            'city' => $request->input('city'),
-            'zip_code' => $request->input('zip_code'),
-            'country' => $request->input('country')
-            ]);
-        $event->save();
+            if($request->has('invites'))
+                $this->sendInvites( $request->input('invites'), $event->id_event);
 
-        $this->sendInvites( $request->input('invites'), $event->id_event);
-
-        return redirect("event/".$event->id_event);
+            return redirect("event/".$event->id_event);
+        } else return redirect('login');
     }
 
     public function sendInvites($invites, $id_event) {
@@ -85,7 +86,6 @@ class EventController extends Controller
                     'id_inviter' => Auth::user()->user_id,
                     'id_invitee' => $id_invitee
                     ]);
-            $invite->save();
         }
     }
 
@@ -94,19 +94,24 @@ class EventController extends Controller
         $this->friendsGoing($id_event);
         
         $event = Event::find($id_event);
-
+        
+        if($event == null) {
+            echo("Event does not exist");
+            return;
+        }
         if(Auth::check() || $event->is_private){
             $this->authorize('view', $event);
         }
 
-            return view('pages.event', ['event' => $event , 
-                                        'friendsGoing' => $this->friendsGoing($id_event),
-                                        'usersGoing' => $this->usersGoing($id_event),
-                                        'categories' => Category::all()
-                                        ] 
-            );
+        $hasTicket = !empty($event->tickets()->where('id_ticket_owner', Auth::user()->id_user)->first());
 
-        
+        return view('pages.event', ['event' => $event , 
+                                     'friendsGoing' => $this->friendsGoing($id_event),
+                                    'usersGoing' => $this->usersGoing($id_event),
+                                    'categories' => Category::all(),
+                                    'hasTicket' => $hasTicket
+                                    ] 
+            );
     }
 
     public function friendsGoing($id_event){
@@ -138,7 +143,7 @@ class EventController extends Controller
         
         $id_author = Auth::user()->id_user;
         $post = Post::find($id_post);
-        $id_parent = 2;
+        $id_parent = null;
 
         $date_created = Carbon::now()->toDateTimeString();
 
@@ -149,10 +154,32 @@ class EventController extends Controller
             'id_author' => $id_author,
             'date' => $date_created
             ]);
-
-        $comment->save();
-
+            
         return response()->json([$comment]);
+    }
+
+    public function newPost(Request $request, $id_event) {
+
+        if (!Auth::check()) 
+            return response(403);
+        
+        $id_author = Auth::user()->id_user;
+
+        $date_created = Carbon::now()->toDateTimeString();
+
+        $event_name = Event::find($id_event)->title;
+        $author_name = User::find($id_author)->username;
+
+        $post = Post::create([
+            'date' => $date_created,
+            'text' => $request->input('data'),
+            'id_event' => $id_event,
+            'id_author' => $id_author,
+            'post_type' => $request->input('post_type')
+            ]);
+
+
+        return response()->json([$post, $event_name, $author_name]);
     }
 
     public function getComments($id_post) {
@@ -167,5 +194,20 @@ class EventController extends Controller
         });
 
         return response()->json([$comments]);
+    }
+
+    public function purchaseTicket(Request $request, $id_event){
+
+        $date_created = Carbon::now()->toDateTimeString();
+
+        $ticket = Ticket::create([
+            'id_event' => $id_event,
+            'id_ticket_owner' => Auth::user()->id_user,
+            'date_acquired' =>  $date_created,
+            'checked_in' => false
+        ]);
+
+        
+        return response()->json($id_event, 200);
     }
 }

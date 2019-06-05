@@ -2,6 +2,8 @@
 
 @section('custom-scripts')
 <script type="text/javascript" src={{ asset('js/follow.js') }} defer></script>
+<script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
+
   <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 @endsection
 
@@ -14,7 +16,7 @@
         <div id="profile_container" class="col-lg-3 col-12 container text-center">
           <img src="../img/jane.jpg">
           <div id="profile_content">
-            <i class="far fa-flag"></i>
+            <i class="fab fa-font-awesome-flag"></i>
             <div id="header"></div>
             <div id="name" class="row justify-content-left">
               <div class="col text-left">
@@ -74,6 +76,8 @@
       </div>
     </section> 
 
-    @include('layouts.create-event')
+@if(Auth::check())
+  @include('layouts.create-event', ['categories'=>$categories])
+@endif
 
 @endsection

@@ -17,24 +17,25 @@ use App\Category;
 class ProfileController extends Controller
 {
     public function show() {
+        if(Auth::check()){
+            $user = Auth::user();
 
-        $user = Auth::user();
+            $eventsOwned = Event::where('id_owner', $user->id_user)->get();
+            
+            $userTickets = Ticket::where('id_ticket_owner', $user->id_user)->get();
+            $eventsAttending = [];
 
-        $eventsOwned = Event::where('id_owner', $user->id_user)->get();
-        
-        $userTickets = Ticket::where('id_ticket_owner', $user->id_user)->get();
-        $eventsAttending = [];
-
-        foreach($userTickets as $ticket){
-            array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
-        }
+            foreach($userTickets as $ticket){
+                array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
+            }
 
 
-        return view('pages.my-profile', ['user' => $user,
-                                        'eventsOwned' => $eventsOwned, 
-                                        'eventsAttending' => $eventsAttending,
-                                        'categories' => Category::all()
-                                        ]);
+            return view('pages.my-profile', ['user' => $user,
+                                            'eventsOwned' => $eventsOwned, 
+                                            'eventsAttending' => $eventsAttending,
+                                            'categories' => Category::all()
+                                            ]);
+        } else return redirect('login');
                                         
     }
 
@@ -117,11 +118,17 @@ class ProfileController extends Controller
     }
 
     public function remove(Request $request){
-        $user = Auth::user();
-        $user-> active = false;
-        $user->save();
+            if (!Auth::check()) 
+                return redirect('home');
 
-        return redirect('logout');
+            $user = Auth::user();
+
+            try {
+                $user->delete();
+                return redirect('home');
+            } catch (Exception $e) {
+                return redirect('profile');
+            }
     }
 
     public function followUser($id) {

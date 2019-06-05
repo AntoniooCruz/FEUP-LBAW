@@ -17,7 +17,7 @@
                 {{ csrf_field() }}
 
                 <div id="profile_content">
-                    <i class="far fa-flag"></i>
+                    <i class="fab fa-font-awesome-flag"></i>
                     <div class="col-3 col text-right">
                         <button id="update_button" type="button" class="profile-pri-button btn btn-outline-primary">Update</button>
                     </div>
@@ -126,7 +126,8 @@
             </div>
         </div>
 </section>
-
-@include('layouts.create-event')
+@if(Auth::check())
+  @include('layouts.create-event', ['categories'=>$categories])
+@endif
 
 @endsection

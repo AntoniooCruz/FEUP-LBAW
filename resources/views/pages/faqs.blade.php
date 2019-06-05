@@ -89,6 +89,8 @@
     </div>
   </section>
 
-  @include('layouts.create-event')
+  @if(Auth::check())
+  @include('layouts.create-event', ['categories'=>$categories])
+@endif
 
     @endsection

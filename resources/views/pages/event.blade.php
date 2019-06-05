@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
 @section('custom-scripts')
+<script type="text/javascript" src={{ asset('js/post.js') }} defer></script>
 <script type="text/javascript" src={{ asset('js/comments.js') }} defer></script>
   <link href="{{ asset('css/eventpage.css') }}" rel="stylesheet">
+  <script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
+  <script type="text/javascript" src={{ asset('js/event.js') }} defer></script>
+  <script type="text/javascript" src={{ asset('js/circliful/jquery.circliful.min.js') }} defer></script>
+
 @endsection
 
 @section('content')
@@ -13,11 +18,14 @@
       @if($event->is_private)<span id="privateIndicator" class="label"> <i class="fas fa-lock"></i></span>@endif
       <span id="categoryIndicator" class="label"> {{$event->category->name}}</span>
     </div>
-    <img src="../img/eventbanner.jpg">
+    <img src="../img/eventbanner.jpg" width="400" height="300">
   </div>
 
   <div class="eventRow row">
+    @if(Auth::check()  && $event->owner!=Auth::user())
     <div class="col-lg-9 col-md-8 col-sm-12">
+    @else <div class="col-lg-11 col-md-8 col-sm-12">
+    @endif
       <div class="row header align-items-start">
         <div id="eventPagedate" class="col-xs align-items-start">
           <div id="eventPageMonth">
@@ -34,21 +42,51 @@
         </div>
       </div>
     </div>
+    @if(Auth::check() && $event->owner!=Auth::user())
     <div class="col-lg-2  col-md-3 col-sm-12 getTicket text-right pr-1">
-      <button class="btn btn-primary" type="button" aria-expanded="false">
-        <i class="fas fa-ticket-alt"></i> 
-        @if($event->price>0)
-        {{$event->price}}€
+        @if($hasTicket)
+        <button id="getTicketBtn" class="btn btn-primary" type="button" aria-expanded="false">
+          Going
+        </button>
+        @else
+        <button id="getTicketBtn" class="btn btn-primary" type="button" aria-expanded="false" data-toggle="modal" data-target="#getTicketModal">
+          <i class="fas fa-ticket-alt"></i> 
+          @if($event->price>0)
+            {{$event->price}}€
+          @endif
         @endif
       </button>
     </div>
-    <div class="col-lg-1  col-md-1 col-sm-12 getTicket text-right">
-      <button class="reportBtn btn-outline-secondary" type="button" aria-expanded="false" data-toggle="modal"
-        data-target="#reportEventModal">
-        <i class="far fa-flag"></i>
-      </button>
-    </div>
+    @endif
+    @if(Auth::check())
+    <div class="col-lg-1 col-md-1 col-sm-12 getTicket text-right">
+        <div class="btn-group">
+          <button type="button" class="btn-more btn btn-outline-primary" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-ellipsis-h"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right p-0 ">
+            @if($event->owner!=Auth::user())
+            <button class="dropdown-item px-3 pt-2 pb-2" type="button" data-toggle="modal" data-target="#editEventModal">Edit
+              event</button>
+            @if($event->is_private)  
+            <button class="dropdown-item px-3 pt-2 pb-2" type="button" data-toggle="modal" data-target="#checkInModal">Invite</button>
+            @endif
+            <button class="dropdown-item px-3 pt-2 pb-2" type="button" data-toggle="modal" data-target="#checkInModal">Check
+              in attendees</button>
+            <button id="deleteEvent" class="dropdown-item px-3 pt-2 pb-2 " type="button" data-toggle="modal"
+              data-target="#deleteEventModal">Delete event</button>
+           @else 
+           <button class="dropdown-item px-3 pt-2 pb-2" type="button" data-toggle="modal" data-target="#inviteModal">Invite</button>
+          <button class="dropdown-item px-3 pt-2 pb-2" type="button" aria-expanded="false" data-toggle="modal"
+          data-target="#reportEventModal">Report Event</button>
+          @endif
+          </div>
+        </div>
+      </div>
+    @endif
   </div>
+  
 
   <div class="eventRow details">
     <div class="row detailsHeader justify-content-center">
@@ -61,7 +99,7 @@
       <div class="col-lg-4 col-sm-12 ">
         <div id="dateNhours">
           <h6><i class="far fa-calendar-alt"></i> Date & Hours</h6>
-          <span id="extendedDate">{{$event->date}}</span>
+          <span class="extendedDate">{{$event->date}}</span>
         </div>
 
         <div id="location">
@@ -101,12 +139,14 @@
               </button>
             </div>
             <section id="collapseContent" class="collapse">
-              <div class="lotation row align-self-center justify-content-center">
-                <img class="graph" src="../img/graphTemplate.png">
-                <div class="col-auto align-self-center">
-                <span class="row">Capacity: {{$event->capacity}}</span>
-                  <span class="row">Taken: {{$event->tickets()->count()}}</span>
-                  <span class="row">Left: {{$event->capacity - ($event->tickets()->count())}} </span>
+              <div class="lotation container">
+                <div id="circle" class="row">
+                     <div id="test-circle"></div>
+                </div>
+                <div id="after-circle" class="row justify-content-center">
+                <span >Capacity(<span id="eventCapacity">{{$event->capacity}}</span>)</span>
+                  <span> · Taken(<span id="eventTaken">{{$event->tickets()->count()}}</span>) </span>
+                  <span> · Left(<span id="eventLeft">{{$event->capacity - ($event->tickets()->count())}}</span>)</span>
                 </div>
               </div>
               <div class="userPics">
@@ -165,7 +205,7 @@
         <img id="commentPic" class="roundRadius" src="../img/user.jpg">
         <div class="comment row">
           <div class="col-12 form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+            <textarea class="form-control" name="newPost" id="exampleFormControlTextarea1" rows="3"
               placeholder="Say something..."></textarea>
             <hr>
           </div>
@@ -178,12 +218,12 @@
             </button>
           </div>
         </div>
-        <button class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
+        <button id ="new_post_button" class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
           <i class="fas fa-caret-right"></i>
         </button>
       </div>
       <hr>
-      <div id="#posts">
+      <div id="posts">
         @each ('partials.post', $event->posts()->get(), 'post')
       </div>
     </div>
@@ -236,6 +276,33 @@
   </div>
 </div>
 
-@include('layouts.create-event')
+<div class="modal" tabindex="-1" role="dialog" id="getTicketModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"> 
+            <i class="fas fa-ticket-alt"></i>  Purchase Ticket</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>You are about to purchase a ticket for <span class="ticketUnderline">{{$event->title}}</span>
+             ocurring at <span class="extendedDate">{{$event->date}}</span> 
+          </p>
+          <ul><li>Cost: {{$event->price}}€</li></ul>
+          <p>Are you sure you want to continue?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button id="confirmTicket" type="button" class="btn btn-primary">Confirm purchase</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @if(Auth::check())
+  @include('layouts.create-event', ['categories'=>$categories])
+@endif
 
 @endsection

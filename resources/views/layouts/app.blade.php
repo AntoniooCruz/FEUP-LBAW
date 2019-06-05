@@ -15,10 +15,14 @@
  <!-- bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link href="{{ asset('css/circliful/jquery.circliful.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('css/logincard.css') }}" rel="stylesheet">
   <link href="{{ asset('css/event-cards.css') }}" rel="stylesheet">
   <link href="{{ asset('css/activity-cards.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  @if(Route::current()->getName() == 'home')
+  <link href="{{ asset('css/mainpage.css') }}" rel="stylesheet">
+  @endif
   <!-- datepicker -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
@@ -38,11 +42,11 @@
   <!-- datepicker -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-
   <!-- my js scripts -->
   <script type="text/javascript" src={{ asset('js/app.js') }} defer></script>
+  @if(Auth::check())
   <script type="text/javascript" src={{ asset('js/createEvent.js') }} defer></script>
-  <script type="text/javascript" src={{ asset('js/event.js') }} defer></script>
+  @endif
 
   @yield('custom-scripts')
 </head>

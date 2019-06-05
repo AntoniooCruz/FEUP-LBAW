@@ -90,7 +90,6 @@ class RegisterController extends Controller
                 'verification' => 'Pending',
                 'website' => $data['site']
             ]);
-            $business_user->save();
         } 
 
         return $user;

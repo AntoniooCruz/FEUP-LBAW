@@ -17,13 +17,16 @@ html,body{
      height:100%;
  }
 
+ .navbar-toggler-icon{
+     color:white;
+ }
 /*--------------------------*/
 /*-------- NAV BAR ---------*/
 /*--------------------------*/
 @media (max-width:991px) {
-    .navbar-nav {
+    /*.navbar-nav {
         height: 30px;
-    }
+    }*/
     #navbarTogglerDemo02 > form {
         position: relative;
         top: -40px;
@@ -117,11 +120,6 @@ body > .navbar:nth-child(1){
     .navbar-collapse .logged-in{
         margin-right: 6em;
     }
-    
-    #newEventBtn{
-    position: absolute;
-    right: 1em;
-    }
 }    
 
 #dropdown .fa-caret-down{
@@ -129,6 +127,7 @@ body > .navbar:nth-child(1){
     padding-left: 5px;
 }
 
+/*
 .navbar-nav > .nav-item > .nav-link{
     color:#6b757d;
     text-transform: uppercase;
@@ -138,7 +137,7 @@ body > .navbar:nth-child(1){
     padding-left: 12px;
     padding-right: 12px;
 }
-
+*/
 
 .navbar-nav > .nav-item > .nav-link:hover, #dropdown:hover, .fa-plus-square:hover{
     color:white;
@@ -157,80 +156,11 @@ body > .navbar:nth-child(1){
 }
 
 
-.navbar-nav .active>.nav-link, .navbar-brand{
-    color:white !important;
+.navbar-nav .nav-link, .navbar-brand{
+    color: white !important;
 }
 
-.navbar-collapse > .searchBar-blue{
-    padding-left: 8px;
-}
 
-.navbar-collapse > .searchBar-blue input:hover{
-    background-color:#262F3C;
-    width: 150px !important;
-}
-
-.navbar-collapse > .searchBar-blue input:hover + * {
-    background-color:#262F3C;
-}
-.navbar-collapse > .searchBar-blue input{
-    margin-right: 0!important;
-    width: 0px !important;
-    padding-right: 0;
-    height: 30px;
-    padding-left: 12px !important;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-.searchBar-blue input{
-    font-size: 14px;
-    border-radius: 50px 0 0 50px;
-    height: 50px;
-    padding-left: 20px !important;
-}
-
-.searchBar-blue input{
-    background-color: transparent;
-    border:none;
-}
-
-.searchBar-blue input:focus{
-    width: 150px !important;
-    background-color:#262F3C;
-    box-shadow:none;
-    color:white;
-}
-
-.searchBar-blue input:focus + * {
-    background-color:#262F3C;
-}
-
-.navbar-collapse > .searchBar-blue button{
-    height: 30px;
-    padding-top: 3px!important;
-    padding-right: 12px !important;
-    padding-left: 0px !important;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-
-}
-
- .searchBar-blue button{
-    border-radius: 0 50px 50px 0;
-    border:none;
-    color:var(--lightGrey);
-    margin-right: 0!important;
-    height: 50px;
-    padding-right: 40px !important;
-    width: 40px;
-    box-shadow: none !important;
-
-}
-
-.searchBar-blue button:hover{
-    color:white;
-}
 
 
 
@@ -246,12 +176,6 @@ body > .navbar:nth-child(1){
 
 .dropdown-item{
     padding: 0.25em 0;
-}
-
-body > nav .dropdown-menu{
-    right: 5em;
-    left: -114px;
-    width: 180px;
 }
 
 .filters .dropdown-menu{
@@ -343,9 +267,6 @@ body > nav .dropdown-menu{
     margin-top: 6em
 }
 
-#mainpage .container > .searchBar-blue input{
-    width: 50% !important;
-}
 
 #mainpage .container > #logo{
     display: flex;
@@ -363,18 +284,10 @@ body > nav .dropdown-menu{
     font-size: 14px;
 }
 
-body > .navbar:nth-child(1) .dropdown-toggle{
-    background: transparent;
-    border:0;
-    color:white;
-    padding-left: 0;
-}
 
 #newEventBtn{
     background: none;
     border: 0;
-    margin-left: auto;
-    margin-right: 3em;
 }
 
 .uploadCover{
@@ -383,6 +296,8 @@ body > .navbar:nth-child(1) .dropdown-toggle{
 
 .eventPhoto img {
     width: 100%;
+    object-fit: cover;
+    height: 500px;
 }
 
 .eventPhoto {
@@ -528,10 +443,96 @@ body > .navbar:nth-child(1) .dropdown-toggle{
     text-decoration: none;
 }
 
-.fa-flag:hover {
+.fa-font-awesome-flag:hover {
     color: var(--red);
 }
 
 .custom-select{
     margin-left: 5px;
+}
+
+
+.searchBar-blue input {
+	outline: none;
+}
+nav .searchBar-blue input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+nav .searchBar-blue input::-webkit-search-decoration,
+nav .searchBar-blue input::-webkit-search-cancel-button {
+	display: none; 
+}
+
+
+nav .searchBar-blue input[type=search] {
+	background: transparent url(https://png.icons8.com/search/ffffff/20) no-repeat 9px center;
+	border:none;
+	padding: 9px 10px 9px 32px;
+	width: 55px;
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+
+nav .searchBar-blue input[type=search]:focus {
+	width: 130px;
+	background-color: #fff;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+/* Demo 2 */
+nav .searchBar-blue input[type=search] {
+    width: 15px;
+    height:15px;
+	padding-left: 10px;
+	color: transparent;
+    cursor: pointer;
+}
+
+nav .searchBar-blue input[type=search]:focus {
+	width: 130px;
+	padding-left: 32px;
+	color: white;
+    background-color: #a5a5a57d;
+	cursor: auto;
+}
+
+nav .searchBar-blue input::-webkit-input-placeholder {
+	color: transparent;
+}
+
+
+@media (max-width: 991px){
+    .navbar-nav a, .dropdown-item {
+        color: white !important;
+    }
+
+    .navbar-nav .dropdown-menu{
+        background: none;
+        border:none;
+    }
+}
+
+@media (min-width: 992px){
+    .nav-item{
+    -ms-flex-item-align: center!important;
+    align-self: center!important;
+    }
+}
+
+#dropdownMenuButton{
+    background: none;
+    border: none;
 }

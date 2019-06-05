@@ -1,5 +1,4 @@
 let showCommentBttn = document.querySelectorAll('#comment_button');
-console.log(showCommentBttn);
 if (showCommentBttn != null) {
   for(var j= 0; j < showCommentBttn.length; j++){
     showCommentBttn[j].addEventListener('click', showCommentsRequest);
@@ -12,11 +11,11 @@ if (addCommentBttn != null) {
   addCommentBttn[i].addEventListener('click', addCommentRequest);
  }
 }
+function addCommentToSection(id_user, comment_text, comment_id_post) {
 
-
-function addCommentToSection(id_user, comment_text) {
-
-  let comment_section = document.querySelector('#comment_section');
+  let comment_section = document.querySelector(`#comment_section[data-id="${comment_id_post}"]`);
+  console.log(comment_id_post);
+  console.log(comment_section);
 
   let newComment = document.createElement("div");
   newComment.className = "comment my-2";
@@ -47,20 +46,27 @@ function addCommentToSection(id_user, comment_text) {
   newComment.appendChild(row);
   newComment.appendChild(reply);
 
-  $("#comment_data").val('');
+  $(`#comment_data[data-id="${comment_id_post}"]`).val('');
 
   comment_section.appendChild(newComment);
 }
 
-function showCommentsRequest() {
+function showCommentsRequest(evt) {
 
-  let id_post = document.querySelector('#id_post').innerHTML;
+  let id_post = evt.path[1].dataset.id;
 
+  console.log(evt.path[2].getAttribute("aria-expanded"));
+  if(evt.path[2].getAttribute("aria-expanded") == "false") {
   console.log('Show Comments from post ' + id_post);
 
   let method = 'get';
 
   sendAjaxRequest(method, '/api/post/' + id_post + '/getcomments', null, showCommentsRequestHandler);
+  } else {
+    let comment_section = document.querySelector(`#comment_section[data-id="${id_post}"]`);
+    comment_section.innerHTML = "";
+    console.log(comment_section);
+  }
 }
 
 function showCommentsRequestHandler() {
@@ -69,30 +75,36 @@ function showCommentsRequestHandler() {
   let comments = JSON.parse(this.response);
  
   comments[0].forEach(element => {
-    addCommentToSection(element.id, element.text);
+    addCommentToSection(element.id, element.text, element.id_post);
   });
-
 }
 
-function addCommentRequest() {
+function addCommentRequest(evt) {
 
-  let id_post = document.querySelector('#id_post').innerHTML;
+  console.log(evt);
+  let id_post = evt.path[3].dataset.id;
   let id_event = document.querySelector('#id_event').innerHTML;
 
-  let comment = $('#comment_data').val();
+  let comment = $(`#comment_data[data-id="${id_post}"]`).val();
+
+  if(comment != "") {
 
   let method = 'post';
 
   sendAjaxRequest(method, '/api/event/' + id_event + '/post/' + id_post + '/addcomment', { data: comment }, addCommentsRequestHandler);
+  }
 }
 
 
 function addCommentsRequestHandler() {
 
   if (this.status == 200) {
-
     let comment = JSON.parse(this.response);
-    addCommentToSection(comment[0].id_user, comment[0].text);
+    addCommentToSection(comment[0].id_user, comment[0].text, comment[0].id_post);
+
+    let valueOfComments = document.querySelector(`.fa-comments[data-id="${comment[0].id_post}"] +span`);
+    valueOfComments.innerHTML++;
+
   }
 
 }
