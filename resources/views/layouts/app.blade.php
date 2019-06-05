@@ -20,6 +20,9 @@
   <link href="{{ asset('css/event-cards.css') }}" rel="stylesheet">
   <link href="{{ asset('css/activity-cards.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  @if(Route::current()->getName() == 'home')
+  <link href="{{ asset('css/mainpage.css') }}" rel="stylesheet">
+  @endif
   <!-- datepicker -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
