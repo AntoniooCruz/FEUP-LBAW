@@ -29,7 +29,6 @@ class ProfileController extends Controller
                 array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
             }
 
-
             return view('pages.my-profile', ['user' => $user,
                                             'eventsOwned' => $eventsOwned, 
                                             'eventsAttending' => $eventsAttending,
@@ -54,11 +53,10 @@ class ProfileController extends Controller
         $eventsOwned = Event::where('id_owner', $id_user)->get();
         $userTickets = Ticket::where('id_ticket_owner', $id_user)->get();
         $eventsAttending = [];
-
+     
         foreach($userTickets as $ticket){
             array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
         }
-
         return view('pages.profile',['user' => $user, 
                                     'eventsOwned' => $eventsOwned,
                                     'eventsAttending' => $eventsAttending, 
@@ -173,7 +171,7 @@ class ProfileController extends Controller
         
         if (!Auth::check()) 
             return response(403);
-            
+
         $user2 = Auth::user();
         if($user2->is_admin){
             
