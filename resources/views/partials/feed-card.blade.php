@@ -1,10 +1,10 @@
 <div class="container-fluid actionCard">
       <div class="card card-going-event">
         <div class="description header">
-          <a href="userprofile.html"><img class="userAction roundRadius roundRadius" src="../img/user.jpg"
+          <a href="{{ url('/profile/'.$item->id_owner) }}"><img class="userAction roundRadius roundRadius" src="../img/user.jpg"
               alt="Card image cap"></a>
           <div class="headerText">
-            <span class="card-title"><a href="userprofile.html"><span class="link-username">{{$item->owner->username}}</span></a>
+            <span class="card-title"><a href="{{ url('/profile/'.$item->id_owner) }}"><span class="link-username">{{$item->owner->username}}</span></a>
               created an event</span>
             <span class="card-date">{{$item->date_created}}</span>
           </div>
@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="invite card">
-        <a href="./eventpage.html"><img src="../img/invite-card-event.jpg" class="card-img-top"></a>
+        <a href="{{ url('/event/'.$item->id_event) }}"><img src="../img/invite-card-event.jpg" class="card-img-top"></a>
         <span class="badge badge-pill badge-secondary card-category">{{$item->category->name}}</span>
         <div class="card-body" id="event-card-body">
           <div class="row header align-items-start">

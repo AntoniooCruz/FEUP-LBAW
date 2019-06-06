@@ -1,19 +1,19 @@
 <div class="container-fluid actionCard">
       <div class="card card-comment">
         <div class="description header">
-          <a href="userprofile.html"><img class="userAction roundRadius roundRadius" src="../img/user.jpg"
+          <a href="{{ url('/profile/'.$item->owner->id_user) }}"><img class="userAction roundRadius roundRadius" src="../img/user.jpg"
               alt="Card image cap"></a>
           <div class="headerText">
-            <span class="card-title"><a href="userprofile.html"><span class="link-username">janedoe</span></a></a>
-              posted on <a href="eventpage.html"><span class="link-event">Tea Party</span></a></span>
-            <span class="card-date">13 Mar 2019 • 16h33</span>
+            <span class="card-title"><a href="{{ url('/profile/'.$item->owner->id_user) }}"><span class="link-username">{{$item->owner->name}}</span></a></a>
+              commented on <a href="{{ url('/event/'.$item->post->id_post) }}"><span class="link-event">{{$item->post->event->title}}</span></a></span>
+            <span class="card-date">{{$item->date}}</span>
           </div>
           <i class="far fa-flag"></i>
 
         </div>
         <img id="headerPic" class="card-img-top" src="../img/event5.jpg" alt="Card image cap">
         <div class="card-body">
-          <p class="card-text">"What time should we be there?"</p>
+          <p class="card-text">"{{$item->text}}"</p>
         </div>
         <div class="footer">
           <hr>

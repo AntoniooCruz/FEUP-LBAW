@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\User;
+
 class Comment extends Model
 {
     protected $table = 'comment';
@@ -19,6 +21,10 @@ class Comment extends Model
     public function post() {
 
         return $this->belongsTo('App\Post', 'id_post', 'id_post');
+    }
+
+    public function owner(){
+        return $this->Belongsto('App\User','id_author', 'id_user');
     }
 
     
