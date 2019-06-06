@@ -6,8 +6,17 @@
 
 @endsection
 
+
+
+
+
 @section('content')
 
+<nav class="navbar sortNav">
+    <span class="navbar-text">
+      <h4>My Invites</h4>
+    </span>
+  </nav>
 <div class="container mt-4 tickets" id="invites">
     <div class="row">
 
