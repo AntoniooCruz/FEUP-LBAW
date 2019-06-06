@@ -12,7 +12,11 @@
   <span id="id_user" style="display:none;">{{$user->id_user}}</span>
     <div class="parContainer row justify-content-center">
         <div id="profile_container" class="col-lg-3 col-12 container text-center">
-          <img src="../img/jane.jpg">
+            @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
+            <img src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} >
+          @else
+            <img  src="../img/users/user.jpg">
+          @endif
           <div id="profile_content">
             <div id="header"></div>
             <div id="name" class="row justify-content-left">
