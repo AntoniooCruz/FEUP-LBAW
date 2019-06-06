@@ -222,6 +222,18 @@ class EventController extends Controller
         if (!Auth::check()) 
             return response(403);
 
+        $oldVote = VoteOnPoll::where('id_user', Auth::user()->id_user)->where('id_poll', $poll_option->id_poll);
+
+        if(!empty($oldVote->first())){
+            $oldPollOptId = $oldVote->first()->id_poll_option;
+            $oldVotes = VoteOnPoll::where('id_poll_option', $oldPollOptId)->count();
+        }else{
+            $oldPollOptId = null;
+        } 
+
+        $oldVote->delete();
+
+
         $vote_on_poll = VoteOnPoll::create([
                 'id_user' => Auth::user()->id_user,
                 'id_poll' =>  $poll_option->id_poll ,
@@ -232,8 +244,13 @@ class EventController extends Controller
         $noVotesTotal = VoteOnPoll::where('id_poll', $poll_option->id_poll)->count();
         $perc = floor(($noVotes/$noVotesTotal)*100);
 
+        if($oldPollOptId!=null){
+            $temp1 = VoteOnPoll::where('id_poll_option', $oldPollOptId)->count();
+            $oldPerc = floor(($temp1/$noVotesTotal)*100);
+        }else $oldPerc = null;
 
-        return response()->json(['perc'=>$perc], 200);
+        return response()->json(['perc'=>$perc, 'oldPollOptId'=>$oldPollOptId, 'oldPerc'=>$oldPerc], 200);
 
-        }
+        
     }
+}
