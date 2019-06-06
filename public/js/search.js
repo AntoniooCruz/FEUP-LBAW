@@ -28,15 +28,42 @@ function checkboxHandler() {
         }
      });
 
+    let free = document.querySelector('#checkFree');
+    let paid = document.querySelector('#checkPaid');
+ 
+    if(free.checked) {
+        price.push(free.value);
+    }
 
-     document.querySelectorAll('#price div input').forEach(cat => {
-        if(cat.checked) {
-            price.push(cat.value);
-        }
-     });
+    if(paid.checked) {
+        price.push(paid.value);
+    }
+    
      sendAjaxRequest('get', '/api/search', {"searchquery":searchquery,"categories":categories, "price":price}, filterHandler);
 }
 
 function filterHandler () {
-    console.log(this);
+    let resultsContainer = document.querySelector('#results_container > div');
+    let response = JSON.parse(this.response);
+    let events = response[0];
+    let categories = response[1];
+    console.log(categories[0]);
+    resultsContainer.innerHTML = '';
+    if(events != null){
+        events.forEach(function(event) {
+            let node = document.createElement('div');
+            node.setAttribute('class','col-auto  mb-3 sm-12');
+    
+            node.innerHTML = '<div class="invite card"> <a href=/event/' + event.id_event +
+            '><img src="../img/invite-card-event.jpg"' +
+            'class="card-img-top"></a> <span class="badge badge-pill badge-secondary card-category">' + categories[event.id_category - 1].name +
+            '</span> <div class="card-body" id="event-card-body"> <div class="row eventRow header align-items-start"> <div id="eventPagedate" class="eventPagedate col-xs align-self-center"> <div id="eventPageMonth" class="eventPageMonth"><span class="eventMonth">' +
+            event.date +'</span> </div> <span class="eventPageDay">' + event.date +'</span> </div> <div class="col-10 cardTitle text-left"> <span id="event-card-title">' + 
+            event.title +'</span> <div class="event-card-footer"> <span class="event-card-hour">' + event.date + '</span> <p class="dot-separator"> • </p> <span id="card-adress">' + 
+            event.location +'</span> </div> </div> </div> <div id="event-card-people-attending" class="row text-left"> <div class="col "> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"> <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span> <span id="peopleGoing">+300 going</i></span> </div> </div> </div> </div>';
+            resultsContainer.append(node);
+            console.log(event.id_event);
+          });
+    }
+    
 }

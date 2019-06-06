@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse " id="filters">
           <ul class="navbar-nav mr-auto">
             <li class="dropdown col-auto align-self-center">
-              <button class="dropdown-toggle" type="button" id="dropdownPrice" data-toggle="dropdown"
+              <button class="dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" id="price">
                 Price
               </button>
@@ -52,7 +52,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="categories">
               @foreach ($categories as $category)
               <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="{{$category->name}}" id="defaultCheck1">
+                  <input class="form-check-input" type="checkbox" value="{{$category->name}}" id="defaultCheck1" checked >
                   <label class="form-check-label" for="defaultCheck1">
                   {{$category->name}}
                   </label>
