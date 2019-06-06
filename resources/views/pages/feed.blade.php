@@ -6,49 +6,18 @@
 @section('content')
   <div id="carousel-container" class="container">
     <hr>
+    
     <section class="c">
+    @foreach ($trending as $event)
       <div class="card--content">
-        <a href="./eventpage.html"><img class="d-block w-100" src="../img/event4.jpg" alt="First slide">
+        <a href="{{ url('/event/'.$event->id_event) }}"><img class="d-block w-100" src="../img/event3.jpg" alt="First slide">
           <div class="card-img-overlay">
-            <h5 class="card-title">Disco night</h5>
+            <h5 class="card-title">{{$event->title}}</h5>
           </div>
         </a>
       </div>
-      <div class="card--content">
-        <a href="./eventpage.html"><img class="d-block w-100" src="../img/event5.jpg" alt="First slide">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Brunch</h5>
-          </div>
-        </a>
-      </div>
-      <div class="card--content">
-        <a href="./eventpage.html"><img class="d-block w-100" src="../img/event6.jpg" alt="First slide">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Mary's BDay Party</h5>
-          </div>
-        </a>
-      </div>
-      <div class="card--content">
-        <a href="./eventpage.html"><img class="d-block w-100" src="../img/event4.jpg" alt="First slide">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Girls night out</h5>
-          </div>
-        </a>
-      </div>
-      <div class="card--content">
-        <a href="./eventpage.html"><img class="d-block w-100" src="../img/event5.jpg" alt="First slide">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Lunch with friends</h5>
-          </div>
-        </a>
-      </div>
-      <div class="card--content">
-        <a href="./eventpage.html"><img class="d-block w-100" src="../img/event6.jpg" alt="First slide">
-          <div class="card-img-overlay">
-            <h5 class="card-title">John's 22nd</h5>
-          </div>
-        </a>
-      </div>
+      @endforeach
+
     </section>
     <div id="highlights">
       <h4>#Trending</h4>
