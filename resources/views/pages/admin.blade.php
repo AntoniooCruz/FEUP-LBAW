@@ -2,6 +2,8 @@
 
 @section('custom-scripts')
   <link href="{{ asset('css/eventpage.css') }}" rel="stylesheet">
+  <script type="text/javascript" src={{ asset('js/admin.js') }} defer></script>
+  <script type="text/javascript" src={{ asset('js/profile.js') }} defer></script>
 @endsection
 
 @section('content')
@@ -21,7 +23,7 @@
     <div class="tab-content" id="nav-admintab">
       <div class="tab-pane fade show active" id="nav-users" role="tabpanel" aria-labelledby="nav-users-tab">
         @foreach ($userReports as $rep)
-          @include ('partials.user-report',['report'=>$rep->first()])
+          @include ('partials.user-report',['report'=>$rep])
         @endforeach
       </div>  
       <div class="tab-pane fade" id="nav-comments" role="tabpanel" aria-labelledby="nav-comments-tab">

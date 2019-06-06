@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class UserReport extends Model
 {
     public $timestamps  = false;
@@ -16,5 +17,13 @@ class UserReport extends Model
 
     public function report(){
         return $this->hasOne('App\Report', 'id_report', 'id_report');
+    }
+
+    public function reporter(){
+        return $this->hasOne('App\User', 'id_user', 'id_reporter');
+    }
+
+    public function reportee(){
+        return $this->hasOne('App\User', 'id_user', 'id_reported_user');
     }
 }

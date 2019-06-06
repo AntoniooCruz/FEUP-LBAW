@@ -52,6 +52,7 @@ Route::delete('api/profile/{id_user}/follow','ProfileController@unfollowUser');
 Route::post('api/event/{id_event}/ticket', 'EventController@purchaseTicket');
 Route::put('profile/{id_user}/ban', 'ProfileController@ban');
 Route::post('profile/{id_user}/report', 'ProfileController@report');
+
 Route::get('/invites', 'InviteController@showMyInvites');
 
 //Event
@@ -78,3 +79,5 @@ Route::get('tickets', 'TicketController@showMyTickets');
 
 //Admin
 Route::get('admin', 'AdminController@show');
+
+Route::put('report/{id_report}/accept', 'ReportController@accept');
