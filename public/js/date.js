@@ -34,7 +34,6 @@ function loadHandler() {
     
 }
 
-
 function translateMonth(number, full){
     switch(number){
         case "01":
@@ -117,4 +116,7 @@ function parseDateHours(date, letter){
         return aux[0] + "h" + aux[1];
     else  return aux[0] + ":" + aux[1]; 
 }
+
+
+
 
