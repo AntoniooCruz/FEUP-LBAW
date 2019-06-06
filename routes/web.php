@@ -49,17 +49,17 @@ Route::post('profile/edit', 'ProfileController@update');
 Route::get('profile/{id_user}', 'ProfileController@showUser');
 Route::put('api/profile/{id_user}/follow','ProfileController@followUser');
 Route::delete('api/profile/{id_user}/follow','ProfileController@unfollowUser');
-Route::post('api/event/{id_event}/buyticket', 'EventController@purchaseTicket');
+Route::post('api/event/{id_event}/ticket', 'EventController@purchaseTicket');
 Route::put('profile/{id_user}/ban', 'ProfileController@ban');
 Route::post('profile/{id_user}/report', 'ProfileController@report');
 Route::get('/invites', 'InviteController@showMyInvites');
 
 //Event
 Route::get('event/{id_event}', 'EventController@show');
-Route::post('createvent', 'EventController@create');
-Route::get('api/post/{id_post}/getcomments','EventController@getComments');
-Route::post('api/event/{id_event}/post/{id_post}/addcomment', 'EventController@addComment');
-Route::post('api/event/{id_event}/newpost', 'EventController@newPost');
+Route::post('event', 'EventController@create');
+Route::get('api/post/{id_post}/comments','EventController@getComments');
+Route::post('api/event/{id_event}/post/{id_post}/comment', 'EventController@addComment');
+Route::post('api/event/{id_event}/post', 'EventController@newPost');
 Route::post('/api/pollOption/{poll_option_id}', 'EventController@vote');
 
 //Search

@@ -26,7 +26,7 @@ if(ticketBtn!=null)
 
 function purchaseTicketRequest(){
     let id_event = document.getElementById('id_event').innerHTML;
-    sendAjaxRequest('post', '/api/event/' + id_event + '/buyticket', null, purchaseTicketHandler);
+    sendAjaxRequest('post', '/api/event/' + id_event + '/ticket', null, purchaseTicketHandler);
 }
 
 function purchaseTicketHandler(){

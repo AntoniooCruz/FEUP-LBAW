@@ -36,8 +36,8 @@ function addCommentToSection(id_user, comment_text, comment_id_post) {
 
   let img = document.createElement("IMG");
   img.className = "roundRadius";
-  let userPNG = id_user.toString() + ".png";
-  console.log(userPNG);
+  let userPNG = id_user+ ".png";
+  
   if(doesFileExist("../img/users/originals/".concat(userPNG))) {
     img.src = "../img/users/originals/".concat(userPNG);
   } else {
@@ -71,7 +71,7 @@ function showCommentsRequest(evt) {
 
   let method = 'get';
 
-  sendAjaxRequest(method, '/api/post/' + id_post + '/getcomments', null, showCommentsRequestHandler);
+  sendAjaxRequest(method, '/api/post/' + id_post + '/comments', null, showCommentsRequestHandler);
 
   } else {
     let comment_section = document.querySelector(`#comment_section[data-id="${id_post}"]`);
@@ -99,7 +99,7 @@ function addCommentRequest(evt) {
 
   let method = 'post';
 
-  sendAjaxRequest(method, '/api/event/' + id_event + '/post/' + id_post + '/addcomment', { data: comment }, addCommentsRequestHandler);
+  sendAjaxRequest(method, '/api/event/' + id_event + '/post/' + id_post + '/comment', { data: comment }, addCommentsRequestHandler);
   }
 }
 
@@ -108,7 +108,7 @@ function addCommentsRequestHandler() {
 
   if (this.status == 200) {
     let comment = JSON.parse(this.response);
-    addCommentToSection(comment[0].id_user, comment[0].text, comment[0].id_post);
+    addCommentToSection(comment[0].id_author, comment[0].text, comment[0].id_post);
 
     let valueOfComments = document.querySelector(`.fa-comments[data-id="${comment[0].id_post}"] +span`);
     valueOfComments.innerHTML++;

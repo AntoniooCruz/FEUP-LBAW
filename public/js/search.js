@@ -76,7 +76,6 @@ function filterHandler () {
 }
 
 function sortEvents(events,order){
-    console.log(events);
     switch(order){
         case "date-up":
         events.sort(dateUp);
@@ -103,7 +102,6 @@ function sortEvents(events,order){
         break;
 
     }
-    console.log(events);
     return events;
 }
 
@@ -146,12 +144,10 @@ function priceUp(a,b){
     let priceB = parseInt(b.price);
     
     if(priceA < priceB){
-        console.log("smaller");
         return -1;
     }
 
     if(priceA > priceB){
-        console.log("bigger");
         return 1;
     }
 
@@ -163,12 +159,10 @@ function priceDown(a,b){
     let priceB = parseInt(b.price);
 
     if(priceA < priceB){
-        console.log("smaller");
         return 1;
     }
 
     if(priceA > priceB){
-        console.log("bigger");
         return -1;
     }
 
