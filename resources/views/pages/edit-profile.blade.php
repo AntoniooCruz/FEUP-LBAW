@@ -12,7 +12,7 @@
             <div>
                 <img src="../img/user.jpg">
             </div>
-            <form method="POST" action="{{ url('/profile/edit') }}" class="form-signin">
+            <form method="POST" action="{{ url('/profile/edit') }}" class="form-signin" enctype="multipart/form-data">
 
                 {{ csrf_field() }}
 
@@ -98,7 +98,7 @@
                                     @endif
                                 </div>
                     <div class="row justify-content-center"><button type="submit"
-                            class="profile-pri-button btn btn-primary">Save</button></div>
+                            value="save" class="profile-pri-button btn btn-primary">Save</button></div>
                 </div>
 
                 <div class="row"><button id="tickets-button" type="button" class=" btn btn-secondary"><a

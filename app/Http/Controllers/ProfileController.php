@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 use App\User;
 use App\Event;
@@ -139,16 +140,23 @@ class ProfileController extends Controller
                 return redirect('home');
         
         $user = Auth::user();
+        $user_id = $user->user_id;
 
         $this->validator($request->all());
 
         $user-> name = $request->input('name');
         $user-> username = $request->input('username');
         $user-> description = $request->input('description');
+        
+        $file = Input::file('file');
+
+        $originalFileName = "./img/users/originals/$user_id.png";
+
+        $file->move($originalFileName);
+
         $user->save();
         
         return redirect('profile');
-
     }
 
     public function remove(Request $request){
