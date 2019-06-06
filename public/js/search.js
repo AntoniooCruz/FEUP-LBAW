@@ -53,17 +53,102 @@ function filterHandler () {
         events.forEach(function(event) {
             let node = document.createElement('div');
             node.setAttribute('class','col-auto  mb-3 sm-12');
-    
+
+            if(event.title.length > 22)
+                event.title = event.title.substring(0,22) + "...";
+
             node.innerHTML = '<div class="invite card"> <a href=/event/' + event.id_event +
             '><img src="../img/invite-card-event.jpg"' +
             'class="card-img-top"></a> <span class="badge badge-pill badge-secondary card-category">' + categories[event.id_category - 1].name +
             '</span> <div class="card-body" id="event-card-body"> <div class="row eventRow header align-items-start"> <div id="eventPagedate" class="eventPagedate col-xs align-self-center"> <div id="eventPageMonth" class="eventPageMonth"><span class="eventMonth">' +
-            event.date +'</span> </div> <span class="eventPageDay">' + event.date +'</span> </div> <div class="col-10 cardTitle text-left"> <span id="event-card-title">' + 
-            event.title +'</span> <div class="event-card-footer"> <span class="event-card-hour">' + event.date + '</span> <p class="dot-separator"> • </p> <span id="card-adress">' + 
+            parseDateMonth(event.date,false) +'</span> </div> <span class="eventPageDay">' + parseDateDay(event.date) +'</span> </div> <div class="col-10 cardTitle text-left"> <span id="event-card-title">' + 
+            event.title +'</span> <div class="event-card-footer"> <span class="event-card-hour">' + parseDateYear(event.date) + '</span> <p class="dot-separator"> • </p> <span id="card-adress">' + 
             event.location +'</span> </div> </div> </div> <div id="event-card-people-attending" class="row text-left"> <div class="col "> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"> <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span> <span id="peopleGoing">+300 going</i></span> </div> </div> </div> </div>';
             resultsContainer.append(node);
-            console.log(event.id_event);
           });
     }
     
+}
+
+function translateMonth(number, full){
+    switch(number){
+        case "01":
+        if(full) return "January";
+        return "Jan";
+
+        case "02":
+        if(full) return "February";
+        return "Feb";
+
+        case "03":
+        if(full) return "March";
+        return "Mar";
+
+        case "04":
+        if(full) return "April";
+        return "Apr";
+        
+        case "05":
+        return "May";
+        
+        case "06":
+        if(full) return "June";
+        return "Jun";
+
+        case "07":
+        if(full) return "July";
+        return "Jul";
+
+        case "08":
+        if(full) return "August";
+        return "Aug";
+
+        case "09":
+        if(full) return "September";
+        return "Sep";
+
+        case "10":
+        if(full) return "October";
+        return "Oct";
+
+        case "11":
+        if(full) return "November";
+        return "Nov";
+
+        case "12":
+        if(full) return "December";
+        return "Dec";
+    }
+}
+
+function parseDateYear(date){
+    let parseDate = date.split(" ");
+    let aux = parseDate[0].split("-");
+
+    return aux[0];
+
+}
+
+
+function parseDateMonth(date, full){
+    let parseDate = date.split(" ");
+    let aux = parseDate[0].split("-");
+
+    return translateMonth(aux[1], full);
+}
+
+function parseDateDay(date){
+    let parseDate = date.split(" ");
+    let aux = parseDate[0].split("-");
+
+    return aux[2];
+}
+
+function parseDateHours(date, letter){
+    let parseDate = date.split(" ");
+    let aux = parseDate[1].split(":");
+
+    if(letter)
+        return aux[0] + "h" + aux[1];
+    else  return aux[0] + ":" + aux[1]; 
 }
