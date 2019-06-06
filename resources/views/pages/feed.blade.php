@@ -57,7 +57,7 @@
   </div>
   <div id="feed" class="px-3">
   @foreach ($items as $item)
-      @if(is_a($item,'App\Ticket'))
+  @if(is_a($item,'App\Ticket'))
       @include('partials.feed-ticket', $item)
       @endif
       @if(is_a($item,'App\Event'))
@@ -67,8 +67,7 @@
       @include('partials.feed-comment', $item)
       @endif
       @if(is_a($item,'App\Post'))
-      {{$post = $item}}
-      @include('partials.post', $post)
+      @include('partials.post', ['post'=>$item])
       @endif
     @endforeach
 </div>

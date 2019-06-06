@@ -58,6 +58,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Reports', 'id_admin', 'id_user');
     }
 
+    public function userVotes() {
+        return $this->hasMany('App\VoteOnPoll','id_user', 'id_user');
+    }
+
     public function scopeGoingToEvent($query, $id_event){
         
         return $query->whereExists(function ($query) {

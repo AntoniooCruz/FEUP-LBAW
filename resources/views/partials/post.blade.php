@@ -3,9 +3,9 @@
         <div class="card card-comment">
           <div class="description header">
               @if (file_exists(public_path('img/users/originals/' . strval($post->id_author) . '.png')) )
-              <img class="userAction roundRadius" src="{{ asset("img/users/originals/" . strval($post->id_author) . ".png") }}" alt="Card image cap">
+              <a href="{{ url('/profile/'.$post->author->id_user) }}"><img class="userAction roundRadius" src="{{ asset("img/users/originals/" . strval($post->id_author) . ".png") }}" alt="Card image cap"></a>
                 @else
-              <img class="userAction roundRadius" src= " {{asset("img/user.jpg")}} " alt="Card image cap">
+                <a href="{{ url('/profile/'.$post->author->id_user) }}"><img class="userAction roundRadius" src= " {{asset("img/user.jpg")}} " alt="Card image cap"></a>
             @endif
             
             <div class="headerText">
@@ -17,7 +17,7 @@
           </div>
           <div class="card-body">
             <p class="card-text">{{$post->text}}</p>
-            @if ($post->post_type == 'Poll')
+            @if ($post->post_type == "poll")
             <div class="poll">
                     @each ('partials.poll-option', $post->poll->pollOptions()->get(), 'pollOption')
                   </div>
