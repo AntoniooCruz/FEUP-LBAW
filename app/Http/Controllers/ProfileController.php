@@ -40,7 +40,6 @@ class ProfileController extends Controller
     }
 
     public function showUser($id_user) {
-
         $user = User::find($id_user); //TODO: passar para findOrFail
         
         $followers = $user->followers()->count();
@@ -171,14 +170,22 @@ class ProfileController extends Controller
     }
 
     public function ban($id_user){
+        
         if (!Auth::check()) 
             return response(403);
+            
+        $user2 = Auth::user();
+        if($user2->is_admin){
+            
+            $user = User::find($id_user);
 
-        $user = User::find($id_user);
-
-        $user->active = false;
-        $user->save();
-        return response(200);
+            $user->active = false;
+            $user->save();
+            return response(200);
+        } else {
+            return response(403);
+        }
+       
     }
 }
 
