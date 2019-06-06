@@ -31,10 +31,17 @@ class ProfileController extends Controller
             }
 
 
+            $usersGoing = [];
+
+            foreach ($eventsOwned as $event) {
+                array_push($usersGoing, $this->usersGoing($event->id_event));
+            }
+
             return view('pages.my-profile', ['user' => $user,
                                             'eventsOwned' => $eventsOwned, 
                                             'eventsAttending' => $eventsAttending,
-                                            'categories' => Category::all()
+                                            'categories' => Category::all(),
+                                            'usersGoing' => $usersGoing
                                             ]);
         } else return redirect('login');
                                         
@@ -60,11 +67,19 @@ class ProfileController extends Controller
             array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
         }
 
+        $usersGoing = [];
+
+            foreach ($eventsOwned as $event) {
+                array_push($usersGoing, $this->usersGoing($event->id_event));
+            }
+
+
         return view('pages.profile',['user' => $user, 
                                     'eventsOwned' => $eventsOwned,
                                     'eventsAttending' => $eventsAttending, 
                                     'isFollowing' => $isFollowing,
-                                    'categories' => Category::all()
+                                    'categories' => Category::all(),
+                                    'usersGoing' => $usersGoing
                                     ]);
     }
 
@@ -83,13 +98,30 @@ class ProfileController extends Controller
             array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
         }
 
+        $usersGoing = [];
+
+            foreach ($eventsOwned as $event) {
+                array_push($usersGoing, $this->usersGoing($event->id_event));
+            }
         return view('pages.edit-profile', 
                     ['user' => $user, 
                     'eventsOwned' => $eventsOwned, 
                     'eventsAttending' => $eventsAttending,
-                    'categories' => Category::all()
+                    'categories' => Category::all(),
+                    'usersGoing' => $usersGoing
                     ]);
     }
+
+    public function usersGoing($id_event){
+
+        $ticketsSold = Ticket::where('id_event', $id_event)->get();
+        $idsUsersGoing = $ticketsSold->map(function($item, $key) {
+            return $item->id_ticket_owner;
+        });
+
+        return $idsUsersGoing;
+    }
+    
 
 
     protected function validator($data)

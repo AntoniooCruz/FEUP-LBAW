@@ -1,4 +1,4 @@
-<div class="col mt-4">
+<div class="col">
     <div class="invite card">
     <a href="{{ url('/event/'.$event->id_event) }}"><img src="../img/invite-card-event.jpg" class="card-img-top"></a>
       <span class="badge badge-pill badge-secondary card-category">{{$event->category->name}}</span>
@@ -13,7 +13,7 @@
           <div class="col-10 cardTitle text-left">
             <span id="event-card-title">{{$event->title}}</span>
             <div class="event-card-footer">
-            <span id="event-card-hour">{{$event->date}}</span>
+            <span class="event-card-hour">{{$event->date}}</span>
               <p class="dot-separator"> • </p>
               <span id="card-adress">{{$event->location}}</span>
             </div>
@@ -25,7 +25,7 @@
             <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
             <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
             <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
-            <span id="peopleGoing">+300 going</i></span>
+            <span id="peopleGoing">+{{$usersGoing}} going</i></span>
           </div>
         </div>
       </div>

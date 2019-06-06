@@ -21,4 +21,8 @@ class Invite extends Model
     public function invitee(){
         return $this->hasOne('App\User', 'id_user', 'id_invitee');
     }
+
+    public function event(){
+        return $this->hasOne('App\Event', 'id_event', 'id_event');
+    }
 }

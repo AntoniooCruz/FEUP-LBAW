@@ -75,7 +75,7 @@ small {
 
     #events_container {
         margin: 4.25em auto 0 1em !important;
-
+        min-width: 700px;
     }
 }
 
