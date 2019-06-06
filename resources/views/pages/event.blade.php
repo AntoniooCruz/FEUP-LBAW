@@ -165,11 +165,7 @@
                   <div class="tab-pane fade show active" id="allGoing" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="row justify-content-center">  
                         @foreach ($usersGoing->take(7) as $soldTicketUser)
-                        @if (file_exists("../img/users/originals/" . strval(Auth::user()->id_user) . ".png"))
-                              <img class="userPic" src="../img/users/originals/" . strval(Auth::user()->id_user) . ".png">
-                        @else
                               <img class="userPic" src="../img/user.jpg">
-                           @endif
                       @endforeach
   
                       @if(count($usersGoing) > 7)
