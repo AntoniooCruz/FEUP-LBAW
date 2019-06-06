@@ -15,7 +15,7 @@
             @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
             <img src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} >
           @else
-            <img  src="../img/users/user.jpg">
+            <img  src="../img/user.jpg">
           @endif
           <div id="profile_content">
             <div id="header"></div>

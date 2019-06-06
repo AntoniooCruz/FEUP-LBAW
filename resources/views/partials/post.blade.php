@@ -31,7 +31,7 @@
                   @if (file_exists(public_path('img/users/originals/' . strval($post->id_author) . '.png')) )
                       <img class="userAction roundRadius" src={{"../img/users/originals/" . strval($post->id_author) . ".png"}} alt="Card image cap">
                     @else
-                      <img class="userAction roundRadius" src="../img/users/user.jpg" alt="Card image cap">
+                      <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
                     @endif
           
                   <textarea id ="comment_data" data-id = {{$post->id_post}} class="form-control roundRadius pl-5" id="exampleFormControlTextarea1" rows="1"

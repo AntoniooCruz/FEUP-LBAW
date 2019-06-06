@@ -11,6 +11,19 @@ if (addCommentBttn != null) {
   addCommentBttn[i].addEventListener('click', addCommentRequest);
  }
 }
+
+function doesFileExist(urlToFile) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('HEAD', urlToFile, false);
+  xhr.send();
+   
+  if (xhr.status == "404") {
+      return false;
+  } else {
+      return true;
+  }
+}
+
 function addCommentToSection(id_user, comment_text, comment_id_post) {
 
   let comment_section = document.querySelector(`#comment_section[data-id="${comment_id_post}"]`);
@@ -23,7 +36,11 @@ function addCommentToSection(id_user, comment_text, comment_id_post) {
 
   let img = document.createElement("IMG");
   img.className = "roundRadius";
-  img.src = "../img/user.jpg";
+  if(doesFileExist("{{ path('public') }}".concat('img/users/originals/'.concat(id_user.toString()).concat('.png')))) {
+    img.src = "{{ path('public') }}".concat('img/users/originals/'.concat(id_user.toString()).concat('.png'));
+  } else {
+    img.src = "{{ path('public') }}".concat('img/user.jpg');
+  }
   img.alt = "Card image cap";
 
   let col = document.createElement("div");
