@@ -82,9 +82,9 @@ small {
 
 
 #profile_container img {
-    width: 50%;
+    width: 140px;
     border-radius: 100px;
-    max-width: 140px;
+    height: 140px;
     margin-bottom: -5em;
     border: 2px solid var(--lightBlue);
     position: relative;
