@@ -51,7 +51,7 @@ Route::put('api/profile/{id_user}/follow','ProfileController@followUser');
 Route::delete('api/profile/{id_user}/follow','ProfileController@unfollowUser');
 Route::post('api/event/{id_event}/buyticket', 'EventController@purchaseTicket');
 Route::put('profile/{id_user}/ban', 'ProfileController@ban');
-
+Route::post('profile/{id_user}/report', 'ProfileController@report');
 
 //Event
 Route::get('event/{id_event}', 'EventController@show');

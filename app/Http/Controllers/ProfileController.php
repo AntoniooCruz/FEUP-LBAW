@@ -12,7 +12,7 @@ use App\User;
 use App\Event;
 use App\Ticket;
 use App\Category;
-
+use App\Report;
 
 class ProfileController extends Controller
 {
@@ -178,6 +178,20 @@ class ProfileController extends Controller
 
         $user->active = false;
         $user->save();
+        return response(200);
+    }
+
+
+    public function report(Request $request, $id_user){
+        if (!Auth::check()) 
+            return response(403);
+
+        $report  = Report::create([
+            'reason' => $request->input('reason'),
+            'report_type' => 'User'
+        ]);
+
+        DB::insert('insert into report_user (id_report, id_reporter, id_reported_user)  values (?, ?,?)', [$report->id_report, Auth::user()->id_user,$id_user]);
         return response(200);
     }
 }

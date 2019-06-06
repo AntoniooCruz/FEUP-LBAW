@@ -88,32 +88,34 @@
       </div>
       </div>
 
-    
+      <div class="modal fade" id="reportEventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form>
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Report {{$user->name}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <p>Help us undertand what's happening?</p>
+            <textarea id="textA" onkeyup="validate()"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+            <button id="submitReportBtn" type="submit" class="disabled btn btn-danger" >Report</button>
+          </div>
+          <form>
+        </div>
+      </div>
+    </div>
     </section> 
 
 @if(Auth::check())
   @include('layouts.create-event', ['categories'=>$categories])
 @endif
 
-<div class="modal fade" id="reportEventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-        <form>
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Report {{$user->name}}</h5>
-      </div>
-      <div class="modal-body">
-        <p>Help us undertand what's happening?</p>
-        <textarea></textarea required>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-        <button id="submitReportBtn" type="submit" class="btn btn-danger">Report</button>
-      </div>
-      <form>
-    </div>
-  </div>
-</div>
 
 @endsection
