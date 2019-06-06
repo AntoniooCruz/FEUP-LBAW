@@ -210,4 +210,21 @@ class EventController extends Controller
         
         return response()->json($id_event, 200);
     }
-}
+
+    public function vote(Request $request, $id_poll_option) {
+
+        $poll_option = PollOption::find($id_poll_option);
+        
+        if (!Auth::check()) 
+            return response(403);
+
+        $vote_on_poll = VoteOnPoll::create([
+                'id_user' => Auth::user()->id_user,
+                'id_poll' =>  $poll_option->id_poll ,
+                'id_poll_option' =>  $id_poll_option
+        ]);
+
+        return response()->json($vote_on_poll, 200);
+
+        }
+    }
