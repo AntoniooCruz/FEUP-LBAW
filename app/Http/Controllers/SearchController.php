@@ -61,11 +61,11 @@ class SearchController extends Controller
                 DESC;",['search' => $request->input('searchquery')]);
             } else if(Str::contains($priceCats,'Free')) {
                 $events = DB::select("SELECT * FROM event WHERE search_tokens @@ plainto_tsquery('english',:search) 
-                AND event.price = 0 ORDER BY ts_rank(search_tokens,plainto_tsquery('english',:search)) 
+                AND event.id_category IN (".$arr.") AND event.price = 0 ORDER BY ts_rank(search_tokens,plainto_tsquery('english',:search)) 
                 DESC;",['search' => $request->input('searchquery')]);
             } else if(Str::contains($priceCats,'Paid')){
                 $events = DB::select("SELECT * FROM event WHERE search_tokens @@ plainto_tsquery('english',:search) 
-                AND event.price > 0 ORDER BY ts_rank(search_tokens,plainto_tsquery('english',:search)) 
+                AND event.id_category IN (".$arr.") AND event.price > 0 ORDER BY ts_rank(search_tokens,plainto_tsquery('english',:search)) 
                 DESC;",['search' => $request->input('searchquery')]);
             }
         }
