@@ -76,11 +76,18 @@
         </select>
       </div>
     </div>
-    <div id="results_container" class="text-center mt-5">
+    <div id="results_container" class="text-center container">
+        <div class="row">
+          
+            @for ($i = 0; $i < sizeof($events); $i++)
+            <div class="col-auto p-0 sm-12 col-md-6 col-lg-4 mb-2">
+
+                  @include('partials.search-card', ['event'=>$events[$i], 'categories'=>$categories,'usersGoing'=>sizeof($usersGoing[$i])])
+                </div>
+
+            @endfor
+          </div>
       <div class="row justify-content-center">
-      @foreach ($events as $event)
-      @include('partials.search-card', ['event'=>$event, 'categories'=>$categories])
-      @endforeach
       
       </div>
     </div>

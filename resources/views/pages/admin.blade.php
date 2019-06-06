@@ -335,7 +335,7 @@
                       <div class="col-md-7 col-sm-10 col-10 cardTitle">
                         <span id="event-card-title">Tea Party</span>
                         <div class="event-card-footer">
-                          <span id="event-card-hour">12:00</span>
+                          <span class="event-card-hour">12:00</span>
                           <p class="dot-separator"> • </p>
                           <span id="card-adress">adress 123, cidade</span>
 

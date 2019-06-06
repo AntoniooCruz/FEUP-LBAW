@@ -18,7 +18,7 @@ function loadHandler() {
         date.textContent = parseDateDay(date.textContent);
     });
 
-    hours = document.querySelectorAll("#event-card-hour");
+    hours = document.querySelectorAll(".event-card-hour");
     console.log(hours);
     hours.forEach(date => {
         date.textContent = parseDateHours(date.textContent, false);

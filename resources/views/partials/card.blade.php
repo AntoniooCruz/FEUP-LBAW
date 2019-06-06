@@ -13,7 +13,7 @@
           <div class="col-10 cardTitle text-left">
             <span id="event-card-title">{{$event->title}}</span>
             <div class="event-card-footer">
-            <span id="event-card-hour">{{$event->date}}</span>
+            <span class="event-card-hour">{{$event->date}}</span>
               <p class="dot-separator"> • </p>
               <span id="card-adress">{{$event->location}}</span>
             </div>
