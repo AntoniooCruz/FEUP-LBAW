@@ -17,6 +17,8 @@ use App\Post;
 use App\Comment;
 use Carbon\Carbon;
 use App\Invite;
+use App\PollOption;
+use App\VoteOnPoll;
 
 class EventController extends Controller
 {   
@@ -103,7 +105,9 @@ class EventController extends Controller
             $this->authorize('view', $event);
         }
 
-        $hasTicket = !empty($event->tickets()->where('id_ticket_owner', Auth::user()->id_user)->first());
+        if(Auth::check())
+            $hasTicket = !empty($event->tickets()->where('id_ticket_owner', Auth::user()->id_user)->first());
+        else $hasTicket = false;
 
         return view('pages.event', ['event' => $event , 
                                      'friendsGoing' => $this->friendsGoing($id_event),
@@ -211,7 +215,7 @@ class EventController extends Controller
         return response()->json($id_event, 200);
     }
 
-    public function vote(Request $request, $id_poll_option) {
+    public function vote($id_poll_option) {
 
         $poll_option = PollOption::find($id_poll_option);
         
@@ -224,7 +228,12 @@ class EventController extends Controller
                 'id_poll_option' =>  $id_poll_option
         ]);
 
-        return response()->json($vote_on_poll, 200);
+        $noVotes = VoteOnPoll::where('id_poll_option', $id_poll_option)->count();
+        $noVotesTotal = VoteOnPoll::where('id_poll', $poll_option->id_poll)->count();
+        $perc = floor(($noVotes/$noVotesTotal)*100);
+
+
+        return response()->json(['perc'=>$perc], 200);
 
         }
     }

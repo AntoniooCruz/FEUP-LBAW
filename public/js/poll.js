@@ -5,9 +5,11 @@ if (votePollBttn != null) {
    }
 }
 
+let poll_option_id;
+
 function addVoteOnPollRequest(evt) {
     
-    let poll_option_id = evt.path[0].dataset.id;
+    poll_option_id = evt.path[0].dataset.id;
   
     let method = 'post';
   
@@ -17,10 +19,11 @@ function addVoteOnPollRequest(evt) {
   function addVoteOnPollRequestHandler() {
 
     if (this.status == 200) {
-        let comment = JSON.parse(this.response);
-        console.log(comment);
+        let perc = JSON.parse(this.response)['perc'] + "%";
+        let progress = document.getElementById(poll_option_id);
+        progress.style.width = perc;
+        progress.nextSibling.innerHTML = perc;
 
-    //let inputs = document.querySelector(`#poll-option1[data-id="${comment[0].id_post}"] +span`);
-    }
+      }
 
   }
