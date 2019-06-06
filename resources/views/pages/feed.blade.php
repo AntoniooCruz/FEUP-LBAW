@@ -2,7 +2,6 @@
 @section('custom-scripts')
 <link href="{{ asset('css/activityfeed.css') }}" rel="stylesheet">
 <script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
-<script type="text/javascript" src={{ asset('js/search.js') }} defer></script>
 @endsection
 @section('content')
   <div id="carousel-container" class="container">
@@ -56,7 +55,7 @@
       <hr>
     </div>
   </div>
-  <div id="feed">
+  <div id="feed" class="px-3">
   @foreach ($items as $item)
       @if(is_a($item,'App\Ticket'))
       @include('partials.feed-ticket', $item)
