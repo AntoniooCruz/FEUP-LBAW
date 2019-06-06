@@ -2,7 +2,14 @@
   <span id="id_post" style="display:none;">{{$post->id_post}}</span>
         <div class="card card-comment">
           <div class="description header">
-            <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+              @if (file_exists("/public/img/users/originals/" . strval(Auth::user()->id_user) . ".png")) 
+                <img class="userAction roundRadius" src={{"../img/users/originals/" . strval($post->id_author) . ".png"}} alt="Card image cap">
+                @{{ "FOUND" }}
+                @else
+                @{{ "NOT FOUND" }}
+                <img class="userAction roundRadius" src="../img/users/user.jpg" alt="Card image cap">
+            @endif
+            
             <div class="headerText">
               <span class="card-title"><a href="userprofile.html"><span class="link-username">{{$post->author->username}}</span></a>
             posted on <a href="eventpage.html"><span class="link-event">{{$post->event->title}}</span></a></span>
@@ -23,7 +30,12 @@
             <div id="comments1-{{$post->id_post}}" data-id={{$post->id_post}} class="comments collapse mb-2 mt-3">
               <div class="commentInput row" data-id={{$post->id_post}}>
                 <div class="col px-1">
-                  <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                    @if(file_exists("../img/users/originals/" . strval(Auth::user()->id_user) . ".png")) 
+                      <img class="userAction roundRadius" src={{"../img/users/originals/" . strval($post->id_author) . ".png"}} alt="Card image cap">
+                    @else
+                      <img class="userAction roundRadius" src="../img/users/user.jpg" alt="Card image cap">
+                    @endif
+          
                   <textarea id ="comment_data" data-id = {{$post->id_post}} class="form-control roundRadius pl-5" id="exampleFormControlTextarea1" rows="1"
                     placeholder="Say something..."></textarea></div>
                 <div class="col-auto p-0">
