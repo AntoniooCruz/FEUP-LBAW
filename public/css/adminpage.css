@@ -18,7 +18,7 @@ body{
 }
 
 #nav-admin a {
-    padding: 20px;     
+    padding: 10px 20px;
 }
 .report-invite .description {
     max-width: 650px;
@@ -45,4 +45,3 @@ body{
 button .fa-trash-alt {
     color: red;
 }
-
