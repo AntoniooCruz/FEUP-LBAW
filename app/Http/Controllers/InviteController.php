@@ -113,12 +113,7 @@ class InviteController extends Controller
 
         $user = Auth::user();
         $id_user = $user->id_user;
-        //dd($user);
-
-        //DB::table('invite')->insert(
-        //    ['id_inviter' => '4', 'id_invitee' => $id_user, 'id_event' => '4']
-        //);
-
+    
         $invites = Invite::where('id_invitee', $id_user)->get();
 
         $eventsInvited = [];
