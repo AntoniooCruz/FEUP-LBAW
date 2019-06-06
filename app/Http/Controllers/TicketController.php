@@ -7,10 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -100,19 +98,21 @@ class TicketController extends Controller
     {
         //
     }
-    public function usersGoing($id_event){
+    public function usersGoing($id_event)
+    {
 
         $ticketsSold = Ticket::where('id_event', $id_event)->get();
-        $idsUsersGoing = $ticketsSold->map(function($item, $key) {
+        $idsUsersGoing = $ticketsSold->map(function ($item, $key) {
             return $item->id_ticket_owner;
         });
 
         return $idsUsersGoing;
     }
-    
 
 
-    public function showMyTickets(){
+
+    public function showMyTickets()
+    {
 
         $user = Auth::user();
         $id_user = $user->id_user;
@@ -145,29 +145,27 @@ class TicketController extends Controller
 
         $now = Carbon::now()->toDateTimeString();
 
-        foreach($tickets as $ticket){
+        foreach ($tickets as $ticket) {
             //echo($ticket->event->date);
 
-            if( strcmp($ticket->event->date, $now)){
+            if (strcmp($ticket->event->date, $now)) {
                 //active
                 array_push($activeEvents, Event::where('id_event', $ticket->id_event)->first());
                 array_push($activeEventsTickets, $ticket);
+            } else {
 
-            }else {
-                
                 // past
                 array_push($pastEvents, Event::where('id_event', $ticket->id_event)->first());
                 array_push($pastEventsTickets, $ticket);
             }
-
-           
-
-        }        
-        return view('pages.my-tickets',['user' => $user,
-                                    'categories' => Category::all(),
-                                    'activeEvents' => $activeEvents,
-                                    'activeEventsTickets' => $activeEventsTickets,
-                                    'pastEvents' => $pastEvents,
-                                    'pastEventsTickets' => $pastEventsTickets]);
+        }
+        return view('pages.my-tickets', [
+            'user' => $user,
+            'categories' => Category::all(),
+            'activeEvents' => $activeEvents,
+            'activeEventsTickets' => $activeEventsTickets,
+            'pastEvents' => $pastEvents,
+            'pastEventsTickets' => $pastEventsTickets
+        ]);
     }
 }

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 namespace App\Http\Controllers;
 
@@ -22,35 +20,38 @@ use App\Category;
 
 class InviteController extends Controller
 {
-    
-    public function usersGoing($id_event){
+
+    public function usersGoing($id_event)
+    {
 
         $ticketsSold = Ticket::where('id_event', $id_event)->get();
-        $idsUsersGoing = $ticketsSold->map(function($item, $key) {
+        $idsUsersGoing = $ticketsSold->map(function ($item, $key) {
             return $item->id_ticket_owner;
         });
 
         return $idsUsersGoing;
     }
-    
 
 
-    public function showMyInvites(){
+
+    public function showMyInvites()
+    {
 
         $user = Auth::user();
         $id_user = $user->id_user;
 
-        $invites =$user->invited()->get();
+        $invites = $user->invited()->get();
 
         $usersGoing = [];
         foreach ($invites as $invite) {
             array_push($usersGoing, $this->usersGoing($invite->id_event));
         }
 
-        
-        return view('pages.my-invites',['invites' => $user->invited()->get(), 
-                                    'categories' => Category::all(),
-                                    'usersGoing' => $usersGoing
-                                    ]);
+
+        return view('pages.my-invites', [
+            'invites' => $user->invited()->get(),
+            'categories' => Category::all(),
+            'usersGoing' => $usersGoing
+        ]);
     }
 }
