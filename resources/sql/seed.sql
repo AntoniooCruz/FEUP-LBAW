@@ -269,13 +269,10 @@ CREATE TABLE ticket (
 
 -- Table: vote_on_poll
 CREATE TABLE vote_on_poll (
+    id_vote         SERIAL PRIMARY KEY,
     id_user        INTEGER REFERENCES users (id_user) ON DELETE CASCADE,
     id_poll         INTEGER REFERENCES poll (id_poll) ON DELETE CASCADE,
-    id_poll_option INTEGER REFERENCES poll_option (id_poll_option) ON DELETE CASCADE,
-    PRIMARY KEY (
-        id_user,
-        id_poll
-    )
+    id_poll_option INTEGER REFERENCES poll_option (id_poll_option) ON DELETE CASCADE
 );
 
 -- Table: password_resets

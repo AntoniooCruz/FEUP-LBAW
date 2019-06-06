@@ -19,28 +19,25 @@ body{
 }
 
 .description {
+    border-radius: .25rem;
     background: white;
+    border: 1px solid rgba(0,0,0,.125);
 }
 
-
-.actionCard {
-    width: 500px;
+.card-invited-event{
+    background: none;
+    border: none;
 }
+
 
 
 #ticketNavContainer {
     width: 85%;
 }
 
-.row {
-    justify-content: left;
-    margin: auto;
-}
-
 
 @media (max-width:535px){
     .actionCard{
-        width: 100%;
         padding-left: 0px;
         padding-right: 0px;
     }
@@ -52,53 +49,29 @@ body{
 }
 
 @media (min-width:535px){
-    .row{
-    width: 536px;
-    }
 
     .sortNav {
         width: 500px;
         }
-
-        .actionCard {
-            width: 490px;
-        }
 }
 
 @media (min-width:992px){
-    .row{
-    width: 804px;
-    }
 
     .sortNav {
         width: 788px;
-    }
-    .actionCard {
-        width: 370px;
     }
 
 }
 
 @media (min-width:1297px){
-    .row {
-    width: 1072px;
-    }
-
     .sortNav{
         width: 1056px;
     }
 
-    .actionCard {
-        width: 500px;
-    }
 
 }
 
 #invites a:hover{
     color:var(--lightBlue);
     text-decoration: none;
-}
-
-.invite {
-    min-width: 200px !important;
 }

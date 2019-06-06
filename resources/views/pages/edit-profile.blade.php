@@ -2,6 +2,7 @@
 
 @section('custom-scripts')
   <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+  <script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
 @endsection
 
 @section('content')
@@ -12,14 +13,17 @@
             <div>
                 <img src="../img/user.jpg">
             </div>
-            <form method="POST" action="{{ url('/profile/edit') }}" class="form-signin">
+            <form method="POST" action="{{ url('/profile/edit') }}" class="form-signin" enctype="multipart/form-data">
 
                 {{ csrf_field() }}
 
                 <div id="profile_content">
                     <i class="fab fa-font-awesome-flag"></i>
                     <div class="col-3 col text-right">
-                        <button id="update_button" type="button" class="profile-pri-button btn btn-outline-primary">Update</button>
+                        <div id="update_button" class="profile-pri-button file btn btn-lg btn-secondary">
+                                Upload
+                                <input type="file" name="file"/>
+                            </div>
                     </div>
                     <div id="header"></div>
                     <div id="name" class="row justify-content-left">
@@ -86,7 +90,7 @@
                     <hr>
                     <div>
                     <textarea id="description" name="description" class="... {{$errors->has('description')? 'is-invalid' : '' }} col-10 text-left"
-                        style="overflow:hidden; resize:none; border: 1px solid #cfd4da; margin-top:0"
+                        
                         rows="4" placeholder="Description"> {{old('description',$user->description)}}</textarea>
                         @if ($errors->has('description'))
 								        <span class="invalid-feedback">
@@ -95,7 +99,7 @@
                                     @endif
                                 </div>
                     <div class="row justify-content-center"><button type="submit"
-                            class="profile-pri-button btn btn-primary">Save</button></div>
+                            value="save" class="profile-pri-button btn btn-primary">Save</button></div>
                 </div>
 
                 <div class="row"><button id="tickets-button" type="button" class=" btn btn-secondary"><a
@@ -117,13 +121,28 @@
             </ul>
 
             <div class="tab-content" id="pills-tabContent">
-                <div id="userevents" class="row justify-content-start tab-pane fade show active">
-                    @each('partials.card', $eventsOwned, 'event')
-                </div>
-                <div id="attendingevents" class="row justify-content-start tab-pane fade">
-                    @each('partials.card', $eventsAttending, 'event')
-                </div>
-            </div>
+                    <div id="userevents" class="row justify-content-start tab-pane fade show active">
+                        @for ($i = 0; $i < sizeof($eventsOwned); $i++)
+        
+                      <div class="col-auto p-0 sm-12 col-md-6 col-lg-6 mb-2">
+        
+                        @include ('partials.card', ['event'=>$eventsOwned[$i], 'usersGoing'=>sizeof($usersGoing[$i])])
+                      </div>
+        
+                      @endfor
+                    </div>
+                    <div id="attendingevents"  class="row justify-content-start tab-pane fade">
+                        @for ($i = 0; $i < sizeof($eventsAttending); $i++)
+        
+                      <div class="col-auto p-0 sm-12 col-md-6 col-lg-6 mb-2">
+        
+                        @include ('partials.card', ['event'=>$eventsAttending[$i], 'usersGoing'=>sizeof($usersGoing[$i])])
+                      </div>
+        
+                      @endfor
+                    </div>
+                    </div>
+                  </div>
         </div>
 </section>
 @if(Auth::check())

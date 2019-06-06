@@ -10,9 +10,9 @@ class VoteOnPoll extends Model
 
     protected $table = 'vote_on_poll';
 
-    protected $primaryKey = ['id_user','id_poll'];
+    protected $primaryKey = 'id_vote';
 
     protected $fillable = [
-        'id_user','id_poll', 'id_poll_option'
+        'id_vote','id_user','id_poll', 'id_poll_option'
     ];
 }

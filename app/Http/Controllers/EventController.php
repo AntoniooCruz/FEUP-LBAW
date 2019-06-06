@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 use Illuminate\Support\Collection;
 use App\Event;
@@ -17,6 +18,8 @@ use App\Post;
 use App\Comment;
 use Carbon\Carbon;
 use App\Invite;
+use App\PollOption;
+use App\VoteOnPoll;
 
 class EventController extends Controller
 {   
@@ -38,6 +41,7 @@ class EventController extends Controller
     }
 
     public function create(Request $request){
+        
         if(Auth::check()){
             $this->validator($request->all());
 
@@ -75,6 +79,13 @@ class EventController extends Controller
             if($request->has('invites'))
                 $this->sendInvites( $request->input('invites'), $event->id_event);
 
+                $file = Input::file('file');
+
+                $originalFileName = "./img/events/originals";
+        
+                $file->move($originalFileName, strval($event->id_event) . ".png");
+        
+
             return redirect("event/".$event->id_event);
         } else return redirect('login');
     }
@@ -91,23 +102,37 @@ class EventController extends Controller
 
     public function show($id_event) {
 
-        $this->friendsGoing($id_event);
-        
-        $event = Event::find($id_event);
-        
-        if($event == null) {
-            echo("Event does not exist");
-            return;
-        }
-        if(Auth::check() || $event->is_private){
-            $this->authorize('view', $event);
-        }
+        DB::beginTransaction();
 
-        $hasTicket = !empty($event->tickets()->where('id_ticket_owner', Auth::user()->id_user)->first());
+        try{
+
+            $this->friendsGoing($id_event);
+            
+            $event = Event::find($id_event);
+            $friendsGoing = $this->friendsGoing($id_event);
+            $usersGoing = $this->usersGoing($id_event);
+            
+            if($event == null) {
+                echo("Event does not exist");
+                return;
+            }
+            if(Auth::check() || $event->is_private){
+                $this->authorize('view', $event);
+            }
+
+            if(Auth::check())
+                $hasTicket = !empty($event->tickets()->where('id_ticket_owner', Auth::user()->id_user)->first());
+            else $hasTicket = false;
+        
+            DB::commit();
+
+        }catch (\Throwable $th) {
+            DB::rollback();
+        }
 
         return view('pages.event', ['event' => $event , 
-                                     'friendsGoing' => $this->friendsGoing($id_event),
-                                    'usersGoing' => $this->usersGoing($id_event),
+                                     'friendsGoing' => $friendsGoing,
+                                    'usersGoing' => $usersGoing,
                                     'categories' => Category::all(),
                                     'hasTicket' => $hasTicket
                                     ] 
@@ -211,12 +236,24 @@ class EventController extends Controller
         return response()->json($id_event, 200);
     }
 
-    public function vote(Request $request, $id_poll_option) {
+    public function vote($id_poll_option) {
 
         $poll_option = PollOption::find($id_poll_option);
         
         if (!Auth::check()) 
             return response(403);
+
+        $oldVote = VoteOnPoll::where('id_user', Auth::user()->id_user)->where('id_poll', $poll_option->id_poll);
+
+        if(!empty($oldVote->first())){
+            $oldPollOptId = $oldVote->first()->id_poll_option;
+            $oldVotes = VoteOnPoll::where('id_poll_option', $oldPollOptId)->count();
+        }else{
+            $oldPollOptId = null;
+        } 
+
+        $oldVote->delete();
+
 
         $vote_on_poll = VoteOnPoll::create([
                 'id_user' => Auth::user()->id_user,
@@ -224,7 +261,17 @@ class EventController extends Controller
                 'id_poll_option' =>  $id_poll_option
         ]);
 
-        return response()->json($vote_on_poll, 200);
+        $noVotes = VoteOnPoll::where('id_poll_option', $id_poll_option)->count();
+        $noVotesTotal = VoteOnPoll::where('id_poll', $poll_option->id_poll)->count();
+        $perc = floor(($noVotes/$noVotesTotal)*100);
 
-        }
+        if($oldPollOptId!=null){
+            $temp1 = VoteOnPoll::where('id_poll_option', $oldPollOptId)->count();
+            $oldPerc = floor(($temp1/$noVotesTotal)*100);
+        }else $oldPerc = null;
+
+        return response()->json(['perc'=>$perc, 'oldPollOptId'=>$oldPollOptId, 'oldPerc'=>$oldPerc], 200);
+
+        
     }
+}

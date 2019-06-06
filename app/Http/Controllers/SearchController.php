@@ -25,8 +25,14 @@ class SearchController extends Controller
                             ORDER BY ts_rank(search_tokens,plainto_tsquery('english',:search)) 
                             DESC;",['search' => $search_text]);
 
+        $usersGoing = [];
+        foreach ($events as $event) {
+            array_push($usersGoing, $this->usersGoing($event->id_event));
+        }
+
         return view('pages.search',['events' => $events,
                                     'categories' => Category::all(),'search' => $search_text,
+                                    'usersGoing' => $usersGoing
                                     ]);
     }
 
@@ -40,8 +46,6 @@ class SearchController extends Controller
 
         $categoriesNames = Category::all();
         $categoriesIds = [];
-
-
 
         for($i = 0; $i < count($categoriesArray); $i++){
             for($j = 0; $j < count($categoriesNames); $j++){
@@ -71,5 +75,15 @@ class SearchController extends Controller
         }
        
         return response()->json([$events,Category::all()], 200);
+    }
+
+    public function usersGoing($id_event){
+
+        $ticketsSold = Ticket::where('id_event', $id_event)->get();
+        $idsUsersGoing = $ticketsSold->map(function($item, $key) {
+            return $item->id_ticket_owner;
+        });
+
+        return $idsUsersGoing;
     }
 }

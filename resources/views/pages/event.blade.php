@@ -100,6 +100,7 @@
       <div class="col-lg-4 col-sm-12 ">
         <div id="dateNhours">
           <h6><i class="far fa-calendar-alt"></i> Date & Hours</h6>
+          <span class="event-card-hour">{{$event->date}}</span>
           <span class="extendedDate">{{$event->date}}</span>
         </div>
 
@@ -164,7 +165,11 @@
                   <div class="tab-pane fade show active" id="allGoing" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="row justify-content-center">  
                         @foreach ($usersGoing->take(7) as $soldTicketUser)
-                        <img class="userPic" src="../img/user.jpg">
+                        @if (file_exists(public_path('img/users/originals/' . strval($soldTicketUser) . '.png')) )
+                        <img src={{"../img/users/originals/" . strval($soldTicketUser) . ".png"}} class="userPic">
+                      @else
+                        <img  src="../img/user.jpg" class="userPic">
+                      @endif
                       @endforeach
   
                       @if(count($usersGoing) > 7)
@@ -181,7 +186,11 @@
                     <div class="row justify-content-center">
                         
                       @foreach ($friendsGoing->take(7) as $soldTicketUser)
-                        <img class="userPic" src="../img/user.jpg">
+                      @if (file_exists(public_path('img/users/originals/' . strval($soldTicketUser) . '.png')) )
+                        <img src={{"../img/users/originals/" . strval($soldTicketUser) . ".png"}} class="userPic">
+                      @else
+                        <img  src="../img/user.jpg" class="userPic">
+                      @endif
                       @endforeach
                       
                       @if(count($friendsGoing) > 7)
@@ -203,7 +212,11 @@
     <div class="rightCol col-auto col-md-12">
       <div class="commentArea">
         <h6></h6>
-        <img id="commentPic" class="roundRadius" src="../img/user.jpg">
+        @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
+                        <img id="commentPic" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} class="roundRadius">
+                      @else
+                        <img id="commentPic" src="../img/user.jpg" class="roundRadius">
+        @endif
         <div class="comment row">
           <div class="col-12 form-group">
             <textarea class="form-control" name="newPost" id="exampleFormControlTextarea1" rows="3"

@@ -75,16 +75,16 @@ small {
 
     #events_container {
         margin: 4.25em auto 0 1em !important;
-
+        min-width: 700px;
     }
 }
 
 
 
 #profile_container img {
-    width: 50%;
+    width: 140px;
     border-radius: 100px;
-    max-width: 140px;
+    height: 140px;
     margin-bottom: -5em;
     border: 2px solid var(--lightBlue);
     position: relative;
@@ -127,6 +127,14 @@ small {
     font-size: 14px;
     margin: 1rem 1.5rem;
     color: #444444;
+    
+}
+
+textarea{
+    overflow: hidden;
+    resize: none;
+    border: 1px solid #cfd4da;
+    margin-top: 0;
 }
 
 @media (min-width: 992px) {
@@ -162,7 +170,6 @@ small {
     height: 25px;
     padding: 0 .75rem;
     font-size: 13px;
-    width: 200px;
     border-radius: 0;
 }
 #profile_content #header {
@@ -243,7 +250,6 @@ div > .invalid-feedback{
 textarea{
     border-style: solid;
     border-radius: 2px;
-    border-color: var(--lightGray);
 }
 
 .tab-content>.active {
@@ -278,6 +284,24 @@ span a{
   #update_button{
     position: absolute;
     top: -163px;
-    left: -1px;
+    left: -45%;
     width: 60px;
+  }
+
+  .modal-body textarea{
+      width:100%;
+  }
+
+#update_button {
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  #update_button input {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
   }

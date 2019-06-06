@@ -36,12 +36,17 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <button type="button" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <img src="../img/jane.jpg" class="roundRadius" width="30" height="30">
+                    @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
+                      <img width="30" height="30" class="roundRadius" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} alt="Card image cap">
+                    @else
+                    <img width="30" height="30" class="roundRadius" src={{"../img/user.jpg"}} alt="Card image cap">
+                    @endif
+                    
                   </button>                </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('myProfile') }}">Profile</a>
                     <a class="dropdown-item" href="mytickets.html">My tickets</a>
-                    <a class="dropdown-item" href="myinvites.html">My invites</a>
+                    <a class="dropdown-item" href="{{URL('/invites')}}">My invites</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#"> <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                     </a>

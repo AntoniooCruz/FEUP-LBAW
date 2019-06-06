@@ -19,11 +19,19 @@
         <div id="profile_container" class="col-lg-3 col-12 container text-center">
           <img src="../img/jane.jpg">
           <div id="profile_content">
-            <i class="fab fa-font-awesome-flag"></i>
+            @if($user->user_type != 'Admin')
+              <i  d="reportUser" type="button" data-toggle="modal" data-target="#reportEventModal" class="fab fa-font-awesome-flag"></i>
+            @endif
             <div id="header"></div>
             <div id="name" class="row justify-content-left">
               <div class="col text-left">
-              <div class="row"><span>{{$user->name}}</span></div>
+              <div class="row"><span>{{$user->name}}</span>
+                @if($user->business!=null)
+                @if($user->business->verification == 'Approved')
+                  <i class="far fa-check-circle"></i>
+                @endif
+                @endif
+                </div>
                 <div class="row"><span id="username">@<span>{{$user->username}}</span></div>
               </div>
               <div class="col-3 col text-right">
@@ -51,7 +59,9 @@
             <hr>
             <p id="description" class="row text-left">{{$user->description}} </p>
           </div>
+          @if($user->user_type == 'Admin')
           <div class="row"><button id="bann-button" class=" btn btn-danger">Ban user</button></div>
+          @endif
         </div>
     
         <div id="events_container" class="col-lg-6 col-12 container text-left">
@@ -68,19 +78,59 @@
           
           <div class="tab-content" id="pills-tabContent">
             <div id="userevents" class="row justify-content-start tab-pane fade show active">
-              @each ('partials.card', $eventsOwned, 'event')
+                @for ($i = 0; $i < sizeof($eventsOwned); $i++)
+
+              <div class="col-auto p-0 sm-12 col-md-6 col-lg-6 mb-2">
+
+                @include ('partials.card', ['event'=>$eventsOwned[$i], 'usersGoing'=>sizeof($usersGoing[$i])])
+              </div>
+
+              @endfor
             </div>
             <div id="attendingevents"  class="row justify-content-start tab-pane fade">
-                @each('partials.card', $eventsAttending, 'event')
+                @for ($i = 0; $i < sizeof($eventsAttending); $i++)
+
+              <div class="col-auto p-0 sm-12 col-md-6 col-lg-6 mb-2">
+
+                @include ('partials.card', ['event'=>$eventsAttending[$i], 'usersGoing'=>sizeof($usersGoing[$i])])
+              </div>
+
+              @endfor
+            </div>
             </div>
           </div>
         </div>
       </div>
       </div>
+
+      <div class="modal fade" id="reportEventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form>
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Report {{$user->name}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <p>Help us undertand what's happening?</p>
+            <textarea id="textA" onkeyup="validate()"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+            <button id="submitReportBtn" type="submit" class="disabled btn btn-danger" >Report</button>
+          </div>
+          <form>
+        </div>
+      </div>
+    </div>
     </section> 
 
 @if(Auth::check())
   @include('layouts.create-event', ['categories'=>$categories])
 @endif
+
 
 @endsection
