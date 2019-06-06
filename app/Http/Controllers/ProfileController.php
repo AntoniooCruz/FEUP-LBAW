@@ -179,9 +179,9 @@ class ProfileController extends Controller
 
         $this->validator($request->all());
 
-        $user-> name = $request->input('name');
-        $user-> username = $request->input('username');
-        $user-> description = $request->input('description');
+        $user->name = $request->input('name');
+        $user->username = $request->input('username');
+        $user->description = $request->input('description');
         
         $file = Input::file('file');
 
