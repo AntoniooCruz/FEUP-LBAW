@@ -99,7 +99,13 @@ class HomeController extends Controller
                     }
                     return $item->date;
                 })->values()->all();
-                //dd($feed_items);
+                
+                /*$trending = Event::where('is_private',false)->get();
+                $trending = $trending->sortBy(function($item){
+                    
+                    return $item->date;
+                })->values()->all();
+                dd($trending);*/
                return view('pages.feed',['items' => $feed_items]);
             } else {
                 return redirect('profile');
