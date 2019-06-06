@@ -24,9 +24,9 @@
         <div class="collapse navbar-collapse " id="filters">
           <ul class="navbar-nav mr-auto">
             <li class="dropdown col-auto align-self-center">
-              <button class="dropdown-toggle" type="button" data-toggle="dropdown"
+              <button class="dropdown-toggle filter" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" id="price">
-                Price
+                <i class="fas fa-euro-sign mr-2"></i> Price
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="form-check">
@@ -44,9 +44,9 @@
               </div>
             </li>
             <li class="dropdown col-auto align-self-center">
-              <button class="dropdown-toggle" type="button" id="dropdownCategories" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Categories
+              <button class="dropdown-toggle filter" type="button" id="dropdownCategories" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false ">
+                <i class="fas fa-tag mr-2"></i> Categories
               </button>
               
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="categories">
@@ -64,8 +64,8 @@
         </div>
       </nav>
 
-      <div class="col-auto pl-0">
-        <select id="sortDate" class="roundRadius form-control form-control-sm">
+      <div class="col-auto">
+        <select id="sortDate" class="roundRadius form-control form-control-sm filter">
           <option value="" selected disabled>Sort by</option>
           <option value="date-up">Recent</option>
           <option value="date-down">Older</option>
@@ -76,7 +76,7 @@
         </select>
       </div>
     </div>
-    <div id="results_container" class="text-center container">
+    <div id="results_container" class="text-center container mt-5">
         <div class="row">
           
             @for ($i = 0; $i < sizeof($events); $i++)

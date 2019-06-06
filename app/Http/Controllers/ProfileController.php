@@ -90,7 +90,6 @@ class ProfileController extends Controller
         }catch (\Throwable $th) {
             DB::rollback();
         }
-
         return view('pages.profile',['user' => $user, 
                                     'eventsOwned' => $eventsOwned,
                                     'eventsAttending' => $eventsAttending, 
@@ -232,7 +231,7 @@ class ProfileController extends Controller
         
         if (!Auth::check()) 
             return response(403);
-            
+
         $user2 = Auth::user();
         if($user2->is_admin){
             
