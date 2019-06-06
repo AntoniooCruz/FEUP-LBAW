@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 use Illuminate\Support\Collection;
 use App\Event;
@@ -40,6 +41,7 @@ class EventController extends Controller
     }
 
     public function create(Request $request){
+        
         if(Auth::check()){
             $this->validator($request->all());
 
@@ -76,6 +78,13 @@ class EventController extends Controller
 
             if($request->has('invites'))
                 $this->sendInvites( $request->input('invites'), $event->id_event);
+
+                $file = Input::file('file');
+
+                $originalFileName = "./img/events/originals";
+        
+                $file->move($originalFileName, strval($event->id_event) . ".png");
+        
 
             return redirect("event/".$event->id_event);
         } else return redirect('login');
