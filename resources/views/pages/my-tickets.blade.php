@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('custom-scripts')
-  <link href="{{ asset('css/mytickets.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/myTickets.css') }}" rel="stylesheet">
+  <script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
 @endsection
 
 @section('content')
@@ -27,55 +28,18 @@
       <div class="tab-pane fade show active" id="pills-active" role="tabpanel" aria-labelledby="pills-active-tab">
         <div class="row">
           
-          @for ($i = 0; $i < sizeof($activeEvents); $i++)          
-          
-          <div class="col-auto  mb-3 sm-12">
-            <div class="card ticket text-white">
-              <div class="opacity_div"></div>
-              <img class="card-img" src="../img/event.jpg" alt="Card image">
-              <div class="card-img-overlay">
-                <div class="header">
-                  <h5 class="price">{{$activeEvents[$i]->price}}€</h5>
-                  <h5 class="token">#{{$activeEventsTickets[$i]->token}}</h5>
-                </div>
-                <div class="eventDesc">
-                    <a href="eventpage.html"><h5 class="card-title">{{$activeEvents[$i]->title}}</h5></a>
-                    <hr class="ticketHr">
-                  <p class="card-text">{{$activeEvents[$i]->city}}</p>
-                <p class="card-text">{{$user->username}}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          @for ($i = 0; $i < sizeof($activeEvents); $i++)
+              @include ('partials.ticket', ['event'=>$activeEvents[$i], 'ticket'=> $activeEventsTickets[$i] ])
           @endfor
           
+
         </div>
       </div>
       <div class="tab-pane fade" id="pills-past" role="tabpanel" aria-labelledby="pills-past-tab">
         <div class="row">
 
             @for ($i = 0; $i < sizeof($pastEvents); $i++)
-
-          <div class="col-auto  mb-3 sm-12">
-            <div class="card ticket past-ticket text-white">
-              <div class="opacity_div"></div>
-              <img class="card-img" src="../img/event.jpg" alt="Card image">
-              <div class="card-img-overlay">
-                <div class="header">
-                    <h5 class="price">{{$pastEvents[$i]->price}}€</h5>
-                    <h5 class="token">#{{$pastEventsTickets[$i]->token}}</h5>
-                </div>
-                <div class="eventDesc">
-                    <a href="eventpage.html"><h5 class="card-title">{{$activeEvents[$i]->title}}</h5></a>
-                    <hr class="ticketHr">
-                  <p class="card-text">{{$pastEvents[$i]->city}}</p>
-                  <p class="card-text">{{$user->username}}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
+              @include ('partials.ticket', ['event'=>$pastEvents[$i], 'ticket'=> $pastEventsTickets[$i] ])
           @endfor
 
         </div>

@@ -105,6 +105,8 @@ class EventController extends Controller
 
         DB::beginTransaction();
 
+        $hasTicket = false;
+
         try{
 
             $this->friendsGoing($id_event);

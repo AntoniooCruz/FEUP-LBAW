@@ -70,5 +70,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('myInvites', 'InviteController@showMyInvites');
-Route::get('myTickets', 'TicketController@showMyTickets');
+//Invites
+Route::get('invites', 'InviteController@showMyInvites');
+
+//Tickets
+Route::get('tickets', 'TicketController@showMyTickets');
+
+//Admin
+Route::get('admin', 'AdminController@show');

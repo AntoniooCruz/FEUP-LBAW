@@ -40,6 +40,12 @@ class ProfileController extends Controller
                     array_push($usersGoing, $this->usersGoing($event->id_event));
                 }
 
+
+                $usersAttending =[];
+                foreach ($eventsAttending as $event) {
+                    array_push($usersAttending, $this->usersGoing($event->id_event));
+                }
+
                 DB::commit();
 
             } catch (\Throwable $th) {
@@ -49,7 +55,8 @@ class ProfileController extends Controller
                                             'eventsOwned' => $eventsOwned, 
                                             'eventsAttending' => $eventsAttending,
                                             'categories' => Category::all(),
-                                            'usersGoing' => $usersGoing
+                                            'usersGoing' => $usersGoing,
+                                            'usersAttending' => $usersAttending
                                             ]);
         } else return redirect('login');
                                         
@@ -80,9 +87,13 @@ class ProfileController extends Controller
             }
 
             $usersGoing = [];
-
             foreach ($eventsOwned as $event) {
                 array_push($usersGoing, $this->usersGoing($event->id_event));
+            }
+
+            $usersAttending =[];
+            foreach ($eventsAttending as $event) {
+                array_push($usersAttending, $this->usersGoing($event->id_event));
             }
 
             DB::commit();
@@ -90,13 +101,13 @@ class ProfileController extends Controller
         }catch (\Throwable $th) {
             DB::rollback();
         }
-
         return view('pages.profile',['user' => $user, 
                                     'eventsOwned' => $eventsOwned,
                                     'eventsAttending' => $eventsAttending, 
                                     'isFollowing' => $isFollowing,
                                     'categories' => Category::all(),
-                                    'usersGoing' => $usersGoing
+                                    'usersGoing' => $usersGoing,
+                                    'usersAttending' => $usersAttending
                                     ]);
     }
 
@@ -117,17 +128,22 @@ class ProfileController extends Controller
 
         $usersGoing = [];
 
-            foreach ($eventsOwned as $event) {
-                array_push($usersGoing, $this->usersGoing($event->id_event));
-            }
+        foreach ($eventsOwned as $event) {
+            array_push($usersGoing, $this->usersGoing($event->id_event));
+        }
 
+        $usersAttending =[];
+        foreach ($eventsOwned as $event) {
+            array_push($usersGoing, $this->eventsAttending($event->id_event));
+        }
         
         return view('pages.edit-profile', 
                     ['user' => $user, 
                     'eventsOwned' => $eventsOwned, 
                     'eventsAttending' => $eventsAttending,
                     'categories' => Category::all(),
-                    'usersGoing' => $usersGoing
+                    'usersGoing' => $usersGoing,
+                    'usersAttending' => $usersAttending
                     ]);
     }
 
@@ -232,7 +248,7 @@ class ProfileController extends Controller
         
         if (!Auth::check()) 
             return response(403);
-            
+
         $user2 = Auth::user();
         if($user2->is_admin){
             

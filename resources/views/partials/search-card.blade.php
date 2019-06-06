@@ -21,11 +21,21 @@
       </div>
       <div id="event-card-people-attending" class="row text-left">
         <div class="col ">
-          <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-          <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-          <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+          @if(sizeof($usersGoing) > 2)
+          <a href="{{ url('/profile/'.$usersGoing[0]) }}"><img href src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"></a>
+          <a href="{{ url('/profile/'.$usersGoing[1]) }}"><img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"></a>
+          <a href="{{ url('/profile/'.$usersGoing[2]) }}"><img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"></a>
+          @else
+          @foreach($usersGoing as $user)
+          <a href="{{ url('/profile/'.$usersGoing[$user]) }}"><img href src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"></a>
+          @endforeach
+          @endif
+          @if(sizeof($usersGoing) > 0)
           <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
-          <span id="peopleGoing">+{{$usersGoing}} going</i></span>
+          <span id="peopleGoing">+{{sizeof($usersGoing)}} going</i></span>
+          @else 
+          <span id="peopleGoing">Be the first one to get a ticket!</i></span>
+          @endif
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom-scripts')
-<link href="{{ asset('css/myinvites.css') }}" rel="stylesheet">
+<link href="{{ asset('css/myInvites.css') }}" rel="stylesheet">
 <script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
 
 @endsection

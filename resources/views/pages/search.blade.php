@@ -10,23 +10,20 @@
 <section class="search container">
     <form action="{{URL::to('/search')}}" method="GET" role="search" class=" row searchBar-nb justify-content-center mt-5">
     {{csrf_field()}}  
-    <input id="fieldText" class="form-control" type="search" placeholder="Search..." value= {{$search}} name="search">
+    <input id="fieldText" class="form-control" type="search" placeholder="Search..." value= "{{$search}}" name="search">
       <button id="fieldSubmit" class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
     </form>
 
     <div class="row filters justify-content-center align-items-center">
       <nav class="navbar navbar-expand-lg navbar-light col-auto pr-0 justify-content-center">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#filters"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span id="filterby">Filter by</span>
-        </button>
 
-        <div class="collapse navbar-collapse " id="filters">
+        <div class="" id="filters">
           <ul class="navbar-nav mr-auto">
+            
             <li class="dropdown col-auto align-self-center">
-              <button class="dropdown-toggle" type="button" data-toggle="dropdown"
+              <button class="dropdown-toggle filter" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" id="price">
-                Price
+                <i class="fas fa-euro-sign mr-2"></i> Price
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="form-check">
@@ -43,46 +40,51 @@
                 </div>
               </div>
             </li>
-            <li class="dropdown col-auto align-self-center">
-              <button class="dropdown-toggle" type="button" id="dropdownCategories" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Categories
-              </button>
-              
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="categories">
-              @foreach ($categories as $category)
-              <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="{{$category->name}}" id="defaultCheck1" checked >
-                  <label class="form-check-label" for="defaultCheck1">
-                  {{$category->name}}
-                  </label>
-              </div>
-              @endforeach
-              </div>
+            
+            <li>
+                <div class="col-auto">
+                    <select id="sortDate" class="roundRadius form-control form-control-sm filter">
+                      <option value="" selected disabled>Sort by</option>
+                      <option value="date-up">Recent</option>
+                      <option value="date-down">Older</option>
+                      <option value="price-down">Price Down</option>
+                      <option value="price-up">Price Up</option>
+                      <option value="attendees-up">Most Popular</option>
+                      <option value="attendees-down">Least Popular</option>
+                    </select>
+                  </div>
             </li>
+
+            <li class="dropdown col-auto align-self-center">
+                <button class="dropdown-toggle filter" type="button" id="dropdownCategories" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false ">
+                  <i class="fas fa-tag mr-2"></i> Categories
+                </button>
+                
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="categories">
+                @foreach ($categories as $category)
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="{{$category->name}}" id="defaultCheck1" checked >
+                    <label class="form-check-label" for="defaultCheck1">
+                    {{$category->name}}
+                    </label>
+                </div>
+                @endforeach
+                </div>
+              </li>
           </ul>
         </div>
       </nav>
 
-      <div class="col-auto pl-0">
-        <select id="sortDate" class="roundRadius form-control form-control-sm">
-          <option value="" selected disabled>Sort by</option>
-          <option value="date-up">Recent</option>
-          <option value="date-down">Older</option>
-          <option value="price-down">Price Down</option>
-          <option value="price-up">Price Up</option>
-          <option value="attendees-up">Most Popular</option>
-          <option value="attendees-down">Least Popular</option>
-        </select>
-      </div>
+      
     </div>
-    <div id="results_container" class="text-center container">
+    <div id="results_container" class="text-center container mt-5">
         <div class="row">
           
             @for ($i = 0; $i < sizeof($events); $i++)
             <div class="col-auto p-0 sm-12 col-md-6 col-lg-4 mb-2">
 
-                  @include('partials.search-card', ['event'=>$events[$i], 'categories'=>$categories,'usersGoing'=>sizeof($usersGoing[$i])])
+                  @include('partials.search-card', ['event'=>$events[$i], 'categories'=>$categories,'usersGoing'=>$usersGoing[$i]])
                 </div>
 
             @endfor
