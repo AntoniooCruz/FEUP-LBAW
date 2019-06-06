@@ -10,7 +10,7 @@
 <section class="search container">
     <form action="{{URL::to('/search')}}" method="GET" role="search" class=" row searchBar-nb justify-content-center mt-5">
     {{csrf_field()}}  
-    <input id="fieldText" class="form-control" type="search" placeholder="Search..." value= {{$search}} name="search">
+    <input id="fieldText" class="form-control" type="search" placeholder="Search..." value= "{{$search}}" name="search">
       <button id="fieldSubmit" class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
     </form>
 
@@ -84,7 +84,7 @@
             @for ($i = 0; $i < sizeof($events); $i++)
             <div class="col-auto p-0 sm-12 col-md-6 col-lg-4 mb-2">
 
-                  @include('partials.search-card', ['event'=>$events[$i], 'categories'=>$categories,'usersGoing'=>sizeof($usersGoing[$i])])
+                  @include('partials.search-card', ['event'=>$events[$i], 'categories'=>$categories,'usersGoing'=>$usersGoing[$i]])
                 </div>
 
             @endfor
