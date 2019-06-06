@@ -55,7 +55,9 @@ function addVoteOnPollRequestHandler() {
           }
       }
 
+      if(decID != null)
       document.querySelector(`#poll-option1[data-id="${decID}"]`).setAttribute("ifchecked", "false");
+      
       let percent = Math.floor(pollOpt.dataset.name/noVotes*100);
       pollOpt.style.width = percent+ "%";
       pollOpt.nextSibling.innerText = percent.toString().concat('%')

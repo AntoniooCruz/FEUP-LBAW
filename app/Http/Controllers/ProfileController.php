@@ -37,13 +37,13 @@ class ProfileController extends Controller
                 $usersGoing = [];
 
                 foreach ($eventsOwned as $event) {
-                    array_push($usersGoing, $this->usersGoing($event->id_event));
+                    array_push($usersGoing, $this->usersGoing($event->id_event)->toArray());
                 }
 
 
                 $usersAttending =[];
                 foreach ($eventsAttending as $event) {
-                    array_push($usersAttending, $this->usersGoing($event->id_event));
+                    array_push($usersAttending, $this->usersAttending($event->id_event)->toArray());
                 }
 
                 DB::commit();
@@ -88,14 +88,14 @@ class ProfileController extends Controller
 
             $usersGoing = [];
             foreach ($eventsOwned as $event) {
-                array_push($usersGoing, $this->usersGoing($event->id_event));
+                array_push($usersGoing, $this->usersGoing($event->id_event)->toArray());
             }
 
             $usersAttending =[];
             foreach ($eventsAttending as $event) {
-                array_push($usersAttending, $this->usersGoing($event->id_event));
+                array_push($usersAttending, $this->usersGoing($event->id_event)->toArray());
             }
-
+            
             DB::commit();
 
         }catch (\Throwable $th) {
@@ -129,12 +129,12 @@ class ProfileController extends Controller
         $usersGoing = [];
 
         foreach ($eventsOwned as $event) {
-            array_push($usersGoing, $this->usersGoing($event->id_event));
+            array_push($usersGoing, $this->usersGoing($event->id_event)->toArray());
         }
 
         $usersAttending =[];
-        foreach ($eventsOwned as $event) {
-            array_push($usersGoing, $this->eventsAttending($event->id_event));
+        foreach ($eventsAttending as $event) {
+            array_push($usersAttending, $this->eventsAttending($event->id_event)->toArray());
         }
         
         return view('pages.edit-profile', 
