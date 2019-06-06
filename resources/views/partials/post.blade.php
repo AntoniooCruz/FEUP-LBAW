@@ -9,9 +9,9 @@
             @endif
             
             <div class="headerText">
-              <span class="card-title"><a href="userprofile.html"><span class="link-username">{{$post->author->username}}</span></a>
-            posted on <a href="eventpage.html"><span class="link-event">{{$post->event->title}}</span></a></span>
-              <span class="card-date">13 Mar 2019 • 16h33</span>
+              <span class="card-title"><a href="{{ url('/profile/'.$post->author->id_user) }}"><span class="link-username">{{$post->author->username}}</span></a>
+            posted on <a href="{{ url('/event/'.$post->event->id_event) }}"><span class="link-event">{{$post->event->title}}</span></a></span>
+              <span class="card-date">{{$post->date}}</span>
             </div>
             <i class="fab fa-font-awesome-flag"></i>
           </div>
