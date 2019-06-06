@@ -1,4 +1,4 @@
-<div class="col p-0">
+<div class="col">
   <div class="invite card">
     <a href="{{ url('/event/'.$event->id_event) }}"><img src="../img/invite-card-event.jpg" class="card-img-top"></a>
             <span class="badge badge-pill badge-secondary card-category">{{$categories[$event->id_category - 1]->name}}</span>

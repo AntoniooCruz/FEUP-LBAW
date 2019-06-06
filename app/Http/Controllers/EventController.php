@@ -93,25 +93,37 @@ class EventController extends Controller
 
     public function show($id_event) {
 
-        $this->friendsGoing($id_event);
-        
-        $event = Event::find($id_event);
-        
-        if($event == null) {
-            echo("Event does not exist");
-            return;
-        }
-        if(Auth::check() || $event->is_private){
-            $this->authorize('view', $event);
-        }
+        DB::beginTransaction();
 
-        if(Auth::check())
-            $hasTicket = !empty($event->tickets()->where('id_ticket_owner', Auth::user()->id_user)->first());
-        else $hasTicket = false;
+        try{
+
+            $this->friendsGoing($id_event);
+            
+            $event = Event::find($id_event);
+            $friendsGoing = $this->friendsGoing($id_event);
+            $usersGoing = $this->usersGoing($id_event);
+            
+            if($event == null) {
+                echo("Event does not exist");
+                return;
+            }
+            if(Auth::check() || $event->is_private){
+                $this->authorize('view', $event);
+            }
+
+            if(Auth::check())
+                $hasTicket = !empty($event->tickets()->where('id_ticket_owner', Auth::user()->id_user)->first());
+            else $hasTicket = false;
+        
+            DB::commit();
+
+        }catch (\Throwable $th) {
+            DB::rollback();
+        }
 
         return view('pages.event', ['event' => $event , 
-                                     'friendsGoing' => $this->friendsGoing($id_event),
-                                    'usersGoing' => $this->usersGoing($id_event),
+                                     'friendsGoing' => $friendsGoing,
+                                    'usersGoing' => $usersGoing,
                                     'categories' => Category::all(),
                                     'hasTicket' => $hasTicket
                                     ] 
