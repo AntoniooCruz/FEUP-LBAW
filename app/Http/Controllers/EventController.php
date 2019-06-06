@@ -19,6 +19,7 @@ use App\Comment;
 use Carbon\Carbon;
 use App\Invite;
 use App\PollOption;
+use App\Poll;
 use App\VoteOnPoll;
 
 class EventController extends Controller
@@ -239,7 +240,11 @@ class EventController extends Controller
     public function vote($id_poll_option) {
 
         $poll_option = PollOption::find($id_poll_option);
-        
+
+        $poll = Poll::find($poll_option->id_poll);
+
+        $post = Post::find($poll->id_post);
+
         if (!Auth::check()) 
             return response(403);
 
@@ -268,9 +273,11 @@ class EventController extends Controller
         if($oldPollOptId!=null){
             $temp1 = VoteOnPoll::where('id_poll_option', $oldPollOptId)->count();
             $oldPerc = floor(($temp1/$noVotesTotal)*100);
-        }else $oldPerc = null;
+        } else $oldPerc = null;
 
-        return response()->json(['perc'=>$perc, 'oldPollOptId'=>$oldPollOptId, 'oldPerc'=>$oldPerc], 200);
+        $pollOptionsIds = $post->poll->pollOptions()->get();
+
+        return response()->json(['perc'=>$perc, 'oldPollOptId' =>$oldPollOptId, 'noVotesTotal' => $noVotesTotal, 'pollOptsID' => $pollOptionsIds, 200]);
 
         
     }
