@@ -82,7 +82,7 @@
 
               <div class="col-auto p-0 sm-12 col-md-6 col-lg-6 mb-2">
 
-                @include ('partials.card', ['event'=>$eventsOwned[$i], 'usersGoing'=>sizeof($usersGoing[$i])])
+                @include ('partials.card', ['event'=>$eventsOwned[$i], 'usersGoing'=>$usersGoing[$i]])
               </div>
 
               @endfor
@@ -90,7 +90,7 @@
             <div id="attendingevents"  class="row justify-content-start tab-pane fade">
                 @for ($j = 0; $j < sizeof($eventsAttending); $j++)
                 <div class="col-auto p-0 sm-12 col-md-6 col-lg-6 mb-2">
-                    @include ('partials.card', ['event'=>$eventsAttending[$j], 'usersGoing'=>sizeof($usersAttending[$j])])
+                    @include ('partials.card', ['event'=>$eventsAttending[$j], 'usersGoing'=>$usersAttending[$j]])
               </div>
               @endfor
             </div>
