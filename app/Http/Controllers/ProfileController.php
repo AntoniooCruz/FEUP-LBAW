@@ -19,24 +19,32 @@ class ProfileController extends Controller
 {
     public function show() {
         if(Auth::check()){
+
             $user = Auth::user();
 
-            $eventsOwned = Event::where('id_owner', $user->id_user)->get();
+            DB::beginTransaction();
+
+            try {
+                $eventsOwned = Event::where('id_owner', $user->id_user)->get();
             
-            $userTickets = Ticket::where('id_ticket_owner', $user->id_user)->get();
-            $eventsAttending = [];
+                $userTickets = Ticket::where('id_ticket_owner', $user->id_user)->get();
+                $eventsAttending = [];
 
-            foreach($userTickets as $ticket){
-                array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
+                foreach($userTickets as $ticket){
+                    array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
+                }
+
+                $usersGoing = [];
+
+                foreach ($eventsOwned as $event) {
+                    array_push($usersGoing, $this->usersGoing($event->id_event));
+                }
+
+                DB::commit();
+
+            } catch (\Throwable $th) {
+                DB::rollback();
             }
-
-
-            $usersGoing = [];
-
-            foreach ($eventsOwned as $event) {
-                array_push($usersGoing, $this->usersGoing($event->id_event));
-            }
-
             return view('pages.my-profile', ['user' => $user,
                                             'eventsOwned' => $eventsOwned, 
                                             'eventsAttending' => $eventsAttending,
@@ -48,31 +56,40 @@ class ProfileController extends Controller
     }
 
     public function showUser($id_user) {
-        $user = User::find($id_user); //TODO: passar para findOrFail
-        
-        $followers = $user->followers()->count();
-        $following = $user->following()->count();
 
-        $isFollowing = null;
+        DB::beginTransaction();
 
-        if (Auth::check()) {
-            $isFollowing = Auth::user()->following()->get()->contains($user);
-        }
+        try{
+            $user = User::findOrFail($id_user); 
 
-        $eventsOwned = Event::where('id_owner', $id_user)->get();
-        $userTickets = Ticket::where('id_ticket_owner', $id_user)->get();
-        $eventsAttending = [];
+            $followers = $user->followers()->count();
+            $following = $user->following()->count();
 
-        foreach($userTickets as $ticket){
-            array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
-        }
+            $isFollowing = null;
 
-        $usersGoing = [];
+            if (Auth::check()) {
+                $isFollowing = Auth::user()->following()->get()->contains($user);
+            }
+
+            $eventsOwned = Event::where('id_owner', $id_user)->get();
+            $userTickets = Ticket::where('id_ticket_owner', $id_user)->get();
+            $eventsAttending = [];
+
+            foreach($userTickets as $ticket){
+                array_push($eventsAttending,Event::where('id_event', $ticket->id_event)->first());
+            }
+
+            $usersGoing = [];
 
             foreach ($eventsOwned as $event) {
                 array_push($usersGoing, $this->usersGoing($event->id_event));
             }
 
+            DB::commit();
+
+        }catch (\Throwable $th) {
+            DB::rollback();
+        }
 
         return view('pages.profile',['user' => $user, 
                                     'eventsOwned' => $eventsOwned,
