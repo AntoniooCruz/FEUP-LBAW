@@ -69,8 +69,8 @@
           <option value="" selected disabled>Sort by</option>
           <option value="date-up">Recent</option>
           <option value="date-down">Older</option>
-          <option value="price-up">Price Down</option>
-          <option value="price-down">Price Up</option>
+          <option value="price-down">Price Down</option>
+          <option value="price-up">Price Up</option>
           <option value="attendees-up">Most Popular</option>
           <option value="attendees-down">Least Popular</option>
         </select>

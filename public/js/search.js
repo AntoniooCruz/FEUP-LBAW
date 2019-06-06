@@ -4,6 +4,9 @@ let checkbox_paid = document.querySelector("#checkPaid");
 
 let checkboxes = document.querySelectorAll(".form-check")
 let submitBtn = document.querySelector("#fieldSubmit");
+let sort = document.querySelector("#sortDate");
+
+sort.addEventListener('change',checkboxHandler);
 
 //add listener to submit button
 submitBtn.addEventListener('click',function(e){
@@ -38,6 +41,7 @@ function checkboxHandler() {
     if(paid.checked) {
         price.push(paid.value);
     }
+
     
      sendAjaxRequest('get', '/api/search', {"searchquery":searchquery,"categories":categories, "price":price}, filterHandler);
 }
@@ -47,7 +51,8 @@ function filterHandler () {
     let response = JSON.parse(this.response);
     let events = response[0];
     let categories = response[1];
-    console.log(categories[0]);
+    events = sortEvents(events,sort.options[sort.selectedIndex].value);
+
     resultsContainer.innerHTML = '';
     if(events != null){
         events.forEach(function(event) {
@@ -68,6 +73,79 @@ function filterHandler () {
           });
     }
     
+}
+
+function sortEvents(events,order){
+    switch(order){
+        case "date-up":
+        events.sort(dateUp);
+        break;
+
+        case "date-down":
+        events.sort(dateDown);
+        break;
+
+        case "price-down":
+        events.sort(dateUp);
+        break;
+
+        case "price-up":
+        events.sort(dateUp);
+        break;
+
+        case "attendees-up":
+        events.sort(dateUp);
+        break;
+
+        case "attendees-down":
+        events.sort(dateUp);
+        break;
+
+    }
+
+    return events;
+}
+
+function dateUp(a,b){
+    let dA = a.date;
+    let dB = b.date;
+    let dateA = getDate(dA);
+    let dateB = getDate(dB);
+
+    if(dateA.getTime() < dateB.getTime()){
+        return -1;
+    }
+
+    if(dateA.getTime() > dateB.getTime()){
+        return 1;
+    }
+
+    return 0;
+}
+
+function dateDown(a,b){
+    let dA = a.date;
+    let dB = b.date;
+    let dateA = getDate(dA);
+    let dateB = getDate(dB);
+
+    if(dateA.getTime() < dateB.getTime()){
+        return 1;
+    }
+
+    if(dateA.getTime() > dateB.getTime()){
+        return -1;
+    }
+
+    return 0;
+}
+
+function getDate(date){
+    let parseDate = date.split(" ");
+    let aux = parseDate[0].split("-");
+    let aux2 = parseDate[1].split(":");
+    let d = new Date(aux[0],aux[1],aux[2],aux2[0],aux2[1]);
+    return d;
 }
 
 function translateMonth(number, full){
