@@ -57,17 +57,17 @@
   </div>
   <div id="feed" class="px-3">
   @foreach ($items as $item)
-      @if(is_a($item,'App\Ticket'))
-      @include('partials.feed-ticket', $item)
+  @if(is_a($item,'App\Ticket'))
+      @include('partials.feed-ticket', [$item,'usersGoing'=>$usersGoing[$item->id_event]])
       @endif
       @if(is_a($item,'App\Event'))
-      @include('partials.feed-card', $item)
+      @include('partials.feed-card', [$item,'usersGoing'=>$usersGoing[$item->id_event]])
       @endif
       @if(is_a($item,'App\Comment'))
       @include('partials.feed-comment', $item)
       @endif
       @if(is_a($item,'App\Post'))
-      @include('partials.feed-post', $item)
+      @include('partials.post', ['post'=>$item])
       @endif
     @endforeach
 </div>

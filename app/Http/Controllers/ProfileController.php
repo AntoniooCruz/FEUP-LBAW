@@ -37,7 +37,13 @@ class ProfileController extends Controller
                 $usersGoing = [];
 
                 foreach ($eventsOwned as $event) {
-                    array_push($usersGoing, $this->usersGoing($event->id_event));
+                    array_push($usersGoing, $this->usersGoing($event->id_event)->toArray());
+                }
+
+
+                $usersAttending =[];
+                foreach ($eventsAttending as $event) {
+                    array_push($usersAttending, $this->usersAttending($event->id_event)->toArray());
                 }
 
                 DB::commit();
@@ -49,7 +55,8 @@ class ProfileController extends Controller
                                             'eventsOwned' => $eventsOwned, 
                                             'eventsAttending' => $eventsAttending,
                                             'categories' => Category::all(),
-                                            'usersGoing' => $usersGoing
+                                            'usersGoing' => $usersGoing,
+                                            'usersAttending' => $usersAttending
                                             ]);
         } else return redirect('login');
                                         
@@ -58,7 +65,7 @@ class ProfileController extends Controller
     public function showUser($id_user) {
 
         DB::beginTransaction();
-
+        
         try{
             $user = User::findOrFail($id_user); 
 
@@ -80,11 +87,15 @@ class ProfileController extends Controller
             }
 
             $usersGoing = [];
-
             foreach ($eventsOwned as $event) {
-                array_push($usersGoing, $this->usersGoing($event->id_event));
+                array_push($usersGoing, $this->usersGoing($event->id_event)->toArray());
             }
 
+            $usersAttending =[];
+            foreach ($eventsAttending as $event) {
+                array_push($usersAttending, $this->usersGoing($event->id_event)->toArray());
+            }
+            
             DB::commit();
 
         }catch (\Throwable $th) {
@@ -95,7 +106,8 @@ class ProfileController extends Controller
                                     'eventsAttending' => $eventsAttending, 
                                     'isFollowing' => $isFollowing,
                                     'categories' => Category::all(),
-                                    'usersGoing' => $usersGoing
+                                    'usersGoing' => $usersGoing,
+                                    'usersAttending' => $usersAttending
                                     ]);
     }
 
@@ -116,17 +128,22 @@ class ProfileController extends Controller
 
         $usersGoing = [];
 
-            foreach ($eventsOwned as $event) {
-                array_push($usersGoing, $this->usersGoing($event->id_event));
-            }
+        foreach ($eventsOwned as $event) {
+            array_push($usersGoing, $this->usersGoing($event->id_event)->toArray());
+        }
 
+        $usersAttending =[];
+        foreach ($eventsAttending as $event) {
+            array_push($usersAttending, $this->eventsAttending($event->id_event)->toArray());
+        }
         
         return view('pages.edit-profile', 
                     ['user' => $user, 
                     'eventsOwned' => $eventsOwned, 
                     'eventsAttending' => $eventsAttending,
                     'categories' => Category::all(),
-                    'usersGoing' => $usersGoing
+                    'usersGoing' => $usersGoing,
+                    'usersAttending' => $usersAttending
                     ]);
     }
 
@@ -162,9 +179,9 @@ class ProfileController extends Controller
 
         $this->validator($request->all());
 
-        $user-> name = $request->input('name');
-        $user-> username = $request->input('username');
-        $user-> description = $request->input('description');
+        $user->name = $request->input('name');
+        $user->username = $request->input('username');
+        $user->description = $request->input('description');
         
         $file = Input::file('file');
 

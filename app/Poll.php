@@ -8,6 +8,9 @@ use App\PollOption;
 class Poll extends Model
 {
     protected $table = 'poll';
+    protected $primaryKey = 'id_poll';
+
+    public $timestamps  = false;  
 
     public function pollOptions() {
 

@@ -84,6 +84,7 @@ class SearchController extends Controller
             return $item->id_ticket_owner;
         });
 
+
         return $idsUsersGoing;
     }
 }

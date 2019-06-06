@@ -2,7 +2,7 @@
           aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <form  method="POST" action="{{ url('/createvent') }}" enctype="multipart/form-data">
+              <form  method="POST" action="{{ url('/event') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">

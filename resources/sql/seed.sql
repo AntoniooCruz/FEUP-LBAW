@@ -701,6 +701,7 @@ INSERT INTO vote_on_poll (id_user, id_poll, id_poll_option) VALUES (13, 1, 2);
 INSERT INTO vote_on_poll (id_user, id_poll, id_poll_option) VALUES (14, 1, 3);
 INSERT INTO vote_on_poll (id_user, id_poll, id_poll_option) VALUES (20, 2, 4);
 INSERT INTO vote_on_poll (id_user, id_poll, id_poll_option) VALUES (22, 5, 10);
+INSERT INTO vote_on_poll (id_user, id_poll, id_poll_option) VALUES (23, 5, 11);
 INSERT INTO vote_on_poll (id_user, id_poll, id_poll_option) VALUES (21, 4, 8);
 INSERT INTO vote_on_poll (id_user, id_poll, id_poll_option) VALUES (21, 3, 6);
 

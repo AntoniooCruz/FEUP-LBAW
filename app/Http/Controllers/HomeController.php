@@ -12,6 +12,7 @@ use App\User;
 use App\Comment;
 use App\Post;
 
+
 class HomeController extends Controller
 {
     /**
@@ -99,13 +100,37 @@ class HomeController extends Controller
                     }
                     return $item->date;
                 })->values()->all();
-                //dd($feed_items);
-               return view('pages.feed',['items' => $feed_items]);
+                $usersGoing = [];
+                foreach ($events as $event) {
+                    $usersGoing[$event->id_event] = $this->usersGoing(($event->id_event))->toArray();
+                }
+
+                foreach ($tickets as $ticket) {
+                    $usersGoing[$ticket->id_event] = $this->usersGoing(($ticket->id_event))->toArray();
+                }
+               
+                /*$trending = Event::where('is_private',false)->get();
+                $trending = $trending->sortBy(function($item){
+                    
+                    return $item->date;
+                })->values()->all();
+                dd($trending);*/
+               return view('pages.feed',['items' => $feed_items,'usersGoing' => $usersGoing]);
             } else {
                 return redirect('profile');
             }
         } else {
             return view('home');
         }
+    }
+    public function usersGoing($id_event){
+
+        $ticketsSold = Ticket::where('id_event', $id_event)->get();
+        $idsUsersGoing = $ticketsSold->map(function($item, $key) {
+            return $item->id_ticket_owner;
+        });
+
+
+        return $idsUsersGoing;
     }
 }

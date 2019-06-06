@@ -38,7 +38,7 @@
           <h2 id="eventTitle">{{$event->title}}</h2>
           <div>
             <span id="#created" class="eventDate">Created by <span class="ownerUsername"><a
-                  href="userprofile.html">{{$event->owner->name}}</a></span></span>
+                  href="{{ url('/profile/'.$event->owner->id_user) }}">{{$event->owner->name}}</a></span></span>
           </div>
         </div>
       </div>
@@ -166,7 +166,7 @@
                     <div class="row justify-content-center">  
                         @foreach ($usersGoing->take(7) as $soldTicketUser)
                         @if (file_exists(public_path('img/users/originals/' . strval($soldTicketUser) . '.png')) )
-                        <img src={{"../img/users/originals/" . strval($soldTicketUser) . ".png"}} class="userPic">
+                        <a href="{{ url('/profile/'.strval($soldTicketUser)) }}"><img src={{"../img/users/originals/" . strval($soldTicketUser) . ".png"}} class="userPic"></a>
                       @else
                         <img  src="../img/user.jpg" class="userPic">
                       @endif
@@ -185,11 +185,11 @@
                   <div class="tab-pane fade" id="friendsGoing" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="row justify-content-center">
                         
-                      @foreach ($friendsGoing->take(7) as $soldTicketUser)
-                      @if (file_exists(public_path('img/users/originals/' . strval($soldTicketUser) . '.png')) )
-                        <img src={{"../img/users/originals/" . strval($soldTicketUser) . ".png"}} class="userPic">
+                      @foreach ($friendsGoing->take(7) as $soldTicketFriend)
+                      @if (file_exists(public_path('img/users/originals/' . strval($soldTicketFriend->id_user) . '.png')) )
+                      <a href="{{ url('/profile/'.strval($soldTicketFriend->id_user)) }}"><img src={{"../img/users/originals/" . strval($soldTicketFriend->id_user) . ".png"}} class="userPic"></a>
                       @else
-                        <img  src="../img/user.jpg" class="userPic">
+                      <a href="{{ url('/profile/'.strval($soldTicketFriend->id_user)) }}"><img  src="../img/user.jpg" class="userPic"></a>
                       @endif
                       @endforeach
                       

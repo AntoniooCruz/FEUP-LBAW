@@ -26,7 +26,6 @@ function loadHandler() {
     let dates = document.querySelectorAll('.extendedDate');
 
     dates.forEach(element => {
-        console.log(element);
         let year = parseDateYear(element.innerHTML);
         let month = parseDateMonth(element.innerHTML, true);
         let day = parseDateDay(element.innerHTML);

@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('custom-scripts')
-  <link href="{{ asset('css/eventpage.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/adminpage.css') }}" rel="stylesheet">
+  <script type="text/javascript" src={{ asset('js/admin.js') }} defer></script>
+  <script type="text/javascript" src={{ asset('js/profile.js') }} defer></script>
 @endsection
 
 @section('content')
 <div class="container">
     <nav>
-      <div class="nav nav-tabs" id="nav-admin" role="tablist">
+      <div class="nav nav-tabs mt-3" id="nav-admin" role="tablist">
         <a class="nav-item nav-link active" id="nav-users-tab" data-toggle="tab" href="#nav-users" role="tab"
           aria-controls="nav-users" aria-selected="true"><i class="fas fa-user"></i> Users</a>
         <a class="nav-item nav-link" id="nav-comments-tab" data-toggle="tab" href="#nav-comments" role="tab"
@@ -20,109 +22,10 @@
     </nav>
     <div class="tab-content" id="nav-admintab">
       <div class="tab-pane fade show active" id="nav-users" role="tabpanel" aria-labelledby="nav-users-tab">
-        <div class="container-fluid actionCard">
-          <div class="report report-user">
-            <div class="card card-user">
-              <div class="card card-user">
-                <div class="description header">
-                  <a href="userprofile.html"><img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap"></a>
-                  <div class="headerText">
-                    <span class="card-title"><a href="userprofile.html"><span class="link-username">username123</span></a>
-                      reported
-                      <a href="userprofile.html"><span class="link-username">username321's</span></a> profile
-                      <p>"This user repeatedly creates offensive events"</p>
-                      <span class="card-date">13 Mar 2019 • 16h33</span>
-                  </div>
-
-                </div>
-                <div class="footer">
-                  <hr>
-                  <div class="footerText">
-                    <button><i class="fas fa-check"></i></button>´
-                    <button><i class="fas fa-trash-alt"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container-fluid actionCard">
-          <div class="report report-user">
-            <div class="card card-user">
-              <div class="card card-user">
-                <div class="description header">
-                  <a href="userprofile.html"><img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap"></a>
-                  <div class="headerText">
-                    <span class="card-title"><a href="userprofile.html"><span class="link-username">username123</span></a>
-                      reported
-                      <a href="userprofile.html"><span class="link-username">username321's</span></a> profile
-                      <p>"The profile picture is not appropriate"</p>
-                      <span class="card-date">13 Mar 2019 • 16h33</span>
-                  </div>
-
-                </div>
-                <div class="footer">
-                  <hr>
-                  <div class="footerText">
-                    <button><i class="fas fa-check"></i></button><button><i class="fas fa-trash-alt"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container-fluid actionCard">
-          <div class="report report-user">
-            <div class="card card-user">
-              <div class="card card-user">
-                <div class="description header">
-                  <a href="userprofile.html"><img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap"></a>
-                  <div class="headerText">
-                    <span class="card-title"><a href="userprofile.html"><span class="link-username">username123</span></a>
-                      reported
-                      <a href="userprofile.html"><span class="link-username">username321's</span></a> profile
-                      <p>"I believe this user's behaviour is innapropriate and rude, therefore
-                        not acceptable!!"</p>
-                      <span class="card-date">13 Mar 2019 • 16h33</span>
-                  </div>
-
-                </div>
-                <div class="footer">
-                  <hr>
-                  <div class="footerText">
-                    <button><i class="fas fa-check"></i></button><button><i class="fas fa-trash-alt"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container-fluid actionCard">
-          <div class="report report-user">
-            <div class="card card-user">
-              <div class="card card-user">
-                <div class="description header">
-                  <a href="userprofile.html"><img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap"></a>
-                  <div class="headerText">
-                    <span class="card-title"><a href="userprofile.html"><span class="link-username">username123</span></a>
-                      reported
-                      <a href="userprofile.html"><span class="link-username">username321's</span></a> profile
-                      <p>"This user spams"</p>
-                      <span class="card-date">13 Mar 2019 • 16h33</span>
-                  </div>
-
-                </div>
-                <div class="footer">
-                  <hr>
-                  <div class="footerText">
-                    <button><i class="fas fa-check"></i></button><button><i class="fas fa-trash-alt"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        @foreach ($userReports as $rep)
+          @include ('partials.user-report',['report'=>$rep])
+        @endforeach
+      </div>  
       <div class="tab-pane fade" id="nav-comments" role="tabpanel" aria-labelledby="nav-comments-tab">
         <div class="container-fluid actionCard">
           <div class="report report-comment">

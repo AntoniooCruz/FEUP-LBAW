@@ -10,7 +10,7 @@ newPostBttn.addEventListener('click', newPostRequest);
 
   let method = 'post';
 
-  sendAjaxRequest(method, '/api/event/' + id_event + '/newpost', { data: post_text, post_type: 'None'}, newPostRequestHandler);
+  sendAjaxRequest(method, '/api/event/' + id_event + '/post', { data: post_text, post_type: 'None'}, newPostRequestHandler);
   
  }
 

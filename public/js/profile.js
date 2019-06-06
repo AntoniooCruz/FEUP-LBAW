@@ -2,7 +2,7 @@ let ban = document.getElementById('bann-button');
 
 if(ban!=null){
     ban.addEventListener('click',function(){
-        sendAjaxRequest("put",'/profile/'+ document.getElementById('id_user').innerHTML+'/ban',null,banUserHandler);
+        sendAjaxRequest("put",'/report/'+ document.getElementById('reportid').innerHTML+'/accept',null,banUserHandler);
     })
 }
 

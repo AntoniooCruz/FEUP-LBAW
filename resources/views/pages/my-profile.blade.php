@@ -57,7 +57,7 @@
           <hr>
           <p id="description" class="row text-left">{{$user->description}} </p>
         </div>
-        <div class="row"><a href="mytickets.html" id="tickets-button" class=" btn btn-secondary">My tickets</a></div>
+        <div class="row"><a href="tickets.html" id="tickets-button" class=" btn btn-secondary">My tickets</a></div>
       </div>
     
       <div id="events_container" class="col-lg-6 col-12 container text-left">
@@ -85,13 +85,10 @@
             </div>
           <div id="attendingevents"  class="row justify-content-start tab-pane fade">
             <div id="userevents" class="row justify-content-start tab-pane fade show active">
-                @for ($i = 0; $i < sizeof($eventsAttending); $i++)
-
-              <div class="col-auto p-0 sm-12 col-md-6 col-lg-6 mb-2">
-
-                @include ('partials.card', ['event'=>$eventsAttending[$i], 'usersGoing'=>sizeof($usersGoing[$i])])
+                @for ($j = 0; $j < sizeof($eventsAttending); $j++)
+                <div class="col-auto p-0 sm-12 col-md-6 col-lg-6 mb-2">
+                    @include ('partials.card', ['event'=>$eventsAttending[$j], 'usersGoing'=>sizeof($usersAttending[$j])])
               </div>
-
               @endfor
             </div>
           </div>
