@@ -28,8 +28,8 @@
             <div id="comments1-{{$post->id_post}}" data-id={{$post->id_post}} class="comments collapse mb-2 mt-3">
               <div class="commentInput row" data-id={{$post->id_post}}>
                 <div class="col px-1">
-                  @if (file_exists(public_path('img/users/originals/' . strval($post->id_author) . '.png')) )
-                      <img class="userAction roundRadius" src={{"../img/users/originals/" . strval($post->id_author) . ".png"}} alt="Card image cap">
+                  @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
+                      <img class="userAction roundRadius" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} alt="Card image cap">
                     @else
                       <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
                     @endif
