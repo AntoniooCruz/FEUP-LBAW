@@ -4,7 +4,7 @@
 
   <form action="{{URL::to('/search')}}" method="GET" role="search" class="searchBar-blue">
     {{csrf_field()}} 
-        <input type="search" placeholder="Search">
+        <input type="search" placeholder="Search" name="search">
       </form>
       @endif
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
