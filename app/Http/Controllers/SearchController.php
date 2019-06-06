@@ -26,7 +26,7 @@ class SearchController extends Controller
                             DESC;",['search' => $search_text]);
 
         return view('pages.search',['events' => $events,
-                                    'categories' => Category::all()
+                                    'categories' => Category::all(),'search' => $search_text,
                                     ]);
     }
 

@@ -10,7 +10,7 @@
 <section class="search container">
     <form action="{{URL::to('/search')}}" method="GET" role="search" class=" row searchBar-nb justify-content-center mt-5">
     {{csrf_field()}}  
-    <input id="fieldText" class="form-control" type="search" placeholder="Search..." name="search">
+    <input id="fieldText" class="form-control" type="search" placeholder="Search..." value= {{$search}} name="search">
       <button id="fieldSubmit" class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
     </form>
 
