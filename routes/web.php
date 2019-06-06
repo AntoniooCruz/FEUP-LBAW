@@ -69,7 +69,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Admin
-Route::get('admin', 'AdminController@show');
-
-
+Route::get('myInvites', 'InviteController@showMyInvites');

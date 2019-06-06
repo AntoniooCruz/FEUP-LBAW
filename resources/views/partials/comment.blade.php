@@ -5,7 +5,4 @@
                       <div>{{$comment->text}}.</div>
                     </div>
                   </div>
-                  <div class="reply row justify-content-end mr-4">
-                    Reply
-                  </div>
                 </div>

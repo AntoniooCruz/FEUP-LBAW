@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Str;
 
 use App\Event;
 use App\Category;
@@ -25,21 +26,50 @@ class SearchController extends Controller
                             DESC;",['search' => $search_text]);
 
         return view('pages.search',['events' => $events,
-                                    'categories' => Category::all()
+                                    'categories' => Category::all(),'search' => $search_text,
                                     ]);
     }
 
     public function onpagesearch(Request $request) {
+
         $priceCats = $request->input('price');
         $categories = $request->input('categories');
-        
+        $events = null;
 
-        $events = DB::select("SELECT * FROM event, category
-                             WHERE search_tokens @@ plainto_tsquery('english',:search)
-                            AND event.id_category = category.id_category 
-                            ORDER BY ts_rank(search_tokens,plainto_tsquery('english',:search)) 
-                            DESC;",['search' => $request->input('searchquery')]);
+        $categoriesArray = explode(',', $categories);
 
-        return response()->json($events, 200);
+        $categoriesNames = Category::all();
+        $categoriesIds = [];
+
+
+
+        for($i = 0; $i < count($categoriesArray); $i++){
+            for($j = 0; $j < count($categoriesNames); $j++){
+                if(Str::contains($categoriesNames[$j],$categoriesArray[$i])){
+                    array_push($categoriesIds,$categoriesNames[$j]->id_category);
+                }
+            }
+        }
+
+        $arr = $categoriesIds;
+        $arr = join(",",$arr);
+        if($priceCats != null) {
+
+            if(Str::contains($priceCats,'Free') && Str::contains($priceCats,'Paid')) {
+                $events = DB::select("SELECT * FROM event WHERE search_tokens @@ plainto_tsquery('english',:search) 
+                AND event.id_category IN (".$arr.") ORDER BY ts_rank(search_tokens,plainto_tsquery('english',:search)) 
+                DESC;",['search' => $request->input('searchquery')]);
+            } else if(Str::contains($priceCats,'Free')) {
+                $events = DB::select("SELECT * FROM event WHERE search_tokens @@ plainto_tsquery('english',:search) 
+                AND event.id_category IN (".$arr.") AND event.price = 0 ORDER BY ts_rank(search_tokens,plainto_tsquery('english',:search)) 
+                DESC;",['search' => $request->input('searchquery')]);
+            } else if(Str::contains($priceCats,'Paid')){
+                $events = DB::select("SELECT * FROM event WHERE search_tokens @@ plainto_tsquery('english',:search) 
+                AND event.id_category IN (".$arr.") AND event.price > 0 ORDER BY ts_rank(search_tokens,plainto_tsquery('english',:search)) 
+                DESC;",['search' => $request->input('searchquery')]);
+            }
+        }
+       
+        return response()->json([$events,Category::all()], 200);
     }
 }

@@ -32,17 +32,12 @@ function addCommentToSection(id_user, comment_text, comment_id_post) {
   let text = document.createElement('div');
   text.innerHTML = comment_text;
 
-  let reply = document.createElement("div");
-  reply.className = "reply row justify-content-end mr-4";
-  reply.innerHTML = "Reply";
-
   col.appendChild(text);
 
   row.appendChild(img);
   row.appendChild(col);
 
   newComment.appendChild(row);
-  newComment.appendChild(reply);
 
   $(`#comment_data[data-id="${comment_id_post}"]`).val('');
 

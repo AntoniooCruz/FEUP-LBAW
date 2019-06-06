@@ -183,6 +183,6 @@ newPostBttn.addEventListener('click', newPostRequest);
         $('#exampleFormControlTextarea1[name=newPost]').val('');
 
         let posts_section = document.querySelector('#posts');
-        posts_section.appendChild(container_fluid);
+        posts_section.prepend(container_fluid);
       }
  }

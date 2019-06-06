@@ -10,7 +10,7 @@
 <section class="search container">
     <form action="{{URL::to('/search')}}" method="GET" role="search" class=" row searchBar-nb justify-content-center mt-5">
     {{csrf_field()}}  
-    <input id="fieldText" class="form-control" type="search" placeholder="Search..." name="search">
+    <input id="fieldText" class="form-control" type="search" placeholder="Search..." value= {{$search}} name="search">
       <button id="fieldSubmit" class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
     </form>
 
@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse " id="filters">
           <ul class="navbar-nav mr-auto">
             <li class="dropdown col-auto align-self-center">
-              <button class="dropdown-toggle" type="button" id="dropdownPrice" data-toggle="dropdown"
+              <button class="dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" id="price">
                 Price
               </button>
@@ -52,7 +52,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="categories">
               @foreach ($categories as $category)
               <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="{{$category->name}}" id="defaultCheck1">
+                  <input class="form-check-input" type="checkbox" value="{{$category->name}}" id="defaultCheck1" checked >
                   <label class="form-check-label" for="defaultCheck1">
                   {{$category->name}}
                   </label>
@@ -69,8 +69,8 @@
           <option value="" selected disabled>Sort by</option>
           <option value="date-up">Recent</option>
           <option value="date-down">Older</option>
-          <option value="price-up">Price Down</option>
-          <option value="price-down">Price Up</option>
+          <option value="price-down">Price Down</option>
+          <option value="price-up">Price Up</option>
           <option value="attendees-up">Most Popular</option>
           <option value="attendees-down">Least Popular</option>
         </select>
