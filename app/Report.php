@@ -13,4 +13,9 @@ class Report extends Model
     protected $fillable = [
         'id_report','reason', 'veridict','report_type','id_admin'
     ];
+
+    public function reporter(){
+    
+        return $this->belongsTo('App\User', 'id_user', 'other_key');
+    }
 }
