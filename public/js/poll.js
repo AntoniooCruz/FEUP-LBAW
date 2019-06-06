@@ -16,7 +16,6 @@ function addVoteOnPollRequest(evt) {
   if(votePollBttn.getAttribute("ifchecked") == "true"){
     return;
   } else {
-    console.log("noooot");
     votePollBttn.setAttribute("ifchecked", "true");
   
     let method = 'post';
@@ -58,8 +57,6 @@ function addVoteOnPollRequestHandler() {
 
       document.querySelector(`#poll-option1[data-id="${decID}"]`).setAttribute("ifchecked", "false");
       let percent = Math.floor(pollOpt.dataset.name/noVotes*100);
-      console.log(noVotes);
-      console.log(pollOpt.dataset.name);
       pollOpt.style.width = percent+ "%";
       pollOpt.nextSibling.innerText = percent.toString().concat('%')
     }
