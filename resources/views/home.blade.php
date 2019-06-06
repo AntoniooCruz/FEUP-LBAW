@@ -24,16 +24,21 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="../img/event3.jpg" alt="First slide">
+            <img class="d-block w-100" src="{{asset('img/event1.jpg')}}" alt="First slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="../img/event4.jpeg" alt="Second slide">
+            <img class="d-block w-100" src="{{asset('img/event1.jpg')}}" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="../img/event2.jpg" alt="Third slide">
+            <img class="d-block w-100" src="{{asset('img/event1.jpg')}}" alt="Third slide">
           </div>
         </div>
 
       </div>
     </section>
+
+    @if(Auth::check())
+  @include('layouts.create-event', ['categories'=>$categories])
+@endif
+
     @endsection

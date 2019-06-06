@@ -1,5 +1,4 @@
 let showCommentBttn = document.querySelectorAll('#comment_button');
-console.log(showCommentBttn);
 if (showCommentBttn != null) {
   for(var j= 0; j < showCommentBttn.length; j++){
     showCommentBttn[j].addEventListener('click', showCommentsRequest);
@@ -15,8 +14,6 @@ if (addCommentBttn != null) {
 function addCommentToSection(id_user, comment_text, comment_id_post) {
 
   let comment_section = document.querySelector(`#comment_section[data-id="${comment_id_post}"]`);
-  console.log(comment_id_post);
-  console.log(comment_section);
 
   let newComment = document.createElement("div");
   newComment.className = "comment my-2";
@@ -35,17 +32,12 @@ function addCommentToSection(id_user, comment_text, comment_id_post) {
   let text = document.createElement('div');
   text.innerHTML = comment_text;
 
-  let reply = document.createElement("div");
-  reply.className = "reply row justify-content-end mr-4";
-  reply.innerHTML = "Reply";
-
   col.appendChild(text);
 
   row.appendChild(img);
   row.appendChild(col);
 
   newComment.appendChild(row);
-  newComment.appendChild(reply);
 
   $(`#comment_data[data-id="${comment_id_post}"]`).val('');
 
@@ -56,16 +48,20 @@ function showCommentsRequest(evt) {
 
   let id_post = evt.path[1].dataset.id;
 
-  console.log('Show Comments from post ' + id_post);
+  if(evt.path[2].getAttribute("aria-expanded") == "false") {
 
   let method = 'get';
 
   sendAjaxRequest(method, '/api/post/' + id_post + '/getcomments', null, showCommentsRequestHandler);
+
+  } else {
+    let comment_section = document.querySelector(`#comment_section[data-id="${id_post}"]`);
+    comment_section.innerHTML = "";
+  }
 }
 
 function showCommentsRequestHandler() {
 
-  console.log(JSON.parse(this.response));
   let comments = JSON.parse(this.response);
  
   comments[0].forEach(element => {
@@ -75,24 +71,23 @@ function showCommentsRequestHandler() {
 
 function addCommentRequest(evt) {
 
-  console.log(evt);
   let id_post = evt.path[3].dataset.id;
   let id_event = document.querySelector('#id_event').innerHTML;
 
   let comment = $(`#comment_data[data-id="${id_post}"]`).val();
 
-  console.log(comment);
+  if(comment != "") {
 
   let method = 'post';
 
   sendAjaxRequest(method, '/api/event/' + id_event + '/post/' + id_post + '/addcomment', { data: comment }, addCommentsRequestHandler);
+  }
 }
 
 
 function addCommentsRequestHandler() {
 
   if (this.status == 200) {
-
     let comment = JSON.parse(this.response);
     addCommentToSection(comment[0].id_user, comment[0].text, comment[0].id_post);
 

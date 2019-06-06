@@ -43,13 +43,15 @@ Route::get('faqs', function () {
 
 //Profile
 Route::get('profile', 'ProfileController@show')->name('myProfile');
+Route::post('profile/remove', 'ProfileController@remove')->name('removeProfile');
 Route::get('profile/edit', 'ProfileController@showEdit');
 Route::post('profile/edit', 'ProfileController@update');
 Route::get('profile/{id_user}', 'ProfileController@showUser');
-Route::post('profile/remove', 'ProfileController@remove');
 Route::put('api/profile/{id_user}/follow','ProfileController@followUser');
 Route::delete('api/profile/{id_user}/follow','ProfileController@unfollowUser');
 Route::post('api/event/{id_event}/buyticket', 'EventController@purchaseTicket');
+Route::put('profile/{id_user}/ban', 'ProfileController@ban');
+
 
 //Event
 Route::get('event/{id_event}', 'EventController@show');
@@ -66,3 +68,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('myInvites', 'InviteController@showMyInvites');

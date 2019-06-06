@@ -90,12 +90,15 @@ class EventController extends Controller
     }
 
     public function show($id_event) {
-        
 
         $this->friendsGoing($id_event);
         
         $event = Event::find($id_event);
-
+        
+        if($event == null) {
+            echo("Event does not exist");
+            return;
+        }
         if(Auth::check() || $event->is_private){
             $this->authorize('view', $event);
         }
@@ -152,8 +155,6 @@ class EventController extends Controller
             'date' => $date_created
             ]);
             
-
-
         return response()->json([$comment]);
     }
 

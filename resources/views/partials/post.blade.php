@@ -21,7 +21,7 @@
           <div class="footer px-2">
             <hr>
             <div id="comments1-{{$post->id_post}}" data-id={{$post->id_post}} class="comments collapse mb-2 mt-3">
-              <div class="commentInput row">
+              <div class="commentInput row" data-id={{$post->id_post}}>
                 <div class="col px-1">
                   <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
                   <textarea id ="comment_data" data-id = {{$post->id_post}} class="form-control roundRadius pl-5" id="exampleFormControlTextarea1" rows="1"

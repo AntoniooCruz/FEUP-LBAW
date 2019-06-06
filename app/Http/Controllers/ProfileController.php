@@ -103,6 +103,9 @@ class ProfileController extends Controller
     }
 
     public function update(Request $request) {
+
+        if (!Auth::check()) 
+                return redirect('home');
         
         $user = Auth::user();
 
@@ -118,11 +121,17 @@ class ProfileController extends Controller
     }
 
     public function remove(Request $request){
-        $user = Auth::user();
-        $user-> active = false;
-        $user->save();
+            if (!Auth::check()) 
+                return redirect('home');
 
-        return redirect('logout');
+            $user = Auth::user();
+
+            try {
+                $user->delete();
+                return redirect('home');
+            } catch (Exception $e) {
+                return redirect('profile');
+            }
     }
 
     public function followUser($id) {
@@ -158,6 +167,17 @@ class ProfileController extends Controller
             return response()->json(["error" => $e], 400);
         }
 
+        return response(200);
+    }
+
+    public function ban($id_user){
+        if (!Auth::check()) 
+            return response(403);
+
+        $user = User::find($id_user);
+
+        $user->active = false;
+        $user->save();
         return response(200);
     }
 }
