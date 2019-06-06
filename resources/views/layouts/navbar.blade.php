@@ -4,7 +4,7 @@
 
   <form action="{{URL::to('/search')}}" method="GET" role="search" class="searchBar-blue">
     {{csrf_field()}} 
-        <input type="search" placeholder="Search">
+        <input type="search" placeholder="Search" name="search">
       </form>
       @endif
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,12 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <button type="button" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <img src="../img/jane.jpg" class="roundRadius" width="30" height="30">
+                    @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
+                      <img width="30" height="30" class="roundRadius" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} alt="Card image cap">
+                    @else
+                    <img width="30" height="30" class="roundRadius" src={{"../img/user.jpg"}} alt="Card image cap">
+                    @endif
+                    
                   </button>                </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('myProfile') }}">Profile</a>

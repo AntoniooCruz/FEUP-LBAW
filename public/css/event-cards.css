@@ -16,10 +16,6 @@
     padding: 0;
 }
 
-.invite{
-    max-width: 500px;
-    min-width: 300px;
-    
 }
 
 .card-title#card-event-name{
@@ -57,7 +53,7 @@
     font-family: 'Roboto Condensed', sans-serif;
     
     margin-left: 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 #event-card-month{

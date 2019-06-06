@@ -1,7 +1,7 @@
-<div class="col-auto  mb-3 sm-12">
+<div class="col">
   <div class="invite card">
     <a href="{{ url('/event/'.$event->id_event) }}"><img src="../img/invite-card-event.jpg" class="card-img-top"></a>
-            <span class="badge badge-pill badge-secondary card-category">{{$categories[$event->id_category]->name}}</span>
+            <span class="badge badge-pill badge-secondary card-category">{{$categories[$event->id_category - 1]->name}}</span>
     <div class="card-body" id="event-card-body">
       <div class="row eventRow header align-items-start">
         <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
@@ -25,7 +25,7 @@
           <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
           <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
           <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
-          <span id="peopleGoing">+300 going</i></span>
+          <span id="peopleGoing">+{{$usersGoing}} going</i></span>
         </div>
       </div>
     </div>

@@ -5,19 +5,15 @@
     border-radius: 0;
 }
 
-.actionCard .invite {
-    max-width: 650px;
-}
-
 
 .actionCard {
     margin-bottom: 30px;
-    max-width: 650px;
+    padding: 0;
 }
 
 .userAction {
     height: 35px;
-    width: auto;
+    width: 35px;
     margin-right: 10px;
 }
 

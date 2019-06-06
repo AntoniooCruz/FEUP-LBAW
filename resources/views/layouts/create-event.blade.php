@@ -2,7 +2,7 @@
           aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <form  method="POST" action="{{ url('/createvent') }}">
+              <form  method="POST" action="{{ url('/createvent') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">
@@ -26,7 +26,7 @@
                       <img src="../img/event-placeholder.png" height="300">
                       <span class="col-sm-2 col-3 btn btn-secondary btn-file form-control-file"
                         id="exampleFormControlFile1">Upload
-                        <input type="file"></span>
+                        <input type="file" name="file"></span>
                     </div>
                     <div class="p-3">
                       <div id="details" class="mt-5">

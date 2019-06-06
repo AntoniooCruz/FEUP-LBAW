@@ -183,6 +183,7 @@ body{
     padding-right: 0;
     position: absolute;
     width: 43px;
+    height: 43px;
     z-index: 2;
     left: 20px;
     top: 10px;

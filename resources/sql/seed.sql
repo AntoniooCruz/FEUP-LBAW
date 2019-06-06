@@ -269,13 +269,10 @@ CREATE TABLE ticket (
 
 -- Table: vote_on_poll
 CREATE TABLE vote_on_poll (
+    id_vote         SERIAL PRIMARY KEY,
     id_user        INTEGER REFERENCES users (id_user) ON DELETE CASCADE,
     id_poll         INTEGER REFERENCES poll (id_poll) ON DELETE CASCADE,
-    id_poll_option INTEGER REFERENCES poll_option (id_poll_option) ON DELETE CASCADE,
-    PRIMARY KEY (
-        id_user,
-        id_poll
-    )
+    id_poll_option INTEGER REFERENCES poll_option (id_poll_option) ON DELETE CASCADE
 );
 
 -- Table: password_resets
@@ -706,8 +703,6 @@ INSERT INTO vote_on_poll (id_user, id_poll, id_poll_option) VALUES (20, 2, 4);
 INSERT INTO vote_on_poll (id_user, id_poll, id_poll_option) VALUES (22, 5, 10);
 INSERT INTO vote_on_poll (id_user, id_poll, id_poll_option) VALUES (21, 4, 8);
 INSERT INTO vote_on_poll (id_user, id_poll, id_poll_option) VALUES (21, 3, 6);
-INSERT INTO vote_on_poll (id_user, id_poll, id_poll_option) VALUES (21, 5, 11);
-
 
 --invite
 INSERT INTO invite (id_inviter, id_invitee, id_event) VALUES (12, 1, 1);
