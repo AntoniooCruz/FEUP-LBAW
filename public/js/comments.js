@@ -36,10 +36,12 @@ function addCommentToSection(id_user, comment_text, comment_id_post) {
 
   let img = document.createElement("IMG");
   img.className = "roundRadius";
-  if(doesFileExist("{{ path('public') }}".concat('img/users/originals/'.concat(id_user.toString()).concat('.png')))) {
-    img.src = "{{ path('public') }}".concat('img/users/originals/'.concat(id_user.toString()).concat('.png'));
+  let userPNG = id_user.toString() + ".png";
+  console.log(userPNG);
+  if(doesFileExist("../img/users/originals/".concat(userPNG))) {
+    img.src = "../img/users/originals/".concat(userPNG);
   } else {
-    img.src = "{{ path('public') }}".concat('img/user.jpg');
+    img.src = "../img/user.jpg";
   }
   img.alt = "Card image cap";
 
