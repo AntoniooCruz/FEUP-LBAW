@@ -72,3 +72,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('myInvites', 'InviteController@showMyInvites');
 Route::get('myTickets', 'TicketController@showMyTickets');
+Route::get('admin', 'AdminController@show');
