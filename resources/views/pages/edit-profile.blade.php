@@ -103,7 +103,7 @@
                 </div>
 
                 <div class="row"><button id="tickets-button" type="button" class=" btn btn-secondary"><a
-                            href="mytickets.html">My
+                            href="tickets.html">My
                             tickets</a></button></div>
             </form>
         </div>
