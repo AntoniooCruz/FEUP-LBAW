@@ -65,7 +65,7 @@ class ProfileController extends Controller
     public function showUser($id_user) {
 
         DB::beginTransaction();
-
+        
         try{
             $user = User::findOrFail($id_user); 
 

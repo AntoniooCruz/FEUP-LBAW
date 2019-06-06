@@ -17,7 +17,7 @@
           </div>
           <div class="card-body">
             <p class="card-text">{{$post->text}}</p>
-            @if ($post->post_type == "poll")
+            @if ($post->post_type == "Poll")
             <div class="poll">
                     @each ('partials.poll-option', $post->poll->pollOptions()->get(), 'pollOption')
                   </div>

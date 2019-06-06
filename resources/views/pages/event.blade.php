@@ -185,11 +185,11 @@
                   <div class="tab-pane fade" id="friendsGoing" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="row justify-content-center">
                         
-                      @foreach ($friendsGoing->take(7) as $soldTicketUser)
-                      @if (file_exists(public_path('img/users/originals/' . strval($soldTicketUser) . '.png')) )
-                      <a href="{{ url('/profile/'.strval($soldTicketUser)) }}"><img src={{"../img/users/originals/" . strval($soldTicketUser) . ".png"}} class="userPic"></a>
+                      @foreach ($friendsGoing->take(7) as $soldTicketFriend)
+                      @if (file_exists(public_path('img/users/originals/' . strval($soldTicketFriend->id_user) . '.png')) )
+                      <a href="{{ url('/profile/'.strval($soldTicketFriend->id_user)) }}"><img src={{"../img/users/originals/" . strval($soldTicketFriend->id_user) . ".png"}} class="userPic"></a>
                       @else
-                        <img  src="../img/user.jpg" class="userPic">
+                      <a href="{{ url('/profile/'.strval($soldTicketFriend->id_user)) }}"><img  src="../img/user.jpg" class="userPic"></a>
                       @endif
                       @endforeach
                       
