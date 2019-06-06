@@ -47,7 +47,7 @@ class User extends Authenticatable
     }
 
     public function invited(){
-        return $this->belongsToMany('App\Ticket','invite','id_invitee','id_event');
+        return $this->hasMany('App\Invite','id_invitee','id_user');
     }
 
     public function business(){

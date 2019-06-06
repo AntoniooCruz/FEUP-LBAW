@@ -41,7 +41,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('myProfile') }}">Profile</a>
                     <a class="dropdown-item" href="mytickets.html">My tickets</a>
-                    <a class="dropdown-item" href="myinvites.html">My invites</a>
+                    <a class="dropdown-item" href="{{URL('/invites')}}">My invites</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#"> <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                     </a>

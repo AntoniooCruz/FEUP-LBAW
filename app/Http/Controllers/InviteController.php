@@ -113,27 +113,18 @@ class InviteController extends Controller
 
         $user = Auth::user();
         $id_user = $user->id_user;
-        //dd($user);
 
-        //DB::table('invite')->insert(
-        //    ['id_inviter' => '4', 'id_invitee' => $id_user, 'id_event' => '4']
-        //);
+        $invites =$user->invited()->get();
 
-        $invites = Invite::where('id_invitee', $id_user)->get();
-
-        $eventsInvited = [];
-        $inviters = [];
         $usersGoing = [];
-        foreach($invites as $invite){
-            array_push($eventsInvited,Event::where('id_event', $invite->id_event)->first());
-            array_push($inviters,User::where('id_user', $invite->id_inviter)->first());
+        foreach ($invites as $invite) {
             array_push($usersGoing, $this->usersGoing($invite->id_event));
         }
+
         
-        return view('pages.my-invites',['user' => $user, 
+        return view('pages.my-invites',['invites' => $user->invited()->get(), 
                                     'categories' => Category::all(),
-                                    'inviters' => $inviters,
-                                    'eventsInvited' => $eventsInvited,
-                                    'usersGoing' => $usersGoing]);
+                                    'usersGoing' => $usersGoing
+                                    ]);
     }
 }
