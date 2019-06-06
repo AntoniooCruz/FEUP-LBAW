@@ -3,21 +3,21 @@
         <div class="card card-comment">
           <div class="description header">
               @if (file_exists(public_path('img/users/originals/' . strval($post->id_author) . '.png')) )
-              <img class="userAction roundRadius" src="{{ asset("img/users/originals/" . strval($post->id_author) . ".png") }}" alt="Card image cap">
+              <a href="{{ url('/profile/'.$post->author->id_user) }}"><img class="userAction roundRadius" src="{{ asset("img/users/originals/" . strval($post->id_author) . ".png") }}" alt="Card image cap"></a>
                 @else
-              <img class="userAction roundRadius" src= " {{asset("img/user.jpg")}} " alt="Card image cap">
+                <a href="{{ url('/profile/'.$post->author->id_user) }}"><img class="userAction roundRadius" src= " {{asset("img/user.jpg")}} " alt="Card image cap"></a>
             @endif
             
             <div class="headerText">
-              <span class="card-title"><a href="userprofile.html"><span class="link-username">{{$post->author->username}}</span></a>
-            posted on <a href="eventpage.html"><span class="link-event">{{$post->event->title}}</span></a></span>
-              <span class="card-date">13 Mar 2019 • 16h33</span>
+              <span class="card-title"><a href="{{ url('/profile/'.$post->author->id_user) }}"><span class="link-username">{{$post->author->username}}</span></a>
+            posted on <a href="{{ url('/event/'.$post->event->id_event) }}"><span class="link-event">{{$post->event->title}}</span></a></span>
+              <span class="card-date">{{$post->date}}</span>
             </div>
             <i class="fab fa-font-awesome-flag"></i>
           </div>
           <div class="card-body">
             <p class="card-text">{{$post->text}}</p>
-            @if ($post->post_type == 'Poll')
+            @if ($post->post_type == "poll")
             <div class="poll">
                     @each ('partials.poll-option', $post->poll->pollOptions()->get(), 'pollOption')
                   </div>
