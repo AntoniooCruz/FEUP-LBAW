@@ -157,7 +157,7 @@ class ProfileController extends Controller
                 return redirect('home');
         
         $user = Auth::user();
-        $user_id = $user->user_id;
+        $user_id = $user->id_user;
 
         $this->validator($request->all());
 
@@ -167,9 +167,9 @@ class ProfileController extends Controller
         
         $file = Input::file('file');
 
-        $originalFileName = "./img/users/originals/$user_id.png";
+        $originalFileName = "./img/users/originals";
 
-        $file->move($originalFileName);
+        $file->move($originalFileName, strval($user_id) . ".png");
 
         $user->save();
         
