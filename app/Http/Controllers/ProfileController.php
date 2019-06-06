@@ -120,6 +120,8 @@ class ProfileController extends Controller
             foreach ($eventsOwned as $event) {
                 array_push($usersGoing, $this->usersGoing($event->id_event));
             }
+
+        
         return view('pages.edit-profile', 
                     ['user' => $user, 
                     'eventsOwned' => $eventsOwned, 

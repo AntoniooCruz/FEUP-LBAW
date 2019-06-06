@@ -120,13 +120,28 @@
             </ul>
 
             <div class="tab-content" id="pills-tabContent">
-                <div id="userevents" class="row justify-content-start tab-pane fade show active">
-                    @each('partials.card', $eventsOwned, 'event')
-                </div>
-                <div id="attendingevents" class="row justify-content-start tab-pane fade">
-                    @each('partials.card', $eventsAttending, 'event')
-                </div>
-            </div>
+                    <div id="userevents" class="row justify-content-start tab-pane fade show active">
+                        @for ($i = 0; $i < sizeof($eventsOwned); $i++)
+        
+                      <div class="col-auto p-0 sm-12 col-md-6 col-lg-6 mb-2">
+        
+                        @include ('partials.card', ['event'=>$eventsOwned[$i], 'usersGoing'=>sizeof($usersGoing[$i])])
+                      </div>
+        
+                      @endfor
+                    </div>
+                    <div id="attendingevents"  class="row justify-content-start tab-pane fade">
+                        @for ($i = 0; $i < sizeof($eventsAttending); $i++)
+        
+                      <div class="col-auto p-0 sm-12 col-md-6 col-lg-6 mb-2">
+        
+                        @include ('partials.card', ['event'=>$eventsAttending[$i], 'usersGoing'=>sizeof($usersGoing[$i])])
+                      </div>
+        
+                      @endfor
+                    </div>
+                    </div>
+                  </div>
         </div>
 </section>
 @if(Auth::check())
