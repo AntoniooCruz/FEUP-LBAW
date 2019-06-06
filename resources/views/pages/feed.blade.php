@@ -67,7 +67,8 @@
       @include('partials.feed-comment', $item)
       @endif
       @if(is_a($item,'App\Post'))
-      @include('partials.feed-post', $item)
+      {{$post = $item}}
+      @include('partials.post', $post)
       @endif
     @endforeach
 </div>
