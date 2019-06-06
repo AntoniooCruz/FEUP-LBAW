@@ -11,9 +11,18 @@ function addVoteOnPollRequest(evt) {
 
   poll_option_id = evt.path[0].dataset.id;
 
-  let method = 'post';
+  let votePollBttn = document.querySelector(`#poll-option1[data-id="${poll_option_id}"]`);
+
+  if(votePollBttn.getAttribute("ifchecked") == "true"){
+    return;
+  } else {
+    console.log("noooot");
+    votePollBttn.setAttribute("ifchecked", "true");
+  
+    let method = 'post';
 
   sendAjaxRequest(method, '/api/pollOption/' + poll_option_id, null, addVoteOnPollRequestHandler);
+  }
 }
 
 function addVoteOnPollRequestHandler() {
@@ -46,6 +55,8 @@ function addVoteOnPollRequestHandler() {
             pollOpt.setAttribute("data-name", parseInt(pollOpt.dataset.name) - 1);
           }
       }
+
+      document.querySelector(`#poll-option1[data-id="${decID}"]`).setAttribute("ifchecked", "false");
       let percent = Math.floor(pollOpt.dataset.name/noVotes*100);
       console.log(noVotes);
       console.log(pollOpt.dataset.name);
