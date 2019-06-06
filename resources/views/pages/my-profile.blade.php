@@ -17,7 +17,13 @@
             <div id="header"></div>
             <div id="name" class="row justify-content-left">
               <div class="col text-left">
-              <div class="row"><span>{{$user->name}}</span> <i class="far fa-check-circle"></i></div>
+              <div class="row"><span>{{$user->name}}
+              </span>{{$user->business}}
+              @if($user->business!=null)
+              @if($user->business->verification == 'Approved')
+                <i class="far fa-check-circle"></i>
+              @endif
+              @endif</div>
               <div class="row"><span id="username">@<span>{{$user->username}}</span></div>
               @if($user->user_type=='Business')
                 <div class="row"><span id="website"><a href="{{$user->business->website}}">{{$user->business->website}}</a></div>

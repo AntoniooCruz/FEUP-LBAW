@@ -13,4 +13,5 @@ class Business extends Model
     protected $fillable = [
         'id_user','verification', 'website'
     ];
+
 }

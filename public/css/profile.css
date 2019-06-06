@@ -127,6 +127,14 @@ small {
     font-size: 14px;
     margin: 1rem 1.5rem;
     color: #444444;
+    
+}
+
+textarea{
+    overflow: hidden;
+    resize: none;
+    border: 1px solid #cfd4da;
+    margin-top: 0;
 }
 
 @media (min-width: 992px) {
@@ -162,7 +170,6 @@ small {
     height: 25px;
     padding: 0 .75rem;
     font-size: 13px;
-    width: 200px;
     border-radius: 0;
 }
 #profile_content #header {
@@ -243,7 +250,6 @@ div > .invalid-feedback{
 textarea{
     border-style: solid;
     border-radius: 2px;
-    border-color: var(--lightGray);
 }
 
 .tab-content>.active {
@@ -280,4 +286,8 @@ span a{
     top: -163px;
     left: -1px;
     width: 60px;
+  }
+
+  .modal-body textarea{
+      width:100%;
   }

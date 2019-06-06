@@ -86,7 +86,7 @@
                     <hr>
                     <div>
                     <textarea id="description" name="description" class="... {{$errors->has('description')? 'is-invalid' : '' }} col-10 text-left"
-                        style="overflow:hidden; resize:none; border: 1px solid #cfd4da; margin-top:0"
+                        
                         rows="4" placeholder="Description"> {{old('description',$user->description)}}</textarea>
                         @if ($errors->has('description'))
 								        <span class="invalid-feedback">

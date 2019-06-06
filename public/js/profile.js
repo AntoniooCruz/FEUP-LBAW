@@ -14,3 +14,11 @@ if(ban!=null){
 function banUserHandle(){
     console.log(this);
 }
+
+let submitReportBtn = document.getElementById('submitReportBtn');
+
+if(submitReportBtn!=null){
+    submitReportBtn.addEventListener('click', function(e){
+        e.preventDefault();
+    })
+}
