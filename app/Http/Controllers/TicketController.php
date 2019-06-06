@@ -124,41 +124,50 @@ class TicketController extends Controller
 
 
         //DB::table('event')->insert(
-        //    ['title' => 'Bday','date_created' => '5/16/2018' ,'date' => '9/16/2019' ,'location' => '8446 Rockefeller Parkway' ,'description' => 'ut at dolor queima odio consequat varius' ,'price' => 20 ,'capacity' => 100 ,'is_private' => false ,'id_owner' => 10 ,'id_category' => 2 ,'city' => 'Porto' ,'search_tokens' => null]
+        //    ['title' => 'Diabo na Cruz','date_created' => '5/16/2018' ,'date' => '9/16/2018' ,'location' => '8446 Rockefeller Parkway' ,'description' => 'ut at dolor queima odio consequat varius' ,'price' => 20 ,'capacity' => 100 ,'is_private' => false ,'id_owner' => 10 ,'id_category' => 2 ,'city' => 'Porto' ,'search_tokens' => null]
         //);
 
         //DB::table('ticket')->insert(
-        //    ['id_event' => 23,'id_ticket_owner' => 34, 'date_acquired' => '5/16/2018' ,'checked_in' => false]
+        //    ['id_event' => 24,'id_ticket_owner' => 34, 'date_acquired' => '5/16/2018' ,'checked_in' => false]
         //);
 
-        //$tickets = Ticket::where('id_ticket_owner', $id_user)->get();
+
+        $tickets = Ticket::where('id_ticket_owner', $id_user)->get();
+
+
+        $event = Event::where('id_event', 24)->first();
 
         $activeEvents = [];
-        $activeEventsTickets = Ticket::where('id_ticket_owner', $id_user)->get();
-        $activeEventsCreators = [];
-
+        $activeEventsTickets = [];
 
         $pastEvents = [];
-        $pastEventsTickets = Ticket::where('id_ticket_owner', $id_user)->get();
-        $pastEventsCreators = [];
+        $pastEventsTickets = [];
 
-        $date_created = Carbon::now();
+        $now = Carbon::now()->toDateTimeString();
 
-        foreach($activeEventsTickets as $ticket){
-            //TODO diferenciar eventos futuros e eventos passados
-            //array_push($eventsInvited,Event::where('id_event', $invite->id_event)->first());
-            array_push($activeEvents, Event::where('id_event', $ticket->id_event)->first());
-            array_push($pastEvents, Event::where('id_event', $ticket->id_event)->first());
-            //array_push($activeEventsCreators, User::where('id_user', )->where( , $ticket->id_event));
-        }
-        
+        foreach($tickets as $ticket){
+            //echo($ticket->event->date);
+
+            if( strcmp($ticket->event->date, $now)){
+                //active
+                array_push($activeEvents, Event::where('id_event', $ticket->id_event)->first());
+                array_push($activeEventsTickets, $ticket);
+
+            }else {
+                
+                // past
+                array_push($pastEvents, Event::where('id_event', $ticket->id_event)->first());
+                array_push($pastEventsTickets, $ticket);
+            }
+
+           
+
+        }        
         return view('pages.my-tickets',['user' => $user,
                                     'categories' => Category::all(),
                                     'activeEvents' => $activeEvents,
                                     'activeEventsTickets' => $activeEventsTickets,
-                                    'activeEventsCreator' => $activeEventsCreators,
                                     'pastEvents' => $pastEvents,
-                                    'pastEventsTickets' => $pastEventsTickets,
-                                    'pastEventsCreator' => $pastEventsCreators]);
+                                    'pastEventsTickets' => $pastEventsTickets]);
     }
 }

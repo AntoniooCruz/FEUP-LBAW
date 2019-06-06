@@ -51,14 +51,15 @@ body{
 @media (min-width:535px){
 
     .sortNav {
-        width: 500px;
+        width: 85%;
         }
 }
+
 
 @media (min-width:992px){
 
     .sortNav {
-        width: 788px;
+        width: 88%;
     }
 
 }
