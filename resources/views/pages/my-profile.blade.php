@@ -57,7 +57,7 @@
           <hr>
           <p id="description" class="row text-left">{{$user->description}} </p>
         </div>
-        <div class="row"><a href="mytickets.html" id="tickets-button" class=" btn btn-secondary">My tickets</a></div>
+        <div class="row"><a href="tickets.html" id="tickets-button" class=" btn btn-secondary">My tickets</a></div>
       </div>
     
       <div id="events_container" class="col-lg-6 col-12 container text-left">

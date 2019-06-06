@@ -15,7 +15,8 @@ class AdminController extends Controller
         $userReports = [];
 
         foreach ($tempUserReports as $report) {
-            if($report->first()->report()->veridict == 'Pending')
+
+            if($report->first()->report->veridict == 'Pending')
                 array_push($userReports,$report);
         }
 
