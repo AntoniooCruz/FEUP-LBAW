@@ -1,12 +1,50 @@
+
+@if($item->post_type == "File" || $item->post_type == "")
 <div class="container-fluid actionCard">
+      <div class="card card-upload-pic">
+        <div class="description header">
+          <a href="{{ url('/profile/'.$item->author->id_user) }}"> <img class="userAction roundRadius" src="../img/user.jpg"
+              alt="Card image cap"></a>
+          <div class="headerText">
+            <span class="card-title"><a href="{{ url('/profile/'.$item->author->id_user) }}"><span class="link-username">{{$item->author->name}}</span></a>
+            @if($item->post_type == "")
+            posted on
+            @endif  
+            @if($item->post_type == "File")
+            uploaded a file on
+            @endif
+              <a href="{{ url('/event/'.$item->event->id_event) }}"><span class="link-event">{{$item->event->title}}</span></a></span>
+            <span class="card-date">{{$item->date}}</span>
+          </div>
+          <i class="far fa-flag"></i>
+        </div>
+        <div class="card-body">
+        @if($item->post_type == "File")
+            
+          <div class="card-text card-pic-uploaded"><a href="../img/preview.jpg"><img src="../img/preview.jpg"></a>
+            @endif  
+          <p>{{$item->text}}</a>
+            </p>
+          </div>
+        </div>
+        <div class="footer">
+          <hr>
+          <div class="footerText">
+            <button><i class="far fa-comments"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+@endif
+@if($item->post_type == "Poll")
+     <div class="container-fluid actionCard">
       <div class="card card-poll">
         <div class="description header">
           <img class="userAction roundRadius " src="../img/user.jpg" alt="Card image cap">
           <div class="headerText">
-            <span class="card-title"><a href="userprofile.html"><span class="link-username">janedoe</span></a>
-              posted on <a href="eventpage.html"><span class="link-event">Tea
-                  Party</span></a></span>
-            <span class="card-date">13 Mar 2019 • 16h33</span>
+            <span class="card-title"><a href="{{ url('/profile/'.$item->author->id_user) }}"><span class="link-username">{{$item->author->name}}</span></a>
+              posted on <a href="{{ url('/event/'.$item->id_event) }}"><span class="link-event">{{$item->event->title}}</span></a></span>
+            <span class="card-date">{{$item->date}}</span>
           </div>
           <i class="far fa-flag"></i>
 
@@ -14,7 +52,7 @@
         <img id="headerPic" class="card-img-top" src="../img/event4.jpg" alt="Card image cap">
         <div class="card-body">
           <div class="span6">
-            <p>How are you going to travel there?</p>
+            <p>{{$item->text}}</p>
             <div class="poll">
               <div>
                 <div class="progress roundRadius">
@@ -57,3 +95,4 @@
         </div>
       </div>
     </div>
+    @endif
