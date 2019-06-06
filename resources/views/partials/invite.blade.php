@@ -9,11 +9,9 @@
                     class="link-username">{{$invites[$i]->inviter->username}}</a> invited you to
                   this event</span>
                 <!-- <span class="card-date">13 Mar 2019 • 16h33</span> -->
-                <span class="card-date">
-                    <span id="eventMonth" class="eventMonth">{{$invites[$i]->event()->first()->date}}</span>
-                    <span id="eventPageDay" class="eventPageDay">{{$invites[$i]->event()->first()->date}}</span>
-                    <span id="eventPageDay" class="evenDateYear">{{$invites[$i]->event()->first()->date}}</span>
-                </span>
+                <div><span class="event-card-hour">{{$invites[$i]->event()->first()->date}}</span> • 
+                <span class="card-date extendedDate">{{$invites[$i]->event()->first()->date}}</span>
+              </div>
               </div>
               <i class="far fa-flag"></i>
             </div>

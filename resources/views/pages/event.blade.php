@@ -100,6 +100,7 @@
       <div class="col-lg-4 col-sm-12 ">
         <div id="dateNhours">
           <h6><i class="far fa-calendar-alt"></i> Date & Hours</h6>
+          <span class="event-card-hour">{{$event->date}}</span>
           <span class="extendedDate">{{$event->date}}</span>
         </div>
 

@@ -19,18 +19,18 @@ function loadHandler() {
     });
 
     hours = document.querySelectorAll(".event-card-hour");
-    console.log(hours);
     hours.forEach(date => {
         date.textContent = parseDateHours(date.textContent, false);
     });
 
     let dates = document.querySelectorAll('.extendedDate');
+
     dates.forEach(element => {
-        let year = parseDateYear(element.textContent);
-        let hours = parseDateHours(element.textContent, true);
-        let month = parseDateMonth(element.textContent, true);
-        let day = parseDateDay(element.textContent);
-        element.innerHTML ='<div>' + hours + '</div>' + '<div>' + day + " " + month + " " + year +'</div>';
+        console.log(element);
+        let year = parseDateYear(element.innerHTML);
+        let month = parseDateMonth(element.innerHTML, true);
+        let day = parseDateDay(element.innerHTML);
+        element.innerHTML =day + " " + month + " " + year;
     });
     
 }
