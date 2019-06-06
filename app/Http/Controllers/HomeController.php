@@ -28,7 +28,7 @@ class HomeController extends Controller
         if(Auth::check()){
             $user = Auth::user();
             if($user->user_type == 'Personal'){
-               //FEED
+               return view('pages.feed');
             } else {
                 return redirect('profile');
             }
