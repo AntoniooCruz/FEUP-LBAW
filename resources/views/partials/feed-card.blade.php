@@ -1,15 +1,19 @@
 <div class="container-fluid actionCard">
       <div class="card card-going-event">
         <div class="description header">
-          <a href="{{ url('/profile/'.$item->id_owner) }}"><img class="userAction roundRadius roundRadius" src="../img/user.jpg"
-              alt="Card image cap"></a>
-          <div class="headerText">
-            <span class="card-title"><a href="{{ url('/profile/'.$item->id_owner) }}"><span class="link-username">{{$item->owner->username}}</span></a>
-              created an event</span>
-            <span class="card-date">{{$item->date_created}}</span>
+              @if (file_exists(public_path('img/users/originals/' . $item->id_owner . '.png')) )
+              <a href="{{ url('/profile/'.$item->owner->id_user) }}"><img class="userAction roundRadius" src="{{ asset("img/users/originals/" . $item->id_owner . ".png") }}" alt="Card image cap"></a>
+                @else
+                <a href="{{ url('/profile/'.$item->owner->id_user) }}"><img class="userAction roundRadius" src= " {{asset("img/user.jpg")}} " alt="Card image cap"></a>
+            @endif
+            
+            <div class="headerText">
+              <span class="card-title"><a href="{{ url('/profile/'.$item->id_owner) }}"><span class="link-username">{{$item->owner->username}}</span></a>
+            created <a href="{{ url('/event/'.$item->id_event) }}"><span class="link-event">{{$item->title}}</span></a></span>
+              <span class="card-date">{{$item->date}}</span>
+            </div>
+            <i class="fab fa-font-awesome-flag"></i>
           </div>
-          <i class="far fa-flag"></i>
-        </div>
       </div>
       <div class="invite card">
         <a href="{{ url('/event/'.$item->id_event) }}"><img src="../img/invite-card-event.jpg" class="card-img-top"></a>
