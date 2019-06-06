@@ -10,7 +10,7 @@
 <section class="search container">
     <form action="{{URL::to('/search')}}" method="GET" role="search" class=" row searchBar-nb justify-content-center mt-5">
     {{csrf_field()}}  
-    <input id="fieldText" class="form-control" type="search" placeholder="Search..." name="search">
+    <input id="fieldText" class="form-control" type="search" placeholder="Search..." value= {{$search}} name="search">
       <button id="fieldSubmit" class="btn form-control" type="submit"><i class="fas fa-search"></i></button>
     </form>
 
@@ -69,8 +69,8 @@
           <option value="" selected disabled>Sort by</option>
           <option value="date-up">Recent</option>
           <option value="date-down">Older</option>
-          <option value="price-up">Price Down</option>
-          <option value="price-down">Price Up</option>
+          <option value="price-down">Price Down</option>
+          <option value="price-up">Price Up</option>
           <option value="attendees-up">Most Popular</option>
           <option value="attendees-down">Least Popular</option>
         </select>
