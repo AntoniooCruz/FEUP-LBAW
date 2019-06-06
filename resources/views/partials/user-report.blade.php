@@ -1,4 +1,4 @@
-<div class="container-fluid actionCard">
+<div id="{{$report->id_report}}" class="container-fluid actionCard">
   <div class="report report-user">
     <div class="card card-user">
         <div class="description card-header">
@@ -19,7 +19,7 @@
       <div class="footer">
         <hr>
         <div class="footerText">
-          <button class="banUser"><i class="fas fa-check"></i></button>´
+          <button repid="{{$report->id_report}}" class="banUser"><i class="fas fa-check"></i></button>´
           <button><i class="fas fa-trash-alt"></i></button>
         </div>
       </div>

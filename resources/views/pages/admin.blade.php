@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom-scripts')
-  <link href="{{ asset('css/eventpage.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/adminpage.css') }}" rel="stylesheet">
   <script type="text/javascript" src={{ asset('js/admin.js') }} defer></script>
   <script type="text/javascript" src={{ asset('js/profile.js') }} defer></script>
 @endsection
@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
     <nav>
-      <div class="nav nav-tabs" id="nav-admin" role="tablist">
+      <div class="nav nav-tabs mt-3" id="nav-admin" role="tablist">
         <a class="nav-item nav-link active" id="nav-users-tab" data-toggle="tab" href="#nav-users" role="tab"
           aria-controls="nav-users" aria-selected="true"><i class="fas fa-user"></i> Users</a>
         <a class="nav-item nav-link" id="nav-comments-tab" data-toggle="tab" href="#nav-comments" role="tab"
