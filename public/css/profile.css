@@ -291,3 +291,17 @@ span a{
   .modal-body textarea{
       width:100%;
   }
+
+#update_button {
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  #update_button input {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+  }

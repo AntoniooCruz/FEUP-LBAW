@@ -19,7 +19,10 @@
                 <div id="profile_content">
                     <i class="fab fa-font-awesome-flag"></i>
                     <div class="col-3 col text-right">
-                        <button id="update_button" type="button" class="profile-pri-button btn btn-outline-primary">Update</button>
+                        <div id="update_button" class="profile-pri-button file btn btn-lg btn-secondary">
+                                Upload
+                                <input type="file" name="file"/>
+                            </div>
                     </div>
                     <div id="header"></div>
                     <div id="name" class="row justify-content-left">
