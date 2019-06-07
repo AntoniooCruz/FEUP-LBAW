@@ -99,7 +99,7 @@ class EventController extends Controller
 
             }catch(\Illuminate\Database\QueryException $e){
                 $orderLog = new Logger('db');
-                $orderLog->pushHandler(new StreamHandler(storage_path('logs/db.log')), Logger::INFO);
+                $orderLog->pushHandler(new StreamHandler(storage_path('logs/db.log')), Logger::ERROR);
                 $orderLog->info('db', ['error'=>$e->getMessage()]);
             }
            
