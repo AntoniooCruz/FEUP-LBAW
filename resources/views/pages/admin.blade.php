@@ -4,6 +4,8 @@
   <link href="{{ asset('css/adminpage.css') }}" rel="stylesheet">
   <script type="text/javascript" src={{ asset('js/admin.js') }} defer></script>
   <script type="text/javascript" src={{ asset('js/profile.js') }} defer></script>
+  <script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
+  
 @endsection
 
 @section('content')
@@ -23,7 +25,7 @@
         <span>Comments</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-item nav-link" id="nav-verify-tab" data-toggle="tab" href="#nav-verify" role="tab"
+      <a class="nav-item nav-link" id="nav-verify-tab" data-toggle="tab" href="#nav-events" role="tab"
       aria-controls="nav-verify" aria-selected="false">
       <i class="fas fa-calendar"></i>
         <span>Events</span></a>
@@ -239,67 +241,25 @@
         </div>
       </div>
       <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-        <div class="container-fluid actionCard">
-          <div class="report report-invite">
-            <div class="row">
-              <div class="col  mb-5 sm-12">
-                <div class="description header">
-                  <a href="userprofile.html"><img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap"></a>
-                  <div class="headerText">
-                    <span class="card-title"><a href="userprofile.html"><span class="link-username">username123</span></a>
-                      reported
-                      <a href="userprofile.html"><span class="link-username">username321's</span></a> event
-                      <a href="eventpage.html"><span class="link-event">Tea
-                          Party</span></a></span>
-                    <p>"This is spam"</p>
-                    <span class="card-date">13 Mar 2019 • 16h33</span>
-                  </div>
-                </div>
-                <div class="footer">
-                  <hr>
-                  <div class="footerText">
-                    <button><i class="fas fa-check"></i></button><button><i class="fas fa-trash-alt"></i></button>
-                  </div>
-                </div>
+      <nav class="mb-2">
+              <div class="nav nav-tabs mt-3" id="nav-admin" role="tablist">
+                <a class="nav-item nav-link active" id="nav-events-tab" data-toggle="tab" href="#activeEvents" role="tab"
+                  aria-controls="nav-events" aria-selected="true"><i class="fas fa-inbox"></i> Pending</a>
+                <a class="nav-item nav-link" id="nav-comments-tab" data-toggle="tab" href="#archivedEvents" role="tab"
+                  aria-controls="nav-comments" aria-selected="false"><i class="fas fa-archive"></i> Archived</a>
               </div>
-              <div class="col  mb-7 sm-12">
-                <div class="invite card">
-                  <a href="eventpage.html"><img src="../img/invite-card-event.jpg" class="card-img-top"></a>
-                  <span class="badge badge-pill badge-secondary card-category">Food</span>
-                  <div class="card-body" id="event-card-body">
-                    <div class="row eventRow header align-items-start">
-                      <div id="eventPagedate" class="eventPagedate col-xs align-self-center">
-                        <div id="eventPageMonth" class="eventPageMonth">
-                          <span id="eventMonth" class="eventMonth">Mar</span>
-                        </div>
-                        <span id="eventPageDay" class="eventPageDay">03</span>
-                      </div>
-                      <div class="col-md-7 col-sm-10 col-10 cardTitle">
-                        <span id="event-card-title">Tea Party</span>
-                        <div class="event-card-footer">
-                          <span class="event-card-hour">12:00</span>
-                          <p class="dot-separator"> • </p>
-                          <span id="card-adress">adress 123, cidade</span>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="event-card-people-attending" class="row text-left">
-                    <div class="col ">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo">
-                      <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
-                      <span id="peopleGoing">+300 going</i></span>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            </nav>
+            <div id="activeEvents" class="tab-pane fade show active">
+        @foreach ($eventReports as $rep)
+          @include ('partials.event-report',['report'=>$rep])
+        @endforeach
+      </div> 
+      <div id="archivedEvents" class="tab-pane fade">
+          @foreach ($seenEventReports as $rep)
+          @include ('partials.archived-event-report',['report'=>$rep])
+          @endforeach
+        </div> 
+      </div>  
       </div>
       <div class="tab-pane fade" id="nav-verify" role="tabpanel" aria-labelledby="nav-verify-tab">
         <div class="container-fluid actionCard">
