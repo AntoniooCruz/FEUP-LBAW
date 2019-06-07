@@ -69,7 +69,7 @@ Route::delete('api/event/{id_event}/post/{id_post}/delete', 'EventController@del
 Route::get('search', 'SearchController@search');
 Route::get('api/search', 'SearchController@onpagesearch');
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 

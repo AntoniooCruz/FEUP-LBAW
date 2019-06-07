@@ -361,9 +361,10 @@ if (votePollBttn != null) {
   let addPollOption = document.createElement("div");
   addPollOption.classList.add('row');
   addPollOption.classList.add('mb-1');
+  addPollOption.innerHTML = '<input type="text" aria-expanded="false" style="border-radius:4px;width: 100%;border: 1px solid #bfbfbf;" class="mx-5 mb-1 poll-bttn pollOptionsText">';
+
 
   addPollOption.innerHTML = '<input type="text" aria-expanded="false" placeholder="Enter a poll option" style="border-radius:4px" class="ml-5 mb-1 poll-bttn pollOptionsText">';
-
   options.prepend(addPollOption);
   options.prepend(temp);
  }
