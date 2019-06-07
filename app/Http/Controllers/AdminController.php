@@ -15,7 +15,8 @@ use App\Business;
 class AdminController extends Controller
 {
     public function show(){
-
+        if(Auth::user()->isAdmin == false)
+            return redirect('home');
         $tempUserReports = UserReport::all();
         $userReports = [];
         $seenReports = [];
