@@ -18,4 +18,8 @@ class Report extends Model
     
         return $this->belongsTo('App\User', 'id_user', 'other_key');
     }
+
+    public function admin(){
+        return $this->hasOne('App\User', 'id_user', 'id_admin');
+    }
 }
