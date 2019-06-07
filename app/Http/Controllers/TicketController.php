@@ -41,8 +41,11 @@ class TicketController extends Controller
     public function showMyTickets(){
 
         if(Auth::check()){
-            $user = Auth::user();
 
+            $user = Auth::user();
+            if($user->active == false)
+                return redirect('login');
+                
             DB::beginTransaction();
 
             try{

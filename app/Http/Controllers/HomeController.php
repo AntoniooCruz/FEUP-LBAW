@@ -32,8 +32,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::check()){
-            $user = User::find(1);
+        if(Auth::check() && Auth::user()->active == true){
+            $user = Auth::user();
             if($user->user_type == 'Personal'){
                 $canViewEvents = DB::select('SELECT e1.id_event 
                 FROM event e1,users user1, category, users user2
