@@ -4,7 +4,6 @@
 <script type="text/javascript" src={{ asset('js/post.js') }} defer></script>
 <script type="text/javascript" src={{ asset('js/comments.js') }} defer></script>
 <script type="text/javascript" src={{ asset('js/poll.js') }} defer></script>
-  <link href="{{ asset('css/eventpage.css') }}" rel="stylesheet">
   <script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
   <script type="text/javascript" src={{ asset('js/event.js') }} defer></script>
 @endsection
