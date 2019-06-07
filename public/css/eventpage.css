@@ -628,3 +628,7 @@ body{
     z-index: 3;
 
 }
+
+input .poll-bttn{
+    border-radius: 100px;
+}
