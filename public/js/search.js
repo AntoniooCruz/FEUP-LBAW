@@ -53,8 +53,10 @@ function filterHandler () {
     let categories = response[1];
     events = sortEvents(events,sort.options[sort.selectedIndex].value);
 
+    console.log(events);
+
     resultsContainer.innerHTML = '';
-    if(events != null){
+    if(events.length>0){
         events.forEach(function(event) {
             let node = document.createElement('div');
             node.setAttribute('class','col-auto  mb-3 sm-12');
@@ -71,7 +73,10 @@ function filterHandler () {
             event.location +'</span> </div> </div> </div> <div id="event-card-people-attending" class="row text-left"> <div class="col "> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo"> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo"> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"alt="User photo"> <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span> <span id="peopleGoing">+300 going</i></span> </div> </div> </div> </div>';
             resultsContainer.append(node);
           });
-    }
+    }else{
+        resultsContainer.classList.add('justify-content-center');
+        resultsContainer.innerHTML = '<div class="row justify-content-center">No results found</div>';
+    } 
     
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" prefix="og: http://ogp.me/ns#">
 
 <head>
   <meta charset="utf-8">

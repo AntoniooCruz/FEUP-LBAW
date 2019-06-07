@@ -171,7 +171,7 @@
                       <div id="invitefriends" class="mt-5">
                         <span class="uppercase">Invite Friends</span>
                         <hr class="mb-3 mt-1">
-                        <fieldset id="friends-content" class="py-3">
+                        <fieldset id="friends-content" class="py-3" legend="invite friends">
                           <div class="friendList py-3">
                             @if(Auth::user())
                             @foreach (Auth::user()->following as $friend)

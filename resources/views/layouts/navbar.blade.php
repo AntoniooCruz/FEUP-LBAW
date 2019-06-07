@@ -55,7 +55,7 @@
                     </a>
                     <form  method="POST" action="{{ route('removeProfile') }}">
                         {{ csrf_field() }}
-                          <button class="dropdown-item" href="#">Delete account</button>
+                          <button class="dropdown-item" type="submit">Delete account</button>
                     </form>
                               </div>
                           </li>
