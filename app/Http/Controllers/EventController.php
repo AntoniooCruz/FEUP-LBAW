@@ -45,7 +45,8 @@ class EventController extends Controller
         
         if(Auth::check()){
             $this->validator($request->all());
-
+        if(Auth::user()->active == false)
+            return redirect('login');
         $date_created = Carbon::now()->toDateTimeString();
         if($request->input('price')== null)
             $price = 0;
@@ -168,6 +169,8 @@ class EventController extends Controller
 
         if (!Auth::check()) 
             return response(403);
+        if(Auth::user()->active == false)
+            return response(403);
         
         $id_author = Auth::user()->id_user;
         $post = Post::find($id_post);
@@ -189,6 +192,9 @@ class EventController extends Controller
     public function newPost(Request $request, $id_event) {
 
         if (!Auth::check()) 
+            return response(403);
+
+        if(Auth::user()->active == false)
             return response(403);
         
         $id_author = Auth::user()->id_user;
@@ -248,6 +254,9 @@ class EventController extends Controller
         $post = Post::find($poll->id_post);
 
         if (!Auth::check()) 
+            return response(403);
+
+        if(Auth::user()->active == false)
             return response(403);
 
         $oldVote = VoteOnPoll::where('id_user', Auth::user()->id_user)->where('id_poll', $poll_option->id_poll);

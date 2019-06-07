@@ -37,8 +37,11 @@ class TicketController extends Controller
 
 
         if(Auth::check()){
-            $user = Auth::user();
 
+            $user = Auth::user();
+            if($user->active == false)
+                return redirect('login');
+                
             DB::beginTransaction();
 
             try{
