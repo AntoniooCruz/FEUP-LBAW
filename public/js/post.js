@@ -322,17 +322,21 @@ if (votePollBttn != null) {
  }
 
  function addPollOption() {
-  let options = document.querySelector('.commentArea');
+  let options = document.querySelector('.commentArea .comment div');
 
-  if(options.childElementCount == 8)
+  if(options.childElementCount == 6)
     return;
 
-  let addPollOption = document.createElement("input");
-  addPollOption.setAttribute("type", "text");
-  addPollOption.setAttribute("aria-expanded", "false");
-  addPollOption.className = "poll-bttn pollOptionsText";
+    let temp = document.querySelector('.commentArea .comment div textarea').cloneNode(true);
+  document.querySelector('.commentArea .comment div textarea').remove();
+  let addPollOption = document.createElement("div");
+  addPollOption.classList.add('row');
+  addPollOption.classList.add('mb-1');
 
-  options.appendChild(addPollOption);
+  addPollOption.innerHTML = '<input type="text" aria-expanded="false" style="border-radius:4px" class="ml-5 mb-1 poll-bttn pollOptionsText">';
+
+  options.prepend(addPollOption);
+  options.prepend(temp);
  }
 
  function file() {
