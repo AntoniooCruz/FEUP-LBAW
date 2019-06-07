@@ -15,6 +15,7 @@ use App\Ticket;
 use App\Category;
 use App\Report;
 use App\File;
+use App\Business;
 
 class ProfileController extends Controller
 {
@@ -290,6 +291,36 @@ class ProfileController extends Controller
         ]);
 
         DB::insert('insert into report_user (id_report, id_reporter, id_reported_user)  values (?, ?,?)', [$report->id_report, Auth::user()->id_user,$id_user]);
+        return response(200);
+    }
+
+    public function accept(Request $request, $id_user){
+        if (!Auth::check()) 
+            return response(403);
+        if(Auth::user()->is_admin == false)
+            return response(403);
+
+        $business = Business::find($id_user);
+
+        $business->verification = "Approved";
+        $business->save();
+
+       
+        return response(200);
+    }
+
+    public function refuse(Request $request, $id_user){
+        if (!Auth::check()) 
+            return response(403);
+        if(Auth::user()->is_admin == false)
+            return response(403);
+
+        $business = Business::find($id_user);
+
+        $business->verification = "Ignored";
+        $business->save();
+
+       
         return response(200);
     }
 }

@@ -262,8 +262,8 @@ aria-hidden="true">
         <input type="file">
       </div>
       <div class="modal-footer">
-        <button type="button" id="cancel-report-event" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" id="report-event" class="btn btn-danger">Done</button>
+      <button type="button" id="cancel" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="done" class="btn btn-danger">Done</button>
       </div>
     </div>
   </form>

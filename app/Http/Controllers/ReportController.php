@@ -9,6 +9,8 @@ use App\UserReport;
 use App\EventReport;
 use App\File;
 use App\Event;
+use App\Post;
+use App\PostReport;
 
 use Illuminate\Http\Request;
 
@@ -35,9 +37,13 @@ class ReportController extends Controller
 
         if($report->report_type == "Event"){
             $event = EventReport::find($id_request)->event;
-            /*Event::where("id_event",)*/
+            Event::where("id_event",$event->id_event)->delete();
         }
-        
+
+        if($report->report_type == "Post"){
+            $post = PostReport::find($id_request)->post;
+            Post::where("id_post",$post->id_post)->delete();
+        }
 
         return response()->json(['id_report'=>$id_request],200);
 
@@ -47,6 +53,8 @@ class ReportController extends Controller
 
         if (!Auth::check()) 
         return response()->json(400);
+        if(Auth::user()->id_admin == false)
+            return response()->json(400);;
 
         //handle report
         $report = Report::find($id_request);
