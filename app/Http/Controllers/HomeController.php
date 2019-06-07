@@ -11,6 +11,7 @@ use App\Ticket;
 use App\User;
 use App\Comment;
 use App\Post;
+use App\Category;
 
 
 class HomeController extends Controller
@@ -32,8 +33,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::check()){
-            $user = User::find(1);
+        if(Auth::check() && Auth::user()->active == true){
+            $user = Auth::user();
             if($user->user_type == 'Personal'){
                 $canViewEvents = DB::select('SELECT e1.id_event 
                 FROM event e1,users user1, category, users user2
@@ -109,13 +110,14 @@ class HomeController extends Controller
                     $usersGoing[$ticket->id_event] = $this->usersGoing(($ticket->id_event))->toArray();
                 }
                
-                /*$trending = Event::where('is_private',false)->get();
+                $trending = Event::where('is_private',false)->get();
                 $trending = $trending->sortBy(function($item){
                     
-                    return $item->date;
+                    return -count($this->usersGoing($item->id_event));
                 })->values()->all();
-                dd($trending);*/
-               return view('pages.feed',['items' => $feed_items,'usersGoing' => $usersGoing]);
+                $trending = array_slice($trending,0,6);
+
+               return view('pages.feed',['items' => $feed_items,'usersGoing' => $usersGoing,'trending' => $trending,'categories' => Category::all()]);
             } else {
                 return redirect('profile');
             }

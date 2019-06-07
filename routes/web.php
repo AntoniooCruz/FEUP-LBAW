@@ -81,3 +81,4 @@ Route::get('tickets', 'TicketController@showMyTickets');
 Route::get('admin', 'AdminController@show');
 
 Route::put('report/{id_report}/accept', 'ReportController@accept');
+Route::put('report/{id_report}/archive', 'ReportController@archive');

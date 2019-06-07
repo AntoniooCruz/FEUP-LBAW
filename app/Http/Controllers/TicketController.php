@@ -7,11 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 
 use App\Invite;
@@ -29,19 +28,20 @@ class TicketController extends Controller
     public function usersGoing($id_event){
 
         $ticketsSold = Ticket::where('id_event', $id_event)->get();
-        $idsUsersGoing = $ticketsSold->map(function($item, $key) {
+        $idsUsersGoing = $ticketsSold->map(function ($item, $key) {
             return $item->id_ticket_owner;
         });
 
         return $idsUsersGoing;
     }
-    
 
 
     public function showMyTickets(){
-
         if(Auth::check()){
+
             $user = Auth::user();
+            if($user->active == false)
+                return redirect('login');
 
             DB::beginTransaction();
 

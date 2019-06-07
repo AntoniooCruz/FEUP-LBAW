@@ -18,7 +18,7 @@ use App\Report;
 class ProfileController extends Controller
 {
     public function show() {
-        if(Auth::check()){
+        if(Auth::check() && Auth::user()->active == true){
 
             $user = Auth::user();
 
@@ -37,13 +37,13 @@ class ProfileController extends Controller
                 $usersGoing = [];
 
                 foreach ($eventsOwned as $event) {
-                    array_push($usersGoing, $this->usersGoing($event->id_event));
+                    array_push($usersGoing, $this->usersGoing($event->id_event)->toArray());
                 }
 
 
                 $usersAttending =[];
                 foreach ($eventsAttending as $event) {
-                    array_push($usersAttending, $this->usersGoing($event->id_event));
+                    array_push($usersAttending, $this->usersAttending($event->id_event)->toArray());
                 }
 
                 DB::commit();
@@ -68,6 +68,8 @@ class ProfileController extends Controller
         
         try{
             $user = User::findOrFail($id_user); 
+            if($user->active == false && Auth::user()->is_admin == false)
+                return redirect('login');
 
             $followers = $user->followers()->count();
             $following = $user->following()->count();
@@ -88,14 +90,14 @@ class ProfileController extends Controller
 
             $usersGoing = [];
             foreach ($eventsOwned as $event) {
-                array_push($usersGoing, $this->usersGoing($event->id_event));
+                array_push($usersGoing, $this->usersGoing($event->id_event)->toArray());
             }
 
             $usersAttending =[];
             foreach ($eventsAttending as $event) {
-                array_push($usersAttending, $this->usersGoing($event->id_event));
+                array_push($usersAttending, $this->usersGoing($event->id_event)->toArray());
             }
-
+            
             DB::commit();
 
         }catch (\Throwable $th) {
@@ -129,12 +131,12 @@ class ProfileController extends Controller
         $usersGoing = [];
 
         foreach ($eventsOwned as $event) {
-            array_push($usersGoing, $this->usersGoing($event->id_event));
+            array_push($usersGoing, $this->usersGoing($event->id_event)->toArray());
         }
 
         $usersAttending =[];
-        foreach ($eventsOwned as $event) {
-            array_push($usersGoing, $this->eventsAttending($event->id_event));
+        foreach ($eventsAttending as $event) {
+            array_push($usersAttending, $this->eventsAttending($event->id_event)->toArray());
         }
         
         return view('pages.edit-profile', 
@@ -212,8 +214,12 @@ class ProfileController extends Controller
 
         if (!Auth::check()) 
             return response(403);
+            
         
         $user1 = Auth::user();
+        if($user1->active == false)
+            return response(403);
+
         $user2 = User::findOrFail($id);
 
         try {
@@ -232,6 +238,9 @@ class ProfileController extends Controller
             return response(403);
 
         $user1 = Auth::user();
+        if($user1->active == false)
+            return response(403);
+
         $user2 = User::findOrFail($id);
 
         try {
@@ -266,6 +275,8 @@ class ProfileController extends Controller
 
     public function report(Request $request, $id_user){
         if (!Auth::check()) 
+            return response(403);
+        if(Auth::user()->active == false)
             return response(403);
 
         $report  = Report::create([

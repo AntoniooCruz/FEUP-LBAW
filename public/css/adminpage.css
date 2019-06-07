@@ -18,7 +18,7 @@ body{
 }
 
 #nav-admin a {
-    padding: 20px;     
+    padding: 10px 20px;
 }
 .report-invite .description {
     max-width: 650px;
@@ -44,5 +44,119 @@ body{
 
 button .fa-trash-alt {
     color: red;
+}
+
+
+@media (min-width: 768px) {
+    .sidebar {
+      width: 225px !important;
+    }
+    .sidebar .nav-item .nav-link {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 1rem;
+      width: 225px;
+    }
+    .sidebar .nav-item .nav-link span {
+      display: inline;
+    }
+    .sidebar.toggled .nav-item .nav-link {
+      text-align: center;
+      padding: 0.75rem 1rem;
+      width: 90px;
+    }
+    .sidebar.toggled .nav-item .nav-link span {
+      display: block;
+    }
+    .sidebar.toggled .nav-item .dropdown-menu {
+      position: absolute !important;
+      -webkit-transform: none !important;
+      transform: none !important;
+      left: calc(90px + 0.5rem) !important;
+      margin: 0;
+    }
+    .sidebar.toggled .nav-item .dropdown-menu.dropup {
+      bottom: 0;
+      top: auto !important;
+    }
+    .sidebar.toggled .nav-item.dropdown .dropdown-toggle::after {
+      display: none;
+    }
+  }
+
+  .sidebar {
+    width: 110px    !important;
+    background: white;
+    min-height: calc(100vh - 56px);
+  }
+
+  
+  .sidebar .nav-item .nav-link {
+    text-align: center;
+    padding: 1rem 1rem;
+    width: 110px;
+  }
+  
+  .sidebar .nav-item .nav-link span {
+    display: block;
+  }
+
+  .navbar-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+  
+  .navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+#wrapper {
+    display: flex;
+}
+
+
+#wrapper .navbar-nav .nav-link{
+    color:#495057 !important;
+}
+
+#wrapper li{
+    border: 1px solid #dee2e6;
+
+}
+
+#wrapper .navbar-nav .active{
+    color:white!important;
+    }
+
+#wrapper .navbar-nav > .nav-item > .nav-link:hover{
+    background-color: var(--lightGrey);
+
+}
+
+#wrapper .navbar-nav .active{
+    background-color: #9db8cb;
+
+}
+
+.fade:not(.show) {
+    opacity: 0;
+    display: none;
 }
 

@@ -17,7 +17,11 @@
 
     <div class="parContainer row justify-content-center">
         <div id="profile_container" class="col-lg-3 col-12 container text-center">
-          <img src="../img/jane.jpg">
+        @if (file_exists(public_path('img/users/originals/' . $user->id_user . '.png')) )
+            <img src={{"../img/users/originals/" . $user->id_user . ".png"}} >
+          @else
+            <img  src="../img/user.jpg">
+            @endif
           <div id="profile_content">
             @if($user->user_type != 'Admin')
               <i  d="reportUser" type="button" data-toggle="modal" data-target="#reportEventModal" class="fab fa-font-awesome-flag"></i>
@@ -82,7 +86,7 @@
 
               <div class="col-auto p-0 sm-12 col-md-6 col-lg-6 mb-2">
 
-                @include ('partials.card', ['event'=>$eventsOwned[$i], 'usersGoing'=>sizeof($usersGoing[$i])])
+                @include ('partials.card', ['event'=>$eventsOwned[$i], 'usersGoing'=>$usersGoing[$i]])
               </div>
 
               @endfor
@@ -90,7 +94,7 @@
             <div id="attendingevents"  class="row justify-content-start tab-pane fade">
                 @for ($j = 0; $j < sizeof($eventsAttending); $j++)
                 <div class="col-auto p-0 sm-12 col-md-6 col-lg-6 mb-2">
-                    @include ('partials.card', ['event'=>$eventsAttending[$j], 'usersGoing'=>sizeof($usersAttending[$j])])
+                    @include ('partials.card', ['event'=>$eventsAttending[$j], 'usersGoing'=>$usersAttending[$j]])
               </div>
               @endfor
             </div>
