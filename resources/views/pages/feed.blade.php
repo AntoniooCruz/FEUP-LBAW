@@ -15,8 +15,12 @@
     <section class="c">
     @foreach ($trending as $event)
       <div class="card--content">
-        <a href="{{ url('/event/'.$event->id_event) }}"><img class="d-block w-100" src="../img/event3.jpg" alt="Event photo">
-          <div class="card-img-overlay">
+      @if (file_exists(public_path('img/events/originals/' . strval($event->id_event) . '.png')) )
+      <a href="{{ url('/event/'.$event->id_event) }}"><img class="d-block w-100" src={{'../img/events/originals/' . strval($event->id_event) . '.png'}} alt="Event photo">
+      @else   
+      <a href="{{ url('/event/'.$event->id_event) }}"><img class="d-block w-100" src={{'../img/event3.jpg'}} alt="Event photo">
+      @endif
+        <div class="card-img-overlay">
             <h5 class="card-title">{{$event->title}}</h5>
           </div>
         </a>

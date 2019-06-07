@@ -187,6 +187,12 @@ function doesFileExist(urlToFile) {
 
         let img_userAction = document.createElement("IMG");
         img_userAction.className = "userAction roundRadius";
+
+        if(doesFileExist("../img/users/originals/".concat(userPNG))) {
+          img.src = "../img/users/originals/".concat(userPNG);
+        } else {
+          img.src = "../img/user.jpg";
+        }
         img_userAction.src = "../img/user.jpg";
         img_userAction.alt = "Card image cap";
 
