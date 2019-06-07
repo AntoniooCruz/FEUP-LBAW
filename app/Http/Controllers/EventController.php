@@ -20,6 +20,7 @@ use Carbon\Carbon;
 use App\Invite;
 use App\PollOption;
 use App\Poll;
+use App\File;
 use App\VoteOnPoll;
 
 class EventController extends Controller
@@ -211,7 +212,8 @@ class EventController extends Controller
             'id_author' => $id_author,
             'post_type' => $request->input('post_type')
             ]);
-
+        
+        $new_arr2 = [];
         if($request->input('post_type') == 'Poll'){
 
             $poll = Poll::create([
@@ -220,17 +222,16 @@ class EventController extends Controller
             
             $arr = $request->input('poll_options');
             $new_arr = explode(",", $arr);
-            $new_arr2 = [];
+            
             foreach ($new_arr as $value) {
                 array_push($new_arr2, PollOption::create([
                     'name' => $value,
                     'id_poll' => $poll->id_poll
                 ]));
             }
-
         }
 
-        return response()->json([$post, $event_name, $author_name, $request->input('post_type') ,$new_arr2]);
+        return response()->json([$post, $event_name, $author_name, $request->input('post_type') ,$new_arr2, $id_author]);
     }
 
     public function getComments($id_post) {

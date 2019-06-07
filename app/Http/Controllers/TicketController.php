@@ -18,6 +18,7 @@ use App\User;
 use App\Event;
 use App\Ticket;
 use App\Category;
+use App\File;
 use Carbon\Carbon;
 
 

@@ -22,16 +22,23 @@
                     @each ('partials.poll-option', $post->poll->pollOptions()->get(), 'pollOption')
                   </div>
                   @endif
+                  @if ($post->post_type == "File")
+                  <div class="file">
+                          @each ('partials.file', $post->file()->get(), 'file')
+                        </div>
+                        @endif
           </div>
           <div class="footer px-2">
             <hr>
             <div id="comments1-{{$post->id_post}}" data-id={{$post->id_post}} class="comments collapse mb-2 mt-3">
               <div class="commentInput row" data-id={{$post->id_post}}>
                 <div class="col px-1">
+                  @if (Auth::check())
                   @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
                       <img class="userAction roundRadius" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} alt="Card image cap">
                     @else
                       <img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap">
+                    @endif
                     @endif
           
                   <textarea id ="comment_data" data-id = {{$post->id_post}} class="form-control roundRadius pl-5" id="exampleFormControlTextarea1" rows="1"

@@ -212,10 +212,12 @@
     <div class="rightCol col-auto col-md-12">
       <div class="commentArea" type="None">
         <h6></h6>
+        @if (Auth::check())
         @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
                         <img id="commentPic" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} class="roundRadius">
                       @else
                         <img id="commentPic" src="../img/user.jpg" class="roundRadius">
+        @endif
         @endif
         <div class="comment row">
           <div class="col-12 form-group">
@@ -227,9 +229,10 @@
             <button class="" type="button" aria-expanded="false">
               <i class="fas fa-poll-h"></i>
             </button>
-            <button class="" type="button" aria-expanded="false">
-              <i class="fas fa-cloud-upload-alt"></i>
-            </button>
+            <label class="">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <input type="file" style="display: none;">
+            </label>
           </div>
         </div>
         <button id ="new_post_button" class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
