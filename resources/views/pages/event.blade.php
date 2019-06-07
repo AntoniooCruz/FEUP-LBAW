@@ -309,9 +309,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button id="confirmTicket" type="button" class="btn btn-primary">Confirm purchase</button>
-        </div>
-        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+          <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 <div id="paypal-button"></div>
 
@@ -338,10 +336,14 @@
       })
         .then(function(res) {
           // 3. Show the buyer a confirmation message.
+          purchaseTicketRequest()
         });
     }
   }, '#paypal-button');
 </script>
+        </div>
+        
+        
 
 
 

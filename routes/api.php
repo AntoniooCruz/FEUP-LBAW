@@ -70,8 +70,8 @@ Route::post('create-payment', function () {
         ->setDescription("Payment description")
         ->setInvoiceNumber(uniqid());
     $redirectUrls = new RedirectUrls();
-    $redirectUrls->setReturnUrl("http://localhost:8000/home")
-        ->setCancelUrl("http://localhost:8000/home");
+    $redirectUrls->setReturnUrl(url('/home'))
+        ->setCancelUrl(url('/home'));
     // Add NO SHIPPING OPTION
     $inputFields = new InputFields();
     $inputFields->setNoShipping(1);
@@ -104,17 +104,6 @@ Route::post('execute-payment', function (Request $request) {
     $payment = Payment::get($paymentId, $apiContext);
     $execution = new PaymentExecution();
     $execution->setPayerId($request->payerID);
-    // $transaction = new Transaction();
-    // $amount = new Amount();
-    // $details = new Details();
-    // $details->setShipping(2.2)
-    //     ->setTax(1.3)
-    //     ->setSubtotal(17.50);
-    // $amount->setCurrency('USD');
-    // $amount->setTotal(21);
-    // $amount->setDetails($details);
-    // $transaction->setAmount($amount);
-    // $execution->addTransaction($transaction);
     try {
         $result = $payment->execute($execution, $apiContext);
     } catch (Exception $ex) {
