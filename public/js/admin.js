@@ -22,7 +22,6 @@ if(archiveUserBtn!=null){
     
 
 function acceptBanUserHandler(){
-    console.log(JSON.parse(this.response));
     if(this.status==200){
         let response = JSON.parse(this.response);
         let alert = document.createElement('div');

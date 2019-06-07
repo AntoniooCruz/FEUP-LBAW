@@ -65,8 +65,6 @@ Route::post('/api/pollOption/{poll_option_id}', 'EventController@vote');
 Route::post('event/{id_event}/report', 'EventController@report');
 Route::delete('api/event/{id_event}/post/{id_post}/delete', 'EventController@deletePost');
 
-Route::post('post/{id_post}/report', 'EventController@reportPost');
-
 //Search
 Route::get('search', 'SearchController@search');
 Route::get('api/search', 'SearchController@onpagesearch');
