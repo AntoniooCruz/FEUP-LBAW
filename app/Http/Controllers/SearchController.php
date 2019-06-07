@@ -14,6 +14,7 @@ use App\Event;
 use App\Category;
 use App\User;
 use App\Ticket;
+use App\File;
 use Carbon\Carbon;
 
 class SearchController extends Controller

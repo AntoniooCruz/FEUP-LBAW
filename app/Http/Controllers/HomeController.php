@@ -12,6 +12,7 @@ use App\User;
 use App\Comment;
 use App\Post;
 use App\Category;
+use App\File;
 
 
 class HomeController extends Controller
