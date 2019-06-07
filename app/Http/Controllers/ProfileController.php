@@ -189,7 +189,12 @@ class ProfileController extends Controller
 
         $originalFileName = "./img/users/originals";
 
-        $file->move($originalFileName, strval($user_id) . ".png");
+        if(!$file == null){
+            $file->move($originalFileName, strval($user_id) . ".png");
+        }
+
+
+        
 
         $user->save();
         
