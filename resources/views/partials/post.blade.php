@@ -1,5 +1,5 @@
 <div class="container-fluid actionCard">
-  <span id="id_post" style="display:none;">{{$post->id_post}}</span>
+  <span id="id_post" data-id={{$post->id_post}} style="display:none;">{{$post->id_post}}</span>
         <div class="card card-comment">
           <div class="description header">
               @if (file_exists(public_path('img/users/originals/' . strval($post->id_author) . '.png')) )
@@ -13,7 +13,11 @@
             posted on <a href="{{ url('/event/'.$post->event->id_event) }}"><span class="link-event">{{$post->event->title}}</span></a></span>
               <span class="card-date">{{$post->date}}</span>
             </div>
+            @if(Auth::user()->id_user == $post->id_author)
+            <i class="fas fa-times-circle"></i>
+            @else 
             <i class="fab fa-font-awesome-flag"></i>
+            @endif
           </div>
           <div class="card-body">
             <p class="card-text">{{$post->text}}</p>
