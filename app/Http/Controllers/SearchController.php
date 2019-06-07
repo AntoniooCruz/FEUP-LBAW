@@ -74,8 +74,13 @@ class SearchController extends Controller
                 DESC;",['search' => $request->input('searchquery')]);
             }
         }
+
+        $usersGoing = [];
+        foreach ($events as $event) {
+            $usersGoing[$event->id_event] = $this->usersGoing($event->id_event);
+        }
        
-        return response()->json([$events,Category::all()], 200);
+        return response()->json([$events,Category::all(),$usersGoing], 200);
     }
 
     public function usersGoing($id_event){

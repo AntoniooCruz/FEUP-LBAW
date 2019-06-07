@@ -118,6 +118,8 @@ class HomeController extends Controller
                 })->values()->all();
                 $trending = array_slice($trending,0,6);
 
+                $feed_items = array_reverse($feed_items);
+
                return view('pages.feed',['items' => $feed_items,'usersGoing' => $usersGoing,'trending' => $trending,'categories' => Category::all()]);
             } else {
                 return redirect('profile');
