@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\UserReport;
+use App\File;
 
 class AdminController extends Controller
 {

@@ -1,11 +1,13 @@
 <div class="progress roundRadius" >
         <div class="form-check" >
+          @if (Auth::check())
           @if (Auth::user()->userVotes()->get()->contains('id_poll_option', $pollOption->id_poll_option))
           <input class="roundRadius form-check-input position-static form-radio" type="radio"
             name="poll-option" data-id={{$pollOption->id_poll_option}} ifchecked="true" checked id="poll-option1" value="option1" aria-label="Bus">
             @else
           <input class="roundRadius form-check-input position-static form-radio" type="radio"
             name="poll-option" data-id={{$pollOption->id_poll_option}} ifchecked="false" id="poll-option1" value="option1" aria-label="Bus">
+            @endif
             @endif
         </div>
         @if (sizeof($pollOption->poll->votesOnPoll()->get()) != 0)
