@@ -10,7 +10,7 @@ body{
     justify-content: center;
 }
 .nav-link {
-    color: var(--lightGrey);
+    color: #bfbfbf;
 }
 
 .nav-link:hover {
@@ -146,7 +146,7 @@ dl {
     }
 
 #wrapper .navbar-nav > .nav-item > .nav-link:hover{
-    background-color: var(--lightGrey);
+    background-color: #bfbfbf;
 
 }
 

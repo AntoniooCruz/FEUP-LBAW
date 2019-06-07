@@ -207,7 +207,7 @@ body{
 }
 
 .commentArea h6 {
-    background-color: var(--lightBlue);
+    background-color: #A1B6C8;
     border-radius: 0;
     padding: 1em 5em;
     border-radius: 2px 2px 0 0;
@@ -236,7 +236,7 @@ body{
 
 
 .event .commentArea .options i {
-    color: var(--lightBlue);
+    color: #A1B6C8;
 }
 
 .event .commentArea .options button {
@@ -285,7 +285,7 @@ body{
     flex-direction: column;
     padding-bottom: 8px;
     align-items: center;
-    color: var(--lightBlue);
+    color: #A1B6C8;
     overflow-x: hidden;
 }
 
@@ -303,7 +303,7 @@ body{
 
 .card--content {
     margin-right: 5px;
-    background-color: var(--darkBlue);
+    background-color: #1A2431;
     position: relative;
 }
 
@@ -431,8 +431,12 @@ body{
     border-color: #d41111 !important;
 }
 
-.reportBtn:hover .fa-font-awesome-flag{
+.reportBtn:hover .fa-font-awesome-flag, .reportBtn:hover .fa-times-circle{
     color: #d41111;
+}
+
+.fa-cloud-upload-alt < button, .fa-poll-h < button :hover{
+    color: #88a844;
 }
 
 .actionCard {
@@ -458,7 +462,7 @@ body{
     }
 
     #attendance>.row {
-        background-color: var(--darkBlue);
+        background-color: #1A2431;
     }
 
     .commentArea {
@@ -627,4 +631,8 @@ body{
     box-shadow: 0px 0px 15px #545454ad;
     z-index: 3;
 
+}
+
+input .poll-bttn{
+    border-radius: 100px;
 }

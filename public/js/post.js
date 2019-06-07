@@ -1,12 +1,21 @@
 let newPostBttn = document.querySelector('#new_post_button');
-
+if(newPostBttn != null)
 newPostBttn.addEventListener('click', newPostRequest);
 
 let pollBtn = document.querySelector('.fa-poll-h');
+if(pollBtn != null)
 pollBtn.addEventListener('click', addPoll);
 
 let fileBtn = document.querySelector('.fa-cloud-upload-alt');
+if(fileBtn != null)
 fileBtn.addEventListener('click', file);
+
+let deletePostBttn = document.querySelectorAll('.fa-times-circle');
+if (deletePostBttn != null) {
+  for(var i= 0; i < deletePostBttn.length; i++){
+    deletePostBttn[i].addEventListener('click', deletePostRequest);
+  }
+ }
 
 function doesFileExist(urlToFile) {
   var xhr = new XMLHttpRequest();
@@ -49,6 +58,21 @@ function reportPostHandler(){
 }
     
 
+function deletePostRequest(e) {
+
+let idPost = e.path[3].children[0].innerText;
+let idEvent = document.querySelector('#id_event').innerText;
+
+let method = 'delete';
+
+sendAjaxRequest(method, '/api/event/' + idEvent + '/post/'+ idPost + '/delete', null, deletePostRequestHandler);
+}
+
+function deletePostRequestHandler(e) {
+  let post = JSON.parse(this.response);
+
+  document.querySelector(`#id_post[data-id="${post[1]}"]`).parentNode.parentNode.removeChild(document.querySelector(`#id_post[data-id="${post[1]}"]`).parentNode);
+  }
 
 
  function newPostRequest() {
@@ -71,6 +95,8 @@ function reportPostHandler(){
   if(new_arr.length == 0 && type != 'None')
     return;
 
+  removePollButtons();
+
   sendAjaxRequest(method, '/api/event/' + id_event + '/post', { data: post_text, post_type: type, poll_options: new_arr}, newPostRequestHandler);
   
  }
@@ -87,6 +113,7 @@ function reportPostHandler(){
         let span = document.createElement("SPAN");
         span.id = "id_post";
         span.style="display:none;"
+        span.setAttribute("data-id", post[0].id_post);
         span.innerText = post[0].id_post;
         
         let card_comment = document.createElement("div");
@@ -246,7 +273,8 @@ function reportPostHandler(){
         button.addEventListener('click', addCommentRequest);
 
         let i = document.createElement("i");
-        i.className = "fab fa-font-awesome-flag";
+        i.className = "fas fa-times-circle";
+        i.addEventListener('click', deletePostRequest);
 
         let comment_section = document.createElement("div");
         comment_section.className = "card-comment-section";
@@ -352,17 +380,22 @@ if (votePollBttn != null) {
  }
 
  function addPollOption() {
-  let options = document.querySelector('.commentArea');
+  let options = document.querySelector('.commentArea .comment div');
 
-  if(options.childElementCount == 8)
+  if(options.childElementCount == 6)
     return;
 
-  let addPollOption = document.createElement("input");
-  addPollOption.setAttribute("type", "text");
-  addPollOption.setAttribute("aria-expanded", "false");
-  addPollOption.className = "poll-bttn pollOptionsText";
+    let temp = document.querySelector('.commentArea .comment div textarea').cloneNode(true);
+  document.querySelector('.commentArea .comment div textarea').remove();
+  let addPollOption = document.createElement("div");
+  addPollOption.classList.add('row');
+  addPollOption.classList.add('mb-1');
+  addPollOption.innerHTML = '<input type="text" aria-expanded="false" style="border-radius:4px;width: 100%;border: 1px solid #bfbfbf;" class="mx-5 mb-1 poll-bttn pollOptionsText">';
 
-  options.appendChild(addPollOption);
+
+  addPollOption.innerHTML = '<input type="text" aria-expanded="false" placeholder="Enter a poll option" style="border-radius:4px" class="ml-5 mb-1 poll-bttn pollOptionsText">';
+  options.prepend(addPollOption);
+  options.prepend(temp);
  }
 
  function file() {

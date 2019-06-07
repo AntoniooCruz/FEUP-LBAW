@@ -2,7 +2,7 @@
 
 @section('custom-scripts')
   <link href="{{ asset('css/myTickets.css') }}" rel="stylesheet">
-  <script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
+  <script src={{ asset('js/date.js') }} defer></script>
 @endsection
 
 @section('content')
