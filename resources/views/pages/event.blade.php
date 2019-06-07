@@ -210,7 +210,7 @@
         </div>
     </div>
     <div class="rightCol col-auto col-md-12">
-      <div class="commentArea">
+      <div class="commentArea" type="None">
         <h6></h6>
         @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
                         <img id="commentPic" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} class="roundRadius">

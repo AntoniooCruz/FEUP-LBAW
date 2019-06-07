@@ -206,8 +206,25 @@ class EventController extends Controller
             'post_type' => $request->input('post_type')
             ]);
 
+        if($request->input('post_type') == 'Poll'){
 
-        return response()->json([$post, $event_name, $author_name]);
+            $poll = Poll::create([
+                'id_post' => $post->id_post
+            ]);
+            
+            $arr = $request->input('poll_options');
+            $new_arr = explode(",", $arr);
+            $new_arr2 = [];
+            foreach ($new_arr as $value) {
+                array_push($new_arr2, PollOption::create([
+                    'name' => $value,
+                    'id_poll' => $poll->id_poll
+                ]));
+            }
+
+        }
+
+        return response()->json([$post, $event_name, $author_name, $request->input('post_type') ,$new_arr2]);
     }
 
     public function getComments($id_post) {

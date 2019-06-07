@@ -13,6 +13,10 @@ class PollOption extends Model
 
      protected $primaryKey = 'id_poll_option';
 
+     protected $fillable = [
+        'name', 'id_poll'
+    ];
+
     public function votesOnPollOption() {
 
         return $this->hasMany('App\VoteOnPoll', 'id_poll_option', 'id_poll_option');

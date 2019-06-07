@@ -2,15 +2,34 @@ let newPostBttn = document.querySelector('#new_post_button');
 
 newPostBttn.addEventListener('click', newPostRequest);
 
+let pollBtn = document.querySelector('.fa-poll-h');
+pollBtn.addEventListener('click', addPoll);
+
+let fileBtn = document.querySelector('.fa-cloud-upload-alt');
+fileBtn.addEventListener('click', removePollButtons);
+
+
  function newPostRequest() {
 
   let id_event = document.querySelector('#id_event').innerHTML;
+
+  let type = document.querySelector('.commentArea').getAttribute("type");
 
   let post_text = $('#exampleFormControlTextarea1[name=newPost]').val();
 
   let method = 'post';
 
-  sendAjaxRequest(method, '/api/event/' + id_event + '/post', { data: post_text, post_type: 'None'}, newPostRequestHandler);
+  let arr = document.querySelectorAll('.pollOptionsText');
+  let new_arr = [];
+  for(var i = 0; i < arr.length; i++) {
+    if(arr[i].value != "")
+    new_arr.push(arr[i].value);
+  }
+
+  if(new_arr.length == 0)
+    return;
+
+  sendAjaxRequest(method, '/api/event/' + id_event + '/post', { data: post_text, post_type: type, poll_options: new_arr}, newPostRequestHandler);
   
  }
 
@@ -18,6 +37,7 @@ newPostBttn.addEventListener('click', newPostRequest);
     if (this.status == 200) {
 
         let post = JSON.parse(this.response);
+        console.log(post);
 
         let container_fluid = document.createElement("div");
         container_fluid.className = "container-fluid actionCard";
@@ -71,7 +91,62 @@ newPostBttn.addEventListener('click', newPostRequest);
         card_text.className = "card-text";
         card_text.innerText = post[0].text;
 
-        //TODO
+        card_body.appendChild(card_text);
+
+        let divPoll = document.createElement("div");
+        divPoll.className = "poll";
+        
+        if(post[3] == 'Poll'){
+          for(var z = 0; z < post[4].length; z++){
+          
+          let divround = document.createElement("div");
+          divround.className = "progress roundRadius";
+
+          let divcheck = document.createElement("div");
+          divcheck.className = "form-check";
+
+          
+          let input = document.createElement("INPUT");
+          input.className="roundRadius form-check-input position-static form-radio";
+          input.setAttribute("type", "radio");
+          input.setAttribute("name", "poll-option");
+          input.setAttribute("data-id", post[4][z].id_poll_option);
+          input.setAttribute("ifchecked", "false");
+          input.setAttribute("id", "poll-option1");
+          input.setAttribute("value", "option1");
+          input.setAttribute("aria-label", "Bus");
+          
+          let divFinal = document.createElement("div");
+          divFinal.setAttribute("id", post[4][z].id_poll_option);
+          divFinal.setAttribute("data-name", 0);
+          divFinal.className = "progress-bar bg-info";
+          divFinal.setAttribute("role","progressbar");
+          divFinal.setAttribute("style", '{{ "width:0%;"}}');
+          divFinal.setAttribute("aria-valuenow","25");
+          divFinal.setAttribute("aria-valuemin","0");
+          divFinal.setAttribute("aria-valuemax","0");
+          
+          let spanpoll = document.createElement("SPAN");
+          spanpoll.className = "pollPerc";
+          spanpoll.innerText = "0%";
+          
+          let spantext = document.createElement("SPAN");
+          spantext.className = "pollOption";
+          spantext.innerText = post[4][z].name;
+
+          divround.appendChild(divcheck);
+
+          divcheck.appendChild(input);
+
+          divround.appendChild(divFinal);
+          divround.appendChild(spanpoll);
+          divround.appendChild(spantext);
+
+          divPoll.appendChild(divround);
+        }
+      }
+
+      card_body.appendChild(divPoll);
 
         let footer = document.createElement("div");
         footer.className = "footer px-2";
@@ -162,7 +237,6 @@ newPostBttn.addEventListener('click', newPostRequest);
         header_text.appendChild(spanDate);
         description_header.appendChild(i);
         card_comment.appendChild(card_body);
-        card_body.appendChild(card_text);
         card_comment.appendChild(footer);
         footer.appendChild(hr);
         footer.appendChild(comments1);
@@ -184,5 +258,63 @@ newPostBttn.addEventListener('click', newPostRequest);
 
         let posts_section = document.querySelector('#posts');
         posts_section.prepend(container_fluid);
+
+        let votePollBttn = document.querySelectorAll('#poll-option1');
+
+if (votePollBttn != null) {
+  for (var j = 0; j < votePollBttn.length; j++) {
+    votePollBttn[j].addEventListener('click', addVoteOnPollRequest);
+  }
+}
+
+removePollButtons();
       }
  }
+
+ function addPoll() {
+
+  let options = document.querySelector('.options');
+
+  console.log(options);
+  if(options.childElementCount < 3){
+  
+  options.parentNode.parentNode.setAttribute("type", "Poll");
+  let bttn = document.createElement("button");
+  bttn.setAttribute("type", "button");
+  bttn.setAttribute("aria-expanded", "false");
+  bttn.className = "poll-bttn";
+
+  bttn.addEventListener('click', addPollOption);
+
+  let i = document.createElement("i");
+  i.className = 'fas fa-plus-circle poll-bttn';
+
+  bttn.appendChild(i);
+
+  options.appendChild(bttn);
+  }
+
+  addPollOption();
+ }
+
+ function addPollOption() {
+  let options = document.querySelector('.commentArea');
+
+  if(options.childElementCount == 8)
+    return;
+
+  let addPollOption = document.createElement("input");
+  addPollOption.setAttribute("type", "text");
+  addPollOption.setAttribute("aria-expanded", "false");
+  addPollOption.className = "poll-bttn pollOptionsText";
+
+  options.appendChild(addPollOption);
+ }
+
+  function removePollButtons() {
+    let pollBttns = document.querySelectorAll('.poll-bttn');
+
+    for(var i=0 ; i < pollBttns.length; i++){
+      pollBttns[i].remove();
+    }
+  }
