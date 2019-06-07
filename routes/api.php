@@ -94,5 +94,32 @@ Route::post('create-payment', function () {
 });
 
 Route::post('execute-payment', function (Request $request) {
-    return 'execute payment working';
+    $apiContext = new \PayPal\Rest\ApiContext(
+        new \PayPal\Auth\OAuthTokenCredential(
+            'AV6QF614XhtN-rDtP2oEHO10dC-ywZ5C9RyX0qDY1b837UWvogp9ViZZ2P4fTPkpzqy0lSpJdLbB5aYR',     // ClientID
+            'EEG_dj7OvwMyJAA1a6xyBc0e64o7zfV_MD3rAvAQtonm6csKvSkRRP42SSIhbWa6uqFVJOcaR5tNk3eC'      // ClientSecret
+        )
+    );
+    $paymentId = $request->paymentID;
+    $payment = Payment::get($paymentId, $apiContext);
+    $execution = new PaymentExecution();
+    $execution->setPayerId($request->payerID);
+    // $transaction = new Transaction();
+    // $amount = new Amount();
+    // $details = new Details();
+    // $details->setShipping(2.2)
+    //     ->setTax(1.3)
+    //     ->setSubtotal(17.50);
+    // $amount->setCurrency('USD');
+    // $amount->setTotal(21);
+    // $amount->setDetails($details);
+    // $transaction->setAmount($amount);
+    // $execution->addTransaction($transaction);
+    try {
+        $result = $payment->execute($execution, $apiContext);
+    } catch (Exception $ex) {
+        echo $ex;
+        exit(1);
+    }
+    return $result;
 });

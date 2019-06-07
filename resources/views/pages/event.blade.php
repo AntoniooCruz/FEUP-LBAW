@@ -325,7 +325,6 @@
       return actions.request.post('/api/create-payment')
         .then(function(res) {
           // 3. Return res.id from the response
-          alert(res);
           return res.id;
         });
     },
