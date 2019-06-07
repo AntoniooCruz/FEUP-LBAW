@@ -23,7 +23,7 @@
                 <div class="modal-body">
                   <span id="errors" style="display:none;">{{ sizeof($errors) }}</span>
                     <div class="eventPhoto justify-content-md-center">
-                      <img src="../img/event-placeholder.png" height="300">
+                      <img src="../img/event-placeholder.png" height="300" alt="User photo">
                       <span class="col-sm-2 col-3 btn btn-secondary btn-file form-control-file"
                         id="exampleFormControlFile1">Upload
                         <input type="file" name="file"></span>
@@ -178,7 +178,7 @@
                             <div class="input-group mb-1 row justify-content-center mx-0">
                               <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                  <img src="../img/user.jpg" class="roundRadius">
+                                  <img src="../img/user.jpg" class="roundRadius" alt="User photo">
                                   <span class="ml-2">@<span>{{$friend->username}}</span></span>
                                 </div>
                               </div>

@@ -287,9 +287,9 @@
                   </div>
                   <div id="event-card-people-attending" class="row text-left">
                     <div class="col ">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
-                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25">
+                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo">
+                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo">
+                      <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo">
                       <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span>
                       <span id="peopleGoing">+300 going</i></span>
 
@@ -307,7 +307,7 @@
             <div class="card card-company">
               <div class="card card-company">
                 <div class="description header">
-                  <a href="companyprofile.html"><img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap"></a>
+                  <a href="companyprofile.html"><img class="userAction roundRadius" src="../img/user.jpg" alt="User photo"></a>
                   <div class="headerText">
                     <span class="card-title"><a href="companyprofile.html"><span class="link-username">Company123</span></a>
                       is pending verification
@@ -330,7 +330,7 @@
             <div class="card card-company">
               <div class="card card-company">
                 <div class="description header">
-                  <a href="companyprofile.html"><img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap"></a>
+                  <a href="companyprofile.html"><img class="userAction roundRadius" src="../img/user.jpg" alt="User photo"></a>
                   <div class="headerText">
                     <span class="card-title"><a href="companyprofile.html"></a><span class="link-username">Company123</span></a>
                       is pending verification
@@ -353,7 +353,7 @@
             <div class="card card-company">
               <div class="card card-company">
                 <div class="description header">
-                  <a href="companyprofile.html"><img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap"></a>
+                  <a href="companyprofile.html"><img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap" alt="User photo"></a>
                   <div class="headerText">
                     <span class="card-title"><a href="companyprofile.html"></a><span class="link-username">Company123</span></a>
                       is pending verification
@@ -376,7 +376,7 @@
             <div class="card card-company">
               <div class="card card-company">
                 <div class="description header">
-                  <a href="companyprofile.html"><img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap"></a>
+                  <a href="companyprofile.html"><img class="userAction roundRadius" src="../img/user.jpg" alt="Card image cap" alt="User photo"></a>
                   <div class="headerText">
                     <span class="card-title"><a href="companyprofile.html"></a><span class="link-username">Company123</span></a>
                       is pending verification

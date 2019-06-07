@@ -28,7 +28,7 @@
                             <form class="form-register" method="POST" action="{{ route('register') }}">
                                 {{ csrf_field() }}
 
-                                <div id="loginlogo"><img src="{{ asset('img/icon.png') }}" ></div>
+                                <div id="loginlogo"><img src="{{ asset('img/icon.png') }}" alt="Logo"></div>
 
                                 <div class="form-label-group">
                                     <!-- NAME -->

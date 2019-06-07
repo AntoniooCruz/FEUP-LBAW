@@ -21,7 +21,7 @@
                         <div class="card-body">
                             <form method="POST" action="{{ route('login') }}" class="form-signin">
                                     {{ csrf_field() }}
-                                <div id="loginlogo"><img src="{{ asset('img/icon.png') }}" width="191,5" height="149,5"></div>
+                                <div id="loginlogo"><img src="{{ asset('img/icon.png') }}" width="191,5" height="149,5" alt="User photo"></div>
                                 <div class="form-label-group">
                                     <input type="email" name="email" value="{{ old('email') }}" id="inputEmail" class="form-control" placeholder="Email address"
                                         required autofocus>

@@ -28,7 +28,7 @@
                                 {{ csrf_field() }}
                                 <input type="hidden" name="token" value="{{ $token }}">
 
-                                <div id="loginlogo"><img src="{{ asset('img/icon.png') }}" width="191,5" height="149,5">
+                                <div id="loginlogo"><img src="{{ asset('img/icon.png') }}" width="191,5" height="149,5" alt="Logo">
                                 </div>
                                 <div class="form-label-group">
                                     <input type="email" name="email" value="{{ $email or old('email') }}" id="inputEmail"

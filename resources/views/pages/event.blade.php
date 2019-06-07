@@ -19,7 +19,7 @@
       @if($event->is_private)<span id="privateIndicator" class="label"> <i class="fas fa-lock"></i></span>@endif
       <span id="categoryIndicator" class="label"> {{$event->category->name}}</span>
     </div>
-    <img src="../img/eventbanner.jpg" width="400" height="300">
+    <img src="../img/eventbanner.jpg" width="400" height="300" alt="Event photo">
   </div>
 
   <div class="eventRow row">
@@ -166,9 +166,9 @@
                     <div class="row justify-content-center">  
                         @foreach ($usersGoing->take(7) as $soldTicketUser)
                         @if (file_exists(public_path('img/users/originals/' . strval($soldTicketUser) . '.png')) )
-                        <a href="{{ url('/profile/'.strval($soldTicketUser)) }}"><img src={{"../img/users/originals/" . strval($soldTicketUser) . ".png"}} class="userPic"></a>
+                        <a href="{{ url('/profile/'.strval($soldTicketUser)) }}"><img src={{"../img/users/originals/" . strval($soldTicketUser) . ".png"}} class="userPic" alt="User photo"></a>
                       @else
-                        <img  src="../img/user.jpg" class="userPic">
+                        <img  src="../img/user.jpg" class="userPic" alt="User photo">
                       @endif
                       @endforeach
   
@@ -187,15 +187,15 @@
                         
                       @foreach ($friendsGoing->take(7) as $soldTicketFriend)
                       @if (file_exists(public_path('img/users/originals/' . strval($soldTicketFriend->id_user) . '.png')) )
-                      <a href="{{ url('/profile/'.strval($soldTicketFriend->id_user)) }}"><img src={{"../img/users/originals/" . strval($soldTicketFriend->id_user) . ".png"}} class="userPic"></a>
+                      <a href="{{ url('/profile/'.strval($soldTicketFriend->id_user)) }}"><img src={{"../img/users/originals/" . strval($soldTicketFriend->id_user) . ".png"}} class="userPic" alt="User photo"></a>
                       @else
-                      <a href="{{ url('/profile/'.strval($soldTicketFriend->id_user)) }}"><img  src="../img/user.jpg" class="userPic"></a>
+                      <a href="{{ url('/profile/'.strval($soldTicketFriend->id_user)) }}"><img  src="../img/user.jpg" class="userPic" alt="User photo"></a>
                       @endif
                       @endforeach
                       
                       @if(count($friendsGoing) > 7)
                         <a a href="#">
-                          <img class="userPic-more" src="../img/user.jpg">
+                          <img class="userPic-more" src="../img/user.jpg" alt="User photo">
                           <i class="fas fa-circle"></i>
                           <i class="fas fa-ellipsis-h"></i>
                         </a>
@@ -213,9 +213,9 @@
       <div class="commentArea" type="None">
         <h6></h6>
         @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
-                        <img id="commentPic" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} class="roundRadius">
+                        <img id="commentPic" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} class="roundRadius" alt="User photo" alt="User photo">
                       @else
-                        <img id="commentPic" src="../img/user.jpg" class="roundRadius">
+                        <img id="commentPic" src="../img/user.jpg" class="roundRadius" alt="User photo" alt="User photo">
         @endif
         <div class="comment row">
           <div class="col-12 form-group">
