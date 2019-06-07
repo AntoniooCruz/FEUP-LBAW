@@ -537,3 +537,7 @@ nav .searchBar-blue input::-webkit-input-placeholder {
     background: none;
     border: none;
 }
+
+#helpOnline2{
+    font-size:22px;
+}

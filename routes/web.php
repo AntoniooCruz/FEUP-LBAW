@@ -68,7 +68,7 @@ Route::post('event/{id_event}/report', 'EventController@report');
 Route::get('search', 'SearchController@search');
 Route::get('api/search', 'SearchController@onpagesearch');
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
