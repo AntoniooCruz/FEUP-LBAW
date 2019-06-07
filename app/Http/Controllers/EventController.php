@@ -21,6 +21,7 @@ use App\Invite;
 use App\PollOption;
 use App\Poll;
 use App\VoteOnPoll;
+use App\Report;
 
 class EventController extends Controller
 {   
@@ -308,5 +309,20 @@ class EventController extends Controller
         return response()->json(['perc'=>$perc, 'oldPollOptId' =>$oldPollOptId, 'noVotesTotal' => $noVotesTotal, 'pollOptsID' => $pollOptionsIds, 200]);
 
         
+    }
+
+    public function report(Request $request, $id_event){
+        if (!Auth::check()) 
+            return response(403);
+        if(Auth::user()->active == false)
+            return response(403);
+
+        $report  = Report::create([
+            'reason' => $request->input('reason'),
+            'report_type' => 'Event'
+        ]);
+
+        DB::insert('insert into report_event (id_report, id_reporter, id_event)  values (?, ?,?)', [$report->id_report, Auth::user()->id_user,$id_event]);
+        return response(200);
     }
 }
