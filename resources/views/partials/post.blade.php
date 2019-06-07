@@ -31,6 +31,7 @@
           <div class="footer px-2">
             <hr>
             <div id="comments1-{{$post->id_post}}" data-id={{$post->id_post}} class="comments collapse mb-2 mt-3">
+            @if(Route::current()->getName() != 'home')
               <div class="commentInput row" data-id={{$post->id_post}}>
                 <div class="col px-1">
                   @if (Auth::check())
@@ -49,6 +50,7 @@
                   </button>
                 </div>
               </div>
+              @endif
               <div id="comment_section" data-id={{$post->id_post}} class="card-comment-section ">
               </div>
               <hr class="mt-4 mx-6">
