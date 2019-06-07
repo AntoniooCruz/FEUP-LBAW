@@ -7,7 +7,7 @@
   <section id="mainpage">
     
     <section class="search container">
-      <div id="logo"><img class="row justify-content-md-center" src="../img/logo.png"></div>
+      <div id="logo"><img class="row justify-content-md-center" alt="logo" src="../img/logo.png"></div>
       <form action="{{URL::to('/search')}}" method="GET" role="search" class=" row searchBar-blue justify-content-center">
       {{csrf_field()}}     
       <input class="form-control" type="search" placeholder="Search..." name="search">
