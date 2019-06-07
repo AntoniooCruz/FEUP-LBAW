@@ -92,7 +92,10 @@ class EventController extends Controller
 
                 $originalFileName = "./img/events/originals";
         
-                $file->move($originalFileName, strval($event->id_event) . ".png");
+                if(!$file == null){
+                    $file->move($originalFileName, strval($event->id_event) . ".png");
+
+                }
 
                 return redirect("event/".$event->id_event);
 
