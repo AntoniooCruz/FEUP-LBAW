@@ -12,6 +12,10 @@
         </div>
         @if (sizeof($pollOption->poll->votesOnPoll()->get()) != 0)
         <div id={{$pollOption->id_poll_option}} data-name={{sizeof($pollOption->votesOnPollOption()->get())}} class="progress-bar bg-info" role="progressbar" style="{{ 'width:'.floor(sizeof($pollOption->votesOnPollOption()->get())/sizeof($pollOption->poll->votesOnPoll()->get())*100).'%;'}}"" aria-valuenow="25"
-          aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">{{floor(sizeof($pollOption->votesOnPollOption()->get())/sizeof($pollOption->poll->votesOnPoll()->get())*100)}}%</span>@endif
+          aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">{{floor(sizeof($pollOption->votesOnPollOption()->get())/sizeof($pollOption->poll->votesOnPoll()->get())*100)}}%</span>
+          @else
+          <div id={{$pollOption->id_poll_option}} data-name={{0}} class="progress-bar bg-info" role="progressbar" style="{{'width:0%;'}}" aria-valuenow="25"
+              aria-valuemin="0" aria-valuemax="100"></div><span class="pollPerc">{{0}}%</span>
+          @endif
         <span class="pollOption">{{$pollOption->name}}</span>
       </div>
