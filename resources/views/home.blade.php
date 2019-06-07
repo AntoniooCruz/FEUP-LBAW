@@ -30,7 +30,7 @@
             <img class="d-block w-100" src="{{asset('img/event1.jpg')}}" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{asset('img/event1.jpg')}}" alt="Third slide">
+            <img class="d-block w-100" src="{{asset('img/event1.jpg')}}" alt="Third slide" >
           </div>
         </div>
 

@@ -11,7 +11,7 @@
     <div class="parContainer row justify-content-center">
         <div id="profile_container" class="col-lg-3 col-12 container text-center">
             <div>
-                <img src="../img/user.jpg">
+                <img src="../img/user.jpg" alt="User photo">
             </div>
             <form method="POST" action="{{ url('/profile/edit') }}" class="form-signin" enctype="multipart/form-data">
 

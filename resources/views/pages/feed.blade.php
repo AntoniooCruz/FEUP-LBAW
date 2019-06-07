@@ -11,7 +11,7 @@
     <section class="c">
     @foreach ($trending as $event)
       <div class="card--content">
-        <a href="{{ url('/event/'.$event->id_event) }}"><img class="d-block w-100" src="../img/event3.jpg" alt="First slide">
+        <a href="{{ url('/event/'.$event->id_event) }}"><img class="d-block w-100" src="../img/event3.jpg" alt="Event photo">
           <div class="card-img-overlay">
             <h5 class="card-title">{{$event->title}}</h5>
           </div>

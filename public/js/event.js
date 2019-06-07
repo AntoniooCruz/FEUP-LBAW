@@ -39,3 +39,32 @@ function purchaseTicketHandler() {
         $('#getTicketModal').modal('hide');
     }
 }
+
+let reportBtn = document.querySelector('#report-event');
+
+reportBtn.addEventListener('click',sendReport);
+
+function sendReport(){
+    let radioBtns = document.querySelectorAll('.form-check-input');
+    let reason;
+
+    radioBtns.forEach(radio => {
+        if(radio.checked){
+            reason = radio.value;
+            if(radio.value == 'other'){
+                reason = document.querySelector('.input-group .form-control').value;
+            }
+        }
+     });
+     sendAjaxRequest("post",'/event/'+ document.getElementById('id_event').innerHTML+'/report',{'reason':reason},reportEventHandler);
+}
+
+function reportEventHandler(){
+    if(this.status == '200'){
+        let template = document.createElement('div');
+        template.innerHTML = '<div id="ticketAlert" class="alert alert-alert" role="alert"> User reported!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+        document.getElementById('content').prepend(template);
+        $('#getTicketModal').modal('hide');
+    }
+   
+}

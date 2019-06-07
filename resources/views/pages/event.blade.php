@@ -19,7 +19,7 @@
       @if($event->is_private)<span id="privateIndicator" class="label"> <i class="fas fa-lock"></i></span>@endif
       <span id="categoryIndicator" class="label"> {{$event->category->name}}</span>
     </div>
-    <img src="../img/eventbanner.jpg" width="400" height="300">
+    <img src="../img/eventbanner.jpg" width="400" height="300" alt="Event photo">
   </div>
 
   <div class="eventRow row">
@@ -166,9 +166,9 @@
                     <div class="row justify-content-center">  
                         @foreach ($usersGoing->take(7) as $soldTicketUser)
                         @if (file_exists(public_path('img/users/originals/' . strval($soldTicketUser) . '.png')) )
-                        <a href="{{ url('/profile/'.strval($soldTicketUser)) }}"><img src={{"../img/users/originals/" . strval($soldTicketUser) . ".png"}} class="userPic"></a>
+                        <a href="{{ url('/profile/'.strval($soldTicketUser)) }}"><img src={{"../img/users/originals/" . strval($soldTicketUser) . ".png"}} class="userPic" alt="User photo"></a>
                       @else
-                        <img  src="../img/user.jpg" class="userPic">
+                        <img  src="../img/user.jpg" class="userPic" alt="User photo">
                       @endif
                       @endforeach
   
@@ -187,15 +187,15 @@
                         
                       @foreach ($friendsGoing->take(7) as $soldTicketFriend)
                       @if (file_exists(public_path('img/users/originals/' . strval($soldTicketFriend->id_user) . '.png')) )
-                      <a href="{{ url('/profile/'.strval($soldTicketFriend->id_user)) }}"><img src={{"../img/users/originals/" . strval($soldTicketFriend->id_user) . ".png"}} class="userPic"></a>
+                      <a href="{{ url('/profile/'.strval($soldTicketFriend->id_user)) }}"><img src={{"../img/users/originals/" . strval($soldTicketFriend->id_user) . ".png"}} class="userPic" alt="User photo"></a>
                       @else
-                      <a href="{{ url('/profile/'.strval($soldTicketFriend->id_user)) }}"><img  src="../img/user.jpg" class="userPic"></a>
+                      <a href="{{ url('/profile/'.strval($soldTicketFriend->id_user)) }}"><img  src="../img/user.jpg" class="userPic" alt="User photo"></a>
                       @endif
                       @endforeach
                       
                       @if(count($friendsGoing) > 7)
                         <a a href="#">
-                          <img class="userPic-more" src="../img/user.jpg">
+                          <img class="userPic-more" src="../img/user.jpg" alt="User photo">
                           <i class="fas fa-circle"></i>
                           <i class="fas fa-ellipsis-h"></i>
                         </a>
@@ -214,9 +214,9 @@
         <h6></h6>
         @if (Auth::check())
         @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
-                        <img id="commentPic" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} class="roundRadius">
+                        <img id="commentPic" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} class="roundRadius" alt="User photo" alt="User photo">
                       @else
-                        <img id="commentPic" src="../img/user.jpg" class="roundRadius">
+                        <img id="commentPic" src="../img/user.jpg" class="roundRadius" alt="User photo" alt="User photo">
         @endif
         @endif
         <div class="comment row">
@@ -258,27 +258,27 @@
         <p>Help us undertand what's happening?</p>
         <fieldset class="form-group">
           <div class="form-check ml-2">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Content" checked>
             <label class="form-check-label" for="gridRadios1">
               Explicit content
             </label>
           </div>
           <div class="form-check ml-2">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Harassment">
             <label class="form-check-label" for="gridRadios2">
               Harassment
             </label>
           </div>
           <div class="form-check ml-2">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Spam">
             <label class="form-check-label" for="gridRadios3">
               Spam
             </label>
           </div>
           <div class="input-group">
             <div class="input-group-prepend">
-              <div class="input-group-text pl-2">
-                <input type="radio" aria-label="Radio button for following text input">
+              <div class="form-check ml-2">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="other" aria-label="Radio button for following text input">
               </div>
             </div>
             <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Other">
@@ -287,7 +287,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger">Report</button>
+        <button type="button" id="report-event" class="btn btn-danger">Report</button>
       </div>
     </div>
   </div>

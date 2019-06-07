@@ -62,6 +62,7 @@ Route::get('api/post/{id_post}/comments','EventController@getComments');
 Route::post('api/event/{id_event}/post/{id_post}/comment', 'EventController@addComment');
 Route::post('api/event/{id_event}/post', 'EventController@newPost');
 Route::post('/api/pollOption/{poll_option_id}', 'EventController@vote');
+Route::post('event/{id_event}/report', 'EventController@report');
 
 //Search
 Route::get('search', 'SearchController@search');

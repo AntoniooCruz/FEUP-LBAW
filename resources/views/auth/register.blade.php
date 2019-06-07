@@ -28,7 +28,7 @@
                             <form class="form-register" method="POST" action="{{ route('register') }}">
                                 {{ csrf_field() }}
 
-                                <div id="loginlogo"><img src="{{ asset('img/icon.png') }}" ></div>
+                                <div id="loginlogo"><img src="{{ asset('img/icon.png') }}" alt="Logo"></div>
 
                                 <div class="form-label-group">
                                     <!-- NAME -->
@@ -107,8 +107,6 @@
                                         href="{{ route('login') }}">Log in</a></span>
                                 <button id="loginbtn" class="btn btn-lg btn-primary btn-block"
                                     type="submit">Register</button>
-                                <button id="googlebtn" class="btn btn-lg btn-outline-secondary btn-block" type="submit">
-                                    Continue with <i class="fab fa-google"></i></button>
                             </form>
                         </div>
                     </div>

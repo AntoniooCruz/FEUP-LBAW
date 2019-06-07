@@ -21,7 +21,7 @@
         <div class="card-body">
         @if($item->post_type == "File")
             
-          <div class="card-text card-pic-uploaded"><a href="../img/preview.jpg"><img src="../img/preview.jpg"></a>
+          <div class="card-text card-pic-uploaded"><a href="../img/preview.jpg"><img src="../img/preview.jpg" alt="User photo"></a>
             @endif  
           <p>{{$item->text}}</a>
             </p>

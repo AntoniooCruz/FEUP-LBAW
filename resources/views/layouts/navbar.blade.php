@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="/home"> <img src="{{ asset('img/icon.png') }}" width="31,83" height="24,92"> </a>
+    <a class="navbar-brand" href="/home"> <img src="{{ asset('img/icon.png') }}" width="31,83" height="24,92" alt="User photo"> </a>
     @if(Route::current()->getName() != 'home' || Auth::check())
 
   <form action="{{URL::to('/search')}}" method="GET" role="search" class="searchBar-blue">
@@ -37,9 +37,9 @@
                     <button type="button" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
-                      <img width="30" height="30" class="roundRadius" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} alt="Card image cap">
+                      <img width="30" height="30" class="roundRadius" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} alt="User photo">
                     @else
-                    <img width="30" height="30" class="roundRadius" src={{"../img/user.jpg"}} alt="Card image cap">
+                    <img width="30" height="30" class="roundRadius" src={{"../img/user.jpg"}} alt="User photo">
                     @endif
                     
                   </button>                </a>
