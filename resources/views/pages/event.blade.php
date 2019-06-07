@@ -19,7 +19,11 @@
       @if($event->is_private)<span id="privateIndicator" class="label"> <i class="fas fa-lock"></i></span>@endif
       <span id="categoryIndicator" class="label"> {{$event->category->name}}</span>
     </div>
-    <img src="../img/eventbanner.jpg" width="400" height="300" alt="Event photo">
+    @if (file_exists(public_path('img/events/originals/' . strval($event->id_event) . '.png')) )
+    <img src= {{'../img/events/originals/' . strval($event->id_event) . '.png'}} width="400" height="300" alt="Event photo">
+    @else
+    <img src= "../img/eventbanner.jpg" width="400" height="300" alt="Event photo">
+    @endif
   </div>
 
   <div class="eventRow row">

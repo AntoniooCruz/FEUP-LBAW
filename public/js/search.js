@@ -59,7 +59,7 @@ function filterHandler () {
     if(events.length>0){
         events.forEach(function(event) {
             let node = document.createElement('div');
-            node.setAttribute('class','col-auto  mb-3 sm-12');
+            node.setAttribute('class','col-auto sm-12 col-md-6 col-lg-4 mb-2');
 
             if(event.title.length > 22)
                 event.title = event.title.substring(0,22) + "...";
