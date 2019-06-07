@@ -4,6 +4,7 @@
 <script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
 @endsection
 @section('content')
+
   <div id="carousel-container" class="container">
     <hr>
     
