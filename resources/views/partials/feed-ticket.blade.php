@@ -17,7 +17,14 @@
           </div>
       </div>
       <div class="invite card">
-        <a href="{{ url('/event/'.$item->event->id_event) }}"><img src="../img/invite-card-event.jpg" class="card-img-top" alt="User photo"></a>
+
+
+      @if (file_exists(public_path('img/events/originals/' . strval($item->event->id_event) . '.png')) )
+        <a href="{{ url('/event/'.$item->event->id_event) }}"><img src= {{asset("img/events/originals/" . strval($item->event->id_event) . '.png')}} class="card-img-top"></a>
+        @else
+        <a href="{{ url('/event/'.$item->event->id_event) }}"><img  src= " {{asset("img/invite-card-event.png") }} " class="card-img-top"></a>
+        @endif
+        
         <span class="badge badge-pill badge-secondary card-category">{{$item->event->category->name}}</span>
         <div class="card-body" id="event-card-body">
           <div class="row header align-items-start">
