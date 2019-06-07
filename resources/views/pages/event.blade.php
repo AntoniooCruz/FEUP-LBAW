@@ -229,10 +229,9 @@
             <button class="" type="button" aria-expanded="false">
               <i class="fas fa-poll-h"></i>
             </button>
-            <label class="">
+            <button type="button" class="btn" data-toggle="modal" data-target="#fileModal">
                 <i class="fas fa-cloud-upload-alt"></i>
-                <input type="file" style="display: none;">
-            </label>
+              </button>
           </div>
         </div>
         <button id ="new_post_button" class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
@@ -246,6 +245,27 @@
     </div>
   </section>
 </section>
+
+<div class="modal fade" id="fileModal" tabindex="-1" role="dialog" aria-labelledby="fileModal"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <form>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Upload File</h5>
+      </div>
+      <div class="modal-body">
+        <input type="file">
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel-report-event" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="report-event" class="btn btn-danger">Done</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+
 
 <div class="modal fade" id="reportEventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">

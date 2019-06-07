@@ -72,14 +72,15 @@ class RegisterController extends Controller
             $user_type = 'Personal';
         }else $user_type = 'Business';
 
-        $user =  User::create([
-            'username' => $data['username'],
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'user_type' => $user_type,
-            'description' => '',
-        ]);
+        try{
+            $user =  User::create([
+                'username' => $data['username'],
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'user_type' => $user_type,
+                'description' => '',
+            ]);
 
 
         if( $user_type =='Personal')
@@ -91,6 +92,13 @@ class RegisterController extends Controller
                 'website' => $data['site']
             ]);
         } 
+
+        }catch(\Illuminate\Database\QueryException $e){
+            $orderLog = new Logger('db');
+            $orderLog->pushHandler(new StreamHandler(storage_path('logs/db.log')), Logger::ERROR);
+            $orderLog->info('db', ['error'=>$e->getMessage()]);
+            return null;
+        }
 
         return $user;
 
