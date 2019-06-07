@@ -13,7 +13,8 @@
             posted on <a href="{{ url('/event/'.$post->event->id_event) }}"><span class="link-event">{{$post->event->title}}</span></a></span>
               <span class="card-date">{{$post->date}}</span>
             </div>
-            <i class="fab fa-font-awesome-flag"></i>
+            <i class="fab fa-font-awesome-flag dropdown-item" type= "button" style="text-align: right; width: 30px;padding-right: 10px" aria-expanded="false" data-toggle="modal" post="{{$post->id_post}}"
+          data-target="#reportPostModal{{$post->id_post}}"></i>
           </div>
           <div class="card-body">
             <p class="card-text">{{$post->text}}</p>
@@ -65,4 +66,48 @@
           </div>
         </div>
       </div>
-      
+      <div class="modal fade" id="reportPostModal{{$post->id_post}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true" post="{{$post->id_post}}">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Report Post</h5>
+      </div>
+      <div class="modal-body">
+        <p>Help us undertand what's happening?</p>
+        <fieldset class="form-group">
+          <div class="form-check ml-2">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Content" checked>
+            <label class="form-check-label" for="gridRadios1">
+              Explicit content
+            </label>
+          </div>
+          <div class="form-check ml-2">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Harassment">
+            <label class="form-check-label" for="gridRadios2">
+              Harassment
+            </label>
+          </div>
+          <div class="form-check ml-2">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Spam">
+            <label class="form-check-label" for="gridRadios3">
+              Spam
+            </label>
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="form-check ml-2">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="other" aria-label="Radio button for following text input">
+              </div>
+            </div>
+            <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Other">
+          </div>
+        </fieldset>
+      </div>
+      <div class="modal-footer">
+        <button type="button"  class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger report-post" post="{{$post->id_post}}">Report</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\UserReport;
 use App\EventReport;
+use App\PostReport;
 use App\File;
 
 class AdminController extends Controller
@@ -42,11 +43,26 @@ class AdminController extends Controller
                 array_push($seenEventReports,$report);
         }
 
+        $tempPostReports = PostReport::all();
+        $postReports = [];
+        $seenPostReports = [];
+
+        foreach ($tempPostReports as $report) {
+            if($report->report->veridict == 'Pending')
+                array_push($postReports,$report);
+        }
+
+        foreach ($tempPostReports as $report) {
+            if($report->report->veridict != 'Pending')
+                array_push($seenPostReports,$report);
+        }
         return view('pages.admin', ['user' => Auth::user(),
                                     'userReports' => $userReports,
                                     'seenReports' => $seenReports,
                                     'eventReports' => $eventReports,
-                                    'seenEventReports' => $seenEventReports
+                                    'seenEventReports' => $seenEventReports,
+                                    'postReports' => $postReports,
+                                    'seenPostReports' => $seenPostReports
                                     ]);
     }
 }

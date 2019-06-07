@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Report;
 use App\UserReport;
 use App\EventReport;
+use App\PostReport;
 use App\File;
 use App\Event;
+use App\Post;
 
 use Illuminate\Http\Request;
 
@@ -35,7 +37,12 @@ class ReportController extends Controller
 
         if($report->report_type == "Event"){
             $event = EventReport::find($id_request)->event;
-            /*Event::where("id_event",)*/
+            Event::where("id_event",$event->id_event)->delete();
+        }
+
+        if($report->report_type == "Post"){
+            $post = PostReport::find($id_request)->post;
+            Post::where("id_post",$post->id_post)->delete();
         }
         
 

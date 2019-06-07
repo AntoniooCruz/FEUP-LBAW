@@ -342,4 +342,24 @@ class EventController extends Controller
         DB::insert('insert into report_event (id_report, id_reporter, id_event)  values (?, ?,?)', [$report->id_report, Auth::user()->id_user,$id_event]);
         return response(200);
     }
+
+    public function reportPost(Request $request, $id_post){
+        if (!Auth::check()) 
+        return response(403);
+
+        if(Auth::user()->active == false)
+        return response(403);
+
+        $exists = DB::select('SELECT * FROM report_post WHERE id_reporter = ? AND id_post = ?;',[Auth::user()->id_user,$id_post]);
+        if($exists != null)
+         return response(405);
+
+        $report  = Report::create([
+            'reason' => $request->input('reason'),
+            'report_type' => 'Post'
+        ]);
+
+    DB::insert('insert into report_post (id_report, id_reporter, id_post)  values (?, ?,?)', [$report->id_report, Auth::user()->id_user,$id_post]);
+    return response(200);
+    }
 }
