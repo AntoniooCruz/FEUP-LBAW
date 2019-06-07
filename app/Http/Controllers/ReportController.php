@@ -30,4 +30,19 @@ class ReportController extends Controller
         return response()->json(['id_report'=>$id_request],200);
 
     }
+
+    public function archive(Request $request, $id_request){
+
+        if (!Auth::check()) 
+        return response()->json(400);
+
+        //handle report
+        $report = Report::find($id_request);
+        $report->veridict = "Ignored";
+        $report->id_admin = Auth::user()->id_user;
+        $report->save();
+
+        return response()->json(['id_report'=>$id_request],200);
+
+    }
 }

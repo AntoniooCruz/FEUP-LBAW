@@ -10,7 +10,7 @@
 <div id="wrapper">
 <ul class="nav nav-tabs sidebar navbar-nav" id="nav-admin2" role="tablist">
     <li class="nav-item" role="tablist">
-      <a class="nav-item nav-link active" id="nav-users-tab" data-toggle="tab" href="#activeUsers" role="tab"
+      <a class="nav-item nav-link active" id="nav-users-tab" data-toggle="tab" href="#nav-users" role="tab"
       aria-controls="nav-users" aria-selected="true">
       <i class="fas fa-user"></i>
         <span>Users</span>
@@ -52,7 +52,8 @@
         @endforeach
       </div> 
       <div id="archivedUsers" class="tab-pane fade">
-          @foreach ($userReports as $rep)
+          @foreach ($seenReports as $rep)
+          @include ('partials.user-report',['report'=>$rep])
           @endforeach
         </div> 
       </div>  

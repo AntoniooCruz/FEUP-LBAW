@@ -152,4 +152,11 @@ dl {
 
 #wrapper .navbar-nav .active{
     background-color: #9db8cb;
+
 }
+
+.fade:not(.show) {
+    opacity: 0;
+    display: none;
+}
+
