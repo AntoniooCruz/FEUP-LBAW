@@ -11,6 +11,7 @@ use App\Ticket;
 use App\User;
 use App\Comment;
 use App\Post;
+use App\Category;
 
 
 class HomeController extends Controller
@@ -116,7 +117,7 @@ class HomeController extends Controller
                 })->values()->all();
                 $trending = array_slice($trending,0,6);
 
-               return view('pages.feed',['items' => $feed_items,'usersGoing' => $usersGoing,'trending' => $trending]);
+               return view('pages.feed',['items' => $feed_items,'usersGoing' => $usersGoing,'trending' => $trending,'categories' => Category::all()]);
             } else {
                 return redirect('profile');
             }

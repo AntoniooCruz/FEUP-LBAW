@@ -41,4 +41,8 @@
       @endif
     @endforeach
 </div>
+
+@if(Auth::check())
+  @include('layouts.create-event', ['categories'=>$categories])
+@endif
 @endsection
