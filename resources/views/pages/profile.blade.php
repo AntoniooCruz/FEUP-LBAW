@@ -18,9 +18,9 @@
     <div class="parContainer row justify-content-center">
         <div id="profile_container" class="col-lg-3 col-12 container text-center">
         @if (file_exists(public_path('img/users/originals/' . $user->id_user . '.png')) )
-            <img src={{"../img/users/originals/" . $user->id_user . ".png"}} >
+            <img src={{"../img/users/originals/" . $user->id_user . ".png"}} alt="User photo">
           @else
-            <img  src="../img/user.jpg">
+            <img  src="../img/user.jpg" alt="User photo">
             @endif
           <div id="profile_content">
             @if($user->user_type != 'Admin')

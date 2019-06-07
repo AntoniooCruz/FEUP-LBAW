@@ -2,9 +2,9 @@
       <div class="card card-comment">
       <div class="description header">
               @if (file_exists(public_path('img/users/originals/' . $item->owner->id_user . '.png')) )
-              <a href="{{ url('/profile/'.$item->owner->id_user) }}"><img class="userAction roundRadius" src="{{ asset("img/users/originals/" . $item->owner->id_user . ".png") }}" alt="Card image cap"></a>
+              <a href="{{ url('/profile/'.$item->owner->id_user) }}"><img class="userAction roundRadius" src="{{ asset("img/users/originals/" . $item->owner->id_user . ".png") }}" alt="User photo"></a>
                 @else
-                <a href="{{ url('/profile/'.$item->owner->id_user) }}"><img class="userAction roundRadius" src= " {{asset("img/user.jpg")}} " alt="Card image cap"></a>
+                <a href="{{ url('/profile/'.$item->owner->id_user) }}"><img class="userAction roundRadius" src= " {{asset("img/user.jpg")}} " alt="User photo"></a>
             @endif
             
             <div class="headerText">

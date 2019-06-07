@@ -26,7 +26,7 @@
                         <div class="card-body">
                             <form method="POST" action="{{ route('password.email') }}" class="form-signin">
                                 {{ csrf_field() }}
-                                <div id="loginlogo"><img src="{{ asset('img/icon.png') }}" width="191,5" height="149,5">
+                                <div id="loginlogo"><img src="{{ asset('img/icon.png') }}" width="191,5" height="149,5" alt="User photo">
                                 </div>
                                 <div id="resetDescription" class="form-group{{ $errors->has('email') ? ' has-error' : '' }} ml-3 ">Please insert your email address: </div>
                                 <div id="emailInputReset" class="form-label-group">

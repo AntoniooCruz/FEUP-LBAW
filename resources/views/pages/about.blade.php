@@ -9,7 +9,7 @@
 <section class="container">
     <div class="row">
         <div class="col text-center">
-            <div id="logo"><img src="../img/logo.png"></div>
+            <div id="logo"><img src="../img/logo.png" alt="Logo"></div>
         </div>
     </div>
     <hr>

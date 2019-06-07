@@ -2,9 +2,9 @@
       <div class="card card-going-event">
         <div class="description header">
               @if (file_exists(public_path('img/users/originals/' . $item->id_owner . '.png')) )
-              <a href="{{ url('/profile/'.$item->owner->id_user) }}"><img class="userAction roundRadius" src="{{ asset("img/users/originals/" . $item->id_owner . ".png") }}" alt="Card image cap"></a>
+              <a href="{{ url('/profile/'.$item->owner->id_user) }}"><img class="userAction roundRadius" src="{{ asset("img/users/originals/" . $item->id_owner . ".png") }}" alt="User photo"></a>
                 @else
-                <a href="{{ url('/profile/'.$item->owner->id_user) }}"><img class="userAction roundRadius" src= " {{asset("img/user.jpg")}} " alt="Card image cap"></a>
+                <a href="{{ url('/profile/'.$item->owner->id_user) }}"><img class="userAction roundRadius" src= " {{asset("img/user.jpg")}} " alt="User photo"></a>
             @endif
             
             <div class="headerText">
@@ -16,7 +16,7 @@
           </div>
       </div>
       <div class="invite card">
-        <a href="{{ url('/event/'.$item->id_event) }}"><img src="../img/invite-card-event.jpg" class="card-img-top"></a>
+        <a href="{{ url('/event/'.$item->id_event) }}"><img src="../img/invite-card-event.jpg" class="card-img-top" alt="Event photo"></a>
         <span class="badge badge-pill badge-secondary card-category">{{$item->category->name}}</span>
         <div class="card-body" id="event-card-body">
           <div class="row header align-items-start">
@@ -39,26 +39,26 @@
           <div class="col ">
           @if(sizeof($usersGoing) > 2)
           @if (file_exists(public_path('img/users/originals/' . $usersGoing[0] . '.png')) )
-          <a href="{{ url('/profile/'.$usersGoing[0]) }}"><img href src="{{ asset("img/users/originals/" . $usersGoing[0] . ".png") }}" class="event-card-user-photo" width="25" height="25"></a>
+          <a href="{{ url('/profile/'.$usersGoing[0]) }}"><img href src="{{ asset("img/users/originals/" . $usersGoing[0] . ".png") }}" class="event-card-user-photo" width="25" height="25" alt="User photo"></a>
           @else
-          <a href="{{ url('/profile/'.$usersGoing[0]) }}"><img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"></a>
+          <a href="{{ url('/profile/'.$usersGoing[0]) }}"><img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo"></a>
           @endif
           @if (file_exists(public_path('img/users/originals/' . $usersGoing[0] . '.png')) )
-          <a href="{{ url('/profile/'.$usersGoing[1]) }}"><img href src="{{ asset("img/users/originals/" . $usersGoing[1] . ".png") }}" class="event-card-user-photo" width="25" height="25"></a>
+          <a href="{{ url('/profile/'.$usersGoing[1]) }}"><img href src="{{ asset("img/users/originals/" . $usersGoing[1] . ".png") }}" class="event-card-user-photo" width="25" height="25" alt="User photo"></a>
           @else
-          <a href="{{ url('/profile/'.$usersGoing[1]) }}"><img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"></a>
+          <a href="{{ url('/profile/'.$usersGoing[1]) }}"><img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo"></a>
           @endif
           @if (file_exists(public_path('img/users/originals/' . $usersGoing[2] . '.png')) )
-          <a href="{{ url('/profile/'.$usersGoing[2]) }}"><img href src="{{ asset("img/users/originals/" . $usersGoing[0] . ".png") }}" class="event-card-user-photo" width="25" height="25"></a>
+          <a href="{{ url('/profile/'.$usersGoing[2]) }}"><img href src="{{ asset("img/users/originals/" . $usersGoing[0] . ".png") }}" class="event-card-user-photo" width="25" height="25" alt="User photo"></a>
           @else
-          <a href="{{ url('/profile/'.$usersGoing[2]) }}"><img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"></a>
+          <a href="{{ url('/profile/'.$usersGoing[2]) }}"><img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo"></a>
           @endif
           @else
           @foreach($usersGoing as $user)
           @if (file_exists(public_path('img/users/originals/' . $usersGoing[0] . '.png')) )
-          <a href="{{ url('/profile/'.$user) }}"><img href src="{{ asset("img/users/originals/" . $user . ".png") }}" class="event-card-user-photo" width="25" height="25"></a>
+          <a href="{{ url('/profile/'.$user) }}"><img href src="{{ asset("img/users/originals/" . $user . ".png") }}" class="event-card-user-photo" width="25" height="25" alt="User photo"></a>
           @else
-          <a href="{{ url('/profile/'.$user) }}"><img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"></a>
+          <a href="{{ url('/profile/'.$user) }}"><img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo"></a>
           @endif
           @endforeach
           @endif
