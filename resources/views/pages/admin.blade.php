@@ -2,9 +2,9 @@
 
 @section('custom-scripts')
   <link href="{{ asset('css/adminpage.css') }}" rel="stylesheet">
-  <script type="text/javascript" src={{ asset('js/admin.js') }} defer></script>
-  <script type="text/javascript" src={{ asset('js/profile.js') }} defer></script>
-  <script type="text/javascript" src={{ asset('js/date.js') }} defer></script>
+  <script src={{ asset('js/admin.js') }} defer></script>
+  <script src={{ asset('js/profile.js') }} defer></script>
+  <script src={{ asset('js/date.js') }} defer></script>
   
 @endsection
 

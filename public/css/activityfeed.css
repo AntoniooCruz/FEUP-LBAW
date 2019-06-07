@@ -98,7 +98,7 @@
     flex-direction: column;
     padding-bottom: 8px;
     align-items: center;
-    color: var(--lightBlue);
+    color: #A1B6C8;
 }
 
 #carousel-container hr {
@@ -115,7 +115,7 @@
 
 .card--content {
     margin-right: 5px;
-    background-color: var(--darkBlue);
+    background-color: #1A2431;
     position: relative;
 }
 

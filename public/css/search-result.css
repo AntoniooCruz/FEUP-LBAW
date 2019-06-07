@@ -32,7 +32,7 @@ body{
     border: 1px solid #ced4da;
     border-left: none;
     background-color:white;
-    color:var(--lightGrey);
+    color:#bfbfbf;
     margin-right: 0!important;
     height: 50px;
     padding-right: 40px !important;
@@ -47,7 +47,7 @@ body{
 
 #sidebar_container{
     background-color:white;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0px 0px 2px #c5c5c5;
     border-radius:2px;
 }
 
@@ -57,7 +57,7 @@ body{
 }
 
 .sidebarHeader{
-    background-color: var(--lightBlue);
+    background-color: #A1B6C8;
 }
 
 .filter {

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom-scripts')
-<script type="text/javascript" src={{ asset('js/register.js') }} defer></script>
+<script src={{ asset('js/register.js') }} defer></script>
 @endsection
 
 @section('content')

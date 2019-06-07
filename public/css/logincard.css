@@ -1,5 +1,5 @@
 body{
-    background-color: var(--lightBlue);
+    background-color: #A1B6C8;
 }
 
  #background {
@@ -9,11 +9,11 @@ body{
     width: 100%;
     height: 50%;
     z-index: 0;
-    background-color: var(--darkBlue);
+    background-color: #1A2431;
 }
 
 .loginBack{
-    background: var(--lightBlue);
+    background: #A1B6C8;
     z-index: -5;
 }
 
@@ -41,12 +41,12 @@ body{
 .login .nav-pills .nav-link.active{ background: none;}
 
 .login .nav-pills .nav-link.active,.login .nav-pills .nav-link:hover{
-    color:var(--darkBlue);
+    color:#1A2431;
 }
 
 .login .nav-pills .nav-link{
     text-transform: uppercase;
-    color:var(--lightGrey);
+    color:#bfbfbf;
     text-align: center;
 }
   

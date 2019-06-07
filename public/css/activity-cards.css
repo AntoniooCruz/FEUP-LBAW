@@ -136,7 +136,7 @@
 }
 
 .link-username {
-    color: var(--lightBlue);
+    color: #A1B6C8;
 }
 
 .fa-font-awesome-flag {
@@ -161,8 +161,8 @@ margin-bottom: 1em !important;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--darkBlue);
-    border: 1.4px solid var(--darkBlue);
+    color: #1A2431;
+    border: 1.4px solid #1A2431;
     border-radius: 4px;
     padding:0.5rem;
 }
