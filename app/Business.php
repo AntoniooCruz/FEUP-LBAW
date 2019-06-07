@@ -14,4 +14,8 @@ class Business extends Model
         'id_user','verification', 'website'
     ];
 
+    public function user(){
+        return $this->hasOne('App\User', 'id_user', 'id_user');
+    }
+
 }

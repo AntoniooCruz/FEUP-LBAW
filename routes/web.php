@@ -84,3 +84,8 @@ Route::get('admin', 'AdminController@show');
 
 Route::put('report/{id_report}/accept', 'ReportController@accept');
 Route::put('report/{id_report}/archive', 'ReportController@archive');
+
+Route::put('accept/{id_user}', 'ProfileController@accept');
+Route::put('refuse/{id_user}', 'ProfileController@refuse');
+
+Route::post('post/{id_post}/report', 'EventController@reportPost');
