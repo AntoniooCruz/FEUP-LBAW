@@ -431,8 +431,12 @@ body{
     border-color: #d41111 !important;
 }
 
-.reportBtn:hover .fa-font-awesome-flag{
+.reportBtn:hover .fa-font-awesome-flag, .reportBtn:hover .fa-times-circle{
     color: #d41111;
+}
+
+.fa-cloud-upload-alt < button, .fa-poll-h < button :hover{
+    color: #88a844;
 }
 
 .actionCard {
