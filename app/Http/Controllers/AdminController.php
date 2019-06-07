@@ -13,14 +13,22 @@ class AdminController extends Controller
 
         $tempUserReports = UserReport::all();
         $userReports = [];
+        $seenReports = [];
+
 
         foreach ($tempUserReports as $report) {
             if($report->report->veridict == 'Pending')
                 array_push($userReports,$report);
         }
 
+        foreach ($tempUserReports as $report) {
+            if($report->report->veridict != 'Pending')
+                array_push($seenReports,$report);
+        }
 
         return view('pages.admin', ['user' => Auth::user(),
-                                    'userReports' => $userReports]);
+                                    'userReports' => $userReports,
+                                    'seenReports' => $seenReports
+                                    ]);
     }
 }

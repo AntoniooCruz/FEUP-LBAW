@@ -14,17 +14,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto topnav">
             <li class="nav-item active">
-                <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link py-0" href="/home">Home<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href={{ route('about') }}>About</a>
+                  <a class="nav-link py-0" href={{ route('about') }}>About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href={{ route('faqs') }}>FAQ</a>
+                  <a class="nav-link py-0" href={{ route('faqs') }}>FAQ</a>
                 </li>
             @if(!Auth::check())
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('login') }}">Login</a>
+              <a class="nav-link py-0" href="{{ route('login') }}">Login</a>
             </li>
           @else
           <li class="nav-item ">
@@ -47,6 +47,9 @@
                     <a class="dropdown-item" href="{{ route('myProfile') }}">Profile</a>
                     <a class="dropdown-item" href="{{ url('/tickets')}}">My tickets</a>
                     <a class="dropdown-item" href="{{ url('/invites')}}">My invites</a>
+                    @if(Auth::user()->user_type=='Admin')
+                    <a class="dropdown-item" href="{{ url('/admin')}}">Dashboard</a>
+                    @endif
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#"> <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                     </a>

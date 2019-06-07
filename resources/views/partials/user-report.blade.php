@@ -18,9 +18,13 @@
         </div>
       <div class="footer">
         <hr>
-        <div class="footerText">
+        <div id="footer{{$report->id_report}}" class="footerText">
+         @if($report->report->veridict=='Pending') 
           <button repid="{{$report->id_report}}" class="banUser"><i class="fas fa-check"></i></button>´
-          <button><i class="fas fa-trash-alt"></i></button>
+          <button archid="{{$report->id_report}}" class="archiveUser"><i class="fas fa-trash-alt"></i></button>
+          @elseif($report->report->veridict=='Approved') Approved
+          @elseif($report->report->veridict=='Ignored')Ignored
+          @endif
         </div>
       </div>
   </div>
