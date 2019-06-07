@@ -3,6 +3,7 @@ Popper.Defaults.modifiers.computeStyle.gpuAcceleration = false;
 //circular graph
 $(document).ready(function () {
     let percentVar;
+    if(parseInt(document.getElementById('eventTaken') != null)){
     if (parseInt(document.getElementById('eventTaken').innerHTML) == 0)
         percentVar = 0;
     else percentVar = Math.round(parseInt(document.getElementById('eventTaken').innerHTML) * 100 / parseInt(document.getElementById('eventCapacity').innerHTML));
@@ -15,7 +16,7 @@ $(document).ready(function () {
         foregroundColor: '#A1B6C8',
         fontColor: '#A1B6C8'
     });
-
+    }
 });
 
 
@@ -41,7 +42,7 @@ function purchaseTicketHandler() {
 }
 
 let reportBtn = document.querySelector('#report-event');
-
+if (reportBtn != null)
 reportBtn.addEventListener('click',sendReport);
 
 function sendReport(){

@@ -1,11 +1,13 @@
 let newPostBttn = document.querySelector('#new_post_button');
-
+if(newPostBttn != null)
 newPostBttn.addEventListener('click', newPostRequest);
 
 let pollBtn = document.querySelector('.fa-poll-h');
+if(pollBtn != null)
 pollBtn.addEventListener('click', addPoll);
 
 let fileBtn = document.querySelector('.fa-cloud-upload-alt');
+if(fileBtn != null)
 fileBtn.addEventListener('click', file);
 
 let deletePostBttn = document.querySelectorAll('.fa-times-circle');
@@ -63,6 +65,8 @@ function deletePostRequestHandler(e) {
 
   if(new_arr.length == 0 && type != 'None')
     return;
+
+  removePollButtons();
 
   sendAjaxRequest(method, '/api/event/' + id_event + '/post', { data: post_text, post_type: type, poll_options: new_arr}, newPostRequestHandler);
   
@@ -358,7 +362,7 @@ if (votePollBttn != null) {
   addPollOption.classList.add('row');
   addPollOption.classList.add('mb-1');
 
-  addPollOption.innerHTML = '<input type="text" aria-expanded="false" style="border-radius:4px" class="ml-5 mb-1 poll-bttn pollOptionsText">';
+  addPollOption.innerHTML = '<input type="text" aria-expanded="false" placeholder="Enter a poll option" style="border-radius:4px" class="ml-5 mb-1 poll-bttn pollOptionsText">';
 
   options.prepend(addPollOption);
   options.prepend(temp);
