@@ -1,6 +1,10 @@
 <div class="col">
     <div class="invite card">
-    <a href="{{ url('/event/'.$event->id_event) }}"><img src="../img/invite-card-event.jpg" class="card-img-top"></a>
+        @if (file_exists(public_path('img/events/originals/' . strval($event->id_event) . '.png')) )
+        <a href="{{ url('/event/'.$event->id_event) }}"><img src= {{'../img/events/originals/' . strval($event->id_event) . '.png'}} class="card-img-top"></a>
+        @else
+        <a href="{{ url('/event/'.$event->id_event) }}"><img src="../img/invite-card-event.jpg" class="card-img-top"></a>
+        @endif
       <span class="badge badge-pill badge-secondary card-category">{{$event->category->name}}</span>
       <div class="card-body" id="event-card-body">
         <div class="row eventRow header align-items-start">

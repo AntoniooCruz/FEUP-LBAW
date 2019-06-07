@@ -29,6 +29,35 @@ function doesFileExist(urlToFile) {
   }
 }
 
+let reportBtns = document.querySelectorAll('.report-post');
+
+console.log(reportBtns);
+reportBtns.forEach(element => {element.addEventListener('click',reportButtonHandler)});
+
+function reportButtonHandler(){
+  let id = this.getAttribute('post');
+  let form = document.querySelector('#reportPostModal' + id);
+  let radioBtns = form.querySelectorAll('.form-check-input');
+  let reason;
+
+  radioBtns.forEach(radio => {
+      if(radio.checked){
+          reason = radio.value;
+          if(radio.value == 'other'){
+              reason = document.querySelector('.input-group .form-control').value;
+          }
+      }
+    });
+  if(reason != null)
+    sendAjaxRequest("post",'/post/'+ id +'/report',{'reason':reason},reportPostHandler);
+  
+}
+
+function reportPostHandler(){
+  console.log(JSON.parse(this.response));
+}
+    
+
 function deletePostRequest(e) {
 
 let idPost = e.path[3].children[0].innerText;
@@ -384,3 +413,5 @@ if (votePollBttn != null) {
       pollBttns[i].remove();
     }
   }
+
+ 
