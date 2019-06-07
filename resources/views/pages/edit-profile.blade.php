@@ -11,12 +11,13 @@
     <div class="parContainer row justify-content-center">
         <div id="profile_container" class="col-lg-3 col-12 container text-center">
             <div>
+                <a href="{{ url('/profile/'.$post->author->id_user) }}">
                 @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
-                    <img src="{{ asset("img/users/originals/" . strval(Auth::user()->id_user) . ".png") }}" alt="Card image cap"></a>
-                      @else
-                      <a href="{{ url('/profile/'.$post->author->id_user) }}"><img class="userAction roundRadius" src= " {{asset("img/user.jpg")}} " alt="Card image cap"></a>
+                <img src="{{ asset("img/users/originals/" . strval(Auth::user()->id_user) . ".png") }}" alt="Card image cap">
+                  @else
+                      <img class="userAction roundRadius" src= " {{asset("img/user.jpg")}} " alt="Card image cap">
                   @endif
-                <img src="../img/user.jpg" alt="User photo">
+                </a>
             </div>
             <form method="POST" action="{{ url('/profile/edit') }}" class="form-signin" enctype="multipart/form-data">
 
