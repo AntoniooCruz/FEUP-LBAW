@@ -15,7 +15,8 @@ class ReportController extends Controller
 
         if (!Auth::check()) 
         return response()->json(400);
-
+        if(Auth::user()->id_admin == false)
+            return response()->json(400);
         //handle report
         $report = Report::find($id_request);
         $report->veridict = "Approved";
