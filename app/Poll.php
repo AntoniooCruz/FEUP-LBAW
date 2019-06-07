@@ -12,6 +12,10 @@ class Poll extends Model
 
     public $timestamps  = false;  
 
+    protected $fillable = [
+        'id_post'
+    ];
+
     public function pollOptions() {
 
         return $this->hasMany('App\PollOption', 'id_poll', 'id_poll');

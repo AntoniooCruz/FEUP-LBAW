@@ -1,4 +1,5 @@
 let votePollBttn = document.querySelectorAll('#poll-option1');
+
 if (votePollBttn != null) {
   for (var j = 0; j < votePollBttn.length; j++) {
     votePollBttn[j].addEventListener('click', addVoteOnPollRequest);
