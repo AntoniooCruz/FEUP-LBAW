@@ -26,6 +26,8 @@
                             @endif
                             <form method="POST" action="{{ route('password.request') }}" class="form-signin">
                                 {{ csrf_field() }}
+                                <input type="hidden" name="token" value="{{ $token }}">
+
                                 <div id="loginlogo"><img src="{{ asset('img/icon.png') }}" width="191,5" height="149,5">
                                 </div>
                                 <div class="form-label-group">
