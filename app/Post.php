@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\File;
 
 class Post extends Model
 {
@@ -27,6 +28,10 @@ class Post extends Model
 
     public function poll() {
         return $this->hasOne('App\Poll', 'id_post', 'id_post');
+    }
+
+    public function file() {
+        return $this->hasOne('App\File', 'id_post', 'id_post');
     }
 
     public function comments() {

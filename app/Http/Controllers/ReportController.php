@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Report;
 use App\UserReport;
+use App\File;
 
 use Illuminate\Http\Request;
 

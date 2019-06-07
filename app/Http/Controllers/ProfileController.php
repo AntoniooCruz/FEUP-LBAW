@@ -14,6 +14,7 @@ use App\Event;
 use App\Ticket;
 use App\Category;
 use App\Report;
+use App\File;
 
 class ProfileController extends Controller
 {

@@ -16,6 +16,7 @@ use App\User;
 use App\Event;
 use App\Ticket;
 use App\Category;
+use App\File;
 
 
 class InviteController extends Controller

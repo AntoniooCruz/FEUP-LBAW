@@ -6,7 +6,19 @@ let pollBtn = document.querySelector('.fa-poll-h');
 pollBtn.addEventListener('click', addPoll);
 
 let fileBtn = document.querySelector('.fa-cloud-upload-alt');
-fileBtn.addEventListener('click', removePollButtons);
+fileBtn.addEventListener('click', file);
+
+function doesFileExist(urlToFile) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('HEAD', urlToFile, false);
+  xhr.send();
+   
+  if (xhr.status == "404") {
+      return false;
+  } else {
+      return true;
+  }
+}
 
 
  function newPostRequest() {
@@ -26,7 +38,7 @@ fileBtn.addEventListener('click', removePollButtons);
     new_arr.push(arr[i].value);
   }
 
-  if(new_arr.length == 0)
+  if(new_arr.length == 0 && type != 'None')
     return;
 
   sendAjaxRequest(method, '/api/event/' + id_event + '/post', { data: post_text, post_type: type, poll_options: new_arr}, newPostRequestHandler);
@@ -55,7 +67,15 @@ fileBtn.addEventListener('click', removePollButtons);
 
         let img = document.createElement("IMG");
         img.className = "userAction roundRadius";
-        img.src = "../img/user.jpg";
+
+        let userPNG = post[5] + ".png";
+
+        if(doesFileExist("../img/users/originals/".concat(userPNG))) {
+          img.src = "../img/users/originals/".concat(userPNG);
+        } else {
+          img.src = "../img/user.jpg";
+        }
+
         img.alt = "Card image cap";
 
         let header_text = document.createElement("div");
@@ -266,10 +286,8 @@ if (votePollBttn != null) {
     votePollBttn[j].addEventListener('click', addVoteOnPollRequest);
   }
 }
-
-removePollButtons();
-      }
- }
+    }
+  }
 
  function addPoll() {
 
@@ -309,6 +327,14 @@ removePollButtons();
   addPollOption.className = "poll-bttn pollOptionsText";
 
   options.appendChild(addPollOption);
+ }
+
+ function file() {
+  removePollButtons();
+
+  var file_data = $("#avatar").prop("files")[0]; // Getting the properties of file from file field
+  var form_data = new FormData(); // Creating object of FormData class
+  form_data.append("file", file_data) // Appending parameter named file with properties of file_field to form_data
  }
 
   function removePollButtons() {

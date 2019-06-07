@@ -20,7 +20,9 @@ use Carbon\Carbon;
 use App\Invite;
 use App\PollOption;
 use App\Poll;
+use App\File;
 use App\VoteOnPoll;
+use App\Report;
 
 class EventController extends Controller
 {   
@@ -211,7 +213,8 @@ class EventController extends Controller
             'id_author' => $id_author,
             'post_type' => $request->input('post_type')
             ]);
-
+        
+        $new_arr2 = [];
         if($request->input('post_type') == 'Poll'){
 
             $poll = Poll::create([
@@ -220,17 +223,16 @@ class EventController extends Controller
             
             $arr = $request->input('poll_options');
             $new_arr = explode(",", $arr);
-            $new_arr2 = [];
+            
             foreach ($new_arr as $value) {
                 array_push($new_arr2, PollOption::create([
                     'name' => $value,
                     'id_poll' => $poll->id_poll
                 ]));
             }
-
         }
 
-        return response()->json([$post, $event_name, $author_name, $request->input('post_type') ,$new_arr2]);
+        return response()->json([$post, $event_name, $author_name, $request->input('post_type') ,$new_arr2, $id_author]);
     }
 
     public function getComments($id_post) {
@@ -308,5 +310,24 @@ class EventController extends Controller
         return response()->json(['perc'=>$perc, 'oldPollOptId' =>$oldPollOptId, 'noVotesTotal' => $noVotesTotal, 'pollOptsID' => $pollOptionsIds, 200]);
 
         
+    }
+
+    public function report(Request $request, $id_event){
+        if (!Auth::check()) 
+            return response(403);
+        if(Auth::user()->active == false)
+            return response(403);
+
+        $exists = DB::select('SELECT * FROM report_event WHERE id_reporter = ? AND id_event = ?;',[Auth::user()->id_user,$id_event]);
+        if($exists != null)
+            return response(405);
+
+        $report  = Report::create([
+            'reason' => $request->input('reason'),
+            'report_type' => 'Event'
+        ]);
+
+        DB::insert('insert into report_event (id_report, id_reporter, id_event)  values (?, ?,?)', [$report->id_report, Auth::user()->id_user,$id_event]);
+        return response(200);
     }
 }

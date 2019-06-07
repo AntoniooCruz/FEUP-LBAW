@@ -212,10 +212,12 @@
     <div class="rightCol col-auto col-md-12">
       <div class="commentArea" type="None">
         <h6></h6>
+        @if (Auth::check())
         @if (file_exists(public_path('img/users/originals/' . strval(Auth::user()->id_user) . '.png')) )
                         <img id="commentPic" src={{"../img/users/originals/" . strval(Auth::user()->id_user) . ".png"}} class="roundRadius" alt="User photo" alt="User photo">
                       @else
                         <img id="commentPic" src="../img/user.jpg" class="roundRadius" alt="User photo" alt="User photo">
+        @endif
         @endif
         <div class="comment row">
           <div class="col-12 form-group">
@@ -227,9 +229,10 @@
             <button class="" type="button" aria-expanded="false">
               <i class="fas fa-poll-h"></i>
             </button>
-            <button class="" type="button" aria-expanded="false">
-              <i class="fas fa-cloud-upload-alt"></i>
-            </button>
+            <label class="">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <input type="file" style="display: none;">
+            </label>
           </div>
         </div>
         <button id ="new_post_button" class="commentButton  btn-primary roundRadius" type="button" aria-expanded="false">
@@ -255,27 +258,27 @@
         <p>Help us undertand what's happening?</p>
         <fieldset class="form-group">
           <div class="form-check ml-2">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Content" checked>
             <label class="form-check-label" for="gridRadios1">
               Explicit content
             </label>
           </div>
           <div class="form-check ml-2">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Harassment">
             <label class="form-check-label" for="gridRadios2">
               Harassment
             </label>
           </div>
           <div class="form-check ml-2">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Spam">
             <label class="form-check-label" for="gridRadios3">
               Spam
             </label>
           </div>
           <div class="input-group">
             <div class="input-group-prepend">
-              <div class="input-group-text pl-2">
-                <input type="radio" aria-label="Radio button for following text input">
+              <div class="form-check ml-2">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="other" aria-label="Radio button for following text input">
               </div>
             </div>
             <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Other">
@@ -283,8 +286,8 @@
         </fieldset>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger">Report</button>
+        <button type="button" id="cancel-report-event" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="report-event" class="btn btn-danger">Report</button>
       </div>
     </div>
   </div>

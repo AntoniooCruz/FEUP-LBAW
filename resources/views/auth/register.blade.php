@@ -107,8 +107,6 @@
                                         href="{{ route('login') }}">Log in</a></span>
                                 <button id="loginbtn" class="btn btn-lg btn-primary btn-block"
                                     type="submit">Register</button>
-                                <button id="googlebtn" class="btn btn-lg btn-outline-secondary btn-block" type="submit">
-                                    Continue with <i class="fab fa-google"></i></button>
                             </form>
                         </div>
                     </div>

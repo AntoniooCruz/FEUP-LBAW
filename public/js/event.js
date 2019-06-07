@@ -39,3 +39,40 @@ function purchaseTicketHandler() {
         $('#getTicketModal').modal('hide');
     }
 }
+
+let reportBtn = document.querySelector('#report-event');
+
+reportBtn.addEventListener('click',sendReport);
+
+function sendReport(){
+    let radioBtns = document.querySelectorAll('.form-check-input');
+    let reason;
+
+    radioBtns.forEach(radio => {
+        if(radio.checked){
+            reason = radio.value;
+            if(radio.value == 'other'){
+                reason = document.querySelector('.input-group .form-control').value;
+            }
+        }
+     });
+     sendAjaxRequest("post",'/event/'+ document.getElementById('id_event').innerHTML+'/report',{'reason':reason},reportEventHandler);
+}
+
+function reportEventHandler(){
+    console.log(JSON.parse(this.response));
+    if(this.response == '200'){
+        console.log('in')
+        let template = document.createElement('div');
+        template.innerHTML = '<div class="alert alert-danger" role="alert">This event has been reported!</div>';
+        document.querySelector('#content').prepend(template);
+        document.querySelector('#cancel-report-event').click();
+    } else if (this.response == '405'){
+        let template = document.createElement('div');
+        template.innerHTML = '<div class="alert alert-danger" role="alert">You already reported this event!</div>';
+        document.querySelector('#content').prepend(template);
+        document.querySelector('#cancel-report-event').click();
+    }
+
+   
+}
