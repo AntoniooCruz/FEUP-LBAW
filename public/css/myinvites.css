@@ -73,6 +73,6 @@ body{
 }
 
 #invites a:hover{
-    color:var(--lightBlue);
+    color:#A1B6C8;
     text-decoration: none;
 }

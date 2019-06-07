@@ -1,5 +1,5 @@
 body{
-    background-color: var(--darkBlue);
+    background-color: #1A2431;
 }
 
 hr {
@@ -17,7 +17,7 @@ hr {
 }
 
 .card {
-    background-color: var(--darkBlue);
+    background-color: #1A2431;
     border: 0;
     background: none;
     box-shadow: none;

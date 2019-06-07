@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="/home"> <img src="{{ asset('img/icon.png') }}" width="31,83" height="24,92" alt="User photo"> </a>
+    <a class="navbar-brand" href="/home"> <img src="{{ asset('img/icon.png') }}" width="32" height="25" alt="User photo"> </a>
     @if(Route::current()->getName() != 'home' || Auth::check())
 
   <form action="{{URL::to('/search')}}" method="GET" role="search" class="searchBar-blue">

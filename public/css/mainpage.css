@@ -1,5 +1,5 @@
 body{
-    background-color: var(--darkBlue);
+    background-color: #1A2431;
 }
 
 /*mainpage*/
@@ -76,7 +76,7 @@ body > .navbar:nth-child(1){
 
 .carousel-container{
     margin:auto;
-    background: var(--darkBlue);
+    background: #1A2431;
 }
 
 .carousel{
@@ -84,7 +84,7 @@ body > .navbar:nth-child(1){
     position: absolute;
     top:0;
     z-index: -1;
-    background: var(--darkBlue);
+    background: #1A2431;
     width:100vw;
 
 }
@@ -159,7 +159,7 @@ body > .navbar:nth-child(1){
  .searchBar-blue button{
     border-radius: 0 50px 50px 0;
     border:none;
-    color:var(--lightGrey);
+    color:#bfbfbf;
     margin-right: 0!important;
     height: 50px;
     padding-right: 40px !important;

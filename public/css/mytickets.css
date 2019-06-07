@@ -83,7 +83,7 @@ body{
 }
 
 .opacity_div{
-    background:var(--darkBlue);
+    background:#1A2431;
     height:100px;
     width:250px;
     position:absolute;
@@ -100,7 +100,7 @@ body{
 }
 
 .ticket{
-    background: var(--darkBlue);
+    background: #1A2431;
 }
 
 .ticket:hover .card-img-overlay{
@@ -184,12 +184,12 @@ font-size: 14px;
 
 }
 .sortNav .nav .nav-item a.active {
-    color: var(--darkBlue) !important;
+    color: #1A2431 !important;
     background-color: transparent !important;
 }
 
 .sortNav a {
-    color: var(--lightBlue);
+    color: #A1B6C8;
     text-transform: uppercase;
     font-size: 12px;
     padding: 0px 5px;

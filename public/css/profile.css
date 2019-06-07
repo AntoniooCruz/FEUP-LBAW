@@ -39,7 +39,7 @@ small {
 }
 
 #profile_content {
-    box-shadow: var(--box-shadow);
+    box-shadow: 0px 0px 2px #c5c5c5;
 }
 
 #events_container {
@@ -86,7 +86,7 @@ small {
     border-radius: 100px;
     height: 140px;
     margin-bottom: -5em;
-    border: 2px solid var(--lightBlue);
+    border: 2px solid #A1B6C8;
     position: relative;
     z-index: 1;
 }
@@ -174,7 +174,7 @@ textarea{
 }
 #profile_content #header {
     padding: 3em;
-    background-color: var(--lightBlue);
+    background-color: #A1B6C8;
     position: absolute;
     width: 100%;
     left: 0;
@@ -189,7 +189,7 @@ textarea{
 #events_container ul {
     margin: 0 15px;
     border-radius: 2px;
-    border-bottom: 3px solid var(--lightBlue);
+    border-bottom: 3px solid #A1B6C8;
 }
 
 #events_container ul .nav-link {
@@ -222,7 +222,7 @@ textarea{
     font-size: 14px;
     padding: 0.5rem 0 !important;
     margin-top: 0.25rem !important;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0px 0px 2px #c5c5c5;
     max-width: 400px;
     margin: auto;
 }
@@ -259,7 +259,7 @@ textarea{
 
 
 .fa-check-circle{
-    color:var(--green);
+    color:#79AF41;
     padding-top: 3.5px;
     margin-left: 5px;
 }
