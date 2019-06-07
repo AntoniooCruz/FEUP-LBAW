@@ -22,8 +22,8 @@
          @if($report->report->veridict=='Pending') 
           <button repid="{{$report->id_report}}" class="banUser"><i class="fas fa-check"></i></button>´
           <button archid="{{$report->id_report}}" class="archiveUser"><i class="fas fa-trash-alt"></i></button>
-          @elseif($report->report->veridict=='Approved') Approved
-          @elseif($report->report->veridict=='Ignored')Ignored
+          @elseif($report->report->veridict=='Approved') Approved by {{$report->report->admin->name}}
+          @elseif($report->report->veridict=='Ignored')Ignored by {{$report->report->admin->name}}
           @endif
         </div>
       </div>
