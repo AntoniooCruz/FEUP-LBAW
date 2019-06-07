@@ -31,6 +31,8 @@ function addVoteOnPollRequestHandler() {
   if (this.status == 200) {
     let perc = JSON.parse(this.response)['perc'] + "%";
     let progress = document.getElementById(poll_option_id);
+    console.log(poll_option_id);
+    console.log(progress);
     progress.style.width = perc;
     progress.nextSibling.innerHTML = perc;
 

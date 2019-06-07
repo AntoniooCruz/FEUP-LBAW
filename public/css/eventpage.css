@@ -435,10 +435,6 @@ body{
     color: #d41111;
 }
 
-.fa-cloud-upload-alt < button, .fa-poll-h < button :hover{
-    color: #88a844;
-}
-
 .actionCard {
     max-width: 750px !important;
 }
