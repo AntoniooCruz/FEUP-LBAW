@@ -60,11 +60,19 @@ function sendReport(){
 }
 
 function reportEventHandler(){
-    if(this.status == '200'){
+    console.log(JSON.parse(this.response));
+    if(this.response == '200'){
+        console.log('in')
         let template = document.createElement('div');
-        template.innerHTML = '<div id="ticketAlert" class="alert alert-alert" role="alert"> User reported!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
-        document.getElementById('content').prepend(template);
-        $('#getTicketModal').modal('hide');
+        template.innerHTML = '<div class="alert alert-danger" role="alert">This event has been reported!</div>';
+        document.querySelector('#content').prepend(template);
+        document.querySelector('#cancel-report-event').click();
+    } else if (this.response == '405'){
+        let template = document.createElement('div');
+        template.innerHTML = '<div class="alert alert-danger" role="alert">You already reported this event!</div>';
+        document.querySelector('#content').prepend(template);
+        document.querySelector('#cancel-report-event').click();
     }
+
    
 }

@@ -317,6 +317,10 @@ class EventController extends Controller
         if(Auth::user()->active == false)
             return response(403);
 
+        $exists = DB::select('SELECT * FROM report_event WHERE id_reporter = ? AND id_event = ?;',[Auth::user()->id_user,$id_event]);
+        if($exists != null)
+            return response(405);
+
         $report  = Report::create([
             'reason' => $request->input('reason'),
             'report_type' => 'Event'

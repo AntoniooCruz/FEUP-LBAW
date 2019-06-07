@@ -283,7 +283,7 @@
         </fieldset>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="cancel-report-event" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
         <button type="button" id="report-event" class="btn btn-danger">Report</button>
       </div>
     </div>
