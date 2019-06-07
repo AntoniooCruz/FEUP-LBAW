@@ -51,6 +51,7 @@ function filterHandler () {
     let response = JSON.parse(this.response);
     let events = response[0];
     let categories = response[1];
+    let usersGoing = response[2];
     events = sortEvents(events,sort.options[sort.selectedIndex].value);
 
     console.log(events);
@@ -70,7 +71,8 @@ function filterHandler () {
             '</span> <div class="card-body" id="event-card-body"> <div class="row eventRow header align-items-start"> <div id="eventPagedate" class="eventPagedate col-xs align-self-center"> <div id="eventPageMonth" class="eventPageMonth"><span class="eventMonth">' +
             parseDateMonth(event.date,false) +'</span> </div> <span class="eventPageDay">' + parseDateDay(event.date) +'</span> </div> <div class="col-10 cardTitle text-left"> <span id="event-card-title">' + 
             event.title +'</span> <div class="event-card-footer"> <span class="event-card-hour">' + parseDateYear(event.date) + '</span> <p class="dot-separator"> • </p> <span id="card-adress">' + 
-            event.location +'</span> </div> </div> </div> <div id="event-card-people-attending" class="row text-left"> <div class="col "> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo"> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo"> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"alt="User photo"> <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span> <span id="peopleGoing">+300 going</i></span> </div> </div> </div> </div>';
+            event.location +'</span> </div> </div> </div> <div id="event-card-people-attending" class="row text-left"> <div class="col "> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo"> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25" alt="User photo"> <img src="../img/user.jpg" class="event-card-user-photo" width="25" height="25"alt="User photo"> <span id="event-card-invite"><i class="fas fa-plus-circle"></i></span> <span id="peopleGoing">+'
+            + usersGoing[event.id_event].length +'going</i></span> </div> </div> </div> </div>';
             resultsContainer.append(node);
           });
     }else{
@@ -99,17 +101,16 @@ function sortEvents(events,order){
         break;
 
         case "attendees-up":
-        events.sort(dateUp);
+        events.sort(attendeesUp);
         break;
 
         case "attendees-down":
-        events.sort(dateUp);
+        events.sort(attendeesDown);
         break;
 
     }
     return events;
 }
-
 function dateUp(a,b){
     let dA = a.date;
     let dB = b.date;
@@ -264,3 +265,4 @@ function parseDateHours(date, letter){
         return aux[0] + "h" + aux[1];
     else  return aux[0] + ":" + aux[1]; 
 }
+
