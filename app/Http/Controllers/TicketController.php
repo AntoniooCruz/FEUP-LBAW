@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 
 use App\Invite;
@@ -35,13 +36,13 @@ class TicketController extends Controller
     }
 
 
-
+    public function showMyTickets(){
         if(Auth::check()){
 
             $user = Auth::user();
             if($user->active == false)
                 return redirect('login');
-                
+
             DB::beginTransaction();
 
             try{
