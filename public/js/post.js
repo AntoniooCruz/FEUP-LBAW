@@ -8,6 +8,13 @@ pollBtn.addEventListener('click', addPoll);
 let fileBtn = document.querySelector('.fa-cloud-upload-alt');
 fileBtn.addEventListener('click', file);
 
+let deletePostBttn = document.querySelectorAll('.fa-times-circle');
+if (deletePostBttn != null) {
+  for(var i= 0; i < deletePostBttn.length; i++){
+    deletePostBttn[i].addEventListener('click', deletePostRequest);
+  }
+ }
+
 function doesFileExist(urlToFile) {
   var xhr = new XMLHttpRequest();
   xhr.open('HEAD', urlToFile, false);
@@ -19,6 +26,22 @@ function doesFileExist(urlToFile) {
       return true;
   }
 }
+
+function deletePostRequest(e) {
+
+let idPost = e.path[3].children[0].innerText;
+let idEvent = document.querySelector('#id_event').innerText;
+
+let method = 'delete';
+
+sendAjaxRequest(method, '/api/event/' + idEvent + '/post/'+ idPost + '/delete', null, deletePostRequestHandler);
+}
+
+function deletePostRequestHandler(e) {
+  let post = JSON.parse(this.response);
+
+  document.querySelector(`#id_post[data-id="${post[1]}"]`).parentNode.parentNode.removeChild(document.querySelector(`#id_post[data-id="${post[1]}"]`).parentNode);
+  }
 
 
  function newPostRequest() {
@@ -57,6 +80,7 @@ function doesFileExist(urlToFile) {
         let span = document.createElement("SPAN");
         span.id = "id_post";
         span.style="display:none;"
+        span.setAttribute("data-id", post[0].id_post);
         span.innerText = post[0].id_post;
         
         let card_comment = document.createElement("div");
@@ -216,7 +240,8 @@ function doesFileExist(urlToFile) {
         button.addEventListener('click', addCommentRequest);
 
         let i = document.createElement("i");
-        i.className = "fab fa-font-awesome-flag";
+        i.className = "fas fa-times-circle";
+        i.addEventListener('click', deletePostRequest);
 
         let comment_section = document.createElement("div");
         comment_section.className = "card-comment-section";
