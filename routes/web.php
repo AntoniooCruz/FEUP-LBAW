@@ -11,9 +11,7 @@ use App\Category;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return redirect('home');
-});
+Route::redirect('/','home');
 
 
 // Authentication
@@ -32,14 +30,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Auth'],function(){
 });
 
 //static pages
-Route::get('about', function () {
-    return view('pages.about', ['categories' => Category::all()]);
-  })->name('about');
+Route::view('about', 'pages.about', ['categories' => Category::all()])->name('about');
 
-Route::get('faqs', function () {
-    return view('pages.faqs', ['categories' => Category::all()]);
-  })->name('faqs');
-
+Route::view('faqs', 'pages.faqs', ['categories' => Category::all()])->name('faqs');
 
 //Profile
 Route::get('profile', 'ProfileController@show')->name('myProfile');
