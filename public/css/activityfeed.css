@@ -51,6 +51,8 @@
 
 #content{
     background-color: #f1f1f1 !important;
+
+    min-height: 100vh;
 }
 
 #feed {

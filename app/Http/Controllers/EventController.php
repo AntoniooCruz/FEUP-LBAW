@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Illuminate\Database\QueryException;
 
 use Illuminate\Support\Collection;
 use App\Event;
@@ -46,6 +49,7 @@ class EventController extends Controller
     public function create(Request $request){
         
         if(Auth::check()){
+
             $this->validator($request->all());
         if(Auth::user()->active == false)
             return redirect('login');
@@ -64,6 +68,7 @@ class EventController extends Controller
             $time = !empty($splitDatepicker[1]) ? $splitDatepicker[1] : '';
             $datetime = $date . $time;
 
+            try{
             $event = Event::create([
                 'title' => $request->input('title'),
                 'date_created' => $date_created,
@@ -79,8 +84,8 @@ class EventController extends Controller
                 'zip_code' => $request->input('zip_code'),
                 'country' => $request->input('country')
                 ]);
-
-            if($request->has('invites'))
+                
+                if($request->has('invites'))
                 $this->sendInvites( $request->input('invites'), $event->id_event);
 
                 $file = Input::file('file');
@@ -88,9 +93,16 @@ class EventController extends Controller
                 $originalFileName = "./img/events/originals";
         
                 $file->move($originalFileName, strval($event->id_event) . ".png");
-        
 
-            return redirect("event/".$event->id_event);
+                return redirect("event/".$event->id_event);
+
+
+            }catch(\Illuminate\Database\QueryException $e){
+                $orderLog = new Logger('db');
+                $orderLog->pushHandler(new StreamHandler(storage_path('logs/db.log')), Logger::INFO);
+                $orderLog->info('db', ['error'=>$e->getMessage()]);
+            }
+           
         } else return redirect('login');
     }
 
