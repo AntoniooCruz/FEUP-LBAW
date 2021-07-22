@@ -1,5 +1,9 @@
 Short Videos of final product:
 [Video 1](https://www.youtube.com/watch?v=Zw4Cxgcmkko)
+[Video 2](https://www.youtube.com/watch?v=sU5A1VFOFXI)
+[Video 3](https://www.youtube.com/watch?v=33IVy7nhS9M)
+[Video 4](https://www.youtube.com/watch?v=oqB4nmDQREE)
+
 
 # LBAW's framework
 
